@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="240dp"
+    android:layout_height="340dp"
+    android:layout_marginHorizontal="20dp"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_rv_item_home_today_artist_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[8]"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignEnd="@+id/iv_rv_item_home_today_artist_product"
+            android:layout_alignBottom="@+id/iv_rv_item_home_today_artist_product"
+            android:background="@drawable/image_gradient">
+        </View>
+
+        <TextView
+            android:id="@+id/tv_rv_item_home_today_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/iv_rv_item_home_today_artist_product"
+            android:layout_alignBottom="@+id/iv_rv_item_home_today_artist_product"
+            android:text="작품명입니다아아아아아아아"
+            android:fontFamily="@font/notosanscjkkr_light"
+            android:textSize="15sp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+</RelativeLayout>

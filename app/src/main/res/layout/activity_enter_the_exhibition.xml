@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EnterTheExhibitionActivity">
+
+
+    <!--알파값으로 설정한거 디자이너랑 상의-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:background="@drawable/pic3" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/exhibition_close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23.3dp"
+                android:layout_marginTop="51.3dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:text="맨 발로 기억을 거닐다 展"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp" />
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="1.3dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="17dp"
+                    android:background="#bababa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="5.3sp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:text="남의 시선, 행동 때문에 자유로웠지 못했던\n
+나는 자유롭다라고 말하고 싶던\n
+겉으로만 자유로웠던\n
+모든걸 벗어던지고 자유롭고 싶던.." />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="45dp">
+
+            <Button
+                android:id="@+id/btn_enter_ex"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="187dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_style_enter_the_exhibition"
+                android:text="전시장 입장하기"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

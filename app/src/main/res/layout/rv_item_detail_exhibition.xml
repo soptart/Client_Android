@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="4">
+
+    <RelativeLayout
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <ImageView
+            android:id="@+id/img_rv_item_ex_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[11]"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="253dp"
+            android:layout_height="118dp"
+            android:background="#ffffff"
+            android:elevation="23dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_rv_item_ex_detail_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="무제(Untitled)"
+                        android:textColor="#353d46"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/txt_rv_item_ex_detail_writer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="최윤정"
+                        android:textColor="#353d46"
+                        android:textSize="15sp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#43484b"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:id="@+id/txt_rv_item_ex_detail_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="페인팅"
+                                android:textColor="#353d46"
+                                android:gravity="start|center_vertical"
+                                android:textSize="15sp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_centerInParent="true">
+
+                            <TextView
+                                android:id="@+id/txt_rv_item_ex_detail_width"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="130"
+                                android:textColor="#353d46"
+                                android:textSize="15sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="X"
+                                android:textColor="#353d46"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txt_rv_item_ex_detail_height"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="163"
+                                android:textColor="#353d46"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="cm"
+                                android:textColor="#353d46"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/txt_rv_item_ex_detail_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="2017"
+                                android:textColor="#353d46"
+                                android:textSize="15sp"
+                                android:gravity="end|center_vertical"/>
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

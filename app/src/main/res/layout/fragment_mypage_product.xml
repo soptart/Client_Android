@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragment.MypageProductFragment">
+
+    <!-- productCount == 0 -->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rl_mypage_product_bottom_tv"
+                android:layout_marginBottom="16dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="자신의 작품을 보여주세요!"
+                    android:textSize="17sp"
+                    android:textColor="#b0b3ba"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/rl_mypage_product_bottom_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_mypage_prodcut_nothing_add"
+                android:layout_marginBottom="28dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="더 많은 피드백 판매 기회를 얻을 수 있어요!"
+                    android:textSize="17sp"
+                    android:textColor="#b0b3ba"/>
+        </RelativeLayout>
+        <Button
+                android:id="@+id/btn_mypage_prodcut_nothing_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="작품 업로드하기"/>
+    </RelativeLayout>
+
+    <!-- productCount > 0 -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+        <Button
+                android:id="@+id/btn_mypage_product_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:text="작품 업로드하기"/>
+
+        <!-- recyclerview -->
+    </LinearLayout>
+
+
+</RelativeLayout>

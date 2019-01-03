@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/btn_top_navi_first_arti_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+        <TextView
+            android:id="@+id/tv_top_navi_first_arti_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerInParent="true"
+            android:text="최윤정"
+            android:includeFontPadding="false"
+            android:textSize="17sp"
+            android:fontFamily="@font/notosanscjkkr_bold"
+            android:textColor="@color/colorEssential"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_top_navi_second_arti_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+
+    <TextView
+            android:id="@+id/tv_top_navi_second_arti_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerInParent="true"
+            android:text="윤여진"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="17sp"
+            android:textColor="@color/colorMainBlack"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_top_navi_third_arti_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+
+    <TextView
+            android:id="@+id/tv_top_navi_third_arti_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerInParent="true"
+            android:text="이세은"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="17sp"
+            android:textColor="@color/colorMainBlack"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_top_navi_fourth_arti_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+
+    <TextView
+            android:id="@+id/tv_top_navi_fourth_arti_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerInParent="true"
+            android:text="이다은"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="17sp"
+            android:textColor="@color/colorMainBlack"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_top_navi_fifth_arti_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+
+    <TextView
+            android:id="@+id/tv_top_navi_fifth_arti_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerInParent="true"
+            android:text="박유나"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="17sp"
+            android:textColor="@color/colorMainBlack"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+</LinearLayout>

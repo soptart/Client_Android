@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="8dp">
+
+    <ImageView
+            android:id="@+id/iv_mypage_review_product_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:srcCompat="@color/colorEssential"/>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginLeft="12dp">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                        android:id="@+id/tv_mypage_review_product_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="7살과 그녀"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorMainBlack"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            <TextView
+                    android:id="@+id/tv_mypage_review_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구매자: "
+                    android:textSize="14sp"
+                    android:textColor="@color/colorMainGrey"/>
+            <TextView
+                    android:id="@+id/tv_mypage_review_buyer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_mypage_review_left"
+                    android:text="배선영"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorMainBlack"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+            <TextView
+                    android:id="@+id/tv_mypage_review_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="벽에 걸어놨는데 너모 얘버요:)"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorMainBlack"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            <TextView
+                    android:id="@+id/tv_mypage_review_writetime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018.10.10"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorMainGrey"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

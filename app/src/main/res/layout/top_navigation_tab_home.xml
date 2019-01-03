@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal">
+    <RelativeLayout
+            android:id="@+id/btn_top_navi_home_today_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        <TextView
+                android:id="@+id/tv_top_navi_home_today_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="투데이"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textColor="@color/colorHomeBlack"
+                android:textSize="20sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/btn_top_navi_home_theme_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        <TextView
+                android:id="@+id/tv_top_navi_home_theme_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="테마"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textSize="20sp"/>
+    </RelativeLayout>
+</LinearLayout>

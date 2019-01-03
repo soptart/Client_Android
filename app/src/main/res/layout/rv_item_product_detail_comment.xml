@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:paddingTop="10dp"
+                                            android:paddingBottom="10dp"
+                                            android:background="@drawable/layout_underline">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/txt_rv_item_product_detail_comment_username"
+                android:textColor="#434343" tools:text="최윤정"/>
+        <TextView
+                android:text="2018.12.24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/txt_rv_item_product_detail_comment_date"
+                android:layout_marginLeft="15dp"
+                android:textColor="#bdbdbd"/>
+        <TextView
+                android:text="삭제하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/txt_Rv_item_product_detail_comment_delete"
+                android:layout_weight="1"
+                android:textColor="#ff6f61" android:textAlignment="textEnd"/>
+    </LinearLayout>
+    <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="작품 좋아요"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/txt_rv_item_product_detail_comment"
+            android:textSize="16sp" android:textColor="#434343"/>
+</LinearLayout>

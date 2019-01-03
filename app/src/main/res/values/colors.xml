@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorMainBlack">#4a4a4a</color>
+    <color name="colorBorder">#b5b5b5</color>
+    <color name="colorEssential">#ff6f61</color>
+    <color name="colorGeneral">#777777</color>
+    <color name="colorMainGrey">#c5c5c5</color>
+    <color name="colorHomeBlack">#434343</color>
+    <color name="colorTodayBlack">#2f2f2f</color>
+    <color name="colorMainNoSelect">#9c9c9c</color>
+    <color name="colorHomeGrey">#c5c5c5</color>
+
+    <color name="colorBackgroundWhite">#FFFFFF</color>
+    <color name="highlight">#ff6f61</color>
+    <color name="colorNonSelectedTab">#434343</color>
+</resources>

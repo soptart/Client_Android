@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="40dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오늘의"
+                        android:textSize="24sp"
+                        android:textColor="#2f2f2f"
+                        android:textStyle="bold"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="베스트 작가들"
+                        android:textSize="24sp"
+                        android:textColor="#2f2f2f"
+                        android:textStyle="bold"/>
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/tl_top_navi_act_top_menu_home_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@drawable/layout_underline"
+                    app:tabPaddingStart="0dp"
+                    app:tabPaddingEnd="0dp"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabSelectedTextColor="@color/colorEssential"
+                    app:tabIndicatorColor="@color/colorEssential"/>
+
+            <com.artoo.sopt23.artoo_client_android.CustomView.SwipeLockableViewPager
+                    android:id="@+id/vp_top_navi_act_frag_pager_home_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="444dp"
+                    android:background="#FFFFFF"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="40dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오늘의"
+                        android:textSize="24sp"
+                        android:textColor="#2f2f2f"
+                        android:textStyle="bold"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="앗!투! 시리"
+                        android:textSize="24sp"
+                        android:textColor="#2f2f2f"
+                        android:textStyle="bold"/>
+            </LinearLayout>
+
+            <ImageButton
+                    android:id="@+id/btn_home_first_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    tools:src="@color/colorMainBlack" />
+
+            <ImageButton
+                    android:id="@+id/btn_home_second_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    tools:src="@color/highlight" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true">
+        <SearchView
+                android:id="@+id/sv_product_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:theme="@style/ProductSearchView"
+                android:clickable="true"
+                android:queryHint="원하는 키워드를 검색해주세요 (작품명, 주제, 학교)"
+                android:iconifiedByDefault="false"
+                android:focusedByDefault="false">
+        </SearchView>
+
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@color/colorMainBlack"
+                android:text="전체" android:id="@+id/txt_fragment_filter"/>
+        <LinearLayout
+                android:id="@+id/ll_product_filter"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="right" android:layout_weight="0">
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorMainGrey"
+                    android:text="필터" android:layout_weight="1"/>
+            <ImageView
+                    android:id="@+id/img_rv_item_home_today_artist_product"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:elevation="10dp"
+                    tools:srcCompat="@mipmap/ic_launcher"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+            android:id="@+id/txt_product_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="0개의 작품들을 찾았어요!"
+            android:textSize="20sp"
+            android:textColor="@color/highlight"/>
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_fragment_product_list"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</LinearLayout>
