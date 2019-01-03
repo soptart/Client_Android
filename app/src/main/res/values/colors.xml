@@ -16,4 +16,5 @@
     <color name="colorBackgroundWhite">#FFFFFF</color>
     <color name="highlight">#ff6f61</color>
     <color name="colorNonSelectedTab">#434343</color>
+    <color name="colorInvisible">#00ffffff</color>
 </resources>

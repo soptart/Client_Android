@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="56dp"
-              android:orientation="horizontal">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal">
     <RelativeLayout
         android:id="@+id/btn_bottom_navi_home_tab"
         android:layout_width="match_parent"
@@ -13,46 +14,103 @@
             android:id="@+id/tv_bottom_navi_home_tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="home"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:text="홈"
+            android:paddingBottom="4dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorEssential"
+            android:textSize="12sp" />
+        <ImageView
+            android:id="@+id/iv_bottom_navi_home_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bottom_navi_home_icon"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="23dp"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
-    <RelativeLayout
-            android:id="@+id/btn_bottom_navi_product_tab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
+    <RelativeLayout
+        android:id="@+id/btn_bottom_navi_product_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
         <TextView
-                android:id="@+id/tv_bottom_navi_product_tab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="product"/>
+            android:id="@+id/tv_bottom_navi_product_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="작품"
+            android:paddingBottom="4dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="12sp"
+            android:textColor="@color/colorMainNoSelect"/>
+        <ImageView
+            android:id="@+id/iv_bottom_navi_product_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:src="@drawable/selector_bottom_navi_product_icon"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="23dp"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
-    <RelativeLayout
-            android:id="@+id/btn_bottom_navi_exhibition_tab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
+    <RelativeLayout
+        android:id="@+id/btn_bottom_navi_exhibition_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
         <TextView
-                android:id="@+id/tv_bottom_navi_exhibition_tab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="exhibition"/>
+            android:id="@+id/tv_bottom_navi_exhibition_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="전시"
+            android:paddingBottom="4dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="12sp"
+            android:textColor="@color/colorMainNoSelect"/>
+        <ImageView
+            android:id="@+id/iv_bottom_navi_exhibition_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bottom_navi_exhibition_icon"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="23dp"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
-    <RelativeLayout
-            android:id="@+id/btn_bottom_navi_mypage_tab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
+    <RelativeLayout
+        android:id="@+id/btn_bottom_navi_mypage_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
         <TextView
-                android:id="@+id/tv_bottom_navi_my_tab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="mypage"/>
+            android:id="@+id/tv_bottom_navi_my_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:text="My"
+            android:paddingBottom="4dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:textSize="12sp"
+            android:textColor="@color/colorMainNoSelect"/>
+        <ImageView
+            android:id="@+id/iv_bottom_navi_mypage_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bottom_navi_my_icon"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="26dp"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 </LinearLayout>
