@@ -23,22 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     val PRODUCT_FRAGMENT: Int = 1
 
-    public var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
-    )
-
-    public var todayArtist: ArrayList<TodayArtistData> = arrayListOf(
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
-    )
-
-    val networkService: NetworkService by lazy {
-        ApplicationController.instance.networkService
-    }
 
     public var filter_size: String? = null
     public var filter_type: String? = null
@@ -48,35 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        getTodayArtist()
-    }
-
-    fun getTodayArtist() {
-        Log.v("*****MainActivity::getTodayArtist()::", todayArtist.toString())
-        val getTodayArtistResponse = networkService.getTodayArtistResponse()
-        getTodayArtistResponse.enqueue(object : Callback<GetTodayArtistResponse> {
-            override fun onFailure(call: Call<GetTodayArtistResponse>, t: Throwable) {
-                Log.e("board list fail", t.toString())
-            }
-
-            override fun onResponse(call: Call<GetTodayArtistResponse>, response: Response<GetTodayArtistResponse>) {
-                if(response.isSuccessful){
-                    //todayArtist = response.body()!!.data
-                    configureBottomNavigation()
-                }
-            }
-
-        })
+        configureBottomNavigation()
     }
 
     private fun configureBottomNavigation() {
-        Log.d("*****MainActivity::configureBottomNavi()::", todayArtist.toString())
 
         vp_bottom_navi_act_frag_pager.adapter = MainFragmentStatePagerAdapter(
             supportFragmentManager,
-            4,
-            todayArtist
+            4
         ) //vp_bottom_navi_act_frag_pager.offscreenPageLimit = 3
 
 
