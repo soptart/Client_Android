@@ -53,7 +53,7 @@ class HomeThemeFragment : Fragment() {
                     drawable: Drawable,
                     @Nullable transition: Transition<in Drawable>?
                 ) {
-                    ll_home_theme_background.background = drawable
+                    img_home_theme_recommend_background.background = drawable
                 }
             })
     }

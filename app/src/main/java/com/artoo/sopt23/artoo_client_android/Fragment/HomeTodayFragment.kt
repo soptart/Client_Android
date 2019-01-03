@@ -26,6 +26,7 @@ class HomeTodayFragment : Fragment() {
 
     lateinit var todayArtistData: ArrayList<TodayArtistData>
     lateinit var inflater: LayoutInflater
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         this.inflater = inflater
@@ -73,30 +74,55 @@ class HomeTodayFragment : Fragment() {
             tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 1) {
             tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
             tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 2) {
             tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
             tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 3) {
             tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
             tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else {
             tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
         }
     }
 

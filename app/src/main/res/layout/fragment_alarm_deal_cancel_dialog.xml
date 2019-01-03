@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".Fragment.AlarmDealCancelDialogFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="거래가 취소되었나요?"
+        android:textSize="22sp"
+        android:textColor="#333333"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="취소시, 다시 판매가 가능해요!"
+        android:textSize="16sp"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#333333"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_alarm_deal_cancel_dialog_no"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorEssential"
+            android:layout_marginRight="0.5dp"
+            android:text="아니에요"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="#ffffff"/>
+        <Button
+            android:id="@+id/btn_alarm_deal_cancel_dialog_yes"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorEssential"
+            android:layout_marginLeft="0.5dp"
+            android:text="취소됐어요"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+
+
+</LinearLayout>
