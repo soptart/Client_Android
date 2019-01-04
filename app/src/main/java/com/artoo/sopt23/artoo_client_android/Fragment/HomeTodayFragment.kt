@@ -81,7 +81,6 @@ class HomeTodayFragment : Fragment() {
     }
 
     private fun configureTopNavigation() {
-
         //Artist Tab
         view!!.vp_top_navi_act_frag_pager_home_artist.offscreenPageLimit = 5
         view!!.vp_top_navi_act_frag_pager_home_artist.adapter = HomeArtistFragmentStatePagerAdapter(childFragmentManager, 5, todayArtist)
