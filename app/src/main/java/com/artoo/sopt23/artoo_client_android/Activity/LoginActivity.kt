@@ -29,12 +29,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         setOnClickListener()
+
+        if(SharedPreferenceController.getUserID(this@LoginActivity) != -1){
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 
     private fun setOnClickListener() {
-
         btn_login.setOnClickListener {
 
             if (et_login_email.text.toString().isNotEmpty() && et_login_password.text.toString().isNotEmpty()) {
@@ -73,7 +76,11 @@ class LoginActivity : AppCompatActivity() {
                     //저번 시간에 배웠던 SharedPreference에 토큰을 저장!
                     SharedPreferenceController.setAuthorization(this@LoginActivity, token)
                     toast(SharedPreferenceController.getAuthorization(this@LoginActivity))
+
+                    val u_id = response.body()!!.data.userIdx
+                    SharedPreferenceController.setUserID(this@LoginActivity, u_id)
                     startActivity<MainActivity>()
+                    finish()
                 }
             }
         })

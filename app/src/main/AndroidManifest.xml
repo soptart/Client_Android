@@ -15,7 +15,13 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Activity.MainActivity"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activity.LoginActivity">
 
         </activity>
@@ -23,19 +29,18 @@
         <activity android:name=".Activity.ProductDetailActivity" />
         <activity android:name=".Activity.ProductUploadActivity" />
         <activity android:name=".Activity.FilterActivity" />
-        <activity android:name=".Activity.ThemeActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Activity.ThemeActivity" />
         <activity android:name=".Activity.ProductZoomActivity" />
         <activity android:name=".Activity.PurchaseActivity" />
         <activity android:name=".Activity.EnterTheExhibitionActivity" />
         <activity android:name=".Activity.ExhibitionDetailActivity" />
         <activity android:name=".Activity.ApplyExhibitionActivity" />
-        <activity android:name=".Activity.AlarmActivity"/>
+        <activity android:name=".Activity.AlarmActivity" />
+        <activity android:name=".Activity.MypagePreferencesActivity" />
+        <activity android:name=".Activity.MypageMyInfoActivity" />
+        <activity android:name=".Activity.MypageMyInfoModifyActivity" />
+        <activity android:name=".Activity.MypageServiceActivity" />
+        <activity android:name=".Activity.MypageHelpActivity"></activity>
     </application>
 
 </manifest>
