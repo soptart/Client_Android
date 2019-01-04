@@ -20,11 +20,15 @@ import kotlinx.android.synthetic.main.fragment_home_artist1.*
 
 
 class HomeArtist1Fragment : Fragment() {
-
-    lateinit var todayArtistData: TodayArtistData
+    var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
+        TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
+        TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
+)
+    var todayArtistData: TodayArtistData = TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
     lateinit var homeTodayRecyclerViewAdapter: HomeTodayRecyclerViewAdapter
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home_artist1, container, false)
+        if(view == null) return inflater.inflate(R.layout.fragment_home_artist1, container, false)
+        else return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

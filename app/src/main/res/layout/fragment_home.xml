@@ -37,6 +37,7 @@
         android:id="@+id/vp_top_navi_act_frag_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:layout_below="@+id/ll_home_top"
         android:background="#FFFFFF"/>

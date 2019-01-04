@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun configureBottomNavigation() {
 
+        vp_bottom_navi_act_frag_pager.offscreenPageLimit=4
         vp_bottom_navi_act_frag_pager.adapter = MainFragmentStatePagerAdapter(
             supportFragmentManager,
             4

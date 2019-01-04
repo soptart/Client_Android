@@ -10,7 +10,6 @@ import com.artoo.sopt23.artoo_client_android.Fragment.*
 
 //Home Tab Adapter
 class HomeArtistFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCount : Int, val todayArtistList: ArrayList<TodayArtistData>): FragmentStatePagerAdapter(fm){
-
     var homeArtist1Fragment: HomeArtist1Fragment = HomeArtist1Fragment().apply{
         todayArtistData = todayArtistList.get(0)
     }
@@ -37,5 +36,6 @@ class HomeArtistFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCoun
             else -> return null
         }
     }
+
     override fun getCount(): Int = fragmentCount
 }

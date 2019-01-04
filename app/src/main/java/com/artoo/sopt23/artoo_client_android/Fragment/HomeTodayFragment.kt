@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.fragment_home_today.*
 import kotlinx.android.synthetic.main.fragment_home_today.view.*
 import kotlinx.android.synthetic.main.top_navigation_tab_home_artist.*
+import kotlinx.android.synthetic.main.top_navigation_tab_home_artist.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,14 +54,17 @@ class HomeTodayFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         this.inflater = inflater
-        val view: View = inflater!!.inflate(R.layout.fragment_home_today, container, false)
-
-
-        getTodayArtist(view)
-        return view
+        if(view == null) return inflater!!.inflate(R.layout.fragment_home_today, container, false)
+        else return view
     }
 
-    fun getTodayArtist(view: View) {
+    override fun onResume() {
+        super.onResume()
+        getTodayArtist()
+        setOnClickListener()
+    }
+
+    fun getTodayArtist() {
         val getTodayArtistResponse = networkService.getTodayArtistResponse()
         getTodayArtistResponse.enqueue(object : Callback<GetTodayArtistResponse> {
             override fun onFailure(call: Call<GetTodayArtistResponse>, t: Throwable) {
@@ -71,17 +75,17 @@ class HomeTodayFragment : Fragment() {
                 if(response.isSuccessful){
                     todayArtist = response.body()!!.data
                 }
-                configureTopNavigation(view)
-                setOnClickListener(view)
+                configureTopNavigation()
             }
         })
     }
 
-    private fun configureTopNavigation(view: View) {
+    private fun configureTopNavigation() {
 
         //Artist Tab
-        view.vp_top_navi_act_frag_pager_home_artist.adapter = HomeArtistFragmentStatePagerAdapter(childFragmentManager, 5, todayArtist)
-        view.tl_top_navi_act_top_menu_home_artist.setupWithViewPager(view.vp_top_navi_act_frag_pager_home_artist)
+        view!!.vp_top_navi_act_frag_pager_home_artist.offscreenPageLimit = 5
+        view!!.vp_top_navi_act_frag_pager_home_artist.adapter = HomeArtistFragmentStatePagerAdapter(childFragmentManager, 5, todayArtist)
+        view!!.tl_top_navi_act_top_menu_home_artist.setupWithViewPager(view!!.vp_top_navi_act_frag_pager_home_artist)
 
         val topNaviLayout : View = inflater.inflate(R.layout.top_navigation_tab_home_artist, null, false)
         (topNaviLayout.findViewById(R.id.tv_top_navi_first_arti_tab) as TextView).text = todayArtist[0].u_name
@@ -89,12 +93,12 @@ class HomeTodayFragment : Fragment() {
         (topNaviLayout.findViewById(R.id.tv_top_navi_third_arti_tab) as TextView).text = todayArtist[2].u_name
         (topNaviLayout.findViewById(R.id.tv_top_navi_fourth_arti_tab) as TextView).text = todayArtist[3].u_name
         (topNaviLayout.findViewById(R.id.tv_top_navi_fifth_arti_tab) as TextView).text = todayArtist[4].u_name
-        view.tl_top_navi_act_top_menu_home_artist.getTabAt(4)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fifth_arti_tab) as RelativeLayout
-        view.tl_top_navi_act_top_menu_home_artist.getTabAt(3)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fourth_arti_tab) as RelativeLayout
-        view.tl_top_navi_act_top_menu_home_artist.getTabAt(2)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_third_arti_tab) as RelativeLayout
-        view.tl_top_navi_act_top_menu_home_artist.getTabAt(1)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_second_arti_tab) as RelativeLayout
-        view.tl_top_navi_act_top_menu_home_artist.getTabAt(0)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_first_arti_tab) as RelativeLayout
-        view.tl_top_navi_act_top_menu_home_artist.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(4)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fifth_arti_tab) as RelativeLayout
+        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(3)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fourth_arti_tab) as RelativeLayout
+        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(2)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_third_arti_tab) as RelativeLayout
+        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(1)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_second_arti_tab) as RelativeLayout
+        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(0)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_first_arti_tab) as RelativeLayout
+        view!!.tl_top_navi_act_top_menu_home_artist.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 selectedArtistTab(position = tab!!.position)
             }
@@ -113,16 +117,16 @@ class HomeTodayFragment : Fragment() {
     //Artist Tab Layout Setting
     private fun selectedArtistTab(position: Int) {
         if (position == 0) {
-            tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
-            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            view!!.tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            view!!.tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            view!!.tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            view!!.tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            view!!.tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            view!!.tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            view!!.tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            view!!.tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            view!!.tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            view!!.tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 1) {
             tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
             tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
@@ -170,11 +174,11 @@ class HomeTodayFragment : Fragment() {
         }
     }
 
-    private fun setOnClickListener(view: View) {
-        view.btn_home_first_ticket.setOnClickListener {
+    private fun setOnClickListener() {
+        view!!.btn_home_first_ticket.setOnClickListener {
             //startActivity:fullImage
         }
-        view.btn_home_second_ticket.setOnClickListener {
+        view!!.btn_home_second_ticket.setOnClickListener {
             //startActivity:fullImage
         }
     }

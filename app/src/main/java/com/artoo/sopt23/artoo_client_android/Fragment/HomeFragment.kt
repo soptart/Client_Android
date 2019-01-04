@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
     private fun configureTopNavigation(view: View) {
 
         //Home Tab
+        view.vp_top_navi_act_frag_pager.offscreenPageLimit = 2
         view.vp_top_navi_act_frag_pager.adapter = HomeFragmentStatePagerAdapter(childFragmentManager, 2)
         view.tl_top_navi_act_top_menu.setupWithViewPager(view.vp_top_navi_act_frag_pager)
 
