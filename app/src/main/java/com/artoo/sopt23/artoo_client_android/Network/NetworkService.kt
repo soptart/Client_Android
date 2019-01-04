@@ -44,7 +44,6 @@ interface NetworkService {
     @Multipart
     @POST("/artworks")
     fun postProductUploadResponse(
-        @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
         @Part("a_name") a_name: RequestBody,
         @Part("a_width") a_width: Int,
@@ -56,9 +55,9 @@ interface NetworkService {
         @Part("u_idx") u_idx: Int,
         @Part("a_detail") a_detail: RequestBody,
         @Part("a_year") a_year: RequestBody,
-        @Part picUrl: MultipartBody.Part?,
         @Part("a_tags") a_tags: RequestBody,
-        @Part("a_license") a_license: RequestBody///,
+        @Part("a_license") a_license: RequestBody,
+        @Part pic_url: MultipartBody.Part///,
         //@Part("a_material") a_material: RequestBody,
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>

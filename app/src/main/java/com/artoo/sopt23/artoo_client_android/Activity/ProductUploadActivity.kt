@@ -35,7 +35,7 @@ import java.util.ArrayList
 class ProductUploadActivity : AppCompatActivity() {
 
     val REQUEST_CODE_SELECT_IMAGE: Int = 1000
-    private var input_product_img: MultipartBody.Part? = null
+    var input_product_img: MultipartBody.Part? = null
     lateinit var input_product_purchase_state: String
 
     val networkService: NetworkService by lazy {
@@ -242,7 +242,7 @@ class ProductUploadActivity : AppCompatActivity() {
                     //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
                     input_product_img = MultipartBody.Part.createFormData(
                         "pic_url",
-                        File(seletedPictureUri.toString()).name,
+                        File(seletedPictureUri.toString()).name + ".jpg",
                         photoBody
                     )
                     //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
@@ -277,17 +277,17 @@ class ProductUploadActivity : AppCompatActivity() {
         val input_product_material = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_material.text.toString())
         val input_product_tip = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_tip.text.toString())
 
-        if (et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
+        if (input_product_img!=null && et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
             && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0) {
             val token = SharedPreferenceController.getAuthorization(this)
             val u_idx = SharedPreferenceController.getUserID(this)
 
-            val postProductUploadResponse = networkService.postProductUploadResponse("multipart/form-data", token,
+            val postProductUploadResponse = networkService.postProductUploadResponse(token,
                 input_product_title,
                 input_product_width, input_product_height, input_product_depth,
                 input_product_category, input_product_format, input_product_price,
-                u_idx, input_product_detail, input_product_year, input_product_img,
-                input_tags, input_product_license/*, input_product_material, input_product_tip*/)
+                u_idx, input_product_detail, input_product_year,
+                input_tags, input_product_license, input_product_img!!/*, input_product_material, input_product_tip*/)
 
             Log.d("*****ProductUploadActivity::", postProductUploadResponse.toString())
 
