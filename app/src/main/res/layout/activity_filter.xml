@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Activity.FilterActivity">
+        android:background="#ffffff"
+        tools:context=".Activity.FilterActivity" android:orientation="vertical">
     <LinearLayout
             android:id="@+id/ll_filter_title"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="28dp">
+            android:layout_marginBottom="22dp">
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:textSize="22sp" android:text="필터"
-                android:textColor="#353d36"/>
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="필터"
+                android:textColor="#353d46"
+                android:fontFamily="@font/notosanscjkkr_bold"/>
         <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:layout_weight="1">
-
+                android:layout_height="match_parent">
             <TextView
                     android:id="@+id/txt_filter_apply"
                     android:text="완료"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"  android:textSize="18sp"
-                    android:textAlignment="textEnd" android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:layout_alignParentEnd="true"
-                android:fontFamily="@font/notosanscjkkr_medium"
-                android:layout_marginEnd="0dp" android:textColor="#9c9c9c"/>
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:textColor="#9c9c9c"/>
         </RelativeLayout>
     </LinearLayout>
     <ScrollView
@@ -41,92 +44,94 @@
             android:layout_alignParentStart="true"
             android:layout_below="@id/ll_filter_title"
             android:layout_alignParentBottom="true">
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:orientation="vertical" android:layout_alignParentTop="true">
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:layout_alignParentTop="true">
 
-            <LinearLayout
+            <RelativeLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp">
+                    <RelativeLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" android:layout_marginBottom="20dp">
+                            android:layout_marginBottom="22dp">
                         <TextView
-                            android:text="사이즈"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="16sp"
-                            android:textColor="#4a4a4a"
-                            android:fontFamily="@font/notosanscjkkr_medium"/>
+                                android:text="사이즈"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                android:textColor="#4a4a4a"
+                                android:layout_alignParentLeft="true"
+                                android:fontFamily="@font/notosanscjkkr_medium"/>
                         <ImageView
-                            android:id="@+id/txt_filter_size_all"
+                                android:id="@+id/img_filter_size_all"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="47dp"
+                                android:src="@drawable/filter_all_gray_copy_3"/>
+                    </RelativeLayout>
+                    <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center_vertical"
-                            android:src="@drawable/filter_all_gray_copy_3"/>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/selector_filter_size_s"
+                                    android:layout_marginRight="17dp"
+                                    android:id="@+id/img_filter_size_s"/>
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/selector_filter_size_m"
+                                    android:id="@+id/img_filter_size_m"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/selector_filter_size_l"
+                                    android:layout_marginRight="17dp"
+                                    android:id="@+id/img_filter_size_l"/>
+                            <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/selector_filter_size_xl"
+                                    android:id="@+id/img_filter_size_xl"/>
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_weight="1">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/selector_filter_size_s"
-                            android:layout_marginRight="10dp"
-                            android:adjustViewBounds="true"
-                            android:id="@+id/img_filter_size_s" />
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/selector_filter_size_m"
-                            android:layout_marginLeft="10dp"
-                            android:adjustViewBounds="true"
-                            android:id="@+id/img_filter_size_m" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/selector_filter_size_l"
-                            android:layout_marginRight="10dp"
-                            android:adjustViewBounds="true"
-                            android:id="@+id/img_filter_size_l" />
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/selector_filter_size_xl"
-                            android:layout_marginLeft="10dp"
-                            android:adjustViewBounds="true"
-                            android:id="@+id/img_filter_size_xl" />
-                    </LinearLayout>
                 </LinearLayout>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/filter_size_all_no_select"
-                    android:layout_weight="1" android:scaleType="fitEnd"/>
-            </LinearLayout>
+                        android:layout_width="162dp"
+                        android:layout_height="140dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/filter_size_all_no_select"/>
+
+            </RelativeLayout>
             <RelativeLayout
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="20dp"
@@ -134,21 +139,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <TextView
-                    android:text="형태"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/notosanscjkkr_medium"
-                    android:textColor="#4a4a4a"/>
+                        android:text="형태"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:textColor="#4a4a4a"/>
                 <ImageView
-                    android:id="@+id/txt_filter_type_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/filter_all_gray"
-                    android:layout_centerVertical="true"/>
+                        android:id="@+id/txt_filter_type_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/filter_all_gray"
+                        android:layout_centerVertical="true"/>
             </RelativeLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -253,4 +258,4 @@
 
         </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

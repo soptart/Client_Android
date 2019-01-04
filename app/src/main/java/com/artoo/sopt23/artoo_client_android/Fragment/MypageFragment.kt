@@ -1,8 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Fragment
 
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -12,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.artoo.sopt23.artoo_client_android.Adapter.MypageFragmentStatePageAdapter
+import com.artoo.sopt23.artoo_client_android.Activity.MypagePreferencesActivity
 
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.fragment_mypage.*
@@ -26,7 +25,7 @@ class MypageFragment : Fragment() {
         this.inflater = inflater
 
         var view: View = inflater.inflate(R.layout.fragment_mypage, container, false)
-        val intent = Intent(context, AlarmActivity::class.java)
+
 
         configureTopNavigation(view)
 
@@ -42,8 +41,14 @@ class MypageFragment : Fragment() {
             btn_mypage_update_intro_finish.visibility = View.GONE
         }
         view.btn_mypage_alert.setOnClickListener {
+            val intent = Intent(context, AlarmActivity::class.java)
             startActivity(intent)
         }
+        view.btn_mypage_setting.setOnClickListener {
+            val intent = Intent(activity?.applicationContext, MypagePreferencesActivity::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 
