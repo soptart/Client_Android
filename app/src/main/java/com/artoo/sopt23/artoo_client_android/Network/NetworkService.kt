@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -60,5 +61,10 @@ interface NetworkService {
         //@Part("a_material") a_material: RequestBody,
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
+
+    // 모든 전시 조회
+    @GET("/displays")
+    fun getExhibitionDisplayResponse(
+    ) : Call<GetExhibitionDisplayResponse>
 
 }
