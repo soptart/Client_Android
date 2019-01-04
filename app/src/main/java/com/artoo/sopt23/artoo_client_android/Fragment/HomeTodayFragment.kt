@@ -84,6 +84,11 @@ class HomeTodayFragment : Fragment() {
         view.tl_top_navi_act_top_menu_home_artist.setupWithViewPager(view.vp_top_navi_act_frag_pager_home_artist)
 
         val topNaviLayout : View = inflater.inflate(R.layout.top_navigation_tab_home_artist, null, false)
+        (topNaviLayout.findViewById(R.id.tv_top_navi_first_arti_tab) as TextView).text = todayArtist[0].u_name
+        (topNaviLayout.findViewById(R.id.tv_top_navi_second_arti_tab) as TextView).text = todayArtist[1].u_name
+        (topNaviLayout.findViewById(R.id.tv_top_navi_third_arti_tab) as TextView).text = todayArtist[2].u_name
+        (topNaviLayout.findViewById(R.id.tv_top_navi_fourth_arti_tab) as TextView).text = todayArtist[3].u_name
+        (topNaviLayout.findViewById(R.id.tv_top_navi_fifth_arti_tab) as TextView).text = todayArtist[4].u_name
         view.tl_top_navi_act_top_menu_home_artist.getTabAt(4)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fifth_arti_tab) as RelativeLayout
         view.tl_top_navi_act_top_menu_home_artist.getTabAt(3)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fourth_arti_tab) as RelativeLayout
         view.tl_top_navi_act_top_menu_home_artist.getTabAt(2)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_third_arti_tab) as RelativeLayout
