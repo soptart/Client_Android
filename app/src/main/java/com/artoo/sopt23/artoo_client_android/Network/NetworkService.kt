@@ -1,10 +1,11 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
-import com.artoo.sopt23.artoo_client_android.Post.PostJoinResponse
-import com.artoo.sopt23.artoo_client_android.Post.PostLoginResponse
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -58,5 +59,10 @@ interface NetworkService {
         //@Part("a_material") a_material: RequestBody,
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
+
+    //테마 상세페이지
+    @GET("/themes/details/{t_idx}")
+    fun getThemeProductResponse(
+    ):Call<GetThemeProductResponse>
 
 }

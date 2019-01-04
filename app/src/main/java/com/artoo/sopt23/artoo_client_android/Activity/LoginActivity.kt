@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
-import com.artoo.sopt23.artoo_client_android.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.R
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser

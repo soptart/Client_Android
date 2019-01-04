@@ -36,6 +36,7 @@ class HomeThemeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home_theme, container, false)
+        setOnClickListener()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -56,6 +57,7 @@ class HomeThemeFragment : Fragment() {
                     img_home_theme_recommend_background.background = drawable
                 }
             })
+
     }
 
 
@@ -71,5 +73,9 @@ class HomeThemeFragment : Fragment() {
         homeThemeRecyclerViewAdapter = HomeThemeRecyclerViewAdapter(dataList)
         rv_home_theme_recommend_product.adapter = homeThemeRecyclerViewAdapter
         rv_home_theme_recommend_product.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setOnClickListener(){
+
     }
 }

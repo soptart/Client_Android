@@ -17,17 +17,19 @@
             android:name=".Activity.MainActivity"
             android:windowSoftInputMode="adjustNothing"></activity>
         <activity android:name=".Activity.LoginActivity">
+
+        </activity>
+        <activity android:name=".Activity.JoinActivity" />
+        <activity android:name=".Activity.ProductDetailActivity" />
+        <activity android:name=".Activity.ProductUploadActivity" />
+        <activity android:name=".Activity.FilterActivity" />
+        <activity android:name=".Activity.ThemeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.JoinActivity" />
-        <activity android:name=".Activity.ProductDetailActivity" />
-        <activity android:name=".Activity.ProductUploadActivity" />
-        <activity android:name=".Activity.FilterActivity" />
-        <activity android:name=".Activity.ThemeActivity" />
         <activity android:name=".Activity.ProductZoomActivity" />
         <activity android:name=".Activity.PurchaseActivity" />
         <activity android:name=".Activity.EnterTheExhibitionActivity" />
