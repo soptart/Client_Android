@@ -1,9 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -73,4 +70,35 @@ interface NetworkService {
     fun getExhibitionDisplayResponse(
     ) : Call<GetExhibitionDisplayResponse>
 
+    //MypageProduct::list
+    @GET("/users/{u_Idx}")
+    fun getMypageProductResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageProductResponse>
+
+    //MypageLike::list
+    @GET("/users/{u_idx}/likes")
+    fun getMypageLikeResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageLikeResponse>
+
+    //MypageDeal::list
+    @GET("/users/{u_idx}/purchase")
+    fun getMypageDealResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageDealResponse>
+
+    //MypageReview::list
+    @GET("/users/{u_idx}/review")
+    fun getMypageReviewResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageReviewResponse>
 }
