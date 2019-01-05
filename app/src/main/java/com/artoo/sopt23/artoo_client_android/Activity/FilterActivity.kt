@@ -51,6 +51,7 @@ class FilterActivity : AppCompatActivity() {
         img_filter_category_object.isSelected = false
         img_filter_category_plant.isSelected = false
         img_filter_category_abstract.isSelected = false
+        img_filter_category_all.isSelected = false
 
         // init type
         img_filter_type_painting.isSelected = false
@@ -59,6 +60,7 @@ class FilterActivity : AppCompatActivity() {
         img_filter_type_crafting.isSelected = false
         img_filter_type_mixing.isSelected = false
         img_filter_type_digital.isSelected = false
+        img_filter_type_all.isSelected = false
 
         if(filter_size == "S"){
             img_filter_size_s.isSelected = true
@@ -84,7 +86,7 @@ class FilterActivity : AppCompatActivity() {
         if(filter_type == "조형/공예") img_filter_type_crafting.isSelected = true
         else if(filter_type == "드로잉") img_filter_type_drawing.isSelected = true
         else if(filter_type == "혼합 매체") img_filter_type_mixing.isSelected = true
-        else if(filter_type == "디지털") img_filter_type_digital.isSelected = true
+        else if(filter_type == "사진") img_filter_type_digital.isSelected = true
         else if(filter_type == "동양화") img_filter_type_oriental.isSelected = true
         else if(filter_type == "페인팅") img_filter_type_painting.isSelected = true
         else img_filter_type_all.isSelected = true
@@ -139,7 +141,7 @@ class FilterActivity : AppCompatActivity() {
             updateFilterView()
         }
         img_filter_type_digital.setOnClickListener {
-            filter_type = "디지털"
+            filter_type = "사진"
             updateFilterView()
         }
         img_filter_type_oriental.setOnClickListener {

@@ -41,7 +41,6 @@ class ProductDetailActivity : AppCompatActivity() {
                 txt_product_detail_like.text = (txt_product_detail_like.text.toString().toInt() - 1).toString()
                 txt_product_detail_like.setTextColor(Color.parseColor("#9c9c9c"))
             }
-
         })
 
         img_product_detail_expand.setOnClickListener {
@@ -58,7 +57,7 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         ll_product_detail_bottomnav.setOnClickListener {
-            startActivity<PurchaseActivity>("pid" to 1, "uid" to 1)
+            startActivity<PurchaseActivity>("pid" to 1)
         }
     }
 

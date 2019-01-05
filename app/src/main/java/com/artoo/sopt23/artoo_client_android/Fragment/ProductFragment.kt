@@ -136,7 +136,9 @@ class ProductFragment : Fragment() {
 
         rv_fragment_product_list.adapter = productRecyclerViewAdapter
         rv_fragment_product_list.layoutManager = staggeredGridLayoutManager
-        rv_fragment_product_list.itemAnimator = null
         staggeredGridLayoutManager.invalidateSpanAssignments()
+
+        rv_fragment_product_list.invalidate()
+        ll_product_list.invalidate()
     }
 }
