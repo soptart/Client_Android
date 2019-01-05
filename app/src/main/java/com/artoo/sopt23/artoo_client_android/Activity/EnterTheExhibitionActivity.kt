@@ -15,6 +15,7 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
 
 
         if(intent.hasExtra("d_repImg_url")) {
+            // test
 
         }
 
