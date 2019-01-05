@@ -1,6 +1,12 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
+import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -82,6 +88,15 @@ interface NetworkService {
     // 모든 전시 조회
     @GET("/displays")
     fun getExhibitionDisplayResponse(
-    ) : Call<GetExhibitionDisplayResponse>
+    ): Call<GetExhibitionDisplayResponse>
 
+    // 전시 신청
+    @Headers("Content-Type: application/json")
+    @POST("/discontents/{user_idx}")
+    fun postApplyExhibitionResponse(
+            //@Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String,
+            @Path("user_idx") user_idx: Int,
+            @Body applyExhibitionData: ApplyExhibitionData
+    ): Call<PostApplyExhibitionResponse>
 }
