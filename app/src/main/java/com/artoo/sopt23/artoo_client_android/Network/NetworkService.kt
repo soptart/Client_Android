@@ -1,9 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -63,9 +60,15 @@ interface NetworkService {
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
-    //테마 상세페이지
+    // 테마의 따른 작품 조회 : 홈테마 페이지
+    @GET("/themes")
+    fun getThemesResponse(
+    ): Call<GetThemesResponse>
+
+    // 특정 테마 상세 조회: 테마 상세페이지
     @GET("/themes/details/{t_idx}")
     fun getThemeProductResponse(
+            @Path("t_idx") t_idx : Int
     ):Call<GetThemeProductResponse>
 
     // 모든 전시 조회
