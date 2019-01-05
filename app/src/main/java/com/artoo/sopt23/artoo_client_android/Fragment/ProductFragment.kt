@@ -119,6 +119,8 @@ class ProductFragment : Fragment() {
             override fun onResponse(call: Call<GetProductListResponse>, response: Response<GetProductListResponse>) {
                 if(response.isSuccessful){
                     dataList = response.body()!!.data
+                    txt_product_num.text = dataList.size.toString() + "개의 작품들을 찾았어요!"
+
                     productRecyclerViewAdapter.dataList = dataList
                     productRecyclerViewAdapter.notifyDataSetChanged()
                 }
@@ -128,6 +130,7 @@ class ProductFragment : Fragment() {
 
     fun setRecyclerView(){
         productRecyclerViewAdapter = ProductRecyclerViewAdapter(dataList)
+        txt_product_num.text = dataList.size.toString() + "개의 작품들을 찾았어요!"
         val staggeredGridLayoutManager:StaggeredGridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         staggeredGridLayoutManager.gapStrategy=StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
 
