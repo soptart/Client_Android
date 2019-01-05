@@ -3,6 +3,8 @@ package com.artoo.sopt23.artoo_client_android.Network
 import android.app.Application
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.jvm.java
+
 class ApplicationController: Application() {
     private val baseURL = "http://13.209.128.210:8080/"
     lateinit var networkService: NetworkService
@@ -29,5 +31,6 @@ class ApplicationController: Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         networkService = retrofit.create(NetworkService::class.java)
+
     }
 }
