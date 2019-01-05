@@ -299,15 +299,13 @@ class ProductUploadActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<PostProductUploadResponse>, response: Response<PostProductUploadResponse>) {
                     if(response.isSuccessful) {
                         toast(response.body()!!.message)
+                        finish()
                     }
                     else{
-                        Log.i("ProductUploadActivity", "ProductUploadFailed")
+                        toast(response.body()!!.message)
                     }
-                    finish()
                 }
             })
         }
-
-
     }
 }

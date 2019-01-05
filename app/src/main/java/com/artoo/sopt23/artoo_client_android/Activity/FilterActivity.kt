@@ -2,12 +2,8 @@ package com.artoo.sopt23.artoo_client_android.Activity
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.activity_filter.*
 
@@ -55,6 +51,7 @@ class FilterActivity : AppCompatActivity() {
         img_filter_category_object.isSelected = false
         img_filter_category_plant.isSelected = false
         img_filter_category_abstract.isSelected = false
+        img_filter_category_all.isSelected = false
 
         // init type
         img_filter_type_painting.isSelected = false
@@ -63,25 +60,44 @@ class FilterActivity : AppCompatActivity() {
         img_filter_type_crafting.isSelected = false
         img_filter_type_mixing.isSelected = false
         img_filter_type_digital.isSelected = false
+        img_filter_type_all.isSelected = false
 
-        if(filter_size == "S") img_filter_size_s.isSelected = true
-        if(filter_size == "M") img_filter_size_m.isSelected = true
-        if(filter_size == "L") img_filter_size_l.isSelected = true
-        if(filter_size == "XL") img_filter_size_xl.isSelected = true
+        if(filter_size == "S"){
+            img_filter_size_s.isSelected = true
+            img_filter_size_box.setImageResource(R.drawable.filter_size_s_select)
+        }
+        else if(filter_size == "M"){
+            img_filter_size_m.isSelected = true
+            img_filter_size_box.setImageResource(R.drawable.filter_size_m_select)
+        }
+        else if(filter_size == "L"){
+            img_filter_size_l.isSelected = true
+            img_filter_size_box.setImageResource(R.drawable.filter_size_l_select)
+        }
+        else if(filter_size == "XL"){
+            img_filter_size_xl.isSelected = true
+            img_filter_size_box.setImageResource(R.drawable.filter_size_xl_select)
+        }
+        else{
+            img_filter_size_all.isSelected = true
+            img_filter_size_box.setImageResource(R.drawable.filter_size_all_select)
+        }
 
         if(filter_type == "조형/공예") img_filter_type_crafting.isSelected = true
-        if(filter_type == "드로잉") img_filter_type_drawing.isSelected = true
-        if(filter_type == "혼합 매체") img_filter_type_mixing.isSelected = true
-        if(filter_type == "디지털") img_filter_type_digital.isSelected = true
-        if(filter_type == "동양화") img_filter_type_oriental.isSelected = true
-        if(filter_type == "페인팅") img_filter_type_painting.isSelected = true
+        else if(filter_type == "드로잉") img_filter_type_drawing.isSelected = true
+        else if(filter_type == "혼합 매체") img_filter_type_mixing.isSelected = true
+        else if(filter_type == "사진") img_filter_type_digital.isSelected = true
+        else if(filter_type == "동양화") img_filter_type_oriental.isSelected = true
+        else if(filter_type == "페인팅") img_filter_type_painting.isSelected = true
+        else img_filter_type_all.isSelected = true
 
         if(filter_category == "추상") img_filter_category_abstract.isSelected = true
-        if(filter_category == "식물") img_filter_category_plant.isSelected = true
-        if(filter_category == "사물") img_filter_category_object.isSelected = true
-        if(filter_category == "인물") img_filter_category_human.isSelected = true
-        if(filter_category == "동물") img_filter_category_animal.isSelected = true
-        if(filter_category == "풍경") img_filter_category_scenery.isSelected = true
+        else if(filter_category == "식물") img_filter_category_plant.isSelected = true
+        else if(filter_category == "사물") img_filter_category_object.isSelected = true
+        else if(filter_category == "인물") img_filter_category_human.isSelected = true
+        else if(filter_category == "동물") img_filter_category_animal.isSelected = true
+        else if(filter_category == "풍경") img_filter_category_scenery.isSelected = true
+        else img_filter_category_all.isSelected = true
     }
 
     fun setOnclickListener(){
@@ -108,7 +124,7 @@ class FilterActivity : AppCompatActivity() {
         }
 
         // TYPE
-        txt_filter_type_all.setOnClickListener {
+        img_filter_type_all.setOnClickListener {
             filter_type = null
             updateFilterView()
         }
@@ -125,7 +141,7 @@ class FilterActivity : AppCompatActivity() {
             updateFilterView()
         }
         img_filter_type_digital.setOnClickListener {
-            filter_type = "디지털"
+            filter_type = "사진"
             updateFilterView()
         }
         img_filter_type_oriental.setOnClickListener {
@@ -138,7 +154,7 @@ class FilterActivity : AppCompatActivity() {
         }
 
         // CATEGORY
-        txt_filter_category_all.setOnClickListener {
+        img_filter_category_all.setOnClickListener {
             filter_category = null
             updateFilterView()
         }

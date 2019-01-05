@@ -9,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.artoo.sopt23.artoo_client_android.Activity.EnterTheExhibitionActivity
+import com.artoo.sopt23.artoo_client_android.Data.MainExhibitionData
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class MainExhibitionAdapter (val main_ex : ArrayList<String>): RecyclerView.Adapter<MainExhibitionAdapter.ViewHolder>() {
+class MainExhibitionAdapter (val main_ex : ArrayList<MainExhibitionData>): RecyclerView.Adapter<MainExhibitionAdapter.ViewHolder>() {
 
     lateinit var context : Context
 
@@ -24,18 +25,20 @@ class MainExhibitionAdapter (val main_ex : ArrayList<String>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        var options : RequestOptions = RequestOptions().placeholder(R.drawable.pic3)
-        Glide.with(context).load(main_ex.get(position)).apply(options).into(holder.main_ex_img)
-        Log.d("asd" , main_ex.get(position))
+        Glide.with(context).load(main_ex.get(position).d_repImg_url).into(holder.main_ex_img)
 
         holder.main_ex_img.setOnClickListener {
-            //var intent = Intent(context,EnterTheExhibitionActivity::class.java)
-//            //intent.putExtra("",)
-//            context.startActivity(intent)
 
-            context.startActivity(Intent(context,
-                EnterTheExhibitionActivity::class.java))
+            var intent = Intent(context,EnterTheExhibitionActivity::class.java)
+            intent.putExtra("d_repImg_url", main_ex.get(position).d_repImg_url)
+            intent.putExtra("d_idx",main_ex.get(position).d_idx)
+            intent.putExtra("d_mainImg_url",main_ex.get(position).d_mainImg_url)
+            intent.putExtra("d_shortDetail",main_ex.get(position).d_shortDetail)
+            intent.putExtra("d_sDateNow",main_ex.get(position).d_mainImg_url)
+            intent.putExtra("d_eDateNow",main_ex.get(position).d_eDateNow)
+            intent.putExtra("d_artworkUser",main_ex.get(position).d_artworkUser)
+
+            context.startActivity(intent)
         }
 
 

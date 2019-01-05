@@ -35,7 +35,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/notosanscjkkr_medium"
-                    android:textColor="#9c9c9c"/>
+                    android:textColor="#ff6f61"/>
         </RelativeLayout>
     </LinearLayout>
     <ScrollView
@@ -52,14 +52,16 @@
                 android:orientation="vertical"
                 android:layout_alignParentTop="true">
 
-            <RelativeLayout
+            <LinearLayout
+                    android:background="@drawable/layout_underline"
+                    android:paddingBottom="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginRight="10dp">
                     <RelativeLayout
                             android:orientation="horizontal"
@@ -70,6 +72,7 @@
                                 android:text="사이즈"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:includeFontPadding="false"
                                 android:textSize="16sp"
                                 android:textColor="#4a4a4a"
                                 android:layout_alignParentLeft="true"
@@ -78,10 +81,10 @@
                                 android:id="@+id/img_filter_size_all"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginLeft="47dp"
-                                android:src="@drawable/filter_all_gray_copy_3"/>
+                                android:src="@drawable/selector_filter_all"
+                                android:layout_centerVertical="true"/>
                     </RelativeLayout>
                     <LinearLayout
                             android:layout_width="wrap_content"
@@ -97,12 +100,12 @@
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/selector_filter_size_s"
                                     android:layout_marginRight="17dp"
-                                    android:id="@+id/img_filter_size_s"/>
+                                    android:id="@+id/img_filter_size_s" android:layout_weight="1"/>
                             <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/selector_filter_size_m"
-                                    android:id="@+id/img_filter_size_m"/>
+                                    android:id="@+id/img_filter_size_m" android:layout_weight="1"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -115,25 +118,26 @@
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/selector_filter_size_l"
                                     android:layout_marginRight="17dp"
-                                    android:id="@+id/img_filter_size_l"/>
+                                    android:id="@+id/img_filter_size_l" android:layout_weight="1"/>
                             <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/selector_filter_size_xl"
-                                    android:id="@+id/img_filter_size_xl"/>
+                                    android:id="@+id/img_filter_size_xl" android:layout_weight="1"/>
                         </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
                 <ImageView
-                        android:layout_width="162dp"
-                        android:layout_height="140dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/filter_size_all_no_select"/>
+                        android:scaleType="fitEnd"
+                        android:src="@drawable/filter_size_all_no_select" android:id="@+id/img_filter_size_box"/>
 
-            </RelativeLayout>
+            </LinearLayout>
             <RelativeLayout
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="13dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -143,16 +147,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
+                        android:includeFontPadding="false"
                         android:textSize="16sp"
                         android:fontFamily="@font/notosanscjkkr_medium"
                         android:textColor="#4a4a4a"/>
                 <ImageView
-                        android:id="@+id/txt_filter_type_all"
+                        android:id="@+id/img_filter_type_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/filter_all_gray"
+                        android:src="@drawable/selector_filter_all"
                         android:layout_centerVertical="true"/>
             </RelativeLayout>
             <LinearLayout
@@ -160,45 +165,53 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_drawing"
                         android:id="@+id/img_filter_type_drawing"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_painting"
                         android:id="@+id/img_filter_type_painting"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_oriental"
                         android:id="@+id/img_filter_type_oriental"
                         android:layout_weight="1"/>
             </LinearLayout>
             <LinearLayout
+                    android:background="@drawable/layout_underline"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
+                    android:layout_height="75dp"
+                    android:paddingBottom="15dp">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_mixing"
                         android:id="@+id/img_filter_type_mixing"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_crafting"
                         android:id="@+id/img_filter_type_crafting"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_type_digital"
                         android:id="@+id/img_filter_type_digital"
                         android:layout_weight="1"/>
             </LinearLayout>
 
 
-            <LinearLayout
-                    android:layout_marginTop="30dp"
+            <RelativeLayout
+                    android:layout_marginTop="13dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -207,31 +220,39 @@
                         android:text="작품 카테고리"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" android:textSize="16sp" android:textColor="#4a4a4a"/>
-                <TextView
-                        android:text="전체"
-                        android:id="@+id/txt_filter_category_all"
+                        android:layout_alignParentLeft="true"
+                        android:includeFontPadding="false"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:textColor="#4a4a4a"/>
+                <ImageView
+                        android:id="@+id/img_filter_category_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" android:textAlignment="textEnd" android:textColor="#ff6f61"/>
-            </LinearLayout>
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/selector_filter_all"
+                        android:layout_centerVertical="true"/>
+            </RelativeLayout>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_human"
                         android:id="@+id/img_filter_category_human"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_animal"
                         android:id="@+id/img_filter_category_animal"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_plant"
                         android:id="@+id/img_filter_category_plant"
                         android:layout_weight="1"/>
             </LinearLayout>
@@ -240,18 +261,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_object"
                         android:id="@+id/img_filter_category_object"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_abstract"
                         android:id="@+id/img_filter_category_abstract"
                         android:layout_weight="1"/>
                 <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/ic_launcher_background"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/selector_filter_category_scenery"
                         android:id="@+id/img_filter_category_scenery"
                         android:layout_weight="1"/>
             </LinearLayout>

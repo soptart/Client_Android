@@ -26,9 +26,6 @@ class ApplyExhibitionAdapter(val dataList: ArrayList<ApplyExhibitionData>): Recy
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.ex_title.text = dataList[position].ex_title
-        holder.ex_type.text = dataList[position].ex_type
-        holder.ex_desc.text = dataList[position].ex_desc
         holder.radioButton.onCheckedChange { buttonView, isChecked ->
             if(!isChecked){
                 if(selectedRadioBtn == buttonView) selectedRadioBtn = null

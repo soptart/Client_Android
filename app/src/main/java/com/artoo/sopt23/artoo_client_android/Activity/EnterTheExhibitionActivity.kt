@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.artoo.sopt23.artoo_client_android.R
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_enter_the_exhibition.*
 
 class EnterTheExhibitionActivity : AppCompatActivity() {
@@ -12,9 +13,16 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_enter_the_exhibition)
 
+
+        if(intent.hasExtra("d_repImg_url")) {
+            // test
+
+        }
+
         btn_enter_ex.setOnClickListener {
             val nextIntent = Intent(this, ExhibitionDetailActivity::class.java)
             startActivity(nextIntent)
+
         }
     }
 }

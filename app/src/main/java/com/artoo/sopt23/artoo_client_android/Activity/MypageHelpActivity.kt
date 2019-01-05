@@ -164,7 +164,4 @@ class MypageHelpActivity : AppCompatActivity() {
         help_list_btn9 = findViewById(R.id.help_list_btn9)
         help_list_btn9.setOnClickListener(onClick)
     }
-
-
-
 }
