@@ -1,9 +1,11 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
+import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -22,55 +24,64 @@ interface NetworkService {
     // 유저 소개 조회
     @GET("/users/{u_idx}/description")
     fun getUserDescResponse(
-        @Header("Content-Type") content_type: String,
-        @Path("u_idx") u_idx: Int
+            @Header("Content-Type") content_type: String,
+            @Path("u_idx") u_idx: Int
     ): Call<GetUserDescResponse>
 
     //Join
     @POST("/users")
     fun postJoinResponse(
-        @Header("Content-Type") content_type: String,
-        @Body() body: JsonObject
+            @Header("Content-Type") content_type: String,
+            @Body() body: JsonObject
     ): Call<PostJoinResponse>
 
     //Login
     @POST("/login")
     fun postLoginResponse(
-        @Header("Content-Type") content_type: String,
-        @Body() body: JsonObject
+            @Header("Content-Type") content_type: String,
+            @Body() body: JsonObject
     ): Call<PostLoginResponse>
 
     //ProductUpload::create
     @Multipart
     @POST("/artworks")
     fun postProductUploadResponse(
-        @Header("Content-Type") content_type: String,
-        @Header("Authorization") token: String,
-        @Part("a_name") a_name: RequestBody,
-        @Part("a_width") a_width: Int,
-        @Part("a_height") a_height: Int,
-        @Part("a_depth") a_depth: Int,
-        @Part("a_category") a_category: RequestBody,
-        @Part("a_form") a_form: RequestBody,
-        @Part("a_price") a_price: Int,
-        @Part("u_idx") u_idx: Int,
-        @Part("a_detail") a_detail: RequestBody,
-        @Part("a_year") a_year: RequestBody,
-        @Part picUrl: MultipartBody.Part?,
-        @Part("a_tags") a_tags: RequestBody,
-        @Part("a_license") a_license: RequestBody///,
-        //@Part("a_material") a_material: RequestBody,
-        //@Part("a_expression") a_expressions: RequestBody
+            @Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String,
+            @Part("a_name") a_name: RequestBody,
+            @Part("a_width") a_width: Int,
+            @Part("a_height") a_height: Int,
+            @Part("a_depth") a_depth: Int,
+            @Part("a_category") a_category: RequestBody,
+            @Part("a_form") a_form: RequestBody,
+            @Part("a_price") a_price: Int,
+            @Part("u_idx") u_idx: Int,
+            @Part("a_detail") a_detail: RequestBody,
+            @Part("a_year") a_year: RequestBody,
+            @Part picUrl: MultipartBody.Part?,
+            @Part("a_tags") a_tags: RequestBody,
+            @Part("a_license") a_license: RequestBody///,
+            //@Part("a_material") a_material: RequestBody,
+            //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
     //테마 상세페이지
     @GET("/themes/details/{t_idx}")
     fun getThemeProductResponse(
-    ):Call<GetThemeProductResponse>
+    ): Call<GetThemeProductResponse>
 
     // 모든 전시 조회
     @GET("/displays")
     fun getExhibitionDisplayResponse(
-    ) : Call<GetExhibitionDisplayResponse>
+    ): Call<GetExhibitionDisplayResponse>
 
+    // 전시 신청
+    @Headers("Content-Type: application/json")
+    @POST("/discontents/{user_idx}")
+    fun postApplyExhibitionResponse(
+            //@Header("Content-Type") content_type: String,
+            @Header("Authorization") token: String,
+            @Path("user_idx") user_idx: Int,
+            @Body applyExhibitionData: ApplyExhibitionData
+    ): Call<PostApplyExhibitionResponse>
 }

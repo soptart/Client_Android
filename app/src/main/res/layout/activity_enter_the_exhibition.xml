@@ -17,10 +17,10 @@
 
 
         <ImageView
+            android:id="@+id/iv_enter_the_exhibition"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.3"
-            android:background="@drawable/pic3" />
+            android:alpha="0.3" />
 
 
         <LinearLayout
