@@ -21,13 +21,6 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    val PRODUCT_FRAGMENT: Int = 1
-
-
-    public var filter_size: String? = null
-    public var filter_type: String? = null
-    public var filter_category: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

@@ -1,9 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
@@ -39,6 +36,15 @@ interface NetworkService {
         @Header("Content-Type") content_type: String,
         @Body() body: JsonObject
     ): Call<PostLoginResponse>
+
+    // 필터&키워드로 작품 조회
+    @GET("/artworks/filter")
+    fun getProductListResponse(
+        @Query("a_size") a_size: String?,
+        @Query("a_form") a_form: String?,
+        @Query("a_category") a_category: String?,
+        @Query("a_keyword") a_keyword: String
+    ): Call<GetProductListResponse>
 
     //ProductUpload::create
     @Multipart

@@ -26,7 +26,7 @@ class HomeThemeRecyclerViewAdapter(val dataList: ArrayList<ProductOverviewData>)
         var options: RequestOptions = RequestOptions().centerCrop()
 
         Glide.with(ctx)
-                .load(dataList[position].url)
+                .load(dataList[position].pic_url)
                 .apply(options)
                 .into(holder.img_product)
     }

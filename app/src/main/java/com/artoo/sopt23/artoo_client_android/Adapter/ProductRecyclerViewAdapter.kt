@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import org.jetbrains.anko.startActivity
 
-class ProductRecyclerViewAdapter(val dataList: ArrayList<ProductOverviewData>): RecyclerView.Adapter<ProductRecyclerViewAdapter.Holder>(){
+class ProductRecyclerViewAdapter(var dataList: ArrayList<ProductOverviewData>): RecyclerView.Adapter<ProductRecyclerViewAdapter.Holder>(){
     lateinit var ctx: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -28,12 +28,12 @@ class ProductRecyclerViewAdapter(val dataList: ArrayList<ProductOverviewData>): 
 
         var options: RequestOptions = RequestOptions().placeholder(R.drawable.questionmark)
         Glide.with(ctx)
-            .load(dataList[position].url)
+            .load(dataList[position].pic_url)
             .apply(options)
             .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].Id)
+            ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].a_idx)
         }
     }
 

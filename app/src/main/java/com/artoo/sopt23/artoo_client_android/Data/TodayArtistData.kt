@@ -7,6 +7,6 @@ data class TodayArtistData(
     var u_school: String, // 회원 학교
     var list: ArrayList<TodayArtistProductData> // 회원 작품들
     /*var title:String,
-    var Id: Int,
+    var a_idx: Int,
     var img_url:String*/
 )
