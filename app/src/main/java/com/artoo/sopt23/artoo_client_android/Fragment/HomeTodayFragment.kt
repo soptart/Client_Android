@@ -27,11 +27,13 @@ import kotlinx.android.synthetic.main.fragment_home_today.*
 import kotlinx.android.synthetic.main.fragment_home_today.view.*
 import kotlinx.android.synthetic.main.top_navigation_tab_home_artist.*
 import kotlinx.android.synthetic.main.top_navigation_tab_home_artist.view.*
+import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeTodayFragment : Fragment() {
+
     var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
         TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
         TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
@@ -40,28 +42,39 @@ class HomeTodayFragment : Fragment() {
         TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
         TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
         TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
+        TodayArtistData(1, "김다영", "v2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
         TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
     )
 
+    lateinit var txt_top_navi_first_arti_tab: TextView
+    lateinit var txt_top_navi_second_arti_tab: TextView
+    lateinit var txt_top_navi_third_arti_tab: TextView
+    lateinit var txt_top_navi_fourth_arti_tab: TextView
+    lateinit var txt_top_navi_fifth_arti_tab: TextView
+
     lateinit var inflater: LayoutInflater
+    lateinit var homeArtistFragmentStatePagerAdapter: HomeArtistFragmentStatePagerAdapter
 
 
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        configureTopNavigation()
+        setOnClickListener()
+    }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         this.inflater = inflater
-        if(view == null) return inflater!!.inflate(R.layout.fragment_home_today, container, false)
-        else return view
+
+        return inflater!!.inflate(R.layout.fragment_home_today, container, false)
     }
 
     override fun onResume() {
         super.onResume()
         getTodayArtist()
-        setOnClickListener()
     }
 
     fun getTodayArtist() {
@@ -74,30 +87,37 @@ class HomeTodayFragment : Fragment() {
             override fun onResponse(call: Call<GetTodayArtistResponse>, response: Response<GetTodayArtistResponse>) {
                 if(response.isSuccessful){
                     todayArtist = response.body()!!.data
+                    configureTopNavigation()
                 }
-                configureTopNavigation()
             }
         })
     }
 
     private fun configureTopNavigation() {
         //Artist Tab
-        view!!.vp_top_navi_act_frag_pager_home_artist.offscreenPageLimit = 5
-        view!!.vp_top_navi_act_frag_pager_home_artist.adapter = HomeArtistFragmentStatePagerAdapter(childFragmentManager, 5, todayArtist)
-        view!!.tl_top_navi_act_top_menu_home_artist.setupWithViewPager(view!!.vp_top_navi_act_frag_pager_home_artist)
 
-        val topNaviLayout : View = inflater.inflate(R.layout.top_navigation_tab_home_artist, null, false)
-        (topNaviLayout.findViewById(R.id.tv_top_navi_first_arti_tab) as TextView).text = todayArtist[0].u_name
-        (topNaviLayout.findViewById(R.id.tv_top_navi_second_arti_tab) as TextView).text = todayArtist[1].u_name
-        (topNaviLayout.findViewById(R.id.tv_top_navi_third_arti_tab) as TextView).text = todayArtist[2].u_name
-        (topNaviLayout.findViewById(R.id.tv_top_navi_fourth_arti_tab) as TextView).text = todayArtist[3].u_name
-        (topNaviLayout.findViewById(R.id.tv_top_navi_fifth_arti_tab) as TextView).text = todayArtist[4].u_name
-        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(4)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fifth_arti_tab) as RelativeLayout
-        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(3)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fourth_arti_tab) as RelativeLayout
-        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(2)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_third_arti_tab) as RelativeLayout
-        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(1)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_second_arti_tab) as RelativeLayout
-        view!!.tl_top_navi_act_top_menu_home_artist.getTabAt(0)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_first_arti_tab) as RelativeLayout
-        view!!.tl_top_navi_act_top_menu_home_artist.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+        val topNaviLayout = inflater.inflate(R.layout.top_navigation_tab_home_artist, null, false)
+        homeArtistFragmentStatePagerAdapter = HomeArtistFragmentStatePagerAdapter(childFragmentManager, 5, todayArtist)
+        vp_top_navi_act_frag_pager_home_artist.adapter = homeArtistFragmentStatePagerAdapter
+        vp_top_navi_act_frag_pager_home_artist.offscreenPageLimit = 5
+        tl_top_navi_act_top_menu_home_artist.setupWithViewPager(view!!.vp_top_navi_act_frag_pager_home_artist)
+
+        txt_top_navi_first_arti_tab = topNaviLayout.findViewById(R.id.tv_top_navi_first_arti_tab)
+        txt_top_navi_second_arti_tab = topNaviLayout.findViewById(R.id.tv_top_navi_second_arti_tab)
+        txt_top_navi_third_arti_tab = topNaviLayout.findViewById(R.id.tv_top_navi_third_arti_tab)
+        txt_top_navi_fourth_arti_tab = topNaviLayout.findViewById(R.id.tv_top_navi_fourth_arti_tab)
+        txt_top_navi_fifth_arti_tab = topNaviLayout.findViewById(R.id.tv_top_navi_fifth_arti_tab)
+        txt_top_navi_first_arti_tab.text = todayArtist[0].u_name
+        txt_top_navi_second_arti_tab.text = todayArtist[1].u_name
+        txt_top_navi_third_arti_tab.text = todayArtist[2].u_name
+        txt_top_navi_fourth_arti_tab.text = todayArtist[3].u_name
+        txt_top_navi_fifth_arti_tab.text = todayArtist[4].u_name
+        tl_top_navi_act_top_menu_home_artist.getTabAt(4)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fifth_arti_tab) as RelativeLayout
+        tl_top_navi_act_top_menu_home_artist.getTabAt(3)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_fourth_arti_tab) as RelativeLayout
+        tl_top_navi_act_top_menu_home_artist.getTabAt(2)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_third_arti_tab) as RelativeLayout
+        tl_top_navi_act_top_menu_home_artist.getTabAt(1)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_second_arti_tab) as RelativeLayout
+        tl_top_navi_act_top_menu_home_artist.getTabAt(0)!!.customView = topNaviLayout.findViewById(R.id.btn_top_navi_first_arti_tab) as RelativeLayout
+        tl_top_navi_act_top_menu_home_artist.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 selectedArtistTab(position = tab!!.position)
             }
@@ -116,60 +136,60 @@ class HomeTodayFragment : Fragment() {
     //Artist Tab Layout Setting
     private fun selectedArtistTab(position: Int) {
         if (position == 0) {
-            view!!.tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            view!!.tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            view!!.tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            view!!.tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            view!!.tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            view!!.tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
-            view!!.tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            view!!.tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            view!!.tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            view!!.tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            txt_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            txt_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 1) {
-            tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
-            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            txt_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            txt_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 2) {
-            tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
-            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            txt_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            txt_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else if (position == 3) {
-            tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
-            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            txt_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
         } else {
-            tv_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
-            tv_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
-            tv_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-            tv_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
+            txt_top_navi_first_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_second_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_third_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fourth_arti_tab.setTextColor(resources.getColor(R.color.colorNonSelectedTab))
+            txt_top_navi_fifth_arti_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            txt_top_navi_first_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_second_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_third_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fourth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            txt_top_navi_fifth_arti_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_bold))
         }
     }
 

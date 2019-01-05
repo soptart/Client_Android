@@ -74,7 +74,6 @@ class ProductFragment : Fragment() {
             override fun onQueryTextChange(query: String?): Boolean {
                 return true
             }
-
         })
 
         setRecyclerView()
@@ -134,6 +133,7 @@ class ProductFragment : Fragment() {
 
         rv_fragment_product_list.adapter = productRecyclerViewAdapter
         rv_fragment_product_list.layoutManager = staggeredGridLayoutManager
+        rv_fragment_product_list.itemAnimator = null
         staggeredGridLayoutManager.invalidateSpanAssignments()
     }
 }
