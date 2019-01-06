@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".Fragment.MypageProductFragment">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Fragment.MypageProductFragment">
 
     <!-- productCount == 0 -->
     <RelativeLayout
+            android:id="@+id/rl_mypage_product_count_zero"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -47,6 +48,7 @@
 
     <!-- productCount > 0 -->
     <LinearLayout
+            android:id="@+id/ll_mypage_product_count_many"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -59,6 +61,11 @@
                 android:text="작품 업로드하기"/>
 
         <!-- recyclerview -->
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fragment_mypage_product_list"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
     </LinearLayout>
 
 

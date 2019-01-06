@@ -71,7 +71,7 @@ interface NetworkService {
     ) : Call<GetExhibitionDisplayResponse>
 
     //MypageProduct::list
-    @GET("/users/{u_Idx}")
+    @GET("/users/{u_idx}")
     fun getMypageProductResponse(
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
@@ -87,7 +87,7 @@ interface NetworkService {
     ): Call<GetMypageLikeResponse>
 
     //MypageDeal::list
-    @GET("/users/{u_idx}/purchase")
+    @GET("/users/{u_idx}/purchases")
     fun getMypageDealResponse(
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
@@ -95,7 +95,7 @@ interface NetworkService {
     ): Call<GetMypageDealResponse>
 
     //MypageReview::list
-    @GET("/users/{u_idx}/review")
+    @GET("/users/{u_idx}/reviews")
     fun getMypageReviewResponse(
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
