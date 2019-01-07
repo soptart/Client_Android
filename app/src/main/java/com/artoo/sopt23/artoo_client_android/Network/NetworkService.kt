@@ -1,17 +1,16 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostPurchaseResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -133,6 +132,22 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageReviewResponse>
+
+    //MypageUserDescription::update
+    @PUT("/users/{u_idx}/myInfo")
+    fun putMypagePrefIntroResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+     ): Call<PutMypagePrefInfoResponse>
+
+    //MypagePrefer::list
+    @GET("/users/{u_idx}/myInfo")
+    fun getMypagePrefInfoResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypagePrefInfoResponse>
 
     // 전시 신청
     @Headers("Content-Type: application/json")

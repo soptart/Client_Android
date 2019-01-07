@@ -30,7 +30,6 @@ class MypageFragmentStatePageAdapter(fm : FragmentManager, val fragmentCount : I
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
-
             0 -> return mypageProductFragment
             1 -> return mypageLikeFragment
             2 -> return mypageDealFragment
