@@ -11,14 +11,19 @@ import com.artoo.sopt23.artoo_client_android.Adapter.ProductDetailCommentRecycle
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.Data.CommentData
 import com.artoo.sopt23.artoo_client_android.Data.ProductDetailData
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductDetailResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import org.jetbrains.anko.startActivity
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,9 +31,11 @@ import retrofit2.Response
 class ProductDetailActivity : AppCompatActivity() {
 
     var a_idx:Int = -1
-    lateinit var productDetailData: ProductDetailData
 
-    lateinit var productDetailCommentRecyclerViewAdapter: ProductDetailCommentRecyclerViewAdapter
+    var productCommentList: ArrayList<CommentData> = arrayListOf()
+    lateinit var productDetailData: ProductDetailData
+    lateinit var productCommentRecyclerViewAdapter: ProductDetailCommentRecyclerViewAdapter
+
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
@@ -41,6 +48,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         setRecyclerView()
         getProductDetailData()
+        getProductCommentData()
 
         img_product_detail_product.setOnClickListener {
             startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
@@ -58,6 +66,35 @@ class ProductDetailActivity : AppCompatActivity() {
                 txt_product_detail_like.setTextColor(Color.parseColor("#9c9c9c"))
             }
         })
+
+        tv_product_detail_add_comment.setOnClickListener {
+            val token = SharedPreferenceController.getAuthorization(this)
+
+            var jsonObject: JSONObject = JSONObject()
+            jsonObject.put("c_content", edt_product_detail_comment.text.toString())
+            jsonObject.put("u_idx", SharedPreferenceController.getUserID(this))
+            jsonObject.put("a_idx", productDetailData.a_idx)
+
+            edt_product_detail_comment.text.clear()
+            edt_product_detail_comment.clearFocus()
+
+            val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+            val postProductCommentResponse:Call<PostProductCommentResponse> = networkService.postProductCommentResponse(token, gsonObject)
+
+            postProductCommentResponse.enqueue(object: Callback<PostProductCommentResponse>{
+                override fun onFailure(call: Call<PostProductCommentResponse>, t: Throwable) {
+                    Log.i("ProdutDetailActivity", "Comment")
+                }
+
+                override fun onResponse(
+                    call: Call<PostProductCommentResponse>,
+                    response: Response<PostProductCommentResponse>
+                ) {
+                    Toast.makeText(this@ProductDetailActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
+                    if(response.isSuccessful) getProductCommentData()
+                }
+            })
+        }
 
         img_product_detail_expand.setOnClickListener {
             if(it.isSelected == false){
@@ -80,6 +117,30 @@ class ProductDetailActivity : AppCompatActivity() {
         }
     }
 
+    fun getProductCommentData(){
+        val token = SharedPreferenceController.getAuthorization(this)
+        val getProductCommentResponse = networkService.getProductCommentResponse(token, a_idx)
+        getProductCommentResponse.enqueue(object: Callback<GetProductCommentResponse>{
+            override fun onFailure(call: Call<GetProductCommentResponse>, t: Throwable) {
+                Log.i("ProductDetailActivity", "Connection Failure" + t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<GetProductCommentResponse>,
+                response: Response<GetProductCommentResponse>
+            ) {
+                if(response.isSuccessful){
+                    productCommentList = response.body()!!.data
+                    productCommentRecyclerViewAdapter.dataList = productCommentList
+                    productCommentRecyclerViewAdapter.notifyDataSetChanged()
+                }
+                else{
+                    Log.i("ProductDetailActivity", "Get Comment Data Failure")
+                }
+            }
+        })
+    }
+
     fun getProductDetailData(){
         val token = SharedPreferenceController.getAuthorization(this)
         val getProductDetailResponse = networkService.getProductDetailResponse("application/json", token, a_idx)
@@ -97,7 +158,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     Glide.with(this@ProductDetailActivity)
                         .load(productDetailData.pic_url).apply(options).into(img_product_detail_product)
                     txt_product_detail_title.text = productDetailData.a_name
-                    txt_product_detail_artist.text = productDetailData.u_school + productDetailData.u_name
+                    txt_product_detail_artist.text = productDetailData.u_school + " " + productDetailData.u_name
                     txt_product_detail_size.text = productDetailData.a_width.toString() + " x " +
                             productDetailData.a_height.toString() + " x " +
                             productDetailData.a_depth.toString()
@@ -150,8 +211,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     }
                     else if(productDetailData.a_purchaseState == 1){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_price)
-                        val price:String = productDetailData.a_price.toString() +"원"
-                        txt_product_detail_price.text = price
+                        txt_product_detail_price.text = productDetailData.a_price.toString() +"원"
                         txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_purchase)
                         img_product_detail_purchase.isClickable = true
@@ -175,14 +235,8 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     private fun setRecyclerView() {
-        var dataList: ArrayList<CommentData> = ArrayList()
-        dataList.add(CommentData(1, "최윤정", "작품 좋아요", "2018.11.24"))
-        dataList.add(CommentData(1, "최윤정", "작품 좋아요", "2018.11.25"))
-        dataList.add(CommentData(2, "배선영", "내가 세상에서 제일좋아하는빵또아는 노란색 포장지에 쌓여있고 하얀색 속살을 가지고 있는 맛있는 아이스크립입니다.", "2018.11.24"))
-        dataList.add(CommentData(1, "최윤정", "작품 좋아요", "2018.11.26"))
-
-        productDetailCommentRecyclerViewAdapter = ProductDetailCommentRecyclerViewAdapter(this, dataList)
-        rv_product_detail_comment_list.adapter = productDetailCommentRecyclerViewAdapter
+        productCommentRecyclerViewAdapter = ProductDetailCommentRecyclerViewAdapter(this, productCommentList)
+        rv_product_detail_comment_list.adapter = productCommentRecyclerViewAdapter
         rv_product_detail_comment_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 }

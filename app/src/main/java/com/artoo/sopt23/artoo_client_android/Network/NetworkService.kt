@@ -3,6 +3,7 @@ package com.artoo.sopt23.artoo_client_android.Network
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
+import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.DeleteProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
@@ -95,6 +96,25 @@ interface NetworkService {
         @Body() body: JsonObject
     ):Call<PostPurchaseResponse>
 
+    @GET("/comments/{a_idx}")
+    fun getProductCommentResponse(
+        @Header("Authorization") token: String,
+        @Path("a_idx") a_idx: Int
+    ):Call<GetProductCommentResponse>
+
+    @POST("/comments")
+    fun postProductCommentResponse(
+        @Header("Authorization") token: String,
+        @Body() body: JsonObject
+    ):Call<PostProductCommentResponse>
+
+    @DELETE("/comments/{c_idx}")
+    fun deleteProductCommentResponse(
+        @Header("Authorization") token: String,
+        @Header("u_idx") u_idx: Int,
+        @Path("c_idx") c_idx: Int
+    ):Call<DeleteProductCommentResponse>
+
     //테마 상세페이지
     // 테마의 따른 작품 조회 : 홈테마 페이지
     @GET("/themes")
@@ -182,7 +202,7 @@ interface NetworkService {
     @POST("/notices/buys/{p_idx}")
     fun postCommentResponse(
         @Header("Authorization") token:String,
-        @Part("comment") Comment:String,
+        @Part("c_content") Comment:String,
         @Path("p_idx") p_idx: Int
     ) : Call<PostCommentResponse>
 }

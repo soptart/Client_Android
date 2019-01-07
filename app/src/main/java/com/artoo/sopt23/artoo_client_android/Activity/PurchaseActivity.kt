@@ -75,7 +75,7 @@ class PurchaseActivity : AppCompatActivity() {
         }
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
         val a_id = intent.getIntExtra("aid", -1)
-        val u_id = intent.getIntExtra("uid", -1)
+        val u_id = intent.getIntExtra("u_idx", -1)
         val postPurchaseResponse: Call<PostPurchaseResponse> = networkService.postPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
                 ,a_id,u_id, gsonObject)
         postPurchaseResponse.enqueue(object : Callback<PostPurchaseResponse>{
@@ -93,7 +93,7 @@ class PurchaseActivity : AppCompatActivity() {
 
     private fun getArtworkDetail() {
         val a_id = intent.getIntExtra("aid", -1)
-        val u_id = intent.getIntExtra("uid", -1)
+        val u_id = intent.getIntExtra("u_idx", -1)
         if (a_id != -1 && u_id != -1) {
             val getArtworkResponse: Call<GetPurchaseResponse> = networkService.getPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
                     , a_id, u_id)

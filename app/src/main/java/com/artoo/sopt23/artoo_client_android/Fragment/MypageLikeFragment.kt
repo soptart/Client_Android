@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_mypage_like.*
 
 class MypageLikeFragment : Fragment() {
 
-    lateinit var likeData: ArrayList<MypageLikeData>
+    var likeData: ArrayList<MypageLikeData> = arrayListOf()
     lateinit var mypageLikeRecyclerViewAdapter: MypageLikeRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
