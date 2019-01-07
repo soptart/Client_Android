@@ -287,7 +287,7 @@ class ProductUploadActivity : AppCompatActivity() {
                 input_product_width, input_product_height, input_product_depth,
                 input_product_category, input_product_format, input_product_price,
                 u_idx, input_product_detail, input_product_year,
-                input_tags, input_product_license, input_product_img!!/*, input_product_material, input_product_tip*/)
+                input_tags, input_product_license, input_product_material, input_product_tip, input_product_img!!/*, input_product_material, input_product_tip*/)
 
             Log.d("*****ProductUploadActivity::", postProductUploadResponse.toString())
 

@@ -64,9 +64,9 @@ interface NetworkService {
         @Part("a_year") a_year: RequestBody,
         @Part("a_tags") a_tags: RequestBody,
         @Part("a_license") a_license: RequestBody,
-        @Part pic_url: MultipartBody.Part///,
-        //@Part("a_material") a_material: RequestBody,
-        //@Part("a_expression") a_expressions: RequestBody
+        @Part("a_material") a_material: RequestBody,
+        @Part("a_expression") a_expressions: RequestBody,
+        @Part pic_url: MultipartBody.Part
     ): Call<PostProductUploadResponse>
 
     @GET("/artworks/{a_idx}")
