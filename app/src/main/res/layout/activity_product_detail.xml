@@ -20,7 +20,7 @@
                     android:id="@+id/img_product_detail_product"
                     android:layout_width="match_parent"
                     android:layout_height="308dp"
-                    android:scaleType="fitCenter" android:background="@drawable/ic_launcher_background"/>
+                    android:scaleType="fitCenter"/>
             <LinearLayout
                     android:paddingTop="15dp"
                     android:layout_marginLeft="20dp"
@@ -190,8 +190,10 @@
                     android:layout_marginRight="20dp"
                     android:paddingBottom="5dp"
                     android:orientation="vertical"
+                    android:background="@drawable/layout_underline"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
                 <TextView
                         android:text="표현 기법"
                         android:layout_width="match_parent"
@@ -315,6 +317,6 @@
                 android:src="@drawable/artwork_sale_purchase"
                 android:id="@+id/img_product_detail_purchase" android:scaleType="fitXY"
                 android:padding="0dp"
-                android:clickable="false"/>
+                android:clickable="true"/>
     </LinearLayout>
 </RelativeLayout>

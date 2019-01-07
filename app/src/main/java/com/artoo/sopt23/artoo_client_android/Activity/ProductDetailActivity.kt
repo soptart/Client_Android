@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.artoo.sopt23.artoo_client_android.Adapter.ProductDetailCommentRecyclerViewAdapter
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.Data.CommentData
@@ -41,8 +42,6 @@ class ProductDetailActivity : AppCompatActivity() {
         setRecyclerView()
         getProductDetailData()
 
-        ll_product_detail_info.visibility = View.GONE
-
         img_product_detail_product.setOnClickListener {
             startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
         }
@@ -72,6 +71,11 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         ll_product_detail_bottomnav.setOnClickListener {
+            Toast.makeText(this, "ll_product_detail_bottomnav Clicked", Toast.LENGTH_SHORT)
+            startActivity<PurchaseActivity>("a_idx" to a_idx, "pic_url" to productDetailData.pic_url)
+        }
+        img_product_detail_purchase.setOnClickListener {
+            Toast.makeText(this, "img_product_detail_purchase Clicked", Toast.LENGTH_SHORT)
             startActivity<PurchaseActivity>("a_idx" to a_idx, "pic_url" to productDetailData.pic_url)
         }
     }
@@ -88,14 +92,14 @@ class ProductDetailActivity : AppCompatActivity() {
                 response: Response<GetProductDetailResponse>
             ) {
                 if(response.isSuccessful){
-                    var options: RequestOptions = RequestOptions().centerCrop()
+                    var options: RequestOptions = RequestOptions().centerInside()
                     productDetailData = response.body()!!.data
                     Glide.with(this@ProductDetailActivity)
                         .load(productDetailData.pic_url).apply(options).into(img_product_detail_product)
                     txt_product_detail_title.text = productDetailData.a_name
                     txt_product_detail_artist.text = productDetailData.u_school + productDetailData.u_name
-                    txt_product_detail_size.text = productDetailData.a_width.toString() + "x" +
-                            productDetailData.a_height.toString() + "x" +
+                    txt_product_detail_size.text = productDetailData.a_width.toString() + " x " +
+                            productDetailData.a_height.toString() + " x " +
                             productDetailData.a_depth.toString()
 
                     if(productDetailData.a_size < 2412) img_product_detail_size.setImageResource(R.drawable.size_s)
@@ -140,9 +144,9 @@ class ProductDetailActivity : AppCompatActivity() {
                     if(productDetailData.a_purchaseState == 0){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
                         txt_product_detail_price.text = "판매 안 함"
-                        txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
+                        txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
-                        ll_product_detail_bottomnav.isClickable = false
+                        img_product_detail_purchase.isClickable = false
                     }
                     else if(productDetailData.a_purchaseState == 1){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_price)
@@ -150,14 +154,14 @@ class ProductDetailActivity : AppCompatActivity() {
                         txt_product_detail_price.text = price
                         txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_purchase)
-                        ll_product_detail_bottomnav.isClickable = true
+                        img_product_detail_purchase.isClickable = true
                     }
                     else if(productDetailData.a_purchaseState == 2){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
                         txt_product_detail_price.text = "판매 안 함"
-                        txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
+                        txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_complete)
-                        ll_product_detail_bottomnav.isClickable = false
+                        img_product_detail_purchase.isClickable = false
                     }
                     else{
                         Log.i("ProductDetailActivity", "Unknown PurchaseState")

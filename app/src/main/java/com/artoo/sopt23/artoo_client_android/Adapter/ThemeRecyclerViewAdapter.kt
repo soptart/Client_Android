@@ -41,7 +41,7 @@ class ThemeRecyclerViewAdapter(val dataList: ArrayList<ProductData>): RecyclerVi
                 .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].a_idx)
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
         }
     }
 
