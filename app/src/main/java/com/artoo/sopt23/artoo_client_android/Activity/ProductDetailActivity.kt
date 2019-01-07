@@ -22,7 +22,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_product_detail.*
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -52,6 +52,10 @@ class ProductDetailActivity : AppCompatActivity() {
 
         img_product_detail_product.setOnClickListener {
             startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
+        }
+
+        ll_product_detail_bottomnav.setOnClickListener {
+            startActivity<PurchaseActivity>("pic_url" to productDetailData.pic_url, "a_idx" to productDetailData.a_idx, "u_idx" to SharedPreferenceController.getUserID(this))
         }
 
         ll_product_detail_like.setOnClickListener({
@@ -105,15 +109,6 @@ class ProductDetailActivity : AppCompatActivity() {
                 txt_product_detail_desc.maxLines = 3
                 it.isSelected = false
             }
-        }
-
-        ll_product_detail_bottomnav.setOnClickListener {
-            Toast.makeText(this, "ll_product_detail_bottomnav Clicked", Toast.LENGTH_SHORT)
-            startActivity<PurchaseActivity>("a_idx" to a_idx, "pic_url" to productDetailData.pic_url)
-        }
-        img_product_detail_purchase.setOnClickListener {
-            Toast.makeText(this, "img_product_detail_purchase Clicked", Toast.LENGTH_SHORT)
-            startActivity<PurchaseActivity>("a_idx" to a_idx, "pic_url" to productDetailData.pic_url)
         }
     }
 

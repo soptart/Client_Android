@@ -51,7 +51,6 @@ interface NetworkService {
     @Multipart
     @POST("/artworks")
     fun postProductUploadResponse(
-        @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
         @Part("a_name") a_name: RequestBody,
         @Part("a_width") a_width: Int,
@@ -60,14 +59,14 @@ interface NetworkService {
         @Part("a_category") a_category: RequestBody,
         @Part("a_form") a_form: RequestBody,
         @Part("a_price") a_price: Int,
-        //@Part("u_idx") u_idx: Int,
+        @Part("u_idx") u_idx: Int,
         @Part("a_detail") a_detail: RequestBody,
         @Part("a_year") a_year: RequestBody,
         @Part("a_tags") a_tags: RequestBody,
         @Part("a_license") a_license: RequestBody,
-        @Part pic_url: MultipartBody.Part?,
-        @Part("a_material") a_material: RequestBody,
-        @Part("a_expression") a_expressions: RequestBody
+        @Part pic_url: MultipartBody.Part///,
+        //@Part("a_material") a_material: RequestBody,
+        //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
     @GET("/artworks/{a_idx}")
@@ -175,6 +174,12 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypagePrefInfoResponse>
+
+    @GET("/users/{u_idx}/myInfo")
+    fun getMypageMyInfoResponse(
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageMyInfoResponse>
 
 
     // 전시 신청
