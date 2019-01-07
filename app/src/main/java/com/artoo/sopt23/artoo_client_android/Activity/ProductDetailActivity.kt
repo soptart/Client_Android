@@ -25,8 +25,6 @@ import retrofit2.Response
 class ProductDetailActivity : AppCompatActivity() {
 
     var a_idx:Int = -1
-
-    var img_product_detail_expand_pos = 0
     lateinit var productDetailData: ProductDetailData
 
     lateinit var productDetailCommentRecyclerViewAdapter: ProductDetailCommentRecyclerViewAdapter
@@ -63,15 +61,13 @@ class ProductDetailActivity : AppCompatActivity() {
         })
 
         img_product_detail_expand.setOnClickListener {
-            if(img_product_detail_expand_pos == 0){
-                img_product_detail_expand_pos = 1;
+            if(it.isSelected == false){
                 txt_product_detail_desc.maxLines = Int.MAX_VALUE
-                img_product_detail_expand.setImageResource(android.R.drawable.arrow_up_float)
+                it.isSelected = true
             }
             else{
-                img_product_detail_expand_pos = 0;
                 txt_product_detail_desc.maxLines = 3
-                img_product_detail_expand.setImageResource(android.R.drawable.arrow_down_float)
+                it.isSelected = false
             }
         }
 
@@ -159,7 +155,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     else if(productDetailData.a_purchaseState == 2){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
                         txt_product_detail_price.text = "판매 안 함"
-                        txt_product_detail_price.setTextColor(0x00434343)
+                        txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_complete)
                         ll_product_detail_bottomnav.isClickable = false
                     }

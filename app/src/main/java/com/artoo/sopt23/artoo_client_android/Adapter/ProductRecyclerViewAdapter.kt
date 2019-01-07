@@ -33,7 +33,7 @@ class ProductRecyclerViewAdapter(var dataList: ArrayList<ProductOverviewData>): 
             .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].a_idx)
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
         }
     }
 

@@ -20,7 +20,7 @@
                     android:id="@+id/img_product_detail_product"
                     android:layout_width="match_parent"
                     android:layout_height="308dp"
-                    android:scaleType="centerCrop" android:background="@drawable/ic_launcher_background"/>
+                    android:scaleType="fitCenter" android:background="@drawable/ic_launcher_background"/>
             <LinearLayout
                     android:paddingTop="15dp"
                     android:layout_marginLeft="20dp"
@@ -50,7 +50,7 @@
                             android:paddingHorizontal="10dp"
                             android:text="삭제"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/btn_product_detail_delete"
+                            android:layout_height="match_parent" android:id="@+id/txt_product_detail_delete"
                             android:textColor="#ff6f61"/>
                 </LinearLayout>
                 <LinearLayout
@@ -72,7 +72,8 @@
                         <ImageView
                                 android:id="@+id/img_product_detail_like"
                                 android:layout_width="38dp"
-                                android:layout_height="38dp" app:srcCompat="@drawable/ic_launcher_background"
+                                android:layout_height="38dp"
+                                android:src="@drawable/selector_like_heart"
                                 android:layout_weight="1"
                                 android:scaleType="fitXY"
                         />
@@ -118,11 +119,12 @@
                         <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@android:drawable/checkbox_on_background"
+                                app:srcCompat="@drawable/size_l"
                                 android:scaleType="fitStart"
                                 android:id="@+id/img_product_detail_size"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
+                                android:layout_gravity="center_vertical"
                                 android:layout_weight="1"/>
                         <TextView
                                 android:text="제작년도"
@@ -145,28 +147,10 @@
                             android:layout_height="wrap_content" android:textColor="#b0b3ba"/>
                     <ImageView
                             android:layout_marginRight="5dp"
-                            android:layout_width="20dp"
+                            android:layout_width="match_parent"
                             android:layout_height="20dp" app:srcCompat="@android:drawable/btn_star"
-                            android:scaleType="fitXY"
-                            android:id="@+id/img_product_detail_liecense1"/>
-                    <ImageView
-                            android:layout_marginRight="5dp"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp" app:srcCompat="@android:drawable/btn_star"
-                            android:scaleType="fitXY"
-                            android:id="@+id/img_product_detail_liecense2"/>
-                    <ImageView
-                            android:layout_marginRight="5dp"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp" app:srcCompat="@android:drawable/btn_star"
-                            android:scaleType="fitXY"
-                            android:id="@+id/img_product_detail_liecense3"/>
-                    <ImageView
-                            android:layout_marginRight="5dp"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp" app:srcCompat="@android:drawable/btn_star"
-                            android:scaleType="fitXY"
-                            android:id="@+id/img_product_detail_liecense4"/>
+                            android:scaleType="fitStart"
+                            android:id="@+id/img_product_detail_license"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -196,7 +180,7 @@
                 <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="26dp"
-                        android:src="@android:drawable/arrow_down_float"
+                        android:src="@drawable/selector_arrow_gray"
                         android:id="@+id/img_product_detail_expand"/>
             </LinearLayout>
             <LinearLayout
@@ -207,7 +191,7 @@
                     android:paddingBottom="5dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:background="@drawable/layout_underline">
+                    android:layout_height="match_parent">
                 <TextView
                         android:text="표현 기법"
                         android:layout_width="match_parent"
@@ -222,18 +206,9 @@
                         android:layout_height="wrap_content" android:id="@+id/txt_product_detail_skill"
                         android:textSize="15sp"
                         android:textColor="#4a4a4a"/>
-            </LinearLayout>
-            <LinearLayout
-                    android:id="@+id/ll_product_detail_manufacturer"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:background="@drawable/layout_underline">
                 <TextView
                         android:text="재료"
+                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -305,36 +280,41 @@
             android:id="@+id/ll_product_detail_bottomnav"
             android:layout_width="match_parent"
             android:layout_height="50dp" android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:clickable="true">
         <LinearLayout
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:clickable="false">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:clickable="false">
                 <ImageView
                         android:layout_width="25dp"
-                        android:layout_height="25dp" app:srcCompat="@drawable/ic_launcher_background"
-                        android:id="@+id/imageView"/>
+                        android:layout_height="25dp"
+                        android:id="@+id/img_product_detail_purchase_ic"
+                        android:src="@drawable/artwork_price"
+                        android:clickable="false"/>
                 <TextView
                         android:layout_marginLeft="15dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView2"
-                        android:text="55,000원" android:textSize="18sp" android:textColor="#ff6f61"/>
+                        android:layout_height="wrap_content" android:id="@+id/txt_product_detail_price"
+                        android:text="55,000원" android:textSize="18sp" android:textColor="#ff6f61"
+                        android:clickable="false"/>
             </LinearLayout>
         </LinearLayout>
-        <TextView
-                android:text="구매하기"
+        <ImageView
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:id="@+id/textView4"
-                android:textColor="#ffffff"
-                android:background="#ff6f61"
-                android:textAlignment="center" android:textSize="18sp"/>
+                android:src="@drawable/artwork_sale_purchase"
+                android:id="@+id/img_product_detail_purchase" android:scaleType="fitXY"
+                android:padding="0dp"
+                android:clickable="false"/>
     </LinearLayout>
 </RelativeLayout>
