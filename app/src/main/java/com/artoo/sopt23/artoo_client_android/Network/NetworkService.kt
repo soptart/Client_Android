@@ -7,11 +7,7 @@ import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductRe
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostPurchaseResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.*
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -140,6 +136,7 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageReviewResponse>
+
     // 전시 신청
     @Headers("Content-Type: application/json")
     @POST("/discontents/{user_idx}")
@@ -149,4 +146,36 @@ interface NetworkService {
             @Path("user_idx") user_idx: Int,
             @Body applyExhibitionData: ApplyExhibitionData
     ): Call<PostApplyExhibitionResponse>
+
+    // 구매 내역 조회 : 알림구매내역페이지
+    @GET("/notices/buys/{user_idx}")
+    fun getAlarmBuyResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token:String,
+        @Path("user_idx") user_idx: Int
+    ) : Call<GetAlarmBuyResponse>
+
+    // 판매 내역 조회 : 알림판매내역페이지
+    @GET("/notices/sells/{user_idx}")
+    fun getAlarmSellResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token:String,
+        @Path("user_idx") user_idx: Int
+    ) : Call<GetAlarmSellResponse>
+
+    // 전시 내역 조회 : 알림전시내역페이지
+    @GET("/notices/displays/users/{user_idx}")
+    fun getAlarmExhibitionResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token:String,
+        @Path("user_idx") user_idx: Int
+    ) : Call<GetAlarmExhibitionResponse>
+
+    // 후기 작성 : 알림구매내역 결제완료 후기작성버튼
+    @POST("/notices/buys/{p_idx}")
+    fun postCommentResponse(
+        @Header("Authorization") token:String,
+        @Part("comment") Comment:String,
+        @Path("p_idx") p_idx: Int
+    ) : Call<PostCommentResponse>
 }

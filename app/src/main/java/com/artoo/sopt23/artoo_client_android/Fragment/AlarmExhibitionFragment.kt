@@ -15,9 +15,13 @@ import java.util.ArrayList
 
 
 class AlarmExhibitionFragment : Fragment() {
+
+    lateinit var alarmExhibitionData: ArrayList<AlarmExhibitionData>
     lateinit var alarmExhibitionRecyclerViewAdapter: AlarmExhibitionRecyclerViewAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_alarm_exhibition, container, false)
+        val view:View =  inflater.inflate(R.layout.fragment_alarm_exhibition, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -26,11 +30,7 @@ class AlarmExhibitionFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        var dataList: ArrayList<AlarmExhibitionData> = ArrayList()
-        dataList.add(AlarmExhibitionData("","","","","",""))
-
-
-        alarmExhibitionRecyclerViewAdapter = AlarmExhibitionRecyclerViewAdapter(activity!!,dataList)
+        alarmExhibitionRecyclerViewAdapter = AlarmExhibitionRecyclerViewAdapter(activity!!,alarmExhibitionData)
         rv_fragment_alarm_exhibition_list.adapter = alarmExhibitionRecyclerViewAdapter
         rv_fragment_alarm_exhibition_list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL,false)
     }

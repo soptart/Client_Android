@@ -13,13 +13,14 @@ import com.artoo.sopt23.artoo_client_android.Data.AlarmSellData
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmDealCancelDialogFragment
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 
 class AlarmSellRecyclerViewAdapter(val ctx: Context, val dataListSell: ArrayList<AlarmSellData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    var options: RequestOptions = RequestOptions().centerCrop()
 
     override fun getItemViewType(position: Int): Int {
-        if(dataListSell[position].type == false){
+        if(dataListSell[position].p_isDelivery == 0){
             return 0
         }
         else {
@@ -28,34 +29,36 @@ class AlarmSellRecyclerViewAdapter(val ctx: Context, val dataListSell: ArrayList
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(dataListSell[position].type == false)
-        {
-            (holder as HolderDirect).date.text = dataListSell[position].date
+        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
+
+        if(getItemViewType(position) == 0) { //판매 직거래
+            (holder as HolderDirect).date.text = dataListSell[position].p_date
             Glide.with(ctx)
-                    .load(dataListSell[position].img_url)
-                    .apply(options)
-                    .into((holder).img_url)
-            (holder).title.text = dataListSell[position].title
-            (holder).artist.text = dataListSell[position].artist
-            (holder).buyer_name.text = dataListSell[position].buyer_name
-            (holder).buyer_number.text = dataListSell[position].buyer_number
-            (holder).buyer_address.text = dataListSell[position].buyer_address
+                .load(dataListSell[position].a_pic_url)
+                .apply(options)
+                .into((holder).img_url)
+            (holder).title.text = dataListSell[position].a_name
+            (holder).artist.text = dataListSell[position].a_u_name
+            (holder).buyer_name.text = dataListSell[position].u_name
+            (holder).buyer_number.text = dataListSell[position].u_phone
+            (holder).buyer_address.text = dataListSell[position].u_address
             (holder).btn_cancel.setOnClickListener {
                 val cancel_dialog = AlarmDealCancelDialogFragment()
                 cancel_dialog.show((ctx as FragmentActivity).supportFragmentManager, cancel_dialog.tag)
             }
         }
-        else {
-            (holder as HolderDelivery).date.text = dataListSell[position].date
+
+        else { //판매 택배
+            (holder as HolderDelivery).date.text = dataListSell[position].p_date
             Glide.with(ctx)
-                    .load(dataListSell[position].img_url)
-                    .apply(options)
-                    .into((holder).img_url)
-            (holder).title.text = dataListSell[position].title
-            (holder).artist.text = dataListSell[position].artist
-            (holder).artoo_name.text = dataListSell[position].buyer_name
-            (holder).artoo_number.text = dataListSell[position].buyer_number
-            (holder).artoo_address.text = dataListSell[position].buyer_address
+                .load(dataListSell[position].a_pic_url)
+                .apply(options)
+                .into((holder).img_url)
+            (holder).title.text = dataListSell[position].a_name
+            (holder).artist.text = dataListSell[position].a_u_name
+            (holder).artoo_name.text = dataListSell[position].u_name
+            (holder).artoo_number.text = dataListSell[position].u_phone
+            (holder).artoo_address.text = dataListSell[position].u_address
         }
     }
 

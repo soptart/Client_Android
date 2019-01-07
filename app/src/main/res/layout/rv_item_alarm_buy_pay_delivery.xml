@@ -17,7 +17,7 @@
                 android:background="@drawable/alarm_date_style"/>
 
         <TextView
-                android:id="@+id/tv_rv_item_alarm_sell_direct_date"
+                android:id="@+id/tv_rv_item_alarm_buy_pay_delivery_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12.03 (목)"
@@ -42,7 +42,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="판매 완료"
+                    android:text="결제 미완료"
                     android:includeFontPadding="false"
                     android:fontFamily="@font/notosanscjkkr_medium"
                     android:textSize="17sp"
@@ -50,7 +50,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구매자와 바로 거래 해보세요!"
+                    android:text="입금을 기다리고 있어요!"
                     android:includeFontPadding="false"
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:textSize="15sp"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                 <ImageView
-                        android:id="@+id/iv_rv_item_alarm_sell_direct_product"
+                        android:id="@+id/iv_rv_item_alarm_buy_pay_delivery_product"
                         android:layout_width="68dp"
                         android:layout_height="68dp"
                         android:scaleType="centerCrop"
@@ -86,7 +86,7 @@
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"/>
                         <TextView
-                                android:id="@+id/tv_rv_item_alarm_sell_direct_title"
+                                android:id="@+id/tv_rv_item_alarm_buy_pay_delivery_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="사랑"
@@ -113,7 +113,7 @@
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"/>
                         <TextView
-                                android:id="@+id/tv_rv_item_alarm_sell_direct_artist"
+                                android:id="@+id/tv_rv_item_alarm_buy_pay_delivery_artist"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="배선영"
@@ -142,7 +142,7 @@
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="직거래"
+                                android:text="택배"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/notosanscjkkr_regular"
                                 android:textSize="15sp"
@@ -162,7 +162,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구매자 정보"
+                    android:text="결제 정보"
                     android:includeFontPadding="false"
                     android:fontFamily="@font/notosanscjkkr_medium"
                     android:textSize="15sp"
@@ -182,7 +182,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="이름"
+                            android:text="금액"
                             android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="15sp"
@@ -195,10 +195,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
                     <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_name"
+                            android:id="@+id/tv_rv_item_alarm_buy_pay_delivery_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="윤여진"
+                            android:text="1111111원"
                             android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="15sp"
@@ -221,7 +221,7 @@
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="번호"
+                            android:text="계좌"
                             android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="15sp"
@@ -232,12 +232,13 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:layout_marginBottom="13dp">
                     <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_number"
+                            android:id="@+id/tv_rv_item_alarm_buy_pay_delivery_bankAccount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="010-3111-0573"
+                            android:text="농협 20209903209 윤여진"
                             android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="15sp"
@@ -247,75 +248,6 @@
                             android:layout_centerVertical="true"/>
                 </RelativeLayout>
             </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3">
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="주소"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/notosanscjkkr_regular"
-                            android:textSize="15sp"
-                            android:textColor="#777777"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"/>
-                </RelativeLayout>
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                    <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_address"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="서울시 노원구"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/notosanscjkkr_regular"
-                            android:textSize="15sp"
-                            android:textColor="#353d46"
-                            android:layout_alignParentRight="true"
-                            android:gravity="end"
-                            android:layout_centerVertical="true"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#eceff3"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="거래가 취소됐다면?"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:textSize="15sp"
-                    android:textColor="#ff6f61"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="6dp"/>
-
-            <Button
-                    android:id="@+id/btn_rv_item_alarm_sell_direct_cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:layout_weight="1"
-                    android:text="거래 취소"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/notosanscjkkr_medium"
-                    android:textSize="15sp"
-                    android:textColor="#ff6f61"
-                    android:background="@drawable/alarm_button_style"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
