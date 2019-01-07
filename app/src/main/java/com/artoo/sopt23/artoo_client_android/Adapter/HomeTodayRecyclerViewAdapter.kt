@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.Data.TodayArtistProductData
 import com.artoo.sopt23.artoo_client_android.Data.TodayMainData
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import org.jetbrains.anko.*
 
 class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData, val dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -53,6 +55,9 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData
             Glide.with(ctx)
                 .load(dataListArtistProduct[position-1].pic_url)
                 .into((holder).img)
+            (holder as HolderArtist).img.setOnClickListener{
+                ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position-1].a_idx)
+            }
         }
     }
 

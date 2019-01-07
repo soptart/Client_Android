@@ -282,32 +282,27 @@
             android:id="@+id/ll_product_detail_bottomnav"
             android:layout_width="match_parent"
             android:layout_height="50dp" android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:clickable="true">
+            android:layout_alignParentBottom="true">
         <LinearLayout
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="false">
+                android:layout_weight="1">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="false">
+                    android:layout_height="wrap_content">
                 <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:id="@+id/img_product_detail_purchase_ic"
-                        android:src="@drawable/artwork_price"
-                        android:clickable="false"/>
+                        android:src="@drawable/artwork_price"/>
                 <TextView
                         android:layout_marginLeft="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/txt_product_detail_price"
-                        android:text="55,000원" android:textSize="18sp" android:textColor="#ff6f61"
-                        android:clickable="false"/>
+                        android:text="55,000원" android:textSize="18sp" android:textColor="#ff6f61"/>
             </LinearLayout>
         </LinearLayout>
         <ImageView
@@ -316,7 +311,6 @@
                 android:gravity="center"
                 android:src="@drawable/artwork_sale_purchase"
                 android:id="@+id/img_product_detail_purchase" android:scaleType="fitXY"
-                android:padding="0dp"
-                android:clickable="true"/>
+                android:padding="0dp"/>
     </LinearLayout>
 </RelativeLayout>
