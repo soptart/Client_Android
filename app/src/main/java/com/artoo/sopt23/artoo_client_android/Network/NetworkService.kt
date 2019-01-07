@@ -73,6 +73,13 @@ interface NetworkService {
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
+    @GET("/artworks/{a_idx}")
+    fun getProductDetailResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("a_idx") a_idx: Int
+    ): Call<GetProductDetailResponse>
+
     @GET("/artworks/{a_idx}/purchase/{u_idx}")
     fun getPurchaseResponse(
         @Header("Authorization") token: String,
