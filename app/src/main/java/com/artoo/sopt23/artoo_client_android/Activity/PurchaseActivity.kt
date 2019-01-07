@@ -74,7 +74,7 @@ class PurchaseActivity : AppCompatActivity() {
             jsonObject.put("p_payment", checkPayment)
         }
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-        val a_id = intent.getIntExtra("aid", -1)
+        val a_id = intent.getIntExtra("a_idx", -1)
         val u_id = intent.getIntExtra("u_idx", -1)
         val postPurchaseResponse: Call<PostPurchaseResponse> = networkService.postPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
                 ,a_id,u_id, gsonObject)
@@ -92,7 +92,7 @@ class PurchaseActivity : AppCompatActivity() {
     }
 
     private fun getArtworkDetail() {
-        val a_id = intent.getIntExtra("aid", -1)
+        val a_id = intent.getIntExtra("a_idx", -1)
         val u_id = intent.getIntExtra("u_idx", -1)
         if (a_id != -1 && u_id != -1) {
             val getArtworkResponse: Call<GetPurchaseResponse> = networkService.getPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
@@ -105,7 +105,7 @@ class PurchaseActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<GetPurchaseResponse>, response: Response<GetPurchaseResponse>) {
                     if (response.isSuccessful) {
                         val bodyData = response.body()!!.data
-                        val url = intent.getStringExtra("url")
+                        val url = intent.getStringExtra("pic_url")
                         Glide.with(this@PurchaseActivity).load(url).into(purchase_art_img)// url 안 보냈을때 이거도 붙이면 좋을듯.onLoadFailed()
                         val df = DecimalFormat("#,###")
                         val price = df.format(bodyData.artworkPrice * 0.9) + "원"

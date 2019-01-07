@@ -177,6 +177,12 @@ interface NetworkService {
         @Path("u_idx") u_idx: Int
     ): Call<GetMypagePrefInfoResponse>
 
+    @GET("/users/{u_idx}/myInfo")
+    fun getMypageMyInfoResponse(
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageMyInfoResponse>
+
 
     // 전시 신청
     @Headers("Content-Type: application/json")

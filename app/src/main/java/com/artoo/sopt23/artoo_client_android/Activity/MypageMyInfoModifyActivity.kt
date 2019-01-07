@@ -10,99 +10,45 @@ import kotlinx.android.synthetic.main.activity_mypage_my_info_modify.*
 class MypageMyInfoModifyActivity : AppCompatActivity() {
 
 
+    var key = ""
+    var value1: String = ""
+    var value2: String? = null
+    var value3: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_my_info_modify)
 
-        val txt_my_info_modify_title: TextView = findViewById(R.id.txt_my_info_modify_title) as TextView
+        var title = intent.getStringExtra("title")
+        key = intent.getStringExtra("key")
 
-        // 이름 변경
-        my_info_modify_edit_text_2.visibility = View.INVISIBLE
-        my_info_modify_edit_text_3.visibility = View.INVISIBLE
-        my_info_modify_view_1.visibility = View.INVISIBLE
-        my_info_modify_view_2.visibility = View.INVISIBLE
-        my_info_modify_view_3.visibility = View.INVISIBLE
+        value1 = intent.getStringExtra("value1")
+        if(intent.hasExtra("value2")) value2 = intent.getStringExtra("value2")
+        if(intent.hasExtra("value3")) value3 = intent.getStringExtra("value3")
 
+        txt_my_info_modify_title.text = title + " " + "수정"
 
-        // 이메일 변경
-        if (intent.hasExtra("email")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("email")
-            my_info_modify_edit_text_1.setHint("yjc8966@artoo.com")
-
-        } else {
-
-        }
-        // 비밀번호 변경
-        if (intent.hasExtra("pw")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("pw")
-
-            my_info_modify_univ_edit_text.visibility = View.GONE
-
-            my_info_modify_edit_text_1.visibility = View.VISIBLE
-            my_info_modify_edit_text_1.setHint("기존 비밀번호")
+        my_info_modify_edit_text_1.setText(value1)
+        if(value2 != null){
             my_info_modify_edit_text_2.visibility = View.VISIBLE
-            my_info_modify_edit_text_2.setHint("새로운 비밀번호 (8자 이상)")
-            my_info_modify_edit_text_3.visibility = View.VISIBLE
-            my_info_modify_edit_text_3.setHint("새로운 비밀번호 재입력")
-            my_info_modify_view_1.visibility = View.VISIBLE
-            my_info_modify_view_2.visibility = View.VISIBLE
-
-            my_info_modify_univ.visibility = View.GONE
-            my_info_modify_account_arrow.visibility = View.GONE
-
-        } else {
-
+            my_info_modify_edit_text_2.setText(value2)
         }
-        // 연락처 변경
-        if (intent.hasExtra("contact")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("contact")
-        } else {
-
-        }
-        // 주소 변경
-        if (intent.hasExtra("address")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("address")
-        } else {
-
-        }
-        // 대학교 변경
-        if (intent.hasExtra("univ")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("univ")
-
-            my_info_modify_univ_edit_text.visibility = View.VISIBLE
-
-            my_info_modify_edit_layout.visibility = View.VISIBLE
-
-            my_info_modify_edit_text_1.visibility = View.INVISIBLE
-            my_info_modify_edit_text_2.visibility = View.INVISIBLE
-            my_info_modify_edit_text_3.visibility = View.INVISIBLE
-            my_info_modify_view_1.visibility = View.INVISIBLE
-            my_info_modify_view_2.visibility = View.INVISIBLE
-
-            my_info_modify_univ.visibility = View.VISIBLE
-            my_info_modify_account_arrow.visibility = View.GONE
-
-        } else {
-
-        }
-        // 계좌 정보 변경
-        if (intent.hasExtra("account")) {
-            txt_my_info_modify_title.text = intent.getStringExtra("account")
-
+        if(value3 != null){
             my_info_modify_edit_text_2.visibility = View.VISIBLE
-            my_info_modify_edit_text_3.visibility = View.INVISIBLE
-            my_info_modify_view_1.visibility = View.VISIBLE
-            my_info_modify_view_2.visibility = View.INVISIBLE
-            my_info_modify_view_3.visibility = View.INVISIBLE
-            my_info_modify_univ.visibility = View.GONE
-            my_info_modify_account_arrow.visibility = View.VISIBLE
-
-        } else {
-
+            my_info_modify_edit_text_2.setText(value3)
         }
-    }
 
-    private fun postMypagePrefInfoResponse() {
-
+        btn_my_info_modify.setOnClickListener {
+            if(key == "u_pw"){
+                TODO("/users/{u_idx}/myInfo/pw")
+            }
+            else if(key == "u_account"){
+                TODO("u_bank + u_account")
+            }
+            else{
+                TODO("/users/{u_idx}/myInfo")
+                TODO("key=value1")
+            }
+        }
     }
 }
