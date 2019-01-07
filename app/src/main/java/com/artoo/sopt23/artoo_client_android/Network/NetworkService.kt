@@ -1,6 +1,7 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
@@ -57,6 +58,7 @@ interface NetworkService {
     @Multipart
     @POST("/artworks")
     fun postProductUploadResponse(
+        @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
         @Part("a_name") a_name: RequestBody,
         @Part("a_width") a_width: Int,
@@ -65,12 +67,12 @@ interface NetworkService {
         @Part("a_category") a_category: RequestBody,
         @Part("a_form") a_form: RequestBody,
         @Part("a_price") a_price: Int,
-        @Part("u_idx") u_idx: Int,
+        //@Part("u_idx") u_idx: Int,
         @Part("a_detail") a_detail: RequestBody,
         @Part("a_year") a_year: RequestBody,
         @Part("a_tags") a_tags: RequestBody,
         @Part("a_license") a_license: RequestBody,
-        @Part pic_url: MultipartBody.Part///,
+        @Part pic_url: MultipartBody.Part?///,
         //@Part("a_material") a_material: RequestBody,
         //@Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
@@ -107,6 +109,37 @@ interface NetworkService {
     fun getExhibitionDisplayResponse(
     ): Call<GetExhibitionDisplayResponse>
 
+    //MypageProduct::list
+    @GET("/users/{u_idx}")
+    fun getMypageProductResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageProductResponse>
+
+    //MypageLike::list
+    @GET("/users/{u_idx}/likes")
+    fun getMypageLikeResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageLikeResponse>
+
+    //MypageDeal::list
+    @GET("/users/{u_idx}/purchases")
+    fun getMypageDealResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageDealResponse>
+
+    //MypageReview::list
+    @GET("/users/{u_idx}/reviews")
+    fun getMypageReviewResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypageReviewResponse>
     // 전시 신청
     @Headers("Content-Type: application/json")
     @POST("/discontents/{user_idx}")
