@@ -53,8 +53,7 @@ class ProductUploadActivity : AppCompatActivity() {
         setViewClickListener()
 
         var categories = arrayOf("인물", "동물", "식물", "사물", "추상화", "풍경")
-        spn_product_upload_category.adapter =
-                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
+        spn_product_upload_category.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
 
         var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "디지털")
         spn_product_upload_format.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, formats)

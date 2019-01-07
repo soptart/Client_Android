@@ -102,6 +102,7 @@ interface NetworkService {
 
     @POST("/comments")
     fun postProductCommentResponse(
+        @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
         @Body() body: JsonObject
     ):Call<PostProductCommentResponse>
