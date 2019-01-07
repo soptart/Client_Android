@@ -17,7 +17,7 @@ import kotlin.collections.ArrayList
 
 class MypageDealFragment : Fragment() {
 
-    var dealData: ArrayList<MypageDealData> = arrayListOf()
+    var dealData = ArrayList<MypageDealData>()
     lateinit var mypageDealRecyclerViewAdapter: MypageDealRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

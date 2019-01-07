@@ -1,6 +1,9 @@
 package com.artoo.sopt23.artoo_client_android.Adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +17,15 @@ import com.artoo.sopt23.artoo_client_android.Fragment.AlarmRefundDialogFragment
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import android.util.Log
+import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 
 
-class AlarmBuyRecyclerViewAdapter(val ctx: Context, val dataListBuy: ArrayList<AlarmBuyData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<AlarmBuyData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun getItemViewType(position: Int): Int {
         if(dataListBuy[position].p_isPay == 0 && dataListBuy[position].p_isDelivery == 0) {
             return 1  // 결제전 직거래
@@ -109,7 +114,9 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, val dataListBuy: ArrayList<A
             (holder).seller_address.text = dataListBuy[position].u_address
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
-                comment_dialog.show((ctx as FragmentActivity).supportFragmentManager, comment_dialog.tag)
+                comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
+                var intent = Intent(ctx as FragmentActivity, AlarmCommentDialogFragment::class.java)
+                intent.putExtra("p_idx", dataListBuy[position].p_idx)
             }
         }
 
@@ -128,7 +135,10 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, val dataListBuy: ArrayList<A
             }
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
-                comment_dialog.show((ctx as FragmentActivity).supportFragmentManager, comment_dialog.tag)
+                //comment_dialog.show(ctx as FragmentManager, comment_dialog.tag)
+                comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
+                var intent = Intent((ctx as FragmentActivity), AlarmCommentDialogFragment::class.java)
+                intent.putExtra("p_idx", dataListBuy[position].p_idx)
             }
         }
     }

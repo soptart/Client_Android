@@ -2,18 +2,9 @@ package com.artoo.sopt23.artoo_client_android.Network
 
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
-import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.DeleteProductCommentResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostPurchaseResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.*
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -25,6 +16,13 @@ interface NetworkService {
     @GET("/today")
     fun getTodayArtistResponse(
     ): Call<GetTodayArtistResponse>
+
+    // 유저 소개 조회
+    @GET("/users/{u_idx}/description")
+    fun getUserDescResponse(
+        @Header("Content-Type") content_type: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetUserDescResponse>
 
     //Join
     @POST("/users")
@@ -216,8 +214,18 @@ interface NetworkService {
     // 후기 작성 : 알림구매내역 결제완료 후기작성버튼
     @POST("/notices/buys/{p_idx}")
     fun postCommentResponse(
+        @Header("Content-Type") content_type: String,
         @Header("Authorization") token:String,
-        @Part("c_content") Comment:String,
-        @Path("p_idx") p_idx: Int
+        @Body() body: JsonObject,
+        @Path("p_idx") p_idx:Int
     ) : Call<PostCommentResponse>
+
+    // 전시 취소 : 알림전시내역 전시취소버튼
+    @DELETE("/discontents/{displaycontent_idx}/users/{user_idx}")
+    fun deleteExhibitionResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token:String,
+        @Path("displaycontent_idx") displaycontent_idx : Int,
+        @Path("user_idx") user_idx: Int
+    ) : Call<DeleteExhibitionResponse>
 }

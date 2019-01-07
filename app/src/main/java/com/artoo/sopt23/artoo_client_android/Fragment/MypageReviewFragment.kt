@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_mypage_review.*
 
 class MypageReviewFragment : Fragment() {
 
-    var reviewData: ArrayList<MypageReviewData> = arrayListOf()
+    var reviewData = ArrayList<MypageReviewData>()
     lateinit var mypageReviewRecyclerViewAdapter: MypageReviewRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

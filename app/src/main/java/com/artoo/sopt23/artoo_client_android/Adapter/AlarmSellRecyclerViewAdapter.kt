@@ -17,7 +17,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 
-class AlarmSellRecyclerViewAdapter(val ctx: Context, val dataListSell: ArrayList<AlarmSellData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class AlarmSellRecyclerViewAdapter(val ctx: Context, var dataListSell: ArrayList<AlarmSellData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun getItemViewType(position: Int): Int {
         if(dataListSell[position].p_isDelivery == 0){
@@ -39,13 +39,9 @@ class AlarmSellRecyclerViewAdapter(val ctx: Context, val dataListSell: ArrayList
                 .into((holder).img_url)
             (holder).title.text = dataListSell[position].a_name
             (holder).artist.text = dataListSell[position].a_u_name
-            (holder).buyer_name.text = dataListSell[position].u_name
-            (holder).buyer_number.text = dataListSell[position].u_phone
-            (holder).buyer_address.text = dataListSell[position].u_address
-            (holder).btn_cancel.setOnClickListener {
-                val cancel_dialog = AlarmDealCancelDialogFragment()
-                cancel_dialog.show((ctx as FragmentActivity).supportFragmentManager, cancel_dialog.tag)
-            }
+            (holder).artoo_name.text = dataListSell[position].u_name
+            (holder).artoo_number.text = dataListSell[position].u_phone
+            (holder).artoo_address.text = dataListSell[position].u_address
         }
 
         else { //판매 택배
@@ -80,10 +76,9 @@ class AlarmSellRecyclerViewAdapter(val ctx: Context, val dataListSell: ArrayList
         val img_url : ImageView = itemView.findViewById(R.id.iv_rv_item_alarm_sell_direct_product) as ImageView
         val title : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_title) as TextView
         val artist : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_artist) as TextView
-        val buyer_name : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_buyer_name) as TextView
-        val buyer_number : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_buyer_number) as TextView
-        val buyer_address : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_buyer_address) as TextView
-        val btn_cancel: Button = itemView.findViewById(R.id.btn_rv_item_alarm_sell_direct_cancel) as Button
+        val artoo_name : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_artoo_name) as TextView
+        val artoo_number : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_artoo_number) as TextView
+        val artoo_address : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_sell_direct_artoo_address) as TextView
     }
 
     inner class HolderDelivery(itemView: View): RecyclerView.ViewHolder(itemView){
