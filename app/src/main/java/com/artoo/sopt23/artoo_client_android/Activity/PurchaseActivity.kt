@@ -31,7 +31,7 @@ class PurchaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_purchase)
-        getArtworkDetail()
+        getArtworkDetail() // <--- 사실 여기에서 받는 정보는 intent로 다 넘겨주면 됨! 앞에 intent로 다 보내주시고 이건 지워주세요.
 
         img_purchase_transfer_express.setOnClickListener {
             img_purchase_transfer_express.setImageResource(R.drawable.purchase_delivery)
