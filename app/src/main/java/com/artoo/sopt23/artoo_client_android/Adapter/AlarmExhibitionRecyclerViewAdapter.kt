@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.artoo.sopt23.artoo_client_android.Data.AlarmExhibitionData
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionCancelDialogFragment
 import com.artoo.sopt23.artoo_client_android.R
+import java.text.SimpleDateFormat
 
 class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,val dataList: ArrayList<AlarmExhibitionData>): RecyclerView.Adapter<AlarmExhibitionRecyclerViewAdapter.Holder>() {
 
@@ -22,12 +23,19 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,val dataList: ArrayLis
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.date.text = dataList[position].date
-        holder.title.text = dataList[position].title
-        holder.date_start.text = dataList[position].date_start
-        holder.date_end.text = dataList[position].date_end
-        holder.artist.text = dataList[position].artist
-        holder.product_title.text = dataList[position].product_title
+        holder.date.text = dataList[position].dc_date
+        holder.title.text = dataList[position].display.d_title
+
+        var date_s : String = dataList[position].display.d_sDateNow
+        val seperate_date_s = date_s.split("-")
+        holder.date_start.text = seperate_date_s[0]+"."+seperate_date_s[1]+"."+seperate_date_s[2]
+
+        var date_e : String = dataList[position].display.d_eDateNow
+        val seperate_date_e = date_e.split("-")
+        holder.date_end.text = seperate_date_e[0]+"."+seperate_date_e[1]+"."+seperate_date_e[2]
+
+        holder.artist.text = dataList[position].u_name
+        holder.product_title.text = dataList[position].a_name
 
         holder.btn_cancle.setOnClickListener {
             val cancel_dialog = AlarmExhibitionCancelDialogFragment()

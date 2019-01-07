@@ -35,7 +35,7 @@ import java.util.ArrayList
 class ProductUploadActivity : AppCompatActivity() {
 
     val REQUEST_CODE_SELECT_IMAGE: Int = 1000
-    var input_product_img: MultipartBody.Part? = null
+    private var input_product_img: MultipartBody.Part? = null
     lateinit var input_product_purchase_state: String
 
     val networkService: NetworkService by lazy {
@@ -52,11 +52,11 @@ class ProductUploadActivity : AppCompatActivity() {
         setAlertDialog()
         setViewClickListener()
 
-        var categories = arrayOf("인물", "동물", "식물", "사물", "추상", "풍경")
+        var categories = arrayOf("인물", "동물", "식물", "사물", "추상화", "풍경")
         spn_product_upload_category.adapter =
                 ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
 
-        var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "사진")
+        var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "디지털")
         spn_product_upload_format.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, formats)
 
         var licenses = arrayOf(
@@ -82,7 +82,7 @@ class ProductUploadActivity : AppCompatActivity() {
         btn_product_upload_close.setOnClickListener {
             finish()
         }
-        iv_product_upload_product_img.setOnClickListener {
+        btn_product_upload_open_album.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
             intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -242,12 +242,14 @@ class ProductUploadActivity : AppCompatActivity() {
                     //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
                     input_product_img = MultipartBody.Part.createFormData(
                         "pic_url",
-                        File(seletedPictureUri.toString()).name + ".jpg",
+                        File(seletedPictureUri.toString()).name,
                         photoBody
                     )
                     //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
                     Glide.with(this@ProductUploadActivity).load(seletedPictureUri).thumbnail(0.1f)
                         .into(iv_product_upload_product_img)
+                    iv_product_upload_product_img.visibility = View.VISIBLE
+                    btn_product_upload_open_album.visibility = View.GONE
                 }
             }
         }
@@ -277,17 +279,16 @@ class ProductUploadActivity : AppCompatActivity() {
         val input_product_material = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_material.text.toString())
         val input_product_tip = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_tip.text.toString())
 
-        if (input_product_img!=null && et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
+        if (et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
             && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0) {
             val token = SharedPreferenceController.getAuthorization(this)
-            val u_idx = SharedPreferenceController.getUserID(this)
 
-            val postProductUploadResponse = networkService.postProductUploadResponse(token,
+            val postProductUploadResponse = networkService.postProductUploadResponse("multipart/form-data", token,
                 input_product_title,
                 input_product_width, input_product_height, input_product_depth,
                 input_product_category, input_product_format, input_product_price,
-                u_idx, input_product_detail, input_product_year,
-                input_tags, input_product_license, input_product_img!!/*, input_product_material, input_product_tip*/)
+                input_product_detail, input_product_year,
+                input_tags, input_product_license, input_product_img/*, input_product_material, input_product_tip*/)
 
             Log.d("*****ProductUploadActivity::", postProductUploadResponse.toString())
 
@@ -297,15 +298,12 @@ class ProductUploadActivity : AppCompatActivity() {
                 }
 
                 override fun onResponse(call: Call<PostProductUploadResponse>, response: Response<PostProductUploadResponse>) {
-                    if(response.isSuccessful) {
-                        toast(response.body()!!.message)
-                        finish()
-                    }
-                    else{
-                        toast(response.body()!!.message)
-                    }
+                    toast(response.body()!!.message)
+                    finish()
                 }
             })
         }
+
+
     }
 }

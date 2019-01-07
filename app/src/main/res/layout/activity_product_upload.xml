@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Activity.ProductUploadActivity">
+        tools:context=".ProductUploadActivity">
 
 
     <RelativeLayout
@@ -54,12 +54,22 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp">
+
+                    <Button
+                            android:id="@+id/btn_product_upload_open_album"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:visibility="visible"
+                            android:text="작품만 보이도록\n꼭 잘라주세\n\n최대 4장"
+                            android:textColor="#353d46"/>
                     <ImageView
                             android:id="@+id/iv_product_upload_product_img"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop" tools:srcCompat="@drawable/artoo_logo"/>
+                            android:visibility="gone"
+                            android:scaleType="centerCrop"/>
                     <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"

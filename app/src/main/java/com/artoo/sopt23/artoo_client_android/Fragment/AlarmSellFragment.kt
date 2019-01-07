@@ -14,9 +14,13 @@ import kotlinx.android.synthetic.main.fragment_alarm_sell.*
 import java.util.ArrayList
 
 class AlarmSellFragment : Fragment() {
+
+    lateinit var alarmSellData: ArrayList<AlarmSellData>
     lateinit var alarmSellRecyclerViewAdapter: AlarmSellRecyclerViewAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_alarm_sell, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_alarm_sell, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -25,12 +29,7 @@ class AlarmSellFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        var dataListSell: ArrayList<AlarmSellData> = ArrayList()
-        dataListSell.add(AlarmSellData(true,"","","","","","",""))
-        dataListSell.add(AlarmSellData(false,"","","","","","",""))
-
-
-        alarmSellRecyclerViewAdapter = AlarmSellRecyclerViewAdapter(activity!!,dataListSell)
+        alarmSellRecyclerViewAdapter = AlarmSellRecyclerViewAdapter(activity!!,alarmSellData)
         rv_fragment_alarm_sell_list.adapter = alarmSellRecyclerViewAdapter
         rv_fragment_alarm_sell_list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL,false)
     }

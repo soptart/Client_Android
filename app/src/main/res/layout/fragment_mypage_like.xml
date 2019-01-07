@@ -5,10 +5,10 @@
              android:layout_height="match_parent"
              tools:context=".Fragment.MypageLikeFragment">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_fragment_mypage_like_list"
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello I'm Mypage_Like Fragment"
-            android:layout_centerInParent="true"/>
+            android:layout_height="match_parent"/>
 
 </FrameLayout>
