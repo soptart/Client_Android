@@ -1,12 +1,17 @@
 package com.artoo.sopt23.artoo_client_android.Network
 
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.DeleteProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostApplyExhibitionResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostJoinResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostPurchaseResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetUserDescResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.*
 import com.google.gson.JsonObject
@@ -20,13 +25,6 @@ interface NetworkService {
     @GET("/today")
     fun getTodayArtistResponse(
     ): Call<GetTodayArtistResponse>
-
-    // 유저 소개 조회
-    @GET("/users/{u_idx}/description")
-    fun getUserDescResponse(
-        @Header("Content-Type") content_type: String,
-        @Path("u_idx") u_idx: Int
-    ): Call<GetUserDescResponse>
 
     //Join
     @POST("/users")
@@ -69,9 +67,9 @@ interface NetworkService {
         @Part("a_year") a_year: RequestBody,
         @Part("a_tags") a_tags: RequestBody,
         @Part("a_license") a_license: RequestBody,
-        @Part pic_url: MultipartBody.Part?///,
-        //@Part("a_material") a_material: RequestBody,
-        //@Part("a_expression") a_expressions: RequestBody
+        @Part pic_url: MultipartBody.Part?,
+        @Part("a_material") a_material: RequestBody,
+        @Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
     @GET("/artworks/{a_idx}")
@@ -163,6 +161,23 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageReviewResponse>
+
+    //MypageUserDescription::update
+    @PUT("/users/{u_idx}/myInfo")
+    fun putMypagePrefIntroResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+     ): Call<PutMypagePrefInfoResponse>
+
+    //MypagePrefer::list
+    @GET("/users/{u_idx}/myInfo")
+    fun getMypagePrefInfoResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetMypagePrefInfoResponse>
+
 
     // 전시 신청
     @Headers("Content-Type: application/json")

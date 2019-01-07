@@ -1,6 +1,5 @@
 package com.artoo.sopt23.artoo_client_android.Fragment
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment

@@ -18,18 +18,12 @@ import com.artoo.sopt23.artoo_client_android.Data.MypageDealData
 import com.artoo.sopt23.artoo_client_android.Data.MypageLikeData
 import com.artoo.sopt23.artoo_client_android.Data.MypageProductData
 import com.artoo.sopt23.artoo_client_android.Data.MypageReviewData
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetMypageDealResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetMypageLikeResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetMypageProductResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetMypageReviewResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 
 import com.artoo.sopt23.artoo_client_android.R
-import com.artoo.sopt23.artoo_client_android.R.id.tv_mypage_user_product_cnt
 import kotlinx.android.synthetic.main.fragment_mypage.*
-import kotlinx.android.synthetic.main.top_navigation_tab_mypage.view.*
-import org.jetbrains.anko.find
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,8 +54,6 @@ class MypageFragment : Fragment() {
     var dealDataCount: Int = 0
     var reviewDataCount: Int = 0
 
-
-
     lateinit var inflater: LayoutInflater
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         this.inflater = inflater
@@ -80,6 +72,7 @@ class MypageFragment : Fragment() {
         getMypageLikeResponse()
         getMypageDealResponse()
         getMypageReviewResponse()
+        getMypagePrefInfoResponse()
     }
 
     private fun configureTopNavigation() {
@@ -133,6 +126,7 @@ class MypageFragment : Fragment() {
             tv_mypage_user_intro.visibility = View.VISIBLE
             et_mypage_user_intro.visibility = View.GONE
             btn_mypage_update_intro_finish.visibility = View.GONE
+            putMypagePrefInfoResponse()
         }
         btn_mypage_alert.setOnClickListener {
             val intent = Intent(context, AlarmActivity::class.java)
@@ -248,9 +242,31 @@ class MypageFragment : Fragment() {
                     Log.d("*****MypageFragment::getMypageReviewResponse::Success::", reviewDataList.toString())
                     configureTopNavigation()
                 } else {
-                    Log.d("*****MypageFragment::getMypageReviewResponse::Failure::", response.toString())
+                    Log.d("*****MypageFragment::getMypageReviewResponse::Failed::", response.toString())
                 }
             }
         })
+    }
+
+    private fun getMypagePrefInfoResponse() {
+        val token = SharedPreferenceController.getAuthorization(context!!)
+        val u_idx = SharedPreferenceController.getUserID(context!!)
+        val getMypagePrefInfoResponse = networkService.getMypagePrefInfoResponse("application/json", token, u_idx)
+        getMypagePrefInfoResponse.enqueue(object: Callback<GetMypagePrefInfoResponse> {
+            override fun onFailure(call: Call<GetMypagePrefInfoResponse>, t: Throwable) {
+                Log.d("*****MypageFragment::getMypagePrefInfoResponse::Failed::", "Get_UserInfo_Failed")
+            }
+            override fun onResponse(call: Call<GetMypagePrefInfoResponse>, response: Response<GetMypagePrefInfoResponse>) {
+                if (response.isSuccessful) {
+                    Log.d("*****MypageFragment::getMypagePrefInfoResponse::Success::", response.body().toString())
+                } else {
+                    Log.d("*****MypageFragment::getMypagePrefInfoResponse::Failed::", response.body().toString())
+                }
+            }
+        })
+    }
+
+    private fun putMypagePrefInfoResponse() {
+
     }
 }

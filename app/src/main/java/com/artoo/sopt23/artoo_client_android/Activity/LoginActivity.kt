@@ -70,18 +70,26 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("*****User_Login_Failed", t.toString())
             }
             override fun onResponse(call: Call<PostLoginResponse>, response: Response<PostLoginResponse>) {
-                if (response.isSuccessful) {
 
-                    val token = response.body()!!.data.token
-                    //저번 시간에 배웠던 SharedPreference에 토큰을 저장!
-                    SharedPreferenceController.setAuthorization(this@LoginActivity, token)
-                    toast(SharedPreferenceController.getAuthorization(this@LoginActivity))
+                    if (response.isSuccessful) {
 
-                    val u_id = response.body()!!.data.userIdx
-                    SharedPreferenceController.setUserID(this@LoginActivity, u_id)
-                    startActivity<MainActivity>()
-                    finish()
-                }
+                        if (response.body()!!.status == 400) {
+                            toast("아이디와 비밀번호를 확인해주세요")
+                        } else {
+
+                            response.body()!!.status
+                            val token = response.body()!!.data.token
+                            //저번 시간에 배웠던 SharedPreference에 토큰을 저장!
+                            SharedPreferenceController.setAuthorization(this@LoginActivity, token)
+                            toast(SharedPreferenceController.getAuthorization(this@LoginActivity))
+
+                            val u_id = response.body()!!.data.userIdx
+                            SharedPreferenceController.setUserID(this@LoginActivity, u_id)
+                            startActivity<MainActivity>()
+                            finish()
+                        }
+                    }
+
             }
         })
     }

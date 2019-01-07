@@ -23,6 +23,7 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
         my_info_modify_view_2.visibility = View.INVISIBLE
         my_info_modify_view_3.visibility = View.INVISIBLE
 
+
         // 이메일 변경
         if (intent.hasExtra("email")) {
             txt_my_info_modify_title.text = intent.getStringExtra("email")
@@ -99,5 +100,9 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
         } else {
 
         }
+    }
+
+    private fun postMypagePrefInfoResponse() {
+
     }
 }
