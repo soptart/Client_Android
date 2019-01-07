@@ -3,6 +3,7 @@ package com.artoo.sopt23.artoo_client_android.Network
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
+import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.DeleteExhibitionResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemeProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetExhibitionDisplayResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetTodayArtistResponse
@@ -174,8 +175,18 @@ interface NetworkService {
     // 후기 작성 : 알림구매내역 결제완료 후기작성버튼
     @POST("/notices/buys/{p_idx}")
     fun postCommentResponse(
+        @Header("Content-Type") content_type: String,
         @Header("Authorization") token:String,
-        @Part("comment") Comment:String,
-        @Path("p_idx") p_idx: Int
+        @Body() body: JsonObject,
+        @Path("p_idx") p_idx:Int
     ) : Call<PostCommentResponse>
+
+    // 전시 취소 : 알림전시내역 전시취소버튼
+    @DELETE("/discontents/{displaycontent_idx}/users/{user_idx}")
+    fun deleteExhibitionResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token:String,
+        @Path("displaycontent_idx") displaycontent_idx : Int,
+        @Path("user_idx") user_idx: Int
+    ) : Call<DeleteExhibitionResponse>
 }

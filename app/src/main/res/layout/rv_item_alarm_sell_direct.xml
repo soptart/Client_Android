@@ -30,8 +30,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/alarm_item_style"
-            android:layout_marginBottom="40dp">
+            android:background="@drawable/alarm_item_style">
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,7 +161,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구매자 정보"
+                    android:text="Artoo 배송지 정보"
                     android:includeFontPadding="false"
                     android:fontFamily="@font/notosanscjkkr_medium"
                     android:textSize="15sp"
@@ -195,7 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
                     <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_name"
+                            android:id="@+id/tv_rv_item_alarm_sell_direct_artoo_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="윤여진"
@@ -234,7 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
                     <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_number"
+                            android:id="@+id/tv_rv_item_alarm_sell_direct_artoo_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="010-3111-0573"
@@ -273,10 +272,10 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
                     <TextView
-                            android:id="@+id/tv_rv_item_alarm_sell_direct_buyer_address"
+                            android:id="@+id/tv_rv_item_alarm_sell_direct_artoo_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="서울시 노원구"
+                            android:text="인천시 계양구 계양문화로168 317동 304호"
                             android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="15sp"
@@ -286,36 +285,15 @@
                             android:layout_centerVertical="true"/>
                 </RelativeLayout>
             </LinearLayout>
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#eceff3"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="거래가 취소됐다면?"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:textSize="15sp"
-                    android:textColor="#ff6f61"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="6dp"/>
-
-            <Button
-                    android:id="@+id/btn_rv_item_alarm_sell_direct_cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:layout_weight="1"
-                    android:text="거래 취소"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/notosanscjkkr_medium"
-                    android:textSize="15sp"
-                    android:textColor="#ff6f61"
-                    android:background="@drawable/alarm_button_style"
-                    android:textAlignment="center"
-                    android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </RelativeLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="*2일내로 상품 배송을 하지 않을 경우, 최소됩니다."
+            android:includeFontPadding="false"
+            android:textColor="@color/colorEssential"
+            android:textSize="14sp"
+            android:fontFamily="@font/notosanscjkkr_regular"/>
 </LinearLayout>

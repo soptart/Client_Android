@@ -1,19 +1,22 @@
 package com.artoo.sopt23.artoo_client_android.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.artoo.sopt23.artoo_client_android.Data.AlarmExhibitionData
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionCancelDialogFragment
 import com.artoo.sopt23.artoo_client_android.R
 import java.text.SimpleDateFormat
 
-class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,val dataList: ArrayList<AlarmExhibitionData>): RecyclerView.Adapter<AlarmExhibitionRecyclerViewAdapter.Holder>() {
+class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,var dataList: ArrayList<AlarmExhibitionData>): RecyclerView.Adapter<AlarmExhibitionRecyclerViewAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view: View = LayoutInflater.from(ctx).inflate(R.layout.rv_item_alarm_exhibition, parent, false)
@@ -37,9 +40,14 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,val dataList: ArrayLis
         holder.artist.text = dataList[position].u_name
         holder.product_title.text = dataList[position].a_name
 
-        holder.btn_cancle.setOnClickListener {
+        holder.cancel_button.setOnClickListener {
             val cancel_dialog = AlarmExhibitionCancelDialogFragment()
-            cancel_dialog.show((ctx as FragmentActivity).supportFragmentManager, cancel_dialog.tag)
+            //cancel_dialog.show(ctx as FragmentManager, cancel_dialog.tag)
+            cancel_dialog.show((ctx as AlarmActivity).supportFragmentManager, cancel_dialog.tag)
+            var intent = Intent((ctx as FragmentActivity), AlarmExhibitionCancelDialogFragment::class.java)
+            intent.putExtra("dc_idx", dataList[position].dc_idx)
+            intent.putExtra("uesr_idx", dataList[position].u_idx)
+
         }
     }
 
@@ -50,7 +58,6 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,val dataList: ArrayLis
         val date_end: TextView = itemView.findViewById(R.id.tv_rv_item_alarm_exhibition_date_end) as TextView
         val artist: TextView = itemView.findViewById(R.id.tv_rv_item_alarm_exhibition_artist) as TextView
         val product_title: TextView = itemView.findViewById(R.id.tv_rv_item_alarm_exhibition_product_title) as TextView
-        val btn_cancle: Button = itemView.findViewById(R.id.btn_rv_item_alarm_exhibition_cancel) as Button
+        val cancel_button: Button = itemView.findViewById(R.id.btn_rv_item_alarm_exhibition_cancel) as Button
     }
-
 }

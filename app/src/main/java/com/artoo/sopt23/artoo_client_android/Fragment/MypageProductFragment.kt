@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_mypage_product.view.*
 
 class MypageProductFragment : Fragment() {
 
-    lateinit var productData: ArrayList<MypageProductData>
+    var productData = ArrayList<MypageProductData>()
     lateinit var mypageProductRecyclerViewAdapter: MypageProductRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

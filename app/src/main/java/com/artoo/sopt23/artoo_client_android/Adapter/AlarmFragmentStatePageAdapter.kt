@@ -11,25 +11,13 @@ import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionFragment
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmSellFragment
 
 //Alarm Tab Adpater
-class AlarmFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCount : Int,
-                                     val alarmBuyDataList:ArrayList<AlarmBuyData>,
-                                     val alarmSellDataList:ArrayList<AlarmSellData>,
-                                     val alarmExhibitionDataList:ArrayList<AlarmExhibitionData>): FragmentStatePagerAdapter(fm){
-    var alarmBuyFragment: AlarmBuyFragment = AlarmBuyFragment().apply {
-        alarmBuyData = alarmBuyDataList
-    }
-    var alarmSellFragment: AlarmSellFragment = AlarmSellFragment().apply {
-        alarmSellData = alarmSellDataList
-    }
-    var alarmExhibitionFragment: AlarmExhibitionFragment = AlarmExhibitionFragment().apply {
-        alarmExhibitionData = alarmExhibitionDataList
-    }
+class AlarmFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCount : Int): FragmentStatePagerAdapter(fm){
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
-            0 -> return alarmBuyFragment
-            1 -> return alarmSellFragment
-            2 -> return alarmExhibitionFragment
+            0 -> return AlarmBuyFragment()
+            1 -> return AlarmSellFragment()
+            2 -> return AlarmExhibitionFragment()
             else -> return null
         }
     }
