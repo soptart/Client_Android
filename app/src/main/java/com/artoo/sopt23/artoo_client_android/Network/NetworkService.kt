@@ -24,13 +24,6 @@ interface NetworkService {
     fun getTodayArtistResponse(
     ): Call<GetTodayArtistResponse>
 
-    // 유저 소개 조회
-    @GET("/users/{u_idx}/description")
-    fun getUserDescResponse(
-        @Header("Content-Type") content_type: String,
-        @Path("u_idx") u_idx: Int
-    ): Call<GetUserDescResponse>
-
     //Join
     @POST("/users")
     fun postJoinResponse(
@@ -72,9 +65,9 @@ interface NetworkService {
         @Part("a_year") a_year: RequestBody,
         @Part("a_tags") a_tags: RequestBody,
         @Part("a_license") a_license: RequestBody,
-        @Part pic_url: MultipartBody.Part?///,
-        //@Part("a_material") a_material: RequestBody,
-        //@Part("a_expression") a_expressions: RequestBody
+        @Part pic_url: MultipartBody.Part?,
+        @Part("a_material") a_material: RequestBody,
+        @Part("a_expression") a_expressions: RequestBody
     ): Call<PostProductUploadResponse>
 
     @GET("/artworks/{a_idx}/purchase/{u_idx}")
@@ -140,6 +133,7 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageReviewResponse>
+
     // 전시 신청
     @Headers("Content-Type: application/json")
     @POST("/discontents/{user_idx}")

@@ -12,8 +12,6 @@ import com.artoo.sopt23.artoo_client_android.Activity.ProductUploadActivity
 import com.artoo.sopt23.artoo_client_android.Adapter.MypageProductRecyclerViewAdapter
 import com.artoo.sopt23.artoo_client_android.Data.MypageProductData
 import com.artoo.sopt23.artoo_client_android.R
-import com.artoo.sopt23.artoo_client_android.R.id.ll_mypage_product_count_many
-import com.artoo.sopt23.artoo_client_android.R.id.rl_mypage_product_count_zero
 import kotlinx.android.synthetic.main.fragment_mypage_product.*
 import kotlinx.android.synthetic.main.fragment_mypage_product.view.*
 

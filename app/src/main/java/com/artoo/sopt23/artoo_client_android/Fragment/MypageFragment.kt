@@ -61,7 +61,6 @@ class MypageFragment : Fragment() {
     var reviewDataCount: Int = 0
 
 
-
     lateinit var inflater: LayoutInflater
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         this.inflater = inflater

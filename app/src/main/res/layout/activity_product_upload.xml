@@ -328,7 +328,7 @@
                                 android:textColor="@color/colorBorder"/>
                     </RelativeLayout>
                     <EditText
-                            android:id="@+id/et_product_upload_size_depth"
+                            android:id="@+id/et_product_upload_size_height"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -350,7 +350,7 @@
                                 android:textColor="@color/colorBorder"/>
                     </RelativeLayout>
                     <EditText
-                            android:id="@+id/et_product_upload_size_height"
+                            android:id="@+id/et_product_upload_size_depth"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
