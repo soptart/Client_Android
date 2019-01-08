@@ -35,7 +35,7 @@ import java.util.ArrayList
 class ProductUploadActivity : AppCompatActivity() {
 
     val REQUEST_CODE_SELECT_IMAGE: Int = 1000
-    private var input_product_img: MultipartBody.Part? = null
+    var input_product_img: MultipartBody.Part? = null
     lateinit var input_product_purchase_state: String
 
     val networkService: NetworkService by lazy {
@@ -52,11 +52,11 @@ class ProductUploadActivity : AppCompatActivity() {
         setAlertDialog()
         setViewClickListener()
 
-        var categories = arrayOf("인물", "동물", "식물", "사물", "추상화", "풍경")
+        var categories = arrayOf("인물", "동물", "식물", "사물", "추상", "풍경")
         spn_product_upload_category.adapter =
                 ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
 
-        var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "디지털")
+        var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "사진")
         spn_product_upload_format.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, formats)
 
         var licenses = arrayOf(
@@ -82,7 +82,7 @@ class ProductUploadActivity : AppCompatActivity() {
         btn_product_upload_close.setOnClickListener {
             finish()
         }
-        btn_product_upload_open_album.setOnClickListener {
+        iv_product_upload_product_img.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
             intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -248,8 +248,6 @@ class ProductUploadActivity : AppCompatActivity() {
                     //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
                     Glide.with(this@ProductUploadActivity).load(seletedPictureUri).thumbnail(0.1f)
                         .into(iv_product_upload_product_img)
-                    iv_product_upload_product_img.visibility = View.VISIBLE
-                    btn_product_upload_open_album.visibility = View.GONE
                 }
             }
         }
@@ -309,7 +307,5 @@ class ProductUploadActivity : AppCompatActivity() {
                 }
             })
         }
-
-
     }
 }
