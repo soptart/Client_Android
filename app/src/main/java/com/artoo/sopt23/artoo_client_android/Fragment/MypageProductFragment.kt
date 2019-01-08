@@ -34,10 +34,9 @@ class MypageProductFragment : Fragment() {
         if (productData.size > 0) {
             rl_mypage_product_count_zero.visibility = View.GONE
             ll_mypage_product_count_many.visibility = View.VISIBLE
-
-            setRecyclerView()
-            setOnClickListener()
         }
+        setRecyclerView()
+        setOnClickListener()
     }
 
     private fun setRecyclerView() {
@@ -51,12 +50,13 @@ class MypageProductFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
-        val intent = Intent(context, ProductUploadActivity::class.java)
 
         btn_mypage_prodcut_nothing_add.setOnClickListener {
+            val intent = Intent(context, ProductUploadActivity::class.java)
             startActivity(intent)
         }
         btn_mypage_product_add.setOnClickListener {
+            val intent = Intent(context, ProductUploadActivity::class.java)
             startActivity(intent)
         }
     }
