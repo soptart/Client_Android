@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -26,7 +27,7 @@ import java.util.ArrayList
 
 
 class AlarmExhibitionFragment : Fragment() {
-
+    val DELETE_REQUEST_CODE = 103
     var dataListExhibition = ArrayList<AlarmExhibitionData>()
 
     val networkService: NetworkService by lazy {
@@ -73,7 +74,18 @@ class AlarmExhibitionFragment : Fragment() {
                 }
             }
         })
-
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == DELETE_REQUEST_CODE) {
+            if(resultCode == FragmentActivity.RESULT_OK) {
+                //리스트 비우기
+                alarmExhibitionRecyclerViewAdapter.dataList.clear()
+                alarmExhibitionRecyclerViewAdapter.notifyDataSetChanged()
+                //재통신
+                getAlarmExhibitionResponse()
+            }
+        }
+    }
 }

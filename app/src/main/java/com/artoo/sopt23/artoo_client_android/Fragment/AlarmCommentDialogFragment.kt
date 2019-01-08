@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostCommentResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
@@ -37,8 +38,13 @@ class AlarmCommentDialogFragment : DialogFragment() {
         val view : View = inflater.inflate(R.layout.fragment_alarm_comment_dialog, container, false)
 
         view.btn_alarm_comment_dialog_complete.setOnClickListener {
-            postCommentResponse()
-            Log.d("alarm_comment_dialog_frag", "complete_pushed")
+            if(et_fragment_alarm_comment_dialog.text.toString().isNotEmpty()) {
+                val getComment = et_fragment_alarm_comment_dialog.text.toString()
+
+                jsonObject.put("p_comment", getComment)
+                postCommentResponse()
+                Log.d("alarm_comment_dialog_frag", "complete_pushed")
+            }
         }
 
         return view
@@ -46,9 +52,7 @@ class AlarmCommentDialogFragment : DialogFragment() {
 
     private fun postCommentResponse(){
         val token = SharedPreferenceController.getAuthorization(context!!)
-        val getComment: String = et_fragment_alarm_comment_dialog.text.toString()
-        var p_idx : Int = (context as FragmentActivity).intent.getIntExtra("p_idx",-1)
-        jsonObject.put("comment",getComment)
+        var p_idx : Int = (context as AlarmActivity).intent.getIntExtra("p_idx",-1)
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
         val postCommentResponse = networkService.postCommentResponse("application/json",token,gsonObject,p_idx)
         postCommentResponse.enqueue(object : Callback<PostCommentResponse> {
@@ -58,7 +62,7 @@ class AlarmCommentDialogFragment : DialogFragment() {
             override fun onResponse(call: Call<PostCommentResponse>, response: Response<PostCommentResponse>) {
                 if(response.isSuccessful){
 
-                    toast(response.body()!!.message)
+                    toast("후기를 작성했습니다.")
                     Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
                     onDestroyView()
                 }

@@ -1,12 +1,14 @@
 package com.artoo.sopt23.artoo_client_android.Adapter
 
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.Data.TodayArtistProductData
@@ -55,8 +57,8 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData
             Glide.with(ctx)
                 .load(dataListArtistProduct[position-1].pic_url)
                 .into((holder).img)
-            (holder as HolderArtist).img.setOnClickListener{
-                ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position-1].a_idx)
+            (holder as HolderArtist).img.setOnClickListener {
+                ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position - 1].a_idx)
             }
         }
     }

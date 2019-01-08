@@ -135,9 +135,8 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             }
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
-                //comment_dialog.show(ctx as FragmentManager, comment_dialog.tag)
                 comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
-                var intent = Intent((ctx as FragmentActivity), AlarmCommentDialogFragment::class.java)
+                var intent = Intent((ctx as AlarmActivity), AlarmCommentDialogFragment::class.java)
                 intent.putExtra("p_idx", dataListBuy[position].p_idx)
             }
         }

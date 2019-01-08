@@ -51,11 +51,9 @@ class JoinActivity : AppCompatActivity() {
         btn_join_next2.setOnClickListener {
 
             val input_phone: String = et_join_phone.text.toString()
-            val input_location: String = et_join_location.text.toString()
-            val input_university: String = et_join_university.text.toString()
+            val input_university: String = et_join_university.text.toString()+"대학교"
 
             jsonObject.put("u_phone", input_phone)
-            jsonObject.put("u_address", input_location)
             jsonObject.put("u_school", input_university)
 
             Log.d("*****JoinActivity::json::", jsonObject.toString())

@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="@drawable/tab_border"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_alignParentBottom="true"/>
                 <android.support.design.widget.TabLayout
                         android:id="@+id/tl_top_navi_act_top_menu_home_artist"
@@ -44,7 +44,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="15dp"
                         android:layout_marginRight="20dp"
-                        android:layout_marginLeft="18dp"
+                        android:layout_marginLeft="12dp"
                         app:tabPaddingStart="0dp"
                         app:tabPaddingEnd="0dp"
                         app:tabIndicatorFullWidth="false"
@@ -56,7 +56,7 @@
             <com.artoo.sopt23.artoo_client_android.CustomView.SwipeLockableViewPager
                     android:id="@+id/vp_top_navi_act_frag_pager_home_artist"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="400dp"
                     android:padding="0dp"
                     android:layout_margin="0dp"
                     android:background="#FFFFFF"/>
@@ -65,7 +65,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:text="오늘의\n앗! 투! 시리즈"
+                    android:text="앗! 투! 시리즈"
+                    android:includeFontPadding="false"
                     android:textSize="24sp"
                     android:layout_marginTop="25dp"
                     android:textColor="@color/colorTodayBlack"
@@ -73,28 +74,43 @@
 
             <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="260dp">
+                    android:layout_height="280dp"
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/btn_home_first_ticket">
                 <ImageButton
-                        android:id="@+id/btn_home_first_ticket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_centerInParent="true"
                         android:background="@android:color/transparent"
                         android:src="@drawable/home_today_content_1"/>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/arrow_right_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginRight="10dp"/>
             </RelativeLayout>
 
             <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="260dp">
+                    android:layout_height="280dp"
+                    android:layout_marginTop="36dp"
+                    android:id="@+id/btn_home_second_ticket"
+                    android:layout_marginBottom="29dp">
                 <ImageButton
-                        android:id="@+id/btn_home_second_ticket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="36dp"
-                        android:layout_centerInParent="true"
                         android:background="@android:color/transparent"
                         android:src="@drawable/home_today_content_2"/>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="17dp"
+                    android:src="@drawable/arrow_right_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginRight="10dp"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

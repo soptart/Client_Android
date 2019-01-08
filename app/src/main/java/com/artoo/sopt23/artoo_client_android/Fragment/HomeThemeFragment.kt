@@ -116,34 +116,34 @@ class HomeThemeFragment : Fragment() {
             startActivity(intent)
         }
         iv_home_theme_theme_category_5.setOnClickListener {
+            intent.putExtra("t_idx",themeTagData[9].t_idx)
+            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
+            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
+            startActivity(intent)
+        }
+        iv_home_theme_theme_category_6.setOnClickListener {
             intent.putExtra("t_idx",themeTagData[5].t_idx)
             intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[5].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_category_6.setOnClickListener {
+        iv_home_theme_theme_category_7.setOnClickListener {
             intent.putExtra("t_idx",themeTagData[6].t_idx)
             intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[6].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_category_7.setOnClickListener {
+        iv_home_theme_theme_category_8.setOnClickListener {
             intent.putExtra("t_idx",themeTagData[7].t_idx)
             intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[7].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_category_8.setOnClickListener {
+        iv_home_theme_theme_category_9.setOnClickListener {
+            startActivity(intent)
             intent.putExtra("t_idx",themeTagData[8].t_idx)
             intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[8].t_subTag)
-            startActivity(intent)
-        }
-        iv_home_theme_theme_category_9.setOnClickListener {
-            startActivity(intent)
-            intent.putExtra("t_idx",themeTagData[9].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
         }
         iv_home_theme_recommend_all.setOnClickListener{
             intent.putExtra("t_idx",themeTagData[0].t_idx)
@@ -176,33 +176,33 @@ class HomeThemeFragment : Fragment() {
             startActivity(intent)
         }
         iv_home_theme_theme_title_5.setOnClickListener{
+            intent.putExtra("t_idx",themeTagData[9].t_idx)
+            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
+            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
+            startActivity(intent)
+        }
+        iv_home_theme_theme_title_6.setOnClickListener{
             intent.putExtra("t_idx",themeTagData[5].t_idx)
             intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[5].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_title_6.setOnClickListener{
+        iv_home_theme_theme_title_7.setOnClickListener{
             intent.putExtra("t_idx",themeTagData[6].t_idx)
             intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[6].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_title_7.setOnClickListener{
+        iv_home_theme_theme_title_8.setOnClickListener{
             intent.putExtra("t_idx",themeTagData[7].t_idx)
             intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[7].t_subTag)
             startActivity(intent)
         }
-        iv_home_theme_theme_title_8.setOnClickListener{
+        iv_home_theme_theme_title_9.setOnClickListener{
             intent.putExtra("t_idx",themeTagData[8].t_idx)
             intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
             intent.putExtra("t_subTag",themeTagData[8].t_subTag)
-            startActivity(intent)
-        }
-        iv_home_theme_theme_title_9.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[9].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
             startActivity(intent)
         }
     }

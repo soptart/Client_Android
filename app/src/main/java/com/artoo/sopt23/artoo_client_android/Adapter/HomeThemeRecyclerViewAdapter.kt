@@ -13,6 +13,8 @@ import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,8 +32,6 @@ class HomeThemeRecyclerViewAdapter(val dataList: ArrayList<ThemeListData>): Recy
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-
-        var options: RequestOptions = RequestOptions().centerCrop()
 
         Glide.with(ctx)
                 .load(dataList[position].pic_url)
