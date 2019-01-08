@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.widget.LinearLayout
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.Data.MypageMyInfoData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetMypageMyInfoResponse
-import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
@@ -20,6 +20,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MypageMyInfoActivity : AppCompatActivity() {
+    val REQUEST_CODE_MyInfo_MODIFY = 1
+
     lateinit var btn_my_info_my_name : LinearLayout
     lateinit var btn_my_info_my_email : LinearLayout
     lateinit var btn_my_info_my_pw : LinearLayout
@@ -45,13 +47,13 @@ class MypageMyInfoActivity : AppCompatActivity() {
             val intent = Intent(this@MypageMyInfoActivity, MypageMyInfoModifyActivity::class.java)
 
             when(v!!.id) {
-                R.id.btn_my_info_my_name -> startActivity<MypageMyInfoModifyActivity>("title" to "이름", "key" to "u_name", "value1" to mypageMyInfoData.u_name)
-                R.id.btn_my_info_my_email -> startActivity<MypageMyInfoModifyActivity>("title" to "이메일", "key" to "u_email", "value1" to mypageMyInfoData.u_email)
-                R.id.btn_my_info_my_pw -> startActivity<MypageMyInfoModifyActivity>("title" to "비밀번호", "key" to "u_pw", "value1" to "", "value2" to "", "value3" to "")
-                R.id.btn_my_info_my_contact -> startActivity<MypageMyInfoModifyActivity>("title" to "연락처", "key" to "u_phone", "value1" to mypageMyInfoData.u_phone)
-                R.id.btn_my_info_my_address -> startActivity<MypageMyInfoModifyActivity>("title" to "주소", "key" to "u_email", "value1" to mypageMyInfoData.u_address)
-                R.id.btn_my_info_my_univ -> startActivity<MypageMyInfoModifyActivity>("title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
-                R.id.btn_my_info_my_account -> startActivity<MypageMyInfoModifyActivity>("title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
+                R.id.btn_my_info_my_name -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY,"title" to "이름", "key" to "u_name", "value1" to mypageMyInfoData.u_name)
+                R.id.btn_my_info_my_email -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "이메일", "key" to "u_email", "value1" to mypageMyInfoData.u_email)
+                R.id.btn_my_info_my_pw -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "비밀번호", "key" to "u_pw", "value1" to "", "value2" to "", "value3" to "")
+                R.id.btn_my_info_my_contact -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "연락처", "key" to "u_phone", "value1" to mypageMyInfoData.u_phone)
+                R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_email", "value1" to mypageMyInfoData.u_address)
+                R.id.btn_my_info_my_univ -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
+                R.id.btn_my_info_my_account -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
             }
         }
 
@@ -98,4 +100,11 @@ class MypageMyInfoActivity : AppCompatActivity() {
         })
     }
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == REQUEST_CODE_MyInfo_MODIFY){
+            if(resultCode == Activity.RESULT_OK) getMypageMyInfo()
+        }
+    }
 }

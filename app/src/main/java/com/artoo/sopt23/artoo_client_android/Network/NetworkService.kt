@@ -4,6 +4,8 @@ import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.*
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypageMyInfoResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypageMyInfoPWResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
 import com.google.gson.JsonObject
 import okhttp3.MultipartBody
@@ -75,6 +77,13 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("a_idx") a_idx: Int
     ): Call<GetProductDetailResponse>
+
+    @POST("/artworks/{a_idx}/likes")
+    fun postProductLikeResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("a_idx") a_idx: Int
+    ): Call<PostProductLikeResponse>
 
     @GET("/artworks/{a_idx}/purchase/{u_idx}")
     fun getPurchaseResponse(
@@ -181,6 +190,21 @@ interface NetworkService {
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageMyInfoResponse>
 
+    @PUT("/users/{u_idx}/myInfo")
+    fun putMypageMyInfoResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int,
+        @Body() body: JsonObject
+    ): Call<PutMypageMyInfoResponse>
+
+    @PUT("/users/{u_idx}/myInfo/pw")
+    fun putMypageMyInfoPWResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("u_idx") u_idx: Int,
+        @Body() body: JsonObject
+    ): Call<PutMypageMyInfoPWResponse>
 
     // 전시 신청
     @Headers("Content-Type: application/json")

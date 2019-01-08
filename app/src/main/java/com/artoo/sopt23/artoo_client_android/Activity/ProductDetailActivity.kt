@@ -14,6 +14,7 @@ import com.artoo.sopt23.artoo_client_android.Data.ProductDetailData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductDetailResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductCommentResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductLikeResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
@@ -63,16 +64,7 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         ll_product_detail_like.setOnClickListener({
-            if(!img_product_detail_like.isSelected){
-                img_product_detail_like.isSelected = true
-                txt_product_detail_like.text = (txt_product_detail_like.text.toString().toInt() + 1).toString()
-                txt_product_detail_like.setTextColor(Color.parseColor("#ff6f61"))
-            }
-            else{
-                img_product_detail_like.isSelected = false
-                txt_product_detail_like.text = (txt_product_detail_like.text.toString().toInt() - 1).toString()
-                txt_product_detail_like.setTextColor(Color.parseColor("#9c9c9c"))
-            }
+            postProductLikeData()
         })
 
         tv_product_detail_add_comment.setOnClickListener {
@@ -116,6 +108,30 @@ class ProductDetailActivity : AppCompatActivity() {
         }
     }
 
+    fun postProductLikeData(){
+        val token = SharedPreferenceController.getAuthorization(this)
+        val postProductLikeResponse = networkService.postProductLikeResponse("application/json", token, a_idx)
+        postProductLikeResponse.enqueue(object: Callback<PostProductLikeResponse>{
+            override fun onFailure(call: Call<PostProductLikeResponse>, t: Throwable) {
+                Log.i("ProductDetailActivity", "Connection Failure" + t.toString())
+            }
+            override fun onResponse(call: Call<PostProductLikeResponse>, response: Response<PostProductLikeResponse>) {
+                if(response.isSuccessful){
+                    if(!img_product_detail_like.isSelected){
+                        img_product_detail_like.isSelected = true
+                        txt_product_detail_like.text = (txt_product_detail_like.text.toString().toInt()+1).toString()
+                        txt_product_detail_like.setTextColor(Color.parseColor("#ff6f61"))
+                    }
+                    else{
+                        img_product_detail_like.isSelected = false
+                        txt_product_detail_like.text = (txt_product_detail_like.text.toString().toInt()-1).toString()
+                        txt_product_detail_like.setTextColor(Color.parseColor("#9c9c9c"))
+                    }
+                }
+            }
+        })
+    }
+
     fun getProductCommentData(){
         val token = SharedPreferenceController.getAuthorization(this)
         val getProductCommentResponse = networkService.getProductCommentResponse(token, a_idx)
@@ -130,6 +146,12 @@ class ProductDetailActivity : AppCompatActivity() {
             ) {
                 if(response.isSuccessful){
                     productCommentList = response.body()!!.data
+                    for(i in 0..productCommentList.size-1){
+                        if(productCommentList[i].u_idx == SharedPreferenceController.getUserID(this@ProductDetailActivity)){
+                            ll_product_detail_skill.visibility = View.VISIBLE
+                            ll_product_detail_info.visibility = View.GONE
+                        }
+                    }
                     productCommentRecyclerViewAdapter.dataList = productCommentList
                     productCommentRecyclerViewAdapter.notifyDataSetChanged()
                 }
