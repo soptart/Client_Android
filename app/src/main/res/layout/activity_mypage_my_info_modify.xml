@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Activity.MypageMyInfoModifyActivity">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f1f1f1"
-    android:orientation="vertical"
-    tools:context=".Activity.MypageMyInfoModifyActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -143,5 +146,293 @@
             android:background="#dddddd" />
 
     </LinearLayout>
-
 </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/ll_mypage_myinfo_modify_bank"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="#CC000000"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RelativeLayout
+                android:id="@+id/rl_mypage_myinfo_modify_bank_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+            <ImageView
+                    android:id="@+id/btn_mypage_myinfo_modify_bank_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/close_white"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28dp"
+                    android:text="은행"
+                    android:textColor="#ffffff"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:background="@android:color/transparent"/>
+        </RelativeLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="80dp"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1">
+                <Button
+                        android:id="@+id/btn_join_bank_kb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="KB국민"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_keb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="KEB하나"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_shin"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="신한"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1">
+
+                <Button
+                        android:id="@+id/btn_join_bank_wr"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="우리"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center" />
+
+                <Button
+                        android:id="@+id/btn_join_bank_nh"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="NH농협"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center" />
+
+                <Button
+                        android:id="@+id/btn_join_bank_ibk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="IBK기업"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1">
+
+                <Button
+                        android:id="@+id/btn_join_bank_kdb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="KDB산업"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_ct"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="한국씨티"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_sc"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="SC제일"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1">
+
+                <Button
+                        android:id="@+id/btn_join_bank_bmk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="BNK부산"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center" />
+
+                <Button
+                        android:id="@+id/btn_join_bank_dgb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="DGB대구"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_bnk"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="BNK경남"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1">
+
+                <Button
+                        android:id="@+id/btn_join_bank_sh"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="Sh수협"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+
+                <Button
+                        android:id="@+id/btn_join_bank_gj"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="광주"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center" />
+
+                <Button
+                        android:id="@+id/btn_join_bank_jb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bank_border"
+                        android:text="전북"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/notosanscjkkr_demilight"
+                        android:textColor="@color/colorBorder"
+                        android:textAlignment="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
