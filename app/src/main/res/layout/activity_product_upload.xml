@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Activity.ProductUploadActivity">
+        android:layout_marginTop="24dp"
+        tools:context="Activity.ProductUploadActivity">
 
 
     <RelativeLayout
@@ -23,8 +24,8 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <ImageButton
                             android:id="@+id/btn_product_upload_close"
@@ -37,8 +38,8 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -52,14 +53,24 @@
                         android:layout_height="180dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+
+                    <Button
+                            android:id="@+id/btn_product_upload_open_album"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:visibility="visible"
+                            android:text="작품만 보이도록\n꼭 잘라주세요\n\n세로 크기 제한"
+                            android:textColor="#353d46"/>
                     <ImageView
                             android:id="@+id/iv_product_upload_product_img"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:scaleType="centerCrop" tools:srcCompat="@drawable/artoo_logo"/>
+                            android:visibility="gone"
+                            android:scaleType="centerCrop"/>
                     <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -112,22 +123,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
+                            android:id="@+id/tv_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품명"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/tv_title"
+                            android:background="@drawable/dialog_oval"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
                     <EditText
                             android:id="@+id/et_product_upload_product_title"
                             android:layout_width="match_parent"
@@ -141,8 +159,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:id="@+id/tv_content"
@@ -151,20 +169,18 @@
                             android:text="작품 설명"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@+id/tv_content"
-                            android:text=" *"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorEssential"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/tv_content"
+                            android:background="@drawable/dialog_oval"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <EditText
                             android:id="@+id/et_product_upload_product_detail"
@@ -181,8 +197,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -258,10 +274,12 @@
                         </LinearLayout>
                         <Button
                                 android:id="@+id/btn_product_upload_add_theme"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:visibility="visible"
-                                android:text="추가하기">
+                                android:layout_width="101dp"
+                                android:layout_height="27dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/upload_theme_add_copy"
+                                android:visibility="visible">
                         </Button>
                     </LinearLayout>
                 </RelativeLayout>
@@ -269,31 +287,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:id="@+id/tv_product_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="작품 SIZE"
+                            android:text="작품 크기"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@+id/tv_product_size"
-                            android:text=" *"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorEssential"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/tv_product_size"
+                            android:background="@drawable/dialog_oval"/>
                 </RelativeLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <EditText
                             android:id="@+id/et_product_upload_size_width"
@@ -354,8 +370,8 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
                     <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">>
@@ -367,14 +383,6 @@
                                 android:text="작품 가격"
                                 android:textSize="16sp"
                                 android:textStyle="bold"/>
-                        <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_toEndOf="@+id/tv_product_price"
-                                android:text=" *"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorEssential"/>
                     </RelativeLayout>
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -405,8 +413,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -431,8 +439,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:id="@+id/tv_product_delivery"
@@ -441,43 +449,49 @@
                             android:text="배송 여부"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@+id/tv_product_delivery"
-                            android:text=" *"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorEssential"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/tv_product_delivery"
+                            android:background="@drawable/dialog_oval"/>
                 </RelativeLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="34dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
-                    <Button
-                            android:id="@+id/btn_product_upload_delivery_parcel"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
+                    <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginRight="4dp"
-                            android:background="@drawable/border"
-                            android:text="택배"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorBorder"/>
-                    <Button
-                            android:id="@+id/btn_product_upload_delivery_direct"
+                            android:layout_weight="1">
+                        <Button
+                                android:id="@+id/btn_product_upload_delivery_parcel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="12dp"
+                                android:background="@drawable/selector_product_upload_deli_parcel"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorBorder" android:layout_centerHorizontal="true"
+                                android:layout_alignParentTop="true"/>
+                    </RelativeLayout>
+                    <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="4dp"
-                            android:background="@drawable/border"
-                            android:text="직거래"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorBorder"/>
+                            android:layout_weight="1">
+                        <Button
+                                android:id="@+id/btn_product_upload_delivery_direct"
+                                android:layout_width="148dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/selector_product_upload_deli_direct"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorBorder"/>
+                    </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -485,8 +499,8 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
                     <View
                             android:layout_width="0dp"
                             android:layout_height="1dip"
@@ -512,8 +526,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:id="@+id/tv_material"
@@ -522,20 +536,18 @@
                             android:text="작품 재료"
                             android:textSize="16sp"
                             android:textStyle="bold"/>
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@+id/tv_material"
-                            android:text=" *"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/colorEssential"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/tv_material"
+                            android:background="@drawable/dialog_oval"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <EditText
                             android:id="@+id/et_product_upload_material"
@@ -550,8 +562,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -563,8 +575,8 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp">
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp">
 
                     <EditText
                             android:id="@+id/et_product_upload_tip"
