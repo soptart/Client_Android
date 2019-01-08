@@ -11,6 +11,7 @@ import com.artoo.sopt23.artoo_client_android.Adapter.ProductDetailCommentRecycle
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.Data.CommentData
 import com.artoo.sopt23.artoo_client_android.Data.ProductDetailData
+import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.DeleteProductResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductCommentResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetProductDetailResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductCommentResponse
@@ -105,6 +106,25 @@ class ProductDetailActivity : AppCompatActivity() {
                 txt_product_detail_desc.maxLines = 3
                 it.isSelected = false
             }
+        }
+
+        txt_product_detail_delete.setOnClickListener {
+            val token = SharedPreferenceController.getAuthorization(this)
+            val deleteProductResponse = networkService.deleteProductResponse("appliaction/json", token, a_idx)
+            deleteProductResponse.enqueue(object: Callback<DeleteProductResponse>{
+                override fun onFailure(call: Call<DeleteProductResponse>, t: Throwable) {
+                    Log.i("ProductDetailActivity", "Connection Failure" + t.toString())
+                }
+                override fun onResponse(call: Call<DeleteProductResponse>, response: Response<DeleteProductResponse>) {
+                    if(response.isSuccessful){
+                        finish()
+                    }
+                }
+            })
+        }
+
+        txt_product_detail_modify.setOnClickListener {
+            startActivity<ProductUploadActivity>("a_idx" to a_idx)
         }
     }
 
