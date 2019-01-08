@@ -56,7 +56,8 @@ class AlarmExhibitionCancelDialogFragment : DialogFragment() {
             override fun onResponse(call: Call<DeleteExhibitionResponse>, response: Response<DeleteExhibitionResponse>) {
                 if(response.isSuccessful){
                     toast("거래가 취소되었습니다!")
-                    Log.d("*****AlarmExhibitionCancelDialogFragment::deleteExhibitionResponse::Success",response.body().toString())
+                    Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
+                    (ctx as AlarmExhibitionFragment).getAlarmExhibitionResponse()
                 }
             }
         })

@@ -24,6 +24,7 @@ import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.fragment_home_today.*
 import kotlinx.android.synthetic.main.fragment_home_today.view.*
+import kotlinx.android.synthetic.main.rv_item_home_today_artist.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

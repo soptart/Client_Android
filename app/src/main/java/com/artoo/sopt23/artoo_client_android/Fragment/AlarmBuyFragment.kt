@@ -59,7 +59,7 @@ class AlarmBuyFragment : Fragment() {
         val getAlarmBuyResponse = networkService.getAlarmBuyResponse("application/json",token,user_idx)
         getAlarmBuyResponse.enqueue(object : Callback<GetAlarmBuyResponse> {
             override fun onFailure(call: Call<GetAlarmBuyResponse>, t: Throwable) {
-                Log.e("*****AlarmActivity::getAlarmBuyResponse::", t.toString())
+                Log.e("*****AlarmActivity::getAla98[prmBuyResponse::", t.toString())
             }
             override fun onResponse(call: Call<GetAlarmBuyResponse>, response: Response<GetAlarmBuyResponse>) {
                 if(response.isSuccessful){

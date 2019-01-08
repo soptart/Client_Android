@@ -12,6 +12,7 @@
     <color name="colorTodayBlack">#2f2f2f</color>
     <color name="colorMainNoSelect">#9c9c9c</color>
     <color name="colorHomeGrey">#c5c5c5</color>
+    <color name="pinkish_gray">#c6c6c6</color>
 
     <color name="colorBackgroundWhite">#FFFFFF</color>
     <color name="highlight">#ff6f61</color>

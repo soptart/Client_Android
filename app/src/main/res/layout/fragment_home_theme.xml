@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="6dp"
-                android:src="@drawable/theme_unfathomable"
+                android:src="@drawable/theme_sesitive"
                 android:adjustViewBounds="true"/>
             <ImageView
                 android:id="@+id/iv_home_theme_theme_category_2"
@@ -40,21 +40,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="6dp"
-                android:src="@drawable/theme_simple"
+                android:src="@drawable/theme_cute"
                 android:adjustViewBounds="true"/>
             <ImageView
                 android:id="@+id/iv_home_theme_theme_category_4"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="6dp"
-                android:src="@drawable/theme_sesitive"
+                android:src="@drawable/theme_simple"
                 android:adjustViewBounds="true"/>
             <ImageView
                 android:id="@+id/iv_home_theme_theme_category_5"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginHorizontal="6dp"
-                android:src="@drawable/theme_cute"
+                android:src="@drawable/theme_unfathomable"
                 android:adjustViewBounds="true"/>
             <ImageView
                 android:id="@+id/iv_home_theme_theme_category_6"
@@ -96,10 +96,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <ImageView
                     android:id="@+id/img_home_theme_recommend_background"
-                    android:src="@drawable/theme_big_picture_happy"
+                    android:src="@drawable/home_theme_blur_happy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:cropToPadding="false"
@@ -115,25 +114,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/theme_recommend"
-                        android:id="@+id/img_home_theme_recommend_sticker"/>
+                        android:id="@+id/img_home_theme_recommend_sticker"
+                        />
                     <LinearLayout
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginBottom="8dp"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
-                            android:text="우리집에 행복을 가져다주는 그림들"
+                            android:text="우리집에 행복을 가져다주는 작품들"
+                            android:includeFontPadding="false"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/txt_home_theme_recommend_title"
                             android:fontFamily="@font/notosanscjkkr_regular"
+                            android:layout_marginTop="8dp"
                             android:textSize="17sp"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#ffffff"/>
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp">
                             <ImageView
                                 android:id="@+id/iv_home_theme_recommend_all"
                                 android:layout_width="wrap_content"
@@ -150,6 +152,7 @@
                         android:id="@+id/rv_home_theme_recommend_product"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
                         android:clipToPadding="false"/>
                 </LinearLayout>
             </RelativeLayout>
@@ -159,13 +162,14 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="5dp"
-                android:layout_marginTop="45dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_1"
-                    android:src="@drawable/theme_picture_unfathomable"
+                    android:src="@drawable/theme_picture_sensitive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </android.support.v7.widget.CardView>
@@ -174,9 +178,11 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_2"
                     android:src="@drawable/theme_picture_fancy"
@@ -188,39 +194,13 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_3"
-                    android:src="@drawable/theme_picture_simple"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
-                android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
-                <ImageView
-                    android:id="@+id/iv_home_theme_theme_title_4"
-                    android:src="@drawable/theme_picture_sensitive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
-                android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
-                <ImageView
-                    android:id="@+id/iv_home_theme_theme_title_5"
                     android:src="@drawable/theme_picture_cute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -230,9 +210,43 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:id="@+id/iv_home_theme_theme_title_4"
+                    android:src="@drawable/theme_picture_simple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="5dp"
+                android:layout_gravity="center_horizontal"
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:id="@+id/iv_home_theme_theme_title_5"
+                    android:src="@drawable/theme_picture_unfathomable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="5dp"
+                android:layout_gravity="center_horizontal"
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_6"
                     android:src="@drawable/theme_picture_spring"
@@ -244,9 +258,11 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_7"
                     android:src="@drawable/theme_picture_summer"
@@ -258,9 +274,11 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_8"
                     android:src="@drawable/theme_picture_fall"
@@ -272,9 +290,12 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
                 app:cardCornerRadius="5dp"
                 android:layout_gravity="center_horizontal"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp">
                 <ImageView
                     android:id="@+id/iv_home_theme_theme_title_9"
                     android:src="@drawable/theme_picture_winter"

@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="60dp"
     android:orientation="horizontal">
     <RelativeLayout
             android:id="@+id/btn_top_navi_home_today_tab"
@@ -16,9 +16,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="투데이"
+                android:includeFontPadding="false"
                 android:fontFamily="@font/notosanscjkkr_regular"
                 android:textColor="@color/colorHomeBlack"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -33,7 +34,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="테마"
+                android:includeFontPadding="false"
                 android:fontFamily="@font/notosanscjkkr_regular"
-                android:textSize="20sp"/>
+                android:textColor="@color/colorMainGrey"
+                android:textSize="22sp"/>
     </RelativeLayout>
 </LinearLayout>
