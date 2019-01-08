@@ -71,6 +71,13 @@ interface NetworkService {
         @Part pic_url: MultipartBody.Part
     ): Call<PostProductUploadResponse>
 
+    @DELETE("/artworks/delete/{a_idx}")
+    fun deleteProductResponse(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") token: String,
+        @Path("a_idx") a_idx: Int
+    ): Call<DeleteProductResponse>
+
     @GET("/artworks/{a_idx}")
     fun getProductDetailResponse(
         @Header("Content-Type") content_type: String,
