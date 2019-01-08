@@ -299,7 +299,8 @@
             android:id="@+id/ll_product_detail_bottomnav"
             android:layout_width="match_parent"
             android:layout_height="50dp" android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:clickable="true">
         <LinearLayout
                 android:gravity="center"
                 android:orientation="horizontal"

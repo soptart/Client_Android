@@ -12,29 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar"
-        android:usesCleartextTraffic="true"
-        android:windowSoftInputMode="adjustPan">
+        android:usesCleartextTraffic="true">
         <activity android:name=".Activity.MainActivity"/>
-        <activity android:name=".Activity.LoginActivity">
+        <activity android:name=".Activity.LoginActivity"
+                  android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.JoinActivity"/>
-        <activity android:name=".Activity.ProductDetailActivity"/>
-        <activity android:name=".Activity.ProductUploadActivity"/>
+        <activity android:name=".Activity.JoinActivity"
+                  android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Activity.ProductDetailActivity"
+                  android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Activity.ProductUploadActivity"
+                  android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Activity.FilterActivity"/>
         <activity android:name=".Activity.ThemeActivity">
         </activity>
         <activity android:name=".Activity.ProductZoomActivity"/>
-        <activity android:name=".Activity.PurchaseActivity"/>
+        <activity android:name=".Activity.ProductPurchaseActivity"
+                  android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Activity.EnterTheExhibitionActivity"/>
         <activity android:name=".Activity.ExhibitionDetailActivity"/>
         <activity android:name=".Activity.ApplyExhibitionActivity"/>
         <activity android:name=".Activity.AlarmActivity"/>
         <activity android:name=".Activity.MypagePreferencesActivity"/>
-        <activity android:name=".Activity.MypageMyInfoActivity"/>
+        <activity android:name=".Activity.MypageMyInfoActivity"
+                  android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Activity.MypageMyInfoModifyActivity"/>
         <activity android:name=".Activity.MypageServiceActivity"/>
         <activity android:name=".Activity.MypageHelpActivity"/>

@@ -12,14 +12,15 @@ import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import kotlinx.android.synthetic.main.activity_purchase.*
+import kotlinx.android.synthetic.main.activity_product_purchase.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.DecimalFormat
+import org.jetbrains.anko.*
 
-class PurchaseActivity : AppCompatActivity() {
+class ProductPurchaseActivity : AppCompatActivity() {
 
     val jsonObject = JSONObject()
     var checkPost : Boolean = true
@@ -30,7 +31,7 @@ class PurchaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_purchase)
+        setContentView(R.layout.activity_product_purchase)
         getArtworkDetail() // <--- 사실 여기에서 받는 정보는 intent로 다 넘겨주면 됨! 앞에 intent로 다 보내주시고 이건 지워주세요.
 
         img_purchase_transfer_express.setOnClickListener {
@@ -76,7 +77,7 @@ class PurchaseActivity : AppCompatActivity() {
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
         val a_id = intent.getIntExtra("a_idx", -1)
         val u_id = intent.getIntExtra("u_idx", -1)
-        val postPurchaseResponse: Call<PostPurchaseResponse> = networkService.postPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
+        val postPurchaseResponse: Call<PostPurchaseResponse> = networkService.postPurchaseResponse(SharedPreferenceController.getAuthorization(this@ProductPurchaseActivity)
                 ,a_id,u_id, gsonObject)
         postPurchaseResponse.enqueue(object : Callback<PostPurchaseResponse>{
             override fun onFailure(call: Call<PostPurchaseResponse>, t: Throwable) {
@@ -85,6 +86,7 @@ class PurchaseActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<PostPurchaseResponse>, response: Response<PostPurchaseResponse>) {
                 if(response.isSuccessful){
+                    // startActivity<PurchaseCompleteActivity>()
                     finish()
                 }
             }
@@ -92,11 +94,12 @@ class PurchaseActivity : AppCompatActivity() {
     }
 
     private fun getArtworkDetail() {
-        val a_id = intent.getIntExtra("a_idx", -1)
-        val u_id = intent.getIntExtra("u_idx", -1)
-        if (a_id != -1 && u_id != -1) {
-            val getArtworkResponse: Call<GetPurchaseResponse> = networkService.getPurchaseResponse(SharedPreferenceController.getAuthorization(this@PurchaseActivity)
-                    , a_id, u_id)
+        val a_idx = intent.getIntExtra("a_idx", -1)
+        val u_idx = intent.getIntExtra("u_idx", -1)
+        val pic_url = intent.getStringExtra("pic_url")
+        if (a_idx != -1 && u_idx != -1) {
+            val getArtworkResponse: Call<GetPurchaseResponse> = networkService.getPurchaseResponse(SharedPreferenceController.getAuthorization(this@ProductPurchaseActivity)
+                    , a_idx, u_idx)
             getArtworkResponse.enqueue(object : Callback<GetPurchaseResponse> {
                 override fun onFailure(call: Call<GetPurchaseResponse>, t: Throwable) {
                     Log.e("failed getting artwork info", t.toString())
@@ -105,8 +108,7 @@ class PurchaseActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<GetPurchaseResponse>, response: Response<GetPurchaseResponse>) {
                     if (response.isSuccessful) {
                         val bodyData = response.body()!!.data
-                        val url = intent.getStringExtra("pic_url")
-                        Glide.with(this@PurchaseActivity).load(url).into(purchase_art_img)// url 안 보냈을때 이거도 붙이면 좋을듯.onLoadFailed()
+                        Glide.with(this@ProductPurchaseActivity).load(pic_url).into(purchase_art_img)// url 안 보냈을때 이거도 붙이면 좋을듯.onLoadFailed()
                         val df = DecimalFormat("#,###")
                         val price = df.format(bodyData.artworkPrice * 0.9) + "원"
                         txt_purchase_price_product.text = price

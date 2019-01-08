@@ -21,8 +21,8 @@ import kotlinx.android.synthetic.main.fragment_home_artist1.*
 
 class HomeArtist1Fragment : Fragment() {
     var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
+        TodayArtistProductData(8, "그리움", "2018", "img1.jpg"),
+        TodayArtistProductData(8, "그리움", "2018", "img1.jpg")
 )
     var todayArtistData: TodayArtistData = TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
     lateinit var homeTodayRecyclerViewAdapter: HomeTodayRecyclerViewAdapter

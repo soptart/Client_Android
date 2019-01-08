@@ -55,7 +55,11 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         ll_product_detail_bottomnav.setOnClickListener {
-            startActivity<PurchaseActivity>("pic_url" to productDetailData.pic_url, "a_idx" to productDetailData.a_idx, "u_idx" to SharedPreferenceController.getUserID(this))
+            startActivity<ProductPurchaseActivity>("pic_url" to productDetailData.pic_url, "a_idx" to productDetailData.a_idx, "u_idx" to SharedPreferenceController.getUserID(this))
+        }
+
+        img_product_detail_purchase.setOnClickListener {
+            var a = 10
         }
 
         ll_product_detail_like.setOnClickListener({
@@ -165,9 +169,9 @@ class ProductDetailActivity : AppCompatActivity() {
 
                     if(productDetailData.a_license == "CCL표시안함")
                         img_product_detail_license.setImageResource(R.drawable.invalid_name)
-                    else if(productDetailData.a_license == "저작권표시")
+                    else if(productDetailData.a_license == "저작자표시")
                         img_product_detail_license.setImageResource(R.drawable.cc_by)
-                    else if(productDetailData.a_license == "저작권표시-비영리")
+                    else if(productDetailData.a_license == "저작자표시-비영리")
                         img_product_detail_license.setImageResource(R.drawable.cc_by_nc)
                     else if(productDetailData.a_license == "저작자표시-동일조건변경허락")
                         img_product_detail_license.setImageResource(R.drawable.cc_by_sa_copy)
@@ -202,21 +206,21 @@ class ProductDetailActivity : AppCompatActivity() {
                         txt_product_detail_price.text = "판매 안 함"
                         txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
-                        img_product_detail_purchase.isClickable = false
+                        ll_product_detail_bottomnav.isClickable = false
                     }
                     else if(productDetailData.a_purchaseState == 1){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_price)
                         txt_product_detail_price.text = productDetailData.a_price.toString() +"원"
                         txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_purchase)
-                        img_product_detail_purchase.isClickable = true
+                        ll_product_detail_bottomnav.isClickable = true
                     }
                     else if(productDetailData.a_purchaseState == 2){
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
                         txt_product_detail_price.text = "판매 안 함"
                         txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_complete)
-                        img_product_detail_purchase.isClickable = false
+                        ll_product_detail_bottomnav.isClickable = false
                     }
                     else{
                         Log.i("ProductDetailActivity", "Unknown PurchaseState")

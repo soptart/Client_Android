@@ -33,8 +33,8 @@ import org.jetbrains.anko.support.v4.ctx
 class HomeTodayFragment : Fragment() {
 
     var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
+        TodayArtistProductData(8, "그리움", "2018", "img1.jpg"),
+        TodayArtistProductData(8, "그리움", "2018", "img1.jpg")
     )
     var todayArtist: ArrayList<TodayArtistData> = arrayListOf(
         TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
@@ -84,7 +84,10 @@ class HomeTodayFragment : Fragment() {
 
             override fun onResponse(call: Call<GetTodayArtistResponse>, response: Response<GetTodayArtistResponse>) {
                 if(response.isSuccessful){
-                    todayArtist = response.body()!!.data
+                    // todayArtist = response.body()!!.data
+                    for (i in 0..response.body()!!.data.size - 1){
+                        todayArtist[i] = response.body()!!.data[i]
+                    }
                     configureTopNavigation()
                 }
             }

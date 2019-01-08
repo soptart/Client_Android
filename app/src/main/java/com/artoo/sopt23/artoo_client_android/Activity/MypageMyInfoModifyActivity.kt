@@ -40,14 +40,14 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
 
         btn_my_info_modify.setOnClickListener {
             if(key == "u_pw"){
-                TODO("/users/{u_idx}/myInfo/pw")
+                //TODO("/users/{u_idx}/myInfo/pw")
             }
             else if(key == "u_account"){
-                TODO("u_bank + u_account")
+                //TODO("u_bank + u_account")
             }
             else{
-                TODO("/users/{u_idx}/myInfo")
-                TODO("key=value1")
+                //TODO("/users/{u_idx}/myInfo")
+                //TODO("key=value1")
             }
         }
     }
