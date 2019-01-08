@@ -93,7 +93,7 @@ class MypageMyInfoActivity : AppCompatActivity() {
                     txt_my_info_my_email.text = mypageMyInfoData.u_email
                     txt_my_info_my_contact.text = mypageMyInfoData.u_phone
                     txt_my_info_my_address.text = mypageMyInfoData.u_address
-                    txt_my_info_my_univ.text = mypageMyInfoData.u_school
+                    txt_my_info_my_univ.text = mypageMyInfoData.u_school + "대학교"
                     txt_my_info_my_account.text = mypageMyInfoData.u_bank + " " + mypageMyInfoData.u_account
                 }
             }
