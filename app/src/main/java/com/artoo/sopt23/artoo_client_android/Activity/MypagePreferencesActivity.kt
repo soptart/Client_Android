@@ -1,16 +1,21 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.R
+import kotlinx.android.synthetic.main.activity_mypage_preferences.*
+import org.jetbrains.anko.*
 
 class MypagePreferencesActivity : AppCompatActivity() {
     lateinit var btn_mypage_help : LinearLayout
     lateinit var btn_mypage_artoo_service : LinearLayout
     lateinit var btn_mypage_my_info : LinearLayout
+    lateinit var btn_mypage_logout : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,14 @@ class MypagePreferencesActivity : AppCompatActivity() {
                     val intent = Intent(this, MypageServiceActivity::class.java)
                     startActivity(intent)
                 }
+
+                R.id.btn_mypage_logout -> {
+                    SharedPreferenceController.clearSPC(this)
+                    val intent:Intent = Intent(this, LoginActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                }
             }
         }
 
@@ -44,6 +57,9 @@ class MypagePreferencesActivity : AppCompatActivity() {
 
         btn_mypage_artoo_service = findViewById(R.id.btn_mypage_artoo_service)
         btn_mypage_artoo_service.setOnClickListener(onClick)
+
+        btn_mypage_logout = findViewById(R.id.btn_mypage_logout)
+        btn_mypage_logout.setOnClickListener(onClick)
     }
 
 }
