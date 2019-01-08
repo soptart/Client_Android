@@ -94,7 +94,6 @@
                 android:layout_marginRight="8dp"
                 android:background="@drawable/border"
                 android:gravity="left|top"
-                android:text="아아아아아아아아아"
                 android:textColor="@color/colorGeneral"
                 android:textSize="17sp"
                 android:visibility="gone" />

@@ -72,7 +72,6 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(call: Call<PostLoginResponse>, response: Response<PostLoginResponse>) {
 
                     if (response.isSuccessful) {
-
                         if (response.body()!!.status == 400) {
                             toast("아이디와 비밀번호를 확인해주세요")
                         } else {

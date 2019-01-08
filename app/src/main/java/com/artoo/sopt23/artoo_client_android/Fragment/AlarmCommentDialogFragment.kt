@@ -47,10 +47,11 @@ class AlarmCommentDialogFragment : DialogFragment() {
     private fun postCommentResponse(){
         val token = SharedPreferenceController.getAuthorization(context!!)
         val getComment: String = et_fragment_alarm_comment_dialog.text.toString()
-        var p_idx : Int = (context as FragmentActivity).intent.getIntExtra("p_idx",-1)
-        jsonObject.put("comment",getComment)
+        //var p_idx : Int = (context as FragmentActivity).intent.getIntExtra("p_idx",-1)
+        var p_idx = AlarmBuyFragment.instance.p_idx
+        jsonObject.put("p_comment", getComment)
         val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-        val postCommentResponse = networkService.postCommentResponse("application/json",token,gsonObject,p_idx)
+        val postCommentResponse = networkService.postCommentResponse("application/json",token,gsonObject, p_idx)
         postCommentResponse.enqueue(object : Callback<PostCommentResponse> {
             override fun onFailure(call: Call<PostCommentResponse>, t: Throwable) {
                 Log.e("*****AlarmCommentDialogFragment::postCommentResponse::", t.toString())

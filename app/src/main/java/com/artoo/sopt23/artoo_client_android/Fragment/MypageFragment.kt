@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,16 +20,23 @@ import com.artoo.sopt23.artoo_client_android.Data.MypageLikeData
 import com.artoo.sopt23.artoo_client_android.Data.MypageProductData
 import com.artoo.sopt23.artoo_client_android.Data.MypageReviewData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 
 import com.artoo.sopt23.artoo_client_android.R
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.fragment_mypage.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MypageFragment : Fragment() {
+
+    var mypageIntro: String = ""
+    val jsonObject = JSONObject()
 
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
@@ -72,6 +80,7 @@ class MypageFragment : Fragment() {
         getMypageLikeResponse()
         getMypageDealResponse()
         getMypageReviewResponse()
+
         getMypagePrefInfoResponse()
     }
 
@@ -119,13 +128,18 @@ class MypageFragment : Fragment() {
         btn_mypage_update_intro.setOnClickListener{
             tv_mypage_user_intro.visibility = View.GONE
             et_mypage_user_intro.visibility = View.VISIBLE
+            et_mypage_user_intro.hint = mypageIntro
             btn_mypage_update_intro_finish.visibility = View.VISIBLE
         }
         btn_mypage_update_intro_finish.setOnClickListener {
-            tv_mypage_user_intro.setText(et_mypage_user_intro.text.toString())
+            mypageIntro = et_mypage_user_intro.text.toString()
+
+            tv_mypage_user_intro.setText(mypageIntro)
             tv_mypage_user_intro.visibility = View.VISIBLE
             et_mypage_user_intro.visibility = View.GONE
             btn_mypage_update_intro_finish.visibility = View.GONE
+
+            jsonObject.put("u_description", mypageIntro)
             putMypagePrefInfoResponse()
         }
         btn_mypage_alert.setOnClickListener {
@@ -259,6 +273,9 @@ class MypageFragment : Fragment() {
             override fun onResponse(call: Call<GetMypagePrefInfoResponse>, response: Response<GetMypagePrefInfoResponse>) {
                 if (response.isSuccessful) {
                     Log.d("*****MypageFragment::getMypagePrefInfoResponse::Success::", response.body().toString())
+                    mypageIntro = response.body()!!.data.u_description
+                    tv_mypage_user_name.text = response.body()!!.data.u_name
+                    tv_mypage_user_intro.text = mypageIntro
                 } else {
                     Log.d("*****MypageFragment::getMypagePrefInfoResponse::Failed::", response.body().toString())
                 }
@@ -267,6 +284,25 @@ class MypageFragment : Fragment() {
     }
 
     private fun putMypagePrefInfoResponse() {
+        val token = SharedPreferenceController.getAuthorization(context!!)
+        val u_idx = SharedPreferenceController.getUserID(context!!)
 
+        Log.d("*****MypageFragment::putMypagePrefInfoResponse::json::", jsonObject.toString())
+
+        val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+        val putMypagePrefInfoResponse = networkService.putMypagePrefInfoResponse("application/json", token, u_idx, gsonObject)
+        putMypagePrefInfoResponse.enqueue(object: Callback<PutMypagePrefInfoResponse> {
+            override fun onFailure(call: Call<PutMypagePrefInfoResponse>, t: Throwable) {
+                Log.d("*****MypageFragment::putMypagePrefInfoResponse::Failed::", "Update_UserInfo_Failed")
+            }
+            override fun onResponse(call: Call<PutMypagePrefInfoResponse>, response: Response<PutMypagePrefInfoResponse>) {
+                if (response.isSuccessful) {
+                    Log.d("*****MypageFragment::putMypagePrefInfoResponse::Success::", response.body().toString())
+                    tv_mypage_user_intro.text = mypageIntro
+                } else {
+                    Log.d("*****MypageFragment::putMypagePrefInfoResponse::Failed::", response.body().toString())
+                }
+            }
+        })
     }
 }

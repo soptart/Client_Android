@@ -27,6 +27,12 @@ import java.util.ArrayList
 
 class AlarmExhibitionFragment : Fragment() {
 
+    var u_idx: Int = -1
+    var dc_idx : Int = -1
+    companion object {
+        var instance: AlarmExhibitionFragment = AlarmExhibitionFragment()
+    }
+
     var dataListExhibition = ArrayList<AlarmExhibitionData>()
 
     val networkService: NetworkService by lazy {

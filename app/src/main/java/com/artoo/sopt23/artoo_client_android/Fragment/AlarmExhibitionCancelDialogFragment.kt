@@ -46,18 +46,17 @@ class AlarmExhibitionCancelDialogFragment : DialogFragment() {
 
     private fun deleteExhibitionResponse(){
         val token = SharedPreferenceController.getAuthorization(context!!)
-        val dc_idx : Int = (context as FragmentActivity).intent.getIntExtra("dc_idx",-1)
-        val u_idx : Int = (context as FragmentActivity).intent.getIntExtra("user_idx",-1)
-        val deleteExhibitionResponse = networkService.deleteExhibitionResponse("application/json",token, dc_idx, u_idx)
+        //val dc_idx : Int = (context as FragmentActivity).intent.getIntExtra("dc_idx",-1)
+        //val u_idx : Int = (context as FragmentActivity).intent.getIntExtra("user_idx",-1)
+        val deleteExhibitionResponse = networkService.deleteExhibitionResponse("application/json",token, AlarmExhibitionFragment.instance.dc_idx, AlarmExhibitionFragment.instance.u_idx)
         deleteExhibitionResponse.enqueue(object : Callback<DeleteExhibitionResponse> {
             override fun onFailure(call: Call<DeleteExhibitionResponse>, t: Throwable) {
-                Log.e("*****AlarmExhibitionCancelDialogFragment::postCommentResponse::", t.toString())
+                Log.e("*****AlarmExhibitionCancelDialogFragment::deleteExhibitionResponse::Failed", t.toString())
             }
             override fun onResponse(call: Call<DeleteExhibitionResponse>, response: Response<DeleteExhibitionResponse>) {
                 if(response.isSuccessful){
                     toast("거래가 취소되었습니다!")
-                    Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
-                    (ctx as AlarmExhibitionFragment).getAlarmExhibitionResponse()
+                    Log.d("*****AlarmExhibitionCancelDialogFragment::deleteExhibitionResponse::Success",response.body().toString())
                 }
             }
         })

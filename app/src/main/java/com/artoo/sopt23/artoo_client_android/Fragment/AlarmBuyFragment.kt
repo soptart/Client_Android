@@ -3,6 +3,7 @@ package com.artoo.sopt23.artoo_client_android.Fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,11 @@ import retrofit2.Response
 import java.util.ArrayList
 
 class AlarmBuyFragment : Fragment() {
+
+    var p_idx: Int = -1
+    companion object {
+        var instance : AlarmBuyFragment = AlarmBuyFragment()
+    }
 
     var dataListBuy = ArrayList<AlarmBuyData>()
     lateinit var alarmBuyRecyclerViewAdapter: AlarmBuyRecyclerViewAdapter
@@ -44,7 +50,7 @@ class AlarmBuyFragment : Fragment() {
     private fun setRecyclerView() {
         alarmBuyRecyclerViewAdapter = AlarmBuyRecyclerViewAdapter(activity!!, dataListBuy)
         rv_fragment_alarm_buy_list.adapter = alarmBuyRecyclerViewAdapter
-        rv_fragment_alarm_buy_list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL,false)
+        rv_fragment_alarm_buy_list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL,false) as RecyclerView.LayoutManager?
     }
 
     private fun getAlarmBuyResponse() {

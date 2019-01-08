@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.artoo.sopt23.artoo_client_android.Data.AlarmExhibitionData
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionCancelDialogFragment
+import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionFragment
 import com.artoo.sopt23.artoo_client_android.R
 import java.text.SimpleDateFormat
 
@@ -45,9 +46,10 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,var dataList: ArrayLis
             //cancel_dialog.show(ctx as FragmentManager, cancel_dialog.tag)
             cancel_dialog.show((ctx as AlarmActivity).supportFragmentManager, cancel_dialog.tag)
             var intent = Intent((ctx as FragmentActivity), AlarmExhibitionCancelDialogFragment::class.java)
-            intent.putExtra("dc_idx", dataList[position].dc_idx)
-            intent.putExtra("uesr_idx", dataList[position].u_idx)
-
+            //intent.putExtra("dc_idx", dataList[position].dc_idx)
+            //intent.putExtra("user_idx", dataList[position].u_idx)
+            AlarmExhibitionFragment.instance.u_idx = dataList[position].u_idx
+            AlarmExhibitionFragment.instance.dc_idx = dataList[position].dc_idx
         }
     }
 

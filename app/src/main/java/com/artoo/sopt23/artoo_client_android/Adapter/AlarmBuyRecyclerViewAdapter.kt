@@ -20,6 +20,7 @@ import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.util.Log
 import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
+import com.artoo.sopt23.artoo_client_android.Fragment.AlarmBuyFragment
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -114,9 +115,12 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             (holder).seller_address.text = dataListBuy[position].u_address
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
+                //Log.d("*****AlarmBuyRecyclerViewAdapter::", comment_dialog.tag)
                 comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
-                var intent = Intent(ctx as FragmentActivity, AlarmCommentDialogFragment::class.java)
-                intent.putExtra("p_idx", dataListBuy[position].p_idx)
+                //var intent = Intent(ctx as FragmentActivity, AlarmCommentDialogFragment::class.java)
+                //intent.putExtra("p_idx", dataListBuy[position].p_idx)
+
+                AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
             }
         }
 
@@ -137,8 +141,10 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
                 val comment_dialog = AlarmCommentDialogFragment()
                 //comment_dialog.show(ctx as FragmentManager, comment_dialog.tag)
                 comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
-                var intent = Intent((ctx as FragmentActivity), AlarmCommentDialogFragment::class.java)
-                intent.putExtra("p_idx", dataListBuy[position].p_idx)
+                //var intent = Intent((ctx as FragmentActivity), AlarmCommentDialogFragment::class.java)
+                //intent.putExtra("p_idx", dataListBuy[position].p_idx)
+
+                AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
             }
         }
     }

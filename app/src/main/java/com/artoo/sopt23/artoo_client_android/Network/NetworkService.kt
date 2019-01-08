@@ -161,10 +161,11 @@ interface NetworkService {
 
     //MypageUserDescription::update
     @PUT("/users/{u_idx}/myInfo")
-    fun putMypagePrefIntroResponse(
+    fun putMypagePrefInfoResponse(
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
-        @Path("u_idx") u_idx: Int
+        @Path("u_idx") u_idx: Int,
+        @Body() body: JsonObject
      ): Call<PutMypagePrefInfoResponse>
 
     //MypagePrefer::list
@@ -222,7 +223,7 @@ interface NetworkService {
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token:String,
         @Body() body: JsonObject,
-        @Path("p_idx") p_idx:Int
+        @Path("p_idx") p_idx: Int
     ) : Call<PostCommentResponse>
 
     // 전시 취소 : 알림전시내역 전시취소버튼
@@ -231,6 +232,6 @@ interface NetworkService {
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token:String,
         @Path("displaycontent_idx") displaycontent_idx : Int,
-        @Path("user_idx") user_idx: Int
+        @Path("user_idx") u_idx: Int
     ) : Call<DeleteExhibitionResponse>
 }
