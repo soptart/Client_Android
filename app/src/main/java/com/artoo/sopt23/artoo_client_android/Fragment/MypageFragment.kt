@@ -75,12 +75,14 @@ class MypageFragment : Fragment() {
 
         configureTopNavigation()
         setOnClickListener()
+    }
 
+    override fun onResume() {
+        super.onResume()
         getMypageProductResponse()
         getMypageLikeResponse()
         getMypageDealResponse()
         getMypageReviewResponse()
-
         getMypagePrefInfoResponse()
     }
 

@@ -258,6 +258,7 @@ class ProductUploadActivity : AppCompatActivity() {
                         File(seletedPictureUri.toString()).name + ".jpg",
                         photoBody
                     )
+                    txt_product_upload_info.visibility = View.GONE
                     //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
                     Glide.with(this@ProductUploadActivity).load(seletedPictureUri).thumbnail(0.1f)
                         .into(iv_product_upload_product_img)
