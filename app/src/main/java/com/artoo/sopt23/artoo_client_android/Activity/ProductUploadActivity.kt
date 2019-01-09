@@ -92,14 +92,27 @@ class ProductUploadActivity : AppCompatActivity() {
             val bottom_sheet_dialog = ProductUploadThemeFragment()
             bottom_sheet_dialog.show(supportFragmentManager, bottom_sheet_dialog.tag)
         }
-        btn_product_upload_delivery_parcel.setOnClickListener {
+        /*btn_product_upload_delivery_parcel.setOnClickListener {
             input_product_purchase_state = btn_product_upload_delivery_parcel.text.toString()
         }
         btn_product_upload_delivery_direct.setOnClickListener {
             input_product_purchase_state = btn_product_upload_delivery_direct.text.toString()
-        }
+        }*/
         btn_product_upload_finish.setOnClickListener {
-            getProductUploadResponse()
+            if (iv_product_upload_product_img.toString() == "") {
+                toast("작품 사진을 첨부해주세요.")
+            } else if (et_product_upload_product_title.toString() == "") {
+                toast("작품명을 작성해주세요.")
+            } else if(et_product_upload_product_detail.toString() == "") {
+                toast("작품 설명을 작성해주세요.")
+            } else if (et_product_upload_size_width.toString() == "" || et_product_upload_size_height.toString() == "") {
+                toast("작품 크기의 가로, 세로는 필수값입니다.")
+            } else if (et_product_upload_material.toString() == "") {
+                toast("작품에 사용한 재료를 기입해주세요.")
+            } else {
+
+                getProductUploadResponse()
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Fragment
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
 import android.util.Log
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import com.artoo.sopt23.artoo_client_android.Activity.ProductUploadActivity
 
 import com.artoo.sopt23.artoo_client_android.R
+import kotlinx.android.synthetic.main.fragment_product_upload_theme.*
 import kotlinx.android.synthetic.main.fragment_product_upload_theme.view.*
 import org.jetbrains.anko.support.v4.toast
 
@@ -23,16 +25,40 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
             Log.d(":::::product_upload_theme_frag:::::themes", activity.themes[i])
 
         //선택한 해시태그 색깔 바꿔서 띄우기 코드
-//        for (i in 0 until activity.themes.size){
-//            when(activity.themes.get(i)){
-//                "앤틱한"->{
-//
-//                }
-//                "심플한"->{
-//
-//                }
-//            }
-//        }
+        /*for (i in 0 until activity.themes.size){
+            when(activity.themes.get(i)){
+                "행복한"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_happy)
+                }
+                "심플한"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_simple)
+                }
+                "감성적인"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_sensitive)
+                }
+                "화려한"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_fancy)
+                }
+                "심오한"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_unfathomable)
+                }
+                "아기자기한"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_cute)
+                }
+                "봄"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_spring)
+                }
+                "여름"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_summer)
+                }
+                "가을"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_fall)
+                }
+                "겨울"->{
+                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_winter)
+                }
+            }
+        }*/
 
         //만약 이미 선택한 태그에 해당하는 버튼은 다른색으로 background, 누를 수 없게 처리
         //이미 선택한 해시태그와 선택중인 해시태그를 구분할 필요가 있음
@@ -130,7 +156,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
 
     private fun checkOverSize(tags: ArrayList<String>): Boolean {
         if (tags.size >= 3) {
-            toast("Maximum of Tags: 3, size=" + tags.size)
+            toast("최대로 선택할 수 있는 해시태그의 개수는 3개 입니다." + tags.size)
             return true
         }
         return false
@@ -139,7 +165,8 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
     private fun checkSameValue(tag: String, tags: ArrayList<String>): Boolean {
         for (i in 0 until tags.size) {
             if (tags.get(i).equals(tag)) {
-                toast("Already Selected" + tags.get(i))
+
+                toast("이미 선택한 해시태그입니다." + tags.get(i))
                 return true
             }
         }
