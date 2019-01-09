@@ -4,6 +4,7 @@ import com.artoo.sopt23.artoo_client_android.Data.Response.Get.*
 import com.artoo.sopt23.artoo_client_android.Data.ApplyExhibitionData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Delete.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.*
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.*
 import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypageMyInfoResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypageMyInfoPWResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutMypagePrefInfoResponse
@@ -53,23 +54,45 @@ interface NetworkService {
     @Multipart
     @POST("/artworks")
     fun postProductUploadResponse(
-        @Header("Authorization") token: String,
-        @Part("a_name") a_name: RequestBody,
-        @Part("a_width") a_width: Int,
-        @Part("a_height") a_height: Int,
-        @Part("a_depth") a_depth: Int,
-        @Part("a_category") a_category: RequestBody,
-        @Part("a_form") a_form: RequestBody,
-        @Part("a_price") a_price: Int,
-        @Part("u_idx") u_idx: Int,
-        @Part("a_detail") a_detail: RequestBody,
-        @Part("a_year") a_year: RequestBody,
-        @Part("a_tags") a_tags: RequestBody,
-        @Part("a_license") a_license: RequestBody,
-        @Part("a_material") a_material: RequestBody,
-        @Part("a_expression") a_expressions: RequestBody,
-        @Part pic_url: MultipartBody.Part
+            @Header("Authorization") token: String,
+            @Part("a_name") a_name: RequestBody,
+            @Part("a_width") a_width: Int,
+            @Part("a_height") a_height: Int,
+            @Part("a_depth") a_depth: Int,
+            @Part("a_category") a_category: RequestBody,
+            @Part("a_form") a_form: RequestBody,
+            @Part("a_price") a_price: Int,
+            @Part("u_idx") u_idx: Int,
+            @Part("a_detail") a_detail: RequestBody,
+            @Part("a_year") a_year: RequestBody,
+            @Part("a_tags") a_tags: RequestBody,
+            @Part("a_license") a_license: RequestBody,
+            @Part("a_material") a_material: RequestBody,
+            @Part("a_expression") a_expressions: RequestBody,
+            @Part pic_url: MultipartBody.Part
     ): Call<PostProductUploadResponse>
+
+    @Multipart
+    @PUT("/artworks/{a_idx}")
+    fun putProductUpdateResponse(
+            @Header("Authorization") token: String,
+            @Path("a_idx") a_idx: Int,
+            @Part("a_name") a_name: RequestBody,
+            @Part("a_width") a_width: Int,
+            @Part("a_height") a_height: Int,
+            @Part("a_depth") a_depth: Int,
+            @Part("a_category") a_category: RequestBody,
+            @Part("a_form") a_form: RequestBody,
+            @Part("a_price") a_price: Int,
+            @Part("u_idx") u_idx: Int,
+            @Part("a_detail") a_detail: RequestBody,
+            @Part("a_year") a_year: RequestBody,
+            @Part("a_tags") a_tags: RequestBody,
+            @Part("a_license") a_license: RequestBody,
+            @Part("a_material") a_material: RequestBody,
+            @Part("a_expression") a_expressions: RequestBody,
+            @Part pic_url: MultipartBody.Part
+    ): Call<PutProductUpdateResponse>
 
     @DELETE("/artworks/delete/{a_idx}")
     fun deleteProductResponse(
@@ -154,8 +177,6 @@ interface NetworkService {
     //MypageLike::list
     @GET("/users/{u_idx}/likes")
     fun getMypageLikeResponse(
-        @Header("Content-Type") content_type: String,
-        @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageLikeResponse>
 

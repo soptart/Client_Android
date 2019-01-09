@@ -11,8 +11,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
+import com.artoo.sopt23.artoo_client_android.Data.ProductDetailData
 import com.artoo.sopt23.artoo_client_android.Data.ProductUploadTagLayoutData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostProductUploadResponse
+import com.artoo.sopt23.artoo_client_android.Data.Response.Put.PutProductUpdateResponse
 import com.artoo.sopt23.artoo_client_android.Fragment.ProductUploadAlertFragment
 import com.artoo.sopt23.artoo_client_android.Fragment.ProductUploadThemeFragment
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
@@ -36,6 +38,7 @@ class ProductUploadActivity : AppCompatActivity() {
 
     val REQUEST_CODE_SELECT_IMAGE: Int = 1000
     var input_product_img: MultipartBody.Part? = null
+    var a_idx = -1
     lateinit var input_product_purchase_state: String
 
     val networkService: NetworkService by lazy {
@@ -45,21 +48,10 @@ class ProductUploadActivity : AppCompatActivity() {
     val themes = ArrayList<String>()
     val layouts = ArrayList<ProductUploadTagLayoutData>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product_upload)
-
-        setAlertDialog()
-        setViewClickListener()
-
-        var categories = arrayOf("인물", "동물", "식물", "사물", "추상", "풍경")
-        spn_product_upload_category.adapter =
-                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
-
-        var formats = arrayOf("드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "사진")
-        spn_product_upload_format.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, formats)
-
-        var licenses = arrayOf(
+    var categories = arrayOf("선택[카테고리]", "인물", "동물", "식물", "사물", "추상", "풍경")
+    var formats = arrayOf("선택[형태]", "드로잉", "페인팅", "동양화", "혼합매체", "조형/공예", "사진")
+    var licenses = arrayOf(
+            "선택[저작권]",
             "CCL표시안함",
             "저작권표시",
             "저작권표시-비영리",
@@ -67,10 +59,44 @@ class ProductUploadActivity : AppCompatActivity() {
             "저작자표시-변경금지",
             "저작자표시-비영리-동일조건변경허락",
             "저작자표시-비영리-변경금지"
-        )
-        spn_product_upload_license.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, licenses)
+    )
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_product_upload)
+
+        setAlertDialog()
+        setViewClickListener()
+
+        spn_product_upload_category.adapter =
+                ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
+
+        spn_product_upload_format.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, formats)
+
+        spn_product_upload_license.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, licenses)
         setSpinnerItemSelectedListener()
+
+        if(intent.hasExtra("productDetailData")){ // Modify
+            mockupProductDetailData()
+        }
+    }
+
+    private fun mockupProductDetailData(){
+        var productDetailData: ProductDetailData = intent.getSerializableExtra("productDetailData") as ProductDetailData
+        a_idx = productDetailData.a_idx
+        txt_product_upload_info.visibility = View.GONE
+        //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
+        Glide.with(this@ProductUploadActivity).load(productDetailData.pic_url).thumbnail(0.1f)
+                .into(iv_product_upload_product_img)
+        et_product_upload_product_year.setText(productDetailData.a_year)
+        et_product_upload_product_title.setText(productDetailData.a_name)
+        et_product_upload_product_detail.setText(productDetailData.a_detail)
+        et_product_upload_size_width.setText(productDetailData.a_width)
+        et_product_upload_size_height.setText(productDetailData.a_height)
+        et_product_upload_size_depth.setText(productDetailData.a_depth)
+        et_product_upload_price.setText(productDetailData.a_price)
+        et_product_upload_material.setText(productDetailData.a_material)
+        et_product_upload_tip.setText(productDetailData.a_expression)
     }
 
     private fun setAlertDialog() {
@@ -292,34 +318,58 @@ class ProductUploadActivity : AppCompatActivity() {
         val input_product_tip = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_tip.text.toString())
 
         if (input_product_img!=null && et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
-            && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0) {
+            && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0 && spn_product_upload_category.selectedItemPosition>0 &&
+                spn_product_upload_format.selectedItemPosition>0 && spn_product_upload_license.selectedItemPosition>0) {
             val token = SharedPreferenceController.getAuthorization(this)
             val u_idx = SharedPreferenceController.getUserID(this)
+            if(!intent.hasExtra("productDetailData")) {
 
-            val postProductUploadResponse = networkService.postProductUploadResponse(token,
-                input_product_title,
-                input_product_width, input_product_height, input_product_depth,
-                input_product_category, input_product_format, input_product_price,
-                u_idx, input_product_detail, input_product_year,
-                input_tags, input_product_license, input_product_material, input_product_tip, input_product_img!!/*, input_product_material, input_product_tip*/)
+                val postProductUploadResponse = networkService.postProductUploadResponse(token,
+                        input_product_title,
+                        input_product_width, input_product_height, input_product_depth,
+                        input_product_category, input_product_format, input_product_price,
+                        u_idx, input_product_detail, input_product_year,
+                        input_tags, input_product_license, input_product_material, input_product_tip, input_product_img!!/*, input_product_material, input_product_tip*/)
 
-            Log.d("*****ProductUploadActivity::", postProductUploadResponse.toString())
+                Log.d("*****ProductUploadActivity::", postProductUploadResponse.toString())
 
-            postProductUploadResponse.enqueue(object : Callback<PostProductUploadResponse> {
-                override fun onFailure(call: Call<PostProductUploadResponse>, t: Throwable) {
-                    Log.d("*****ProductUploadActivity::", t.toString())
-                }
-
-                override fun onResponse(call: Call<PostProductUploadResponse>, response: Response<PostProductUploadResponse>) {
-                    if(response.isSuccessful) {
-                        toast(response.body()!!.message)
-                        finish()
+                postProductUploadResponse.enqueue(object : Callback<PostProductUploadResponse> {
+                    override fun onFailure(call: Call<PostProductUploadResponse>, t: Throwable) {
+                        Log.d("*****ProductUploadActivity::", t.toString())
                     }
-                    else{
-                        toast(response.body()!!.message)
+
+                    override fun onResponse(call: Call<PostProductUploadResponse>, response: Response<PostProductUploadResponse>) {
+                        if (response.isSuccessful) {
+                            toast(response.body()!!.message)
+                            finish()
+                        } else {
+                            toast(response.body()!!.message)
+                        }
                     }
-                }
-            })
+                })
+            }
+            else{
+                val putPostProductUpdateResponse = networkService.putProductUpdateResponse(token, a_idx,
+                        input_product_title,
+                        input_product_width, input_product_height, input_product_depth,
+                        input_product_category, input_product_format, input_product_price,
+                        u_idx, input_product_detail, input_product_year,
+                        input_tags, input_product_license, input_product_material, input_product_tip, input_product_img!!)
+                putPostProductUpdateResponse.enqueue(object: Callback<PutProductUpdateResponse>{
+                    override fun onFailure(call: Call<PutProductUpdateResponse>, t: Throwable) {
+                        Log.d("*****ProductUpdateActivity::", t.toString())
+                    }
+
+                    override fun onResponse(call: Call<PutProductUpdateResponse>, response: Response<PutProductUpdateResponse>) {
+                        if (response.isSuccessful) {
+                            toast(response.body()!!.message)
+                            finish()
+                        } else {
+                            toast(response.body()!!.message)
+                        }
+                    }
+                })
+            }
         }
     }
 }

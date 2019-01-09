@@ -135,7 +135,7 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         txt_product_detail_modify.setOnClickListener {
-            startActivity<ProductUploadActivity>("a_idx" to a_idx)
+            startActivity<ProductUploadActivity>("productDetailData" to productDetailData)
         }
     }
 

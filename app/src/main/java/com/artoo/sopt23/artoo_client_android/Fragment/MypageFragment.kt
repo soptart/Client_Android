@@ -202,15 +202,16 @@ class MypageFragment : Fragment() {
     private fun getMypageLikeResponse() {
         val token = SharedPreferenceController.getAuthorization(context!!)
         val u_idx = SharedPreferenceController.getUserID(context!!)
-        val getMypageLikeResponse = networkService.getMypageLikeResponse("application/json", token, u_idx)
-        getMypageLikeResponse.enqueue(object: Callback<GetMypageLikeResponse> {
+        val getMypageLikeResponse = networkService.getMypageLikeResponse(u_idx)
+        getMypageLikeResponse.enqueue(object: Callback<GetMypageLikeResponse>{
             override fun onFailure(call: Call<GetMypageLikeResponse>, t: Throwable) {
                 Log.d("*****MypageFragment::getMypageLikeResponse::", "List_LikeData_Failed")
             }
+
             override fun onResponse(call: Call<GetMypageLikeResponse>, response: Response<GetMypageLikeResponse>) {
                 if (response.isSuccessful) {
-                    likeDataList = response.body()!!.data
                     likeDataCount = response.body()!!.dataNum
+                    likeDataList = response.body()!!.data
                     Log.d("*****MypageFragment::getMypageLikeResponse::Success::", likeDataList.toString())
                     configureTopNavigation()
                 } else {

@@ -46,7 +46,9 @@ class MypageProductFragment : Fragment() {
 
         rv_fragment_mypage_product_list.adapter = mypageProductRecyclerViewAdapter
         rv_fragment_mypage_product_list.layoutManager = staggeredGridLayoutManager
-        rv_fragment_mypage_product_list.itemAnimator = null
+        staggeredGridLayoutManager.invalidateSpanAssignments()
+
+        rv_fragment_mypage_product_list.invalidate()
     }
 
     private fun setOnClickListener() {

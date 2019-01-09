@@ -20,7 +20,6 @@ class ApplicationController: Application() {
     }
 
     fun buildNetWork() {
-
         instance = this
         buildNetwork()
     }

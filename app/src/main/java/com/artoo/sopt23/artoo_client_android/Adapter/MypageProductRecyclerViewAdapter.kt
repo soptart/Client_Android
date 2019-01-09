@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import org.jetbrains.anko.*
 
 class MypageProductRecyclerViewAdapter(var dataList: ArrayList<MypageProductData>): RecyclerView.Adapter<MypageProductRecyclerViewAdapter.Holder>(){
     lateinit var ctx: Context
@@ -36,7 +37,7 @@ class MypageProductRecyclerViewAdapter(var dataList: ArrayList<MypageProductData
             .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            //ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].a_idx)
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
         }
     }
 
