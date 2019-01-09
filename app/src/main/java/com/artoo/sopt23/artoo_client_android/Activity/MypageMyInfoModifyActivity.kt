@@ -51,6 +51,7 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
             my_info_modify_edit_text_1.visibility = View.GONE
             my_info_modify_univ_edit_text.visibility = View.VISIBLE
             my_info_modify_univ.visibility = View.VISIBLE
+            if(value1.endsWith("대학교")) value1 = value1.substring(0, value1.indexOf("대학교"))
             my_info_modify_univ_edit_text.setText(value1)
         }
         else {
@@ -178,7 +179,7 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
                     jsonObject.put("u_bank", value1)
                     jsonObject.put("u_account", value2)
                 } else {
-                    if (key == "u_school") value1 = my_info_modify_univ_edit_text.text.toString()
+                    if (key == "u_school") value1 = my_info_modify_univ_edit_text.text.toString() + "대학교"
                     else value1 = my_info_modify_edit_text_1.text.toString()
                     jsonObject.put(key, value1)
                 }

@@ -5,8 +5,5 @@ import com.artoo.sopt23.artoo_client_android.Data.CommentData
 data class GetProductCommentResponse(
     val status: Int,
     val message: String,
-    val u_name: String,
-    val u_description: String,
-    val data: ArrayList<CommentData>,
-    val dataNum: Int
+    val data: ArrayList<CommentData>
 )

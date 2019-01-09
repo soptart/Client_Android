@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -61,7 +62,17 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         img_product_detail_purchase.setOnClickListener {
-            var a = 10
+            val intent = Intent(this@ProductDetailActivity, ProductPurchaseActivity::class.java)
+            Log.i("indexes", a_idx.toString()+"/")
+            intent.putExtra("a_idx", a_idx)
+            intent.putExtra("pic_url", productDetailData.pic_url)
+            Log.i("productDetail_picurl", productDetailData.pic_url)
+            intent.putExtra("size", productDetailData.a_size)
+            intent.putExtra("price", productDetailData.a_price)
+            intent.putExtra("a_name",productDetailData.a_name)
+            intent.putExtra("u_name",productDetailData.u_name)
+            intent.putExtra("u_school",productDetailData.u_school)
+            startActivity(intent)
         }
 
         ll_product_detail_like.setOnClickListener({
@@ -88,8 +99,8 @@ class ProductDetailActivity : AppCompatActivity() {
                 }
 
                 override fun onResponse(
-                    call: Call<PostProductCommentResponse>,
-                    response: Response<PostProductCommentResponse>
+                        call: Call<PostProductCommentResponse>,
+                        response: Response<PostProductCommentResponse>
                 ) {
                     Toast.makeText(this@ProductDetailActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
                     if(response.isSuccessful) getProductCommentData()
@@ -161,8 +172,8 @@ class ProductDetailActivity : AppCompatActivity() {
             }
 
             override fun onResponse(
-                call: Call<GetProductCommentResponse>,
-                response: Response<GetProductCommentResponse>
+                    call: Call<GetProductCommentResponse>,
+                    response: Response<GetProductCommentResponse>
             ) {
                 if(response.isSuccessful){
                     productCommentList = response.body()!!.data
@@ -190,14 +201,14 @@ class ProductDetailActivity : AppCompatActivity() {
                 Log.i("ProductDetailActivity", "Connection Failure")
             }
             override fun onResponse(
-                call: Call<GetProductDetailResponse>,
-                response: Response<GetProductDetailResponse>
+                    call: Call<GetProductDetailResponse>,
+                    response: Response<GetProductDetailResponse>
             ) {
                 if(response.isSuccessful){
                     var options: RequestOptions = RequestOptions().centerInside()
                     productDetailData = response.body()!!.data
                     Glide.with(this@ProductDetailActivity)
-                        .load(productDetailData.pic_url).apply(options).into(img_product_detail_product)
+                            .load(productDetailData.pic_url).apply(options).into(img_product_detail_product)
                     txt_product_detail_title.text = productDetailData.a_name
                     txt_product_detail_artist.text = productDetailData.u_school + " " + productDetailData.u_name
                     txt_product_detail_size.text = productDetailData.a_width.toString() + " x " +

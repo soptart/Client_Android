@@ -99,12 +99,12 @@ interface NetworkService {
         @Path("u_idx") u_idx: Int
     ):Call<GetPurchaseResponse>
 
-    @POST("/artworks/{a_idx}/purchase/{u_idx}")
+    @POST("/artworks/{a_idx}/purchases/{u_idx}")
     fun postPurchaseResponse(
-        @Header("Authorization") token: String,
-        @Path("a_idx") a_idx: Int,
-        @Path("u_idx") u_idx: Int,
-        @Body() body: JsonObject
+            @Header("Authorization") token: String,
+            @Path("a_idx") a_idx: Int,
+            @Path("u_idx") u_idx: Int,
+            @Body() body: JsonObject
     ):Call<PostPurchaseResponse>
 
     @GET("/comments/{a_idx}")

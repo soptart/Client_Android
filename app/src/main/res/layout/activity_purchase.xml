@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Activity.ProductDetailActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_purhcase_bottomnav"
+            android:layout_marginTop="40dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp">
+
+                <com.artoo.sopt23.artoo_client_android.CustomView.SquareImageView
+                        android:id="@+id/purchase_art_img"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/ic_launcher"
+                        app:srcCompat="@drawable/ic_launcher_background"/>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[작품명]"
+                            android:textColor="#4a4a4a"
+                            android:textSize="15sp"/>
+
+                    <TextView
+                            android:id="@+id/txt_purchase_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="바람의 빛"
+                            android:textColor="#4a4a4a"
+                            android:textSize="18sp"/>
+
+                    <TextView
+                            android:id="@+id/txt_purchase_artist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="홍익대학교 김옥희"
+                            android:textColor="#4a4a4a"
+                            android:textSize="16sp"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@mipmap/ic_launcher"/>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="최종 결제금액"
+                    android:textColor="#4a4a4a"
+                    android:textSize="18sp"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="상품금액"
+                        android:textColor="#9c9c9c"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/txt_purchase_price_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="55,000원"
+                        android:textAlignment="textEnd"
+                        android:textColor="#4a4a4a"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="VAT"
+                        android:textColor="#9c9c9c"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/txt_purchase_price_vat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5,500원"
+                        android:textAlignment="textEnd"
+                        android:textColor="#4a4a4a"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="총 상품금액"
+                        android:textColor="#353d46"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/txt_purchase_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="55,000원"
+                        android:textAlignment="textEnd"
+                        android:textColor="#353d46"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="배송비"
+                        android:textColor="#353d46"
+                        android:textSize="16sp"/>
+
+                <TextView
+                        android:id="@+id/txt_post_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3,000원"
+                        android:textAlignment="textEnd"
+                        android:textColor="#353d46"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:paddingVertical="10dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="총 결제금액"
+                        android:textColor="#4a4a4a"
+                        android:textSize="18sp"/>
+
+                <TextView
+                        android:id="@+id/txt_purchase_price_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="57,000원"
+                        android:textAlignment="textEnd"
+                        android:textColor="#ff6f61"
+                        android:textSize="18sp"/>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="배송 방법"
+                    android:textColor="#4a4a4a"
+                    android:textSize="18sp"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="87dp"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/img_purchase_transfer_express"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/purchase_delivery"/>
+
+                <ImageView
+                        android:id="@+id/img_purchase_transfer_onface"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/purchase_no_direct"/>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_underline"
+                    android:paddingVertical="10dp"
+                    android:text="택배 배송 소요시간은 최소 5일이며 변동될 수 있습니다."
+                    android:textColor="#353d46"
+                    android:id="@+id/post_description"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:paddingVertical="10dp"
+                    android:id="@+id/direct_buy_container">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="거래 주소 정보"
+                        android:textColor="#4a4a4a"
+                        android:textSize="18sp"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Artoo"
+                            android:textAlignment="textStart"
+                            android:textColor="#4a4a4a"
+                            android:textSize="16sp"/>
+
+                    <TextView
+                            android:id="@+id/txt_purchase_seller_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="인천시 계양구"
+                            android:textAlignment="textEnd"
+                            android:textColor="#4a4a4a"
+                            android:textSize="16sp"
+                            android:visibility="visible"/>
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#aaa"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/post_buy_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_underline"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text="배송지 정보 입력"
+                        android:textColor="#4a4a4a"
+                        android:textSize="18sp"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="수령인"
+                            android:textSize="16sp"/>
+
+                    <EditText
+                            android:id="@+id/edt_purchase_buyer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="배송지"
+                            android:textSize="16sp"/>
+
+                    <EditText
+                            android:id="@+id/edt_purchase_buyer_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="연락처"
+                            android:textSize="16sp"/>
+
+                    <EditText
+                            android:id="@+id/edt_purchase_buyer_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:textSize="15sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="결제 방법"
+                    android:textColor="#4a4a4a"
+                    android:textSize="18sp"/>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/img_purchase_method_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        app:srcCompat="@drawable/purchase_no_card"/>
+
+                <ImageView
+                        android:id="@+id/img_purchase_method_transfer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        app:srcCompat="@drawable/purchase_bank"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp"
+                    android:gravity="end">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="입금 계좌"
+                        android:layout_toStartOf="@+id/textView12"
+                        android:layout_marginEnd="5dp"
+                        android:textStyle="bold"
+                        android:textColor="#ff6f61"
+                        android:textSize="15sp"/>
+
+                <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="우리은행 1002 041 133254 배선영"
+                        android:textColor="#ff6f61"
+                        android:textSize="15sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text="안내 및 주의사항"
+                        android:textColor="#4a4a4a"
+                        android:textSize="17sp"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text=" 2일 이내 입금이 되지 않을 시 자동으로 구매가 최소됩니다. 결제 완료 후 작품 포장 및 배송 (작품 특성상 배송이 7일정도 소요되니 참고해 주시길 바랍니다) 직거래의 경우 판매자와 연결됩니다."
+                        android:textColor="#4a4a4a"/>
+
+                <CheckBox
+                        android:id="@+id/rbtn_purchase_agree_warning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingVertical="10dp"
+                        android:text="동의하기"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text="환불 정책"
+                        android:textColor="#4a4a4a"
+                        android:textSize="17sp"/>
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text="-작품과 실물이 많이 다를 경우, 7일 이내 환불이 가능합니다. 단순 변심의 경우 반품이 불가합니다.\n-직거래의 경우 환불 요청시 수수료는 환급 불가합니다.\n-배송비는 개인이 부담해 주셔야 합니다.\n-비용은 환불 완료 시  3일 이내 환급 됩니다"
+                        android:textColor="#4a4a4a"/>
+
+                <CheckBox
+                        android:id="@+id/rbtn_purchase_agree_refund"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingVertical="10dp"
+                        android:text="동의하기"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+            android:id="@+id/ll_purhcase_bottomnav"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/artwork_price"/>
+
+                <TextView
+                        android:id="@+id/total_price_txt_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="55,000원"
+                        android:textColor="#ff6f61"
+                        android:textSize="18sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/purchase_btn"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="#ff6f61"
+                android:gravity="center"
+                android:text="구매하기"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+    </LinearLayout>
+</RelativeLayout>

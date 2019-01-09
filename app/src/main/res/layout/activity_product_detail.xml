@@ -273,7 +273,7 @@
                             android:textColor="#434343"
                             android:textColorHint="#111111"
                             android:paddingRight="50dp"
-                                android:ems="10"
+                            android:ems="10"
                             android:textSize="14sp"/>
                     <TextView
                             android:id="@+id/tv_product_detail_add_comment"
