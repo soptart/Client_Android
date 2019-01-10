@@ -29,6 +29,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="7살과 그녀"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="14sp"
                     android:textColor="@color/colorMainBlack"/>
         </RelativeLayout>
@@ -80,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2018.10.10"
-                    android:textSize="14sp"
+                    android:textSize="10sp"
                     android:textColor="@color/colorMainGrey"/>
         </RelativeLayout>
     </LinearLayout>

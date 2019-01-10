@@ -17,6 +17,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최대 3개의 테마 해시태그를 골라주세요!"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="18sp"
                 android:textColor="@color/colorEssential"/>
     </RelativeLayout>
@@ -31,6 +33,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 작품과 어울리는 해시태그를 찾아보세요"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="15sp"/>
     </RelativeLayout>
     <LinearLayout
@@ -102,6 +106,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="각 계절의 분위기를 담아보아요!"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="15sp"/>
     </RelativeLayout>
     <LinearLayout
@@ -147,6 +153,8 @@
             android:layout_alignParentBottom="true"
             android:background="#ffffff"
             android:text="완료"
-            android:textSize="24dp"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:textSize="18dp"
             android:textColor="@color/colorEssential"/>
 </LinearLayout>

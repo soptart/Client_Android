@@ -13,10 +13,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:paddingBottom="15dp"
-        android:paddingTop="50dp">
+        android:layout_height="87dp"
+        android:background="#ffffff">
 
         <TextView
             android:id="@+id/txt_my_info_modify_title"
@@ -24,9 +22,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="이름 변경"
+            android:layout_marginTop="39dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_bold"
             android:textColor="#333333"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"/>
 
         <TextView
             android:id="@+id/btn_my_info_modify"
@@ -36,7 +36,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="완료"
+            android:layout_marginTop="44dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_medium"
             android:textColor="#ff6f61"
+
             android:textSize="17sp" />
     </RelativeLayout>
 
@@ -61,11 +65,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="최윤정"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
+                    android:textColor="#333333"
                     android:paddingLeft="20dp"
                     android:background="#ffffff"
                     android:textColorHint="#9c9c9c"
                     android:inputType="textNoSuggestions"/>
-
             </LinearLayout>
 
 
@@ -76,6 +82,9 @@
                 android:layout_toLeftOf="@+id/my_info_modify_univ"
                 android:hint="동덕여자"
                 android:textColorHint="#9c9c9c"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
                 android:textSize="18sp"
                 android:background="#ffffff"
                 android:inputType="textNoSuggestions"
@@ -121,6 +130,9 @@
             android:layout_height="55dp"
             android:background="#ffffff"
             android:hint="최윤정"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:textColor="#333333"
             android:paddingLeft="20dp"
             android:visibility="gone"/>
 
@@ -136,6 +148,9 @@
             android:layout_height="55dp"
             android:background="#ffffff"
             android:hint="최윤정"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:textColor="#333333"
             android:paddingLeft="20dp"
             android:visibility="gone"/>
 
@@ -184,6 +199,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="28dp"
                     android:text="은행"
+                    android:includeFontPadding="false"
                     android:textColor="#ffffff"
                     android:textSize="28sp"
                     android:fontFamily="@font/notosanscjkkr_regular"

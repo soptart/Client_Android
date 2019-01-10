@@ -21,7 +21,6 @@
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/layout_underline"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
@@ -43,6 +42,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="[작품명]"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
                             android:textColor="#4a4a4a"
                             android:textSize="15sp"/>
 
@@ -51,6 +52,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="바람의 빛"
+                            android:fontFamily="@font/notosanscjkkr_bold"
+                            android:includeFontPadding="false"
                             android:textColor="#4a4a4a"
                             android:textSize="18sp"/>
 
@@ -59,6 +62,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="홍익대학교 김옥희"
+                            android:fontFamily="@font/notosanscjkkr_bold"
                             android:textColor="#4a4a4a"
                             android:textSize="16sp"/>
                 </LinearLayout>
@@ -70,12 +74,17 @@
                         android:visibility="invisible"
                         app:srcCompat="@mipmap/ic_launcher"/>
             </LinearLayout>
-
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c7cad1"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="최종 결제금액"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
                     android:textColor="#4a4a4a"
                     android:textSize="18sp"/>
 
@@ -89,6 +98,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="상품금액"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="#9c9c9c"
                         android:textSize="16sp"/>
 
@@ -98,6 +109,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="55,000원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textAlignment="textEnd"
                         android:textColor="#4a4a4a"
                         android:textSize="16sp"/>
@@ -113,6 +126,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="VAT"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="#9c9c9c"
                         android:textSize="16sp"/>
 
@@ -122,23 +137,30 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="5,500원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textAlignment="textEnd"
-                        android:textColor="#4a4a4a"
+                        android:textColor="#353d46"
                         android:textSize="16sp"/>
             </LinearLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c7cad1"
+                    android:layout_marginVertical="6dp"/>
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/layout_underline"
-                    android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:orientation="horizontal">
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="총 상품금액"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="#353d46"
                         android:textSize="16sp"/>
 
@@ -148,17 +170,18 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="55,000원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textAlignment="textEnd"
-                        android:textColor="#353d46"
+                        android:textColor="#4a4a4a"
                         android:textSize="16sp"/>
             </LinearLayout>
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/layout_underline"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
+                    android:paddingTop="5dp"
                     android:paddingBottom="10dp">
 
                 <TextView
@@ -166,6 +189,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="배송비"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="#353d46"
                         android:textSize="16sp"/>
 
@@ -175,15 +200,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="3,000원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textAlignment="textEnd"
-                        android:textColor="#353d46"
+                        android:textColor="#4a4a4a"
                         android:textSize="16sp"/>
             </LinearLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c7cad1"
+                    android:layout_marginVertical="6dp"/>
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/layout_underline"
                     android:paddingVertical="10dp">
 
                 <TextView
@@ -191,6 +222,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="총 결제금액"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textColor="#4a4a4a"
                         android:textSize="18sp"/>
 
@@ -200,20 +233,30 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="57,000원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textAlignment="textEnd"
                         android:textColor="#ff6f61"
                         android:textSize="18sp"/>
             </LinearLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c7cad1"
+                    android:layout_marginVertical="6dp"/>
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
                     android:text="배송 방법"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
                     android:textColor="#4a4a4a"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
-            <LinearLayout
+            <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="87dp"
                     android:orientation="horizontal">
@@ -221,7 +264,7 @@
                 <ImageView
                         android:id="@+id/img_purchase_transfer_express"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         app:srcCompat="@drawable/purchase_delivery"/>
@@ -229,26 +272,34 @@
                 <ImageView
                         android:id="@+id/img_purchase_transfer_onface"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/purchase_no_direct"/>
-            </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/layout_underline"
                     android:paddingVertical="10dp"
-                    android:text="택배 배송 소요시간은 최소 5일이며 변동될 수 있습니다."
+                    android:text="배송 소요 시간은 최소 5일이며 변동사항이 생길 수 있습니다."
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:layout_gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textSize="12.5sp"
                     android:textColor="#353d46"
                     android:id="@+id/post_description"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#c7cad1"
+                    android:layout_marginVertical="6dp"/>
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/layout_underline"
                     android:orientation="vertical"
                     android:visibility="gone"
                     android:paddingVertical="10dp"
@@ -307,8 +358,10 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text="배송지 정보 입력"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textColor="#4a4a4a"
-                        android:textSize="18sp"/>
+                        android:textSize="16sp"/>
 
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -319,6 +372,9 @@
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="수령인"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="#4a4a4a"
                             android:textSize="16sp"/>
 
                     <EditText
@@ -326,6 +382,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
+                            android:backgroundTint="#b8b8b8"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:includeFontPadding="false"
                             android:layout_weight="1"
                             android:textSize="15sp"/>
                 </LinearLayout>
@@ -339,6 +398,9 @@
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="배송지"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="#4a4a4a"
                             android:textSize="16sp"/>
 
                     <EditText
@@ -347,7 +409,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="1"
-                            android:textSize="15sp"/>
+                            android:text="상세주소를 입력하세요"
+                            android:backgroundTint="#b8b8b8"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:textColor="#4a4a4a"
+                            android:textColorHint="#9c9c9c"
+                            android:includeFontPadding="false"
+                            android:textSize="14sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -359,6 +427,9 @@
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="연락처"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="#4a4a4a"
                             android:textSize="16sp"/>
 
                     <EditText
@@ -366,8 +437,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
+                            android:text="'-'없이 입력해주세요"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:backgroundTint="#b8b8b8"
+                            android:includeFontPadding="false"
                             android:layout_weight="1"
-                            android:textSize="15sp"/>
+                            android:textColor="#4a4a4a"
+                            android:textColorHint="#9c9c9c"
+                            android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -375,9 +452,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
-                    android:text="결제 방법"
+                    android:text="결제 수단"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
                     android:textColor="#4a4a4a"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
 
             <RelativeLayout
                     android:layout_width="match_parent"
@@ -409,10 +488,11 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="입금 계좌"
+                        android:text="입금계좌"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:layout_toStartOf="@+id/textView12"
                         android:layout_marginEnd="5dp"
-                        android:textStyle="bold"
                         android:textColor="#ff6f61"
                         android:textSize="15sp"/>
 
@@ -421,7 +501,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:text="우리은행 1002 041 133254 배선영"
+                        android:text="농협 302-33959980-21 윤여진"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="#ff6f61"
                         android:textSize="15sp"/>
             </RelativeLayout>
@@ -430,13 +512,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/alarm_item_style">
 
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text="안내 및 주의사항"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
                         android:textColor="#4a4a4a"
                         android:textSize="17sp"/>
 
@@ -445,7 +531,15 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text=" 2일 이내 입금이 되지 않을 시 자동으로 구매가 최소됩니다. 결제 완료 후 작품 포장 및 배송 (작품 특성상 배송이 7일정도 소요되니 참고해 주시길 바랍니다) 직거래의 경우 판매자와 연결됩니다."
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:textSize="13sp"
                         android:textColor="#4a4a4a"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#c7cad1"
+                        android:layout_marginVertical="3dp"/>
 
                 <CheckBox
                         android:id="@+id/rbtn_purchase_agree_warning"
@@ -453,6 +547,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingVertical="10dp"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:textSize="17sp"
                         android:text="동의하기"/>
             </LinearLayout>
 
@@ -460,13 +557,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/alarm_item_style">
 
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text="환불 정책"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
                         android:textColor="#4a4a4a"
                         android:textSize="17sp"/>
 
@@ -475,7 +576,15 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text="-작품과 실물이 많이 다를 경우, 7일 이내 환불이 가능합니다. 단순 변심의 경우 반품이 불가합니다.\n-직거래의 경우 환불 요청시 수수료는 환급 불가합니다.\n-배송비는 개인이 부담해 주셔야 합니다.\n-비용은 환불 완료 시  3일 이내 환급 됩니다"
+                        android:textSize="13sp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/notosanscjkkr_regular"
                         android:textColor="#4a4a4a"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#c7cad1"
+                        android:layout_marginVertical="3dp"/>
 
                 <CheckBox
                         android:id="@+id/rbtn_purchase_agree_refund"
@@ -483,6 +592,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingVertical="10dp"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:textSize="17sp"
+                        android:includeFontPadding="false"
                         android:text="동의하기"/>
             </LinearLayout>
 
@@ -520,6 +632,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="55,000원"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:textColor="#ff6f61"
                         android:textSize="18sp"/>
             </LinearLayout>
@@ -532,6 +646,8 @@
                 android:background="#ff6f61"
                 android:gravity="center"
                 android:text="구매하기"
+                android:fontFamily="@font/notosanscjkkr_bold"
+                android:includeFontPadding="false"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="18sp"/>

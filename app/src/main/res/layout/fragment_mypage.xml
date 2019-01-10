@@ -10,7 +10,7 @@
               tools:context=".Fragment.MypageFragment">
 
     <LinearLayout
-            android:layout_marginVertical="15dp"
+            android:layout_marginVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -47,8 +47,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="11dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical">
 
@@ -61,16 +61,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="김일혁"
+                    android:fontFamily="@font/notosanscjkkr_bold"
+                    android:includeFontPadding="false"
                     android:textSize="27sp"
-                    android:textStyle="bold"
                     android:textColor="#333333"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" 님의"
+                    android:fontFamily="@font/notosanscjkkr_bold"
+                    android:includeFontPadding="false"
                     android:textSize="27sp"
-                    android:textStyle="bold"
                     android:textColor="#333333" />
         </LinearLayout>
 
@@ -78,8 +80,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="작품 공간입니다."
+                android:fontFamily="@font/notosanscjkkr_bold"
+                android:includeFontPadding="false"
                 android:textSize="27sp"
-                android:textStyle="bold"
                 android:textColor="#333333" />
 
     </LinearLayout>
@@ -91,11 +94,10 @@
 
         <TextView
                 android:id="@+id/tv_mypage_user_intro"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
                 android:gravity="top|left"
                 android:maxLines="2"
                 android:text="송창식을 좋아하는 경영학과 학생. 노-땅입니"
@@ -120,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="48dp">
 
         <ImageButton
@@ -146,9 +148,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="@drawable/layout_underline"
             app:tabIndicatorColor="@color/colorEssential"
             app:tabIndicatorHeight="4dp"></android.support.design.widget.TabLayout>
+    <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#eceff3"/>
 
     <android.support.v4.view.ViewPager
             android:id="@+id/vp_top_navi_act_frag_pager_mypage"

@@ -19,6 +19,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="작품 "
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
             <TextView
@@ -26,6 +28,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
@@ -46,12 +50,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="저장 "
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"/>
             <TextView
                     android:id="@+id/tv_mypage_user_like_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
@@ -71,12 +79,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="거래 "
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"/>
             <TextView
                     android:id="@+id/tv_mypage_user_deal_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
@@ -96,12 +108,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="후기 "
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"/>
             <TextView
                     android:id="@+id/tv_mypage_user_review_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:includeFontPadding="false"
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>

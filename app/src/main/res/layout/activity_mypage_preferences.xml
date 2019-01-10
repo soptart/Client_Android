@@ -9,16 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="52dp"
-        android:paddingTop="50dp">
+        android:paddingTop="39dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="환경 설정"
+            android:text="설정 및 관리"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_bold"
             android:textColor="#333333"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"/>
     </LinearLayout>
 
 
@@ -33,8 +34,6 @@
             android:layout_height="57dp"
             android:orientation="horizontal"
             android:weightSum="7">
-
-
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -57,9 +56,10 @@
                     android:gravity="bottom"
                     android:includeFontPadding="false"
                     android:text="내 정보"
+                    android:fontFamily="@font/notosanscjkkr_regular"
                     android:textColor="#353d46"
                     android:textSize="19sp"
-                    android:layout_marginLeft="13sp"/>
+                    android:layout_marginLeft="19sp"/>
 
 
             </LinearLayout>
@@ -119,6 +119,7 @@
                     android:gravity="bottom"
                     android:includeFontPadding="false"
                     android:text="서비스 이용약관"
+                    android:fontFamily="@font/notosanscjkkr_regular"
                     android:textColor="#353d46"
                     android:textSize="19sp" />
 
@@ -176,10 +177,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="18dp"
                     android:gravity="bottom"
                     android:includeFontPadding="false"
                     android:text="개인정보 보호정책"
+                    android:fontFamily="@font/notosanscjkkr_regular"
                     android:textColor="#353d46"
                     android:textSize="19sp" />
 
@@ -236,10 +238,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="15dp"
                     android:gravity="bottom"
                     android:includeFontPadding="false"
                     android:text="자주 묻는 질문"
+                    android:fontFamily="@font/notosanscjkkr_regular"
                     android:textColor="#353d46"
                     android:textSize="19sp" />
 
@@ -267,69 +270,64 @@
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/btn_mypage_logout"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:orientation="horizontal"
-            android:weightSum="7"
-            android:clickable="true">
+                android:id="@+id/btn_mypage_logout"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:orientation="horizontal"
+                android:weightSum="7"
+                android:clickable="true">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="6"
-                android:background="#FFFFFF"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:background="#FFFFFF"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/setting_logout"
-                    android:layout_marginLeft="20dp"
-                    android:clickable="false"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/setting_logout"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="false"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="bottom"
-                    android:includeFontPadding="false"
-                    android:text="로그아웃"
-                    android:textColor="#353d46"
-                    android:textSize="19sp"
-                    android:clickable="false"/>
-
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="bottom"
+                        android:includeFontPadding="false"
+                        android:text="로그아웃"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:textColor="#353d46"
+                        android:textSize="19sp"
+                        android:clickable="false"/>
 
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/arrow_right_black"
-                    android:clickable="false"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/arrow_right_black"
+                        android:clickable="false"/>
 
             </RelativeLayout>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dddddd" />
     </LinearLayout>
 
     <LinearLayout

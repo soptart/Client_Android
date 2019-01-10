@@ -28,7 +28,7 @@ class MypageReviewRecyclerViewAdapter(val dataList: ArrayList<MypageReviewData>)
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(50))
+        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
 
         Glide.with(context)
             .load(dataList[position].a_pic_url)

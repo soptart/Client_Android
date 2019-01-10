@@ -12,8 +12,7 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp">
+            android:layout_height="match_parent">
 
         <ScrollView
                 android:layout_width="match_parent"
@@ -26,6 +25,7 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
 
@@ -33,9 +33,28 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품 업로드"
+                            android:fontFamily="@font/notosanscjkkr_bold"
+                            android:includeFontPadding="false"
                             android:textSize="22sp"
-                            android:textColor="#353d46"
-                            android:textStyle="bold"/>
+                            android:textColor="#353d46"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="필수 항목"
+                            android:layout_marginTop="6dp"
+                            android:includeFontPadding="false"
+                            android:layout_marginLeft="115dp"
+                            android:id="@+id/tv"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:textSize="13sp"
+                            android:textColor="@color/colorEssential"/>
+                    <View
+                            android:layout_width="4dp"
+                            android:layout_height="4dp"
+                            android:layout_toRightOf="@id/tv"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/dialog_oval"/>
                     <ImageButton
                             android:id="@+id/btn_product_upload_close"
                             android:layout_width="wrap_content"
@@ -68,6 +87,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textSize="12sp"
                                 android:text="작품만 보이도록\n꼭 잘라주세요\n\n세로 크기 제한"
                                 android:textAlignment="center"/>
                     </RelativeLayout>
@@ -103,6 +125,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:text=" 제작 년도"
+                                    android:fontFamily="@font/notosanscjkkr_medium"
+                                    android:includeFontPadding="false"
                                     android:textSize="15sp"
                                     android:textColor="@color/colorMainBlack"/>
                             <View
@@ -117,6 +141,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="년   "
+                                    android:fontFamily="@font/notosanscjkkr_medium"
+                                    android:includeFontPadding="false"
                                     android:textSize="15sp"
                                     android:textColor="@color/colorMainBlack"
                                     android:textAlignment="viewEnd"
@@ -131,7 +157,7 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
 
@@ -140,8 +166,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품명"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textColor="#4a4a4a"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            android:textSize="16sp"/>
                     <View
                             android:layout_width="4dp"
                             android:layout_height="4dp"
@@ -160,14 +188,16 @@
                             android:id="@+id/et_product_upload_product_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:hint="띄어쓰기 포함 13자 이내"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/notosanscjkkr_light"
                             android:background="@drawable/border"
-                            android:textSize="12sp"
-                            android:textAlignment="textEnd"/>
+                            android:textSize="13sp"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
@@ -177,8 +207,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품 설명"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textColor="#4a4a4a"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            android:textSize="16sp"/>
                     <View
                             android:layout_width="4dp"
                             android:layout_height="4dp"
@@ -198,16 +230,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
-                            android:hint="띄어쓰기 포함 200자 이내 / \n\n작품 키워드 검색 시 \n작품명, 작품 설명 속 키워드를 통해\n결과가 보여집니다"
-                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:includeFontPadding="false"
+                            android:textColorHint="#9c9c9c"
+                            android:textColor="#4a4a4a"
+                            android:hint="띄어쓰기 포함 150자 이내 / \n\n작품 주제가 잘 드러나도록 써주세요. \n키워드를 통해 검색 결과가 보여집니다."
                             android:layout_alignParentTop="true"
-                            android:textSize="14sp"/>
+                            android:gravity="top"
+                            android:textSize="13sp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="23dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
 
@@ -215,8 +251,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="테마 해시태그"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textColor="#4a4a4a"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            android:textSize="16sp"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -246,6 +284,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:text="심플한"
+                                        android:fontFamily="@font/notosanscjkkr_regular"
+                                        android:includeFontPadding="false"
                                         android:textColor="@color/colorEssential"
                                         android:textSize="15sp"/>
                             </RelativeLayout>
@@ -279,6 +319,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:text="심플한"
+                                        android:fontFamily="@font/notosanscjkkr_regular"
+                                        android:includeFontPadding="false"
                                         android:textColor="@color/colorEssential"
                                         android:textSize="15sp"/>
                             </RelativeLayout>
@@ -312,6 +354,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:text="심플한"
+                                        android:fontFamily="@font/notosanscjkkr_regular"
+                                        android:includeFontPadding="false"
                                         android:textColor="@color/colorEssential"
                                         android:textSize="15sp"/>
                             </RelativeLayout>
@@ -341,7 +385,7 @@
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
 
@@ -350,8 +394,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품 크기"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textColor="#4a4a4a"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:includeFontPadding="false"
+                            android:textSize="16sp"/>
                     <View
                             android:layout_width="4dp"
                             android:layout_height="4dp"
@@ -373,7 +419,9 @@
                             android:layout_height="match_parent"
                             android:layout_weight="3"
                             android:background="@drawable/border"
-                            android:hint="가로.cm"
+                            android:hint="가로 .cm"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
                             android:textSize="15sp"
                             android:textAlignment="center"/>
                     <RelativeLayout
@@ -396,6 +444,8 @@
                             android:layout_weight="3"
                             android:background="@drawable/border"
                             android:hint="세로.cm"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
                             android:textSize="15sp"
                             android:textAlignment="center"/>
                     <RelativeLayout
@@ -418,6 +468,8 @@
                             android:layout_weight="3"
                             android:background="@drawable/border"
                             android:hint="높이.cm"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
                             android:textSize="15sp"
                             android:textAlignment="center"/>
                 </LinearLayout>
@@ -425,7 +477,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
                     <RelativeLayout
@@ -437,8 +489,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="작품 가격"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
+                                android:textColor="#4a4a4a"
+                                android:fontFamily="@font/notosanscjkkr_medium"
+                                android:includeFontPadding="false"
+                                android:textSize="16sp"/>
                         <View
                                 android:layout_width="4dp"
                                 android:layout_height="4dp"
@@ -460,6 +514,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="8"
+                                    android:hint="수수료 포함 금액을 적어주세요.(수수료 15%)"
                                     android:background="@android:color/transparent"
                                     android:textSize="12sp"
                                     android:textAlignment="textEnd"/>
@@ -541,8 +596,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작품 재료"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:textColor="#4a4a4a"
+                            android:textSize="16sp"/>
                     <View
                             android:layout_width="4dp"
                             android:layout_height="4dp"
@@ -563,12 +620,16 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
                             android:inputType="textPersonName"
-                            android:hint="띄어쓰기 포함 100자 이내"/>
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:textColorHint="#9c9c9c"
+                            android:textColor="#4a4a4a"
+                            android:textSize="14sp"
+                            android:hint="띄어쓰기 포함 30자 이내"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
@@ -577,8 +638,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="표현 기법"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:textColor="#4a4a4a"
+                            android:textSize="16sp"/>
                 </RelativeLayout>
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -593,7 +656,12 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
                             android:inputType="textPersonName"
-                            android:hint="띄어쓰기 포함 200자 이내"/>
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:textColorHint="#9c9c9c"
+                            android:textColor="#4a4a4a"
+                            android:textSize="14sp"
+                            android:hint="띄어쓰기 포함 100자 이내"/>
+                    />
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>

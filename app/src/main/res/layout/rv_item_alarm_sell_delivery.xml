@@ -3,13 +3,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="66dp"
         android:orientation="vertical">
     <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="66dp"
             android:layout_marginTop="20dp">
         <View
                 android:layout_width="78dp"
@@ -29,6 +29,9 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="66dp"
+
             android:background="@drawable/alarm_item_style">
         <LinearLayout
                 android:layout_width="match_parent"
@@ -293,6 +296,7 @@
             android:text="*2일내로 상품 배송을 하지 않을 경우, 최소됩니다."
             android:includeFontPadding="false"
             android:textColor="@color/colorEssential"
+            android:layout_marginLeft="20dp"
             android:textSize="14sp"
             android:fontFamily="@font/notosanscjkkr_regular"/>
 </LinearLayout>

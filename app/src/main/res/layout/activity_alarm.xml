@@ -8,6 +8,7 @@
         android:id="@+id/ll_alarm_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -16,16 +17,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
                 android:text="알림"
+                android:fontFamily="@font/notosanscjkkr_bold"
                 android:textColor="#353d46"
-                android:textSize="22sp"
-                android:textStyle="bold"/>
+                android:textSize="22sp"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/close_black"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
         <android.support.design.widget.TabLayout
@@ -34,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="85dp"
+            android:layout_marginRight="60dp"
             app:tabIndicatorColor="@color/colorEssential"
             app:tabIndicatorHeight="2dp"/>
     </LinearLayout>
