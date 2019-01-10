@@ -18,6 +18,7 @@ class MypagePreferencesActivity : AppCompatActivity() {
     lateinit var btn_mypage_help : LinearLayout
     lateinit var btn_mypage_artoo_service : LinearLayout
     lateinit var btn_mypage_my_info : LinearLayout
+    lateinit var btn_mypage_personal_info : LinearLayout
     lateinit var btn_mypage_logout : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,11 @@ class MypagePreferencesActivity : AppCompatActivity() {
 
                 R.id.btn_mypage_artoo_service -> {
                     val intent = Intent(this, MypageServiceActivity::class.java)
+                    startActivity(intent)
+                }
+
+                R.id.btn_mypage_personal_info -> {
+                    val intent = Intent(this, MypagePolicyActivity::class.java)
                     startActivity(intent)
                 }
 
@@ -67,6 +73,9 @@ class MypagePreferencesActivity : AppCompatActivity() {
 
         btn_mypage_artoo_service = findViewById(R.id.btn_mypage_artoo_service)
         btn_mypage_artoo_service.setOnClickListener(onClick)
+
+        btn_mypage_personal_info = findViewById(R.id.btn_mypage_personal_info)
+        btn_mypage_personal_info.setOnClickListener(onClick)
 
         btn_mypage_logout = findViewById(R.id.btn_mypage_logout)
         btn_mypage_logout.setOnClickListener(onClick)

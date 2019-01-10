@@ -57,11 +57,7 @@
         <activity android:name=".Activity.ProductPurchaseResultActivity"/>
         <activity android:name=".Activity.OtherUserPageActivity">
         </activity>
-        <activity android:name=".Activity.OtherUserPageProductActivity">
-        </activity>
-        <activity android:name=".Activity.OtherUserPageLikeActivity">
-        </activity>
-        <activity android:name=".Activity.OtherUserPageReviewActivity">
+        <activity android:name=".Activity.MypagePolicyActivity">
         </activity>
     </application>
 

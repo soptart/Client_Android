@@ -1,117 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="53.5dp"
-        android:paddingTop="50dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="자주 묻는 질문"
-            android:textColor="#333333"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:paddingTop="39dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자주 묻는 질문"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:fontFamily="@font/notosanscjkkr_bold"
+                android:textStyle="bold" />
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/help_list_btn1"
+            <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="45dp">
 
+                <LinearLayout
+                        android:id="@+id/help_list_btn1"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+
+                        android:orientation="horizontal"
+                        android:weightSum="7">
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
                         <TextView
-                            android:id="@+id/help_list_q1"
+                                android:id="@+id/help_list_q1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="Artoo는 무슨 앱인가요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
+                    </LinearLayout>
+                    <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                        <ImageButton
+                                android:id="@+id/help_list_arrow1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:gravity="bottom"
                             android:includeFontPadding="false"
-                            android:text="Artoo는 무슨 앱인가요?"
+                            android:text="미술전공자들의 작품을 크리틱하며 도움을 주고 작품을 전시하며 판매할 수 있는 앱 입니다."
                             android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:id="@+id/help_list_arrow1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="미술전공자들의 작품을 공유하며 댓글로 도움을\n주고 작품을 전시하며 판매할 수 있는 앱 입니다."
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#dddddd" />
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
@@ -119,435 +113,424 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn2"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="Artoo 전시회는 무엇인가요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
+                                android:id="@+id/help_list_q2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="Artoo 전시회는 무엇인가요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="전시회는 Artoo안에서 열리는 전시로 실제 전시와 무관합니다.\n 앱 안에서 전시를 통해 노출을 시켜주고 더 전시신청서를 통해 30명을 선발하며 전시순서는 랜덤으로 이뤄집니다. "
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="전시회는 Artoo안에서 열리는 전시로 실제 전시와 무관합니다. 앱 안에서 전시를 통해 노출을 시켜주고 더 전시신청서를 통해 30명을 선발하며 전시순서는 랜덤으로 이뤄집니다. "
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn3"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn3"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="구매는 어떻게 하나요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
+                                android:id="@+id/help_list_q3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="구매는 어떻게 하나요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="원하시는 작품이 있을 경우 구매하기를 눌러 구매합니다.\n 배송은 택배/직거래중 선택해 주시고 결제는 카드와 무통장 입금을 통해 결제가 진행됩니다.\n 배송은 최소5일이며 변동사항이 생길 수 있습니다.
-\n 농협 302 33959980 21 윤여진(Artoo)"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="원하시는 작품이 있을 경우 구매하기를 눌러 구매합니다. \n배송은 택배/직거래중 선택해 주시고 결제는 카드와 무통장 입금을 통해 결제가 진행됩니다. \n배송은 약7일로 예상되며 변동사항이 생길 수 있습니다. \n농협 301-0243-2595-01 윤여진 Artoo"
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn4"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn4"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="후기 작성은 꼭 해야하나요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
+                                android:id="@+id/help_list_q4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="내 그림 판매 발생시 어떻게 하나요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
 
                 <LinearLayout
-                    android:id="@+id/expandable_a4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
+                        android:id="@+id/expandable_a4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="후기 작성하면 좋습니다"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="판매 발생시 Artoo로 작품을 보내주셔야 하며, 연락 후 직접 가져 오셔도 됩니다. 검수 절차 후 판매자에게 배송 됩니다. \n주소 : 인천시 계양구 계양문화로168 하나A 317동 304호"
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
 
 
                     <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:id="@+id/help_list_btn5"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
+
+                    <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                        <TextView
+                                android:id="@+id/help_list_q5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="직거래는 무엇인가요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                        <ImageButton
+                                android:id="@+id/help_list_arrow5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="그림을 실제로 보고 사고 싶어하는 사람을 위해 직거래 선택 시 판매자 정보를 드려 연결시켜줍니다. "
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn5"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn6"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="내 그림 판매 발생시 어떻게 하나요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
+                                android:id="@+id/help_list_q6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="환불은 어떻게 해야 하나요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
 
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="내 그림을 팝니다"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                        android:background="#dddddd"/>
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn6"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
+                        android:id="@+id/expandable_a6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:weightSum="2">
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
 
-                        <TextView
-                            android:id="@+id/help_list_q6"
+                    <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:gravity="bottom"
                             android:includeFontPadding="false"
-                            android:text="환불은 어떻게 하나요?"
+                            android:text="Artoo에서 작품 검수를 하기 때문에 작품과 실물이 다를 경우가 거의 없지만, 요청시 Artoo에서 확인 후 7일 이내 환불이 가능합니다. \n단, 단순 변심의 경우 반품이 불가합니다. 배송비는 개인이 부담해 주셔야 하며 직거래의 경우 수수료를 제외한 금액을 환불 해드립니다. \n비용은 환불 완료 3시 이내 환급 됩니다. "
                             android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:id="@+id/help_list_arrow6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="여진이에게 문의하세요"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
 
                     <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#dddddd" />
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
@@ -555,172 +538,173 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn7"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn7"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="직거래는 무엇인가요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
-
+                                android:id="@+id/help_list_q7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="작품 크기에 따른 배송비가 다른가요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="그림을 실제로 보고 사고 싶어하는 사람을 위해\n 직거래 선택 시 판매자 정보를 드려 연결시켜줍니다. "
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="캔버스 크기 \ns(41x32) m(42x32~80.3x61) L(80.3x65~117x81) xl(116x91~)
+\n무게에 따라 배송비가 다르기 때문에 대략 배송비 3000원(기본)  m-4000원 L이상 5000원 으로 받습니다.
+"
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn8"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn8"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="직거래시 수수료는 구매자가 내야하나요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
-
+                                android:id="@+id/help_list_q8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="전공자여야만 작품을 업로드 할 수 있나요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
 
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="여진이에게 문의하세요"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="아니요. 그림을 좋아하는 누구나 업로드 가능합니다."
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
 
@@ -728,95 +712,101 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/help_list_btn9"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+                        android:id="@+id/help_list_btn9"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:orientation="horizontal"
+                        android:weightSum="7">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:background="#FFFFFF"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:weightSum="2">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="#FFFFFF"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
 
                         <TextView
-                            android:id="@+id/help_list_q9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="직거래시 거래가 취소되면 어떻게 하나요?"
-                            android:textColor="#434343"
-                            android:textSize="17sp" />
+                                android:id="@+id/help_list_q9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:gravity="bottom"
+                                android:text="작품 저작권은 어떻게 하나요?"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textColor="#434343"
+                                android:textSize="16sp"/>
 
 
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
 
                         <ImageButton
-                            android:id="@+id/help_list_arrow9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/arrow_down_black" />
+                                android:id="@+id/help_list_arrow9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/arrow_down_black"/>
 
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <LinearLayout
-                    android:id="@+id/expandable_a9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="#f1f1f1"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="bottom"
-                        android:includeFontPadding="false"
-                        android:text="여진이에게 문의하세요"
-                        android:textColor="#434343"
-                        android:textSize="17sp"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:paddingEnd="54dp"/>
-
-                    <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#dddddd" />
+                        android:background="#dddddd"/>
+
+                <LinearLayout
+                        android:id="@+id/expandable_a9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#f1f1f1"
+                        android:visibility="gone">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="CCL은 저작물 이용을 허락해 저작권자에게 따로 허락을 구하지 않아도 창작물을 사용할 수 있는 라이선스 입니다."
+                            android:textColor="#434343"
+                            android:textSize="15sp"
+                            android:paddingTop="11dp"
+                            android:paddingBottom="8dp"
+                            android:paddingEnd="54dp"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:includeFontPadding="false"
+                            android:text="CC라이선스 표시안함: 저작재산권자 외 타인은 저작물을 공유 및 이용할 수 없습니다.\nCC-BY (저작권 표시) :저작자의 이름, 저작물의 제목, 출처 등 저작자에 관한 표시를 해주어야 합니다.\nCC-BY-NC (저작권 표시-비영리): 저작자를 밝히면 자유로운 이용이 가능하지만 영리목적으로 이용 할 수 없습니다.\nCC-BY-SA(저작자 시- 동일조건 변경허락): 저작자를 밝히면 자유로운 이용이 가능하고 저작물의 변경도 가능하지만, 2차적 저작물에는 원 저작물에 적용된 것과 동일한 라이선스를 적용해야합니다.\nCC-BY-NC-SA(저작자 표시-비영리-동일조건변경허락): 저작자를 밝히면 이용이 가능하며 저작물의 변경도 가능하지만, 영리 목적으로 이용할 수 없고 2차적 저작물에는 원 저작물과 동일한 라이선스를 적용해야 합니다."
+                            android:textColor="#434343"
+                            android:textSize="13sp"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="54dp"/>
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#dddddd"/>
 
                 </LinearLayout>
-
-
             </LinearLayout>
-
-
-
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
