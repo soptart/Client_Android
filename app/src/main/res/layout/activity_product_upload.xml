@@ -500,28 +500,6 @@
                                 android:button="@drawable/selector_checkbox"/>
                     </LinearLayout>
                 </RelativeLayout>
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp">
-
-                    <TextView
-                            android:id="@+id/tv_product_delivery"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="배송 여부"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-                    <View
-                            android:layout_width="4dp"
-                            android:layout_height="4dp"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginTop="2dp"
-                            android:layout_toRightOf="@id/tv_product_delivery"
-                            android:background="@drawable/dialog_oval"/>
-                </RelativeLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

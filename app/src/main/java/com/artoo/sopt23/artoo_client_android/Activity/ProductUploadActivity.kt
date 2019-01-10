@@ -125,20 +125,26 @@ class ProductUploadActivity : AppCompatActivity() {
             input_product_purchase_state = btn_product_upload_delivery_direct.text.toString()
         }*/
         btn_product_upload_finish.setOnClickListener {
-            if (iv_product_upload_product_img.toString() == "") {
+            if (iv_product_upload_product_img.resources == null) {
                 toast("작품 사진을 첨부해주세요.")
-            } else if (et_product_upload_product_title.toString() == "") {
+            } else if (et_product_upload_product_title.text.toString().trim().length == 0) {
                 toast("작품명을 작성해주세요.")
-            } else if(et_product_upload_product_detail.toString() == "") {
+            } else if(et_product_upload_product_detail.text.toString().trim().length == 0) {
                 toast("작품 설명을 작성해주세요.")
-            } else if (et_product_upload_size_width.toString() == "" || et_product_upload_size_depth.toString() == "") {
+            } else if (et_product_upload_size_width.text.toString().trim().length == 0 || et_product_upload_size_depth.text.toString().trim().length == 0) {
                 toast("작품 크기의 가로, 세로는 필수값입니다.")
-            } else if (et_product_upload_material.toString() == "") {
+            } else if (et_product_upload_size_width.text.toString().toInt() < 0 || et_product_upload_size_width.text.toString().toInt() >=163
+                    || et_product_upload_size_depth.text.toString().toInt() < 0 || et_product_upload_size_depth.text.toString().toInt() >= 163) {
+                toast("작품의 최대 가로, 세로 길이는 163cm입니다.\n다시 입력해주세요.")
+            } else if (et_product_upload_price.text.toString().trim().length == 0) {
+                toast("작품의 가격을 입력해주세요.")
+            } else if (et_product_upload_material.text.toString().trim().length == 0) {
                 toast("작품에 사용한 재료를 기입해주세요.")
             } else {
 
                 getProductUploadResponse()
             }
+
         }
     }
 
@@ -309,11 +315,10 @@ class ProductUploadActivity : AppCompatActivity() {
         val input_tags = RequestBody.create(MediaType.parse("text/plain"), "1,7")
 
         val input_product_width = et_product_upload_size_width.text.toString().toInt()
-        val input_product_height = et_product_upload_size_height.text.toString().toInt()
-
-        var input_product_depth = 1
+        val input_product_depth = et_product_upload_size_height.text.toString().toInt()
+        var input_product_height = 1
         if (et_product_upload_size_depth.text != null) {
-            input_product_depth = et_product_upload_size_depth.text.toString().toInt()
+            input_product_height = et_product_upload_size_depth.text.toString().toInt()
         }
 
         val input_product_price = et_product_upload_price.text.toString().toInt()
