@@ -62,6 +62,7 @@ interface NetworkService {
             @Part("a_category") a_category: RequestBody,
             @Part("a_form") a_form: RequestBody,
             @Part("a_price") a_price: Int,
+            @Part("a_purchaseState") a_purchaseState: Int,
             @Part("u_idx") u_idx: Int,
             @Part("a_detail") a_detail: RequestBody,
             @Part("a_year") a_year: RequestBody,

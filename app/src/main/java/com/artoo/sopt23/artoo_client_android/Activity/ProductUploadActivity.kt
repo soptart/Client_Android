@@ -131,7 +131,7 @@ class ProductUploadActivity : AppCompatActivity() {
                 toast("작품명을 작성해주세요.")
             } else if(et_product_upload_product_detail.toString() == "") {
                 toast("작품 설명을 작성해주세요.")
-            } else if (et_product_upload_size_width.toString() == "" || et_product_upload_size_height.toString() == "") {
+            } else if (et_product_upload_size_width.toString() == "" || et_product_upload_size_depth.toString() == "") {
                 toast("작품 크기의 가로, 세로는 필수값입니다.")
             } else if (et_product_upload_material.toString() == "") {
                 toast("작품에 사용한 재료를 기입해주세요.")
@@ -277,17 +277,17 @@ class ProductUploadActivity : AppCompatActivity() {
                     val byteArrayOutputStream = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
                     val photoBody =
-                        RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
+                            RequestBody.create(MediaType.parse("image/jpg"), byteArrayOutputStream.toByteArray())
                     //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
                     input_product_img = MultipartBody.Part.createFormData(
-                        "pic_url",
-                        File(seletedPictureUri.toString()).name + ".jpg",
-                        photoBody
+                            "pic_url",
+                            File(seletedPictureUri.toString()).name + ".jpg",
+                            photoBody
                     )
                     txt_product_upload_info.visibility = View.GONE
                     //Glide을 사진 URI를 ImageView에 넣은 방식. 외부 URI가 아니라 굳이 Glide을 안써도 되지만 ᄒᄒ!\
                     Glide.with(this@ProductUploadActivity).load(seletedPictureUri).thumbnail(0.1f)
-                        .into(iv_product_upload_product_img)
+                            .into(iv_product_upload_product_img)
                 }
             }
         }
@@ -310,15 +310,23 @@ class ProductUploadActivity : AppCompatActivity() {
 
         val input_product_width = et_product_upload_size_width.text.toString().toInt()
         val input_product_height = et_product_upload_size_height.text.toString().toInt()
-        val input_product_depth = et_product_upload_size_depth.text.toString().toInt()
+
+        var input_product_depth = 1
+        if (et_product_upload_size_depth.text != null) {
+            input_product_depth = et_product_upload_size_depth.text.toString().toInt()
+        }
 
         val input_product_price = et_product_upload_price.text.toString().toInt()
-        //input_purchase_state
+        var input_purchase_state = 1
+        if (cb_purchase_state.isChecked) {
+            input_purchase_state = 0
+        }
+
         val input_product_material = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_material.text.toString())
         val input_product_tip = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_tip.text.toString())
 
         if (input_product_img!=null && et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
-            && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0 && spn_product_upload_category.selectedItemPosition>0 &&
+                && input_product_width > 0 && input_product_height > 0 && input_product_depth > 0 && spn_product_upload_category.selectedItemPosition>0 &&
                 spn_product_upload_format.selectedItemPosition>0 && spn_product_upload_license.selectedItemPosition>0) {
             val token = SharedPreferenceController.getAuthorization(this)
             val u_idx = SharedPreferenceController.getUserID(this)
@@ -327,7 +335,7 @@ class ProductUploadActivity : AppCompatActivity() {
                 val postProductUploadResponse = networkService.postProductUploadResponse(token,
                         input_product_title,
                         input_product_width, input_product_height, input_product_depth,
-                        input_product_category, input_product_format, input_product_price,
+                        input_product_category, input_product_format, input_product_price, input_purchase_state,
                         u_idx, input_product_detail, input_product_year,
                         input_tags, input_product_license, input_product_material, input_product_tip, input_product_img!!/*, input_product_material, input_product_tip*/)
 

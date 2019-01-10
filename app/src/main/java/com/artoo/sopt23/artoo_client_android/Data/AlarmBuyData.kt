@@ -15,5 +15,6 @@ data class AlarmBuyData(
         var u_phone: String,
         var u_address: String,
         var u_bank: String,
-        var u_account: String
+        var u_account: String,
+        var c_isComment: Boolean
 )

@@ -18,59 +18,59 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view : View = inflater!!.inflate(R.layout.fragment_product_upload_theme, container, false)
-
         val activity: ProductUploadActivity = activity as ProductUploadActivity
 
         for (i in 0 until activity.themes.size)
             Log.d(":::::product_upload_theme_frag:::::themes", activity.themes[i])
 
         //선택한 해시태그 색깔 바꿔서 띄우기 코드
-        /*for (i in 0 until activity.themes.size){
+        for (i in 0 until activity.themes.size){
             when(activity.themes.get(i)){
                 "행복한"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_happy)
+                    view.btn_product_upload_theme_happy.setImageResource(R.drawable.upload_theme_coral_happy)
                 }
                 "심플한"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_simple)
+                    view.btn_product_upload_theme_simple.setImageResource(R.drawable.upload_theme_coral_simple)
                 }
                 "감성적인"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_sensitive)
+                    btn_product_upload_theme_sensitive.setImageResource(R.drawable.upload_theme_coral_sensitive)
                 }
                 "화려한"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_fancy)
+                    view.btn_product_upload_theme_fancy.setImageResource(R.drawable.upload_theme_coral_fancy)
                 }
                 "심오한"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_unfathomable)
+                    view.btn_product_upload_theme_profound.setImageResource(R.drawable.upload_theme_coral_unfathomable)
                 }
                 "아기자기한"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_cute)
+                    view.btn_product_upload_theme_cute.setImageResource(R.drawable.upload_theme_coral_cute)
                 }
                 "봄"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_spring)
+                    view.btn_product_upload_theme_spring.setImageResource(R.drawable.upload_theme_coral_spring)
                 }
                 "여름"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_summer)
+                    view.btn_product_upload_theme_summer.setImageResource(R.drawable.upload_theme_coral_summer)
                 }
                 "가을"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_fall)
+                    view.btn_product_upload_theme_fall.setImageResource(R.drawable.upload_theme_coral_fall)
                 }
                 "겨울"->{
-                    btn_product_upload_theme_antique.setImageResource(R.drawable.upload_theme_coral_winter)
+                    view.btn_product_upload_theme_winter.setImageResource(R.drawable.upload_theme_coral_winter)
                 }
             }
-        }*/
+        }
 
         //만약 이미 선택한 태그에 해당하는 버튼은 다른색으로 background, 누를 수 없게 처리
         //이미 선택한 해시태그와 선택중인 해시태그를 구분할 필요가 있음
         //toast 넘 구린데
 
-       view.btn_product_upload_theme_antique.setOnClickListener {
+        view.btn_product_upload_theme_happy.setOnClickListener {
 
-           if (checkOverSize(activity.themes) || checkSameValue("엔틱한", activity.themes)) {
-               //do nothing
-           } else {
-               activity.themes.add("엔틱한")
-           }
+            if (checkOverSize(activity.themes) || checkSameValue("행복한", activity.themes)) {
+                //do nothing
+            } else {
+                activity.themes.add("행복한")
+                view.btn_product_upload_theme_happy.setImageResource(R.drawable.upload_theme_coral_happy)
+            }
         }
         view.btn_product_upload_theme_simple.setOnClickListener {
 
@@ -78,14 +78,16 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("심플한")
+                view.btn_product_upload_theme_simple.setImageResource(R.drawable.upload_theme_coral_simple)
             }
         }
-        view.btn_product_upload_theme_cozy.setOnClickListener {
+        view.btn_product_upload_theme_sensitive.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("따뜻한", activity.themes)) {
+            if (checkOverSize(activity.themes) || checkSameValue("감성적인", activity.themes)) {
                 //do nothing
             } else {
-                activity.themes.add("따뜻한")
+                activity.themes.add("감성적인")
+                btn_product_upload_theme_sensitive.setImageResource(R.drawable.upload_theme_coral_sensitive)
             }
         }
         view.btn_product_upload_theme_fancy.setOnClickListener {
@@ -94,6 +96,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("화려한")
+                view.btn_product_upload_theme_fancy.setImageResource(R.drawable.upload_theme_coral_fancy)
             }
         }
         view.btn_product_upload_theme_profound.setOnClickListener {
@@ -102,6 +105,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("심오한")
+                view.btn_product_upload_theme_profound.setImageResource(R.drawable.upload_theme_coral_unfathomable)
             }
         }
         view.btn_product_upload_theme_cute.setOnClickListener {
@@ -110,6 +114,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("아기자기한")
+                view.btn_product_upload_theme_cute.setImageResource(R.drawable.upload_theme_coral_cute)
             }
         }
 
@@ -119,6 +124,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("봄")
+                view.btn_product_upload_theme_spring.setImageResource(R.drawable.upload_theme_coral_spring)
             }
         }
         view.btn_product_upload_theme_summer.setOnClickListener {
@@ -127,6 +133,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("여름")
+                view.btn_product_upload_theme_summer.setImageResource(R.drawable.upload_theme_coral_summer)
             }
         }
         view.btn_product_upload_theme_fall.setOnClickListener {
@@ -135,6 +142,7 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("가을")
+                view.btn_product_upload_theme_fall.setImageResource(R.drawable.upload_theme_coral_fall)
             }
         }
         view.btn_product_upload_theme_winter.setOnClickListener {
@@ -143,8 +151,9 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
                 //do nothing
             } else {
                 activity.themes.add("겨울")
+                view.btn_product_upload_theme_winter.setImageResource(R.drawable.upload_theme_coral_winter)
             }
-       }
+        }
 
         view.btn_product_upload_theme_finish.setOnClickListener{
             activity.setTag()

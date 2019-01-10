@@ -304,7 +304,7 @@
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="6dp"/>
 
-            <Button
+            <ImageButton
                     android:id="@+id/btn_rv_item_alarm_buy_direct_comment"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
@@ -314,7 +314,7 @@
                     android:fontFamily="@font/notosanscjkkr_medium"
                     android:textSize="15sp"
                     android:textColor="#ff6f61"
-                    android:background="@drawable/alarm_button_style"
+                    android:background="@drawable/alarm_long_review_coral"
                     android:textAlignment="center"
                     android:layout_marginBottom="20dp"/>
         </LinearLayout>

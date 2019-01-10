@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp">
             <ImageButton
-                    android:id="@+id/btn_product_upload_theme_antique"
+                    android:id="@+id/btn_product_upload_theme_happy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
                     android:background="@android:color/transparent"
@@ -59,7 +59,7 @@
                     android:background="@android:color/transparent"
                     android:src="@drawable/upload_theme_simple"/>
             <ImageButton
-                    android:id="@+id/btn_product_upload_theme_cozy"
+                    android:id="@+id/btn_product_upload_theme_sensitive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
                     android:background="@android:color/transparent"

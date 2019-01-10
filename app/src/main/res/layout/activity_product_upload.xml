@@ -5,13 +5,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         tools:context=".Activity.ProductUploadActivity">
 
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
 
         <ScrollView
                 android:layout_width="match_parent"
@@ -23,20 +25,6 @@
                     android:orientation="vertical">
                 <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp">
-
-                    <ImageButton
-                            android:id="@+id/btn_product_upload_close"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentTop="true"
-                            app:srcCompat="?attr/actionModeCloseDrawable"/>
-                </RelativeLayout>
-                <RelativeLayout
-                        android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp">
@@ -46,7 +34,16 @@
                             android:layout_height="wrap_content"
                             android:text="작품 업로드"
                             android:textSize="22sp"
+                            android:textColor="#353d46"
                             android:textStyle="bold"/>
+                    <ImageButton
+                            android:id="@+id/btn_product_upload_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@android:color/transparent"
+                            app:srcCompat="@drawable/close_black"/>
                 </RelativeLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -99,14 +96,22 @@
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="1">
+                                android:layout_weight="1.2">
                             <TextView
+                                    android:id="@+id/tv_year"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:text=" 제작 년도"
                                     android:textSize="15sp"
                                     android:textColor="@color/colorMainBlack"/>
+                            <View
+                                    android:layout_width="4dp"
+                                    android:layout_height="4dp"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginTop="12dp"
+                                    android:layout_toRightOf="@id/tv_year"
+                                    android:background="@drawable/dialog_oval"/>
                             <EditText
                                     android:id="@+id/et_product_upload_product_year"
                                     android:layout_width="match_parent"
@@ -116,7 +121,8 @@
                                     android:textColor="@color/colorMainBlack"
                                     android:textAlignment="viewEnd"
                                     android:layout_alignParentStart="true"
-                                    android:layout_alignParentBottom="true"/>
+                                    android:layout_alignParentBottom="true" android:layout_marginStart="0dp"
+                                    android:layout_marginBottom="0dp"/>
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -189,7 +195,6 @@
 
                     <EditText
                             android:id="@+id/et_product_upload_product_detail"
-                            android:inputType="textMultiLine"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
@@ -229,7 +234,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/upload_select_theme_line_happy"
                                 android:visibility="gone"
-                                android:text="hashtag1">
+                                android:text="hashtag1"
+                                android:layout_marginRight="8dp">
                             <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -244,9 +250,8 @@
                                         android:textSize="15sp"/>
                             </RelativeLayout>
                             <RelativeLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    android:layout_width="15dp"
+                                    android:layout_height="match_parent">
                                 <ImageButton
                                         android:id="@+id/btn_product_upload_delete_tag1"
                                         android:layout_width="8dp"
@@ -262,7 +267,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/upload_select_theme_line_happy"
                                 android:visibility="gone"
-                                android:text="hashtag2">
+                                android:text="hashtag2"
+                                android:layout_marginRight="8dp">
                             <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -277,9 +283,8 @@
                                         android:textSize="15sp"/>
                             </RelativeLayout>
                             <RelativeLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    android:layout_width="15dp"
+                                    android:layout_height="match_parent">
                                 <ImageButton
                                         android:id="@+id/btn_product_upload_delete_tag2"
                                         android:layout_width="8dp"
@@ -295,7 +300,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/upload_select_theme_line_happy"
                                 android:visibility="gone"
-                                android:text="hashtag3">
+                                android:text="hashtag3"
+                                android:layout_marginRight="8dp">
                             <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -310,9 +316,8 @@
                                         android:textSize="15sp"/>
                             </RelativeLayout>
                             <RelativeLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
+                                    android:layout_width="15dp"
+                                    android:layout_height="match_parent">
                                 <ImageButton
                                         android:id="@+id/btn_product_upload_delete_tag3"
                                         android:layout_width="8dp"
@@ -326,6 +331,7 @@
                                 android:id="@+id/btn_product_upload_add_theme"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="8dp"
                                 android:visibility="visible"
                                 android:src="@drawable/upload_theme_add_copy"
                                 android:background="@android:color/transparent">
@@ -487,6 +493,7 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_marginTop="0dp"/>
                         <CheckBox
+                                android:id="@+id/cb_purchase_state"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_toEndOf="@+id/tv_product_isindividual"
@@ -577,7 +584,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
-                            android:inputType="textMultiLine"
+                            android:inputType="textPersonName"
                             android:hint="띄어쓰기 포함 100자 이내"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -607,7 +614,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
-                            android:inputType="textMultiLine"
+                            android:inputType="textPersonName"
                             android:hint="띄어쓰기 포함 200자 이내"/>
                 </RelativeLayout>
             </LinearLayout>

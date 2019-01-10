@@ -24,6 +24,9 @@ import com.artoo.sopt23.artoo_client_android.Fragment.AlarmBuyFragment
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import org.jetbrains.anko.backgroundDrawable
+import org.jetbrains.anko.backgroundResource
+import org.jetbrains.anko.find
 
 
 class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<AlarmBuyData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -115,12 +118,14 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             (holder).seller_address.text = dataListBuy[position].u_address
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
-                //Log.d("*****AlarmBuyRecyclerViewAdapter::", comment_dialog.tag)
                 comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
-                //var intent = Intent(ctx as FragmentActivity, AlarmCommentDialogFragment::class.java)
-                //intent.putExtra("p_idx", dataListBuy[position].p_idx)
 
                 AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+            }
+            Log.d("*****AlarmBuyRecyclerViewAdapter::결제완료 직거래::", dataListBuy[position].c_isComment.toString())
+            if (dataListBuy[position].c_isComment) {
+                (holder).btn_direct_review_inactive.isEnabled = false
+                (holder).btn_direct_review_inactive.setBackgroundResource(R.drawable.alarm_long_review_gray)
             }
         }
 
@@ -139,12 +144,16 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             }
             (holder).btn_comment.setOnClickListener {
                 val comment_dialog = AlarmCommentDialogFragment()
-                //comment_dialog.show(ctx as FragmentManager, comment_dialog.tag)
                 comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
-                //var intent = Intent((ctx as FragmentActivity), AlarmCommentDialogFragment::class.java)
-                //intent.putExtra("p_idx", dataListBuy[position].p_idx)
 
                 AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+            }
+            Log.d("*****AlarmBuyRecyclerViewAdapter::결제완료 택배::", dataListBuy[position].c_isComment.toString())
+            if (dataListBuy[position].c_isComment) {
+                (holder).btn_delivery_refund_inactive.isEnabled = false
+                (holder).btn_delivery_review_inactive.isEnabled = false
+                (holder).btn_delivery_refund_inactive.setBackgroundResource(R.drawable.alarm_refund_gray)
+                (holder).btn_delivery_review_inactive.setBackgroundResource(R.drawable.alarm_review_gray)
             }
         }
     }
@@ -176,6 +185,7 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
         val seller_number : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_direct_seller_number) as TextView
         val seller_address : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_direct_seller_address) as TextView
         val btn_comment:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as Button
+        val btn_direct_review_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as Button
     }
 
     inner class HolderDelivery(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -185,5 +195,7 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
         val artist : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_delivery_artist) as TextView
         val btn_refund:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as Button
         val btn_comment:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as Button
+        val btn_delivery_refund_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as Button
+        val btn_delivery_review_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as Button
     }
 }

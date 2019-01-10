@@ -6,6 +6,7 @@
               android:layout_height="match_parent"
               android:background="#FFFFFF"
               android:orientation="vertical"
+              android:layout_marginTop="24dp"
               tools:context=".Fragment.MypageFragment">
 
     <LinearLayout
@@ -54,14 +55,16 @@
                     android:layout_height="wrap_content"
                     android:text="김일혁"
                     android:textSize="27sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#333333"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" 님의"
                     android:textSize="27sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="#333333" />
         </LinearLayout>
 
         <TextView
@@ -69,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:text="작품 공간입니다."
                 android:textSize="27sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#333333" />
 
     </LinearLayout>
 
@@ -106,22 +110,26 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="48dp">
 
-        <Button
+        <ImageButton
                 android:id="@+id/btn_mypage_update_intro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="수정" />
+                android:src="@drawable/my_profile"
+                android:background="@android:color/transparent"/>
 
-        <Button
+        <ImageButton
                 android:id="@+id/btn_mypage_update_intro_finish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="수정완료"
-                android:visibility="invisible" />
+                android:layout_marginLeft="15dp"
+                android:visibility="invisible"
+                android:src="@drawable/my_profile_edit_save"
+                android:background="@android:color/transparent"/>
     </LinearLayout>
 
     <android.support.design.widget.TabLayout
