@@ -69,6 +69,7 @@ class ProductFragment : Fragment() {
         sw_product_list.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener{
             override fun onRefresh() {
                 if(txt_fragment_filter.text!="필터를 선택해주세요") updateDataList()
+                sw_product_list.isRefreshing = false
             }
         })
 

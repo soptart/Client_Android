@@ -340,10 +340,10 @@ class ProductUploadActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<PostProductUploadResponse>, response: Response<PostProductUploadResponse>) {
                         if (response.isSuccessful) {
-                            toast(response.body()!!.message)
+                            toast(response.body()!!.message).show()
                             finish()
                         } else {
-                            toast(response.body()!!.message)
+                            toast(response.body()!!.message).show()
                         }
                     }
                 })

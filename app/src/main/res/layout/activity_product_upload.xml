@@ -189,6 +189,7 @@
 
                     <EditText
                             android:id="@+id/et_product_upload_product_detail"
+                            android:inputType="textMultiLine"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
@@ -576,7 +577,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
                             android:hint="띄어쓰기 포함 100자 이내"/>
                 </RelativeLayout>
                 <RelativeLayout
@@ -606,7 +607,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/border"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
                             android:hint="띄어쓰기 포함 200자 이내"/>
                 </RelativeLayout>
             </LinearLayout>
