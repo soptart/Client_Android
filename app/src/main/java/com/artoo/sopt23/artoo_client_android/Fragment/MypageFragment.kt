@@ -132,10 +132,11 @@ class MypageFragment : Fragment() {
             et_mypage_user_intro.visibility = View.VISIBLE
             et_mypage_user_intro.hint = mypageIntro
             btn_mypage_update_intro_finish.visibility = View.VISIBLE
+            btn_mypage_update_intro.isSelected = true
         }
         btn_mypage_update_intro_finish.setOnClickListener {
             mypageIntro = et_mypage_user_intro.text.toString()
-
+            btn_mypage_update_intro.isSelected = false
             tv_mypage_user_intro.setText(mypageIntro)
             tv_mypage_user_intro.visibility = View.VISIBLE
             et_mypage_user_intro.visibility = View.GONE

@@ -105,7 +105,6 @@ class ProductPurchaseActivity : AppCompatActivity() {
                     Log.i("asfwrs", response.toString())
                     if(response.body()?.message.equals("구매 정보 저장 성공")){
                         Toast.makeText(this@ProductPurchaseActivity, "구매 신청이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-                        finish()
                         val intent = Intent(this@ProductPurchaseActivity, ProductPurchaseResultActivity::class.java)
                         intent.putExtra("isPost", checkPost)
                         intent.putExtra("artname", intent.getStringExtra("a_name"))
@@ -114,6 +113,7 @@ class ProductPurchaseActivity : AppCompatActivity() {
                         intent.putExtra("value2","010-3395-9980")
                         intent.putExtra("value3","농협 3023395998021")
                         startActivity(intent)
+                        finish()
                     }else if(response.body()?.status ==204){
                         Toast.makeText(this@ProductPurchaseActivity, "이미 구매중인 상품이 있습니다.", Toast.LENGTH_SHORT).show()
                     }

@@ -52,7 +52,7 @@ class MypageMyInfoActivity : AppCompatActivity() {
                 R.id.btn_my_info_my_email -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "이메일", "key" to "u_email", "value1" to mypageMyInfoData.u_email)
                 R.id.btn_my_info_my_pw -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "비밀번호", "key" to "u_pw", "value1" to "", "value2" to "", "value3" to "")
                 R.id.btn_my_info_my_contact -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "연락처", "key" to "u_phone", "value1" to mypageMyInfoData.u_phone)
-                R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_email", "value1" to mypageMyInfoData.u_address)
+                // R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_address", "value1" to mypageMyInfoData.u_address)
                 R.id.btn_my_info_my_univ -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
                 R.id.btn_my_info_my_account -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
                 R.id.btn_my_info_delete -> startActivity<WithdrawalActivity>()
@@ -71,8 +71,8 @@ class MypageMyInfoActivity : AppCompatActivity() {
         btn_my_info_my_contact = findViewById(R.id.btn_my_info_my_contact)
         btn_my_info_my_contact.setOnClickListener(onClick)
 
-        btn_my_info_my_address = findViewById(R.id.btn_my_info_my_address)
-        btn_my_info_my_address.setOnClickListener(onClick)
+        // btn_my_info_my_address = findViewById(R.id.btn_my_info_my_address)
+        // btn_my_info_my_address.setOnClickListener(onClick)
 
         btn_my_info_my_univ = findViewById(R.id.btn_my_info_my_univ)
         btn_my_info_my_univ.setOnClickListener(onClick)
@@ -97,7 +97,7 @@ class MypageMyInfoActivity : AppCompatActivity() {
                     txt_my_info_my_name.text = mypageMyInfoData.u_name
                     txt_my_info_my_email.text = mypageMyInfoData.u_email
                     txt_my_info_my_contact.text = mypageMyInfoData.u_phone
-                    txt_my_info_my_address.text = mypageMyInfoData.u_address
+                    // txt_my_info_my_address.text = mypageMyInfoData.u_address
                     txt_my_info_my_univ.text = mypageMyInfoData.u_school
                     txt_my_info_my_account.text = mypageMyInfoData.u_bank + " " + mypageMyInfoData.u_account
                 }

@@ -13,6 +13,7 @@ class TodayArtooActivity : AppCompatActivity() {
         setContentView(R.layout.activity_today_artoo)
 
         val c_id = intent.getIntExtra("c_id", 0)
+
         if(c_id == 1) img_today_artoo.setImageResource(R.drawable.contents_1)
         else if(c_id == 2) img_today_artoo.setImageResource(R.drawable.contents_2)
         else{

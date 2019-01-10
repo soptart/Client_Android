@@ -100,8 +100,8 @@ class ProductFragment : Fragment() {
     fun setFilter(){
         txt_fragment_filter.text = "전체"
         if(filter_size != null) txt_fragment_filter.text = filter_size
-        if(filter_type!= null) txt_fragment_filter.text = txt_fragment_filter.text.toString() + " | " + filter_type
-        if(filter_category!= null) txt_fragment_filter.text = txt_fragment_filter.text.toString() + " | " + filter_category
+        if(filter_type!= null) txt_fragment_filter.text = txt_fragment_filter.text.toString() + " · " + filter_type
+        if(filter_category!= null) txt_fragment_filter.text = txt_fragment_filter.text.toString() + " · " + filter_category
 
         updateDataList()
     }
