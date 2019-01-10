@@ -37,6 +37,7 @@ class ProductFragment : Fragment() {
     var filter_type: String? = null
     var filter_category: String? = null
     var keyword: String = ""
+    var last_a_idx = -1
 
     var dataList: ArrayList<ProductOverviewData> = arrayListOf()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -68,13 +69,14 @@ class ProductFragment : Fragment() {
 
         sw_product_list.setOnRefreshListener(object: SwipeRefreshLayout.OnRefreshListener{
             override fun onRefresh() {
-                if(txt_fragment_filter.text!="필터를 선택해주세요") updateDataList()
+                last_a_idx = -1
+                updateDataList()
                 sw_product_list.isRefreshing = false
             }
         })
 
         setRecyclerView()
-        txt_fragment_filter.text = "필터를 선택해주세요"
+        updateDataList()
     }
 
     override fun onResume() {
@@ -107,6 +109,32 @@ class ProductFragment : Fragment() {
     }
 
     fun updateDataList(){
+        val getProductListLimitedResponse = networkService.getProductListLimitedResponse(last_a_idx, filter_size, filter_type, filter_category, keyword!!)
+        getProductListLimitedResponse.enqueue(object:Callback<GetProductListResponse>{
+            override fun onFailure(call: Call<GetProductListResponse>, t: Throwable) {
+                Log.e("board list fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetProductListResponse>, response: Response<GetProductListResponse>) {
+                if (response.isSuccessful) {
+                    if (last_a_idx != -1) {
+                        var prev_cnt = dataList.size
+                        dataList.addAll(response.body()!!.data)
+                        txt_product_num.text = response.body()!!.len.toString() + "개의 작품들을 찾았어요!"
+
+                        productRecyclerViewAdapter.dataList = dataList
+                        productRecyclerViewAdapter.notifyItemRangeInserted(prev_cnt, dataList.size - prev_cnt)
+                    } else {
+                        dataList = response.body()!!.data
+                        txt_product_num.text = response.body()!!.len.toString() + "개의 작품들을 찾았어요!"
+                        productRecyclerViewAdapter.dataList = dataList
+                        productRecyclerViewAdapter.notifyDataSetChanged()
+                    }
+                    last_a_idx = dataList[dataList.size - 1].a_idx
+                }
+            }
+        })
+        /*
         val getProductListResponse = networkService.getProductListResponse(filter_size, filter_type, filter_category, keyword!!)
         getProductListResponse.enqueue(object: Callback<GetProductListResponse> {
             override fun onFailure(call: Call<GetProductListResponse>, t: Throwable) {
@@ -123,6 +151,7 @@ class ProductFragment : Fragment() {
                 }
             }
         })
+        */
     }
 
     fun setRecyclerView(){

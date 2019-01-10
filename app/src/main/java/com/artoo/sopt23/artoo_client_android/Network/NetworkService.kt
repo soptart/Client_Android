@@ -44,10 +44,20 @@ interface NetworkService {
     // 필터&키워드로 작품 조회
     @GET("/artworks/filter")
     fun getProductListResponse(
-        @Query("a_size") a_size: String?,
-        @Query("a_form") a_form: String?,
-        @Query("a_category") a_category: String?,
-        @Query("a_keyword") a_keyword: String
+            @Query("a_size") a_size: String?,
+            @Query("a_form") a_form: String?,
+            @Query("a_category") a_category: String?,
+            @Query("a_keyword") a_keyword: String
+    ): Call<GetProductListResponse>
+
+    // 필터&키워드로 작품 조회
+    @GET("/artworks/filter/{a_idx}")
+    fun getProductListLimitedResponse(
+            @Path("a_idx") a_idx: Int,
+            @Query("a_size") a_size: String?,
+            @Query("a_form") a_form: String?,
+            @Query("a_category") a_category: String?,
+            @Query("a_keyword") a_keyword: String
     ): Call<GetProductListResponse>
 
     //ProductUpload::create
