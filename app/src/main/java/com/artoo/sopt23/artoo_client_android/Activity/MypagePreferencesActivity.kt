@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import com.artoo.sopt23.artoo_client_android.CustomView.LogoutDialog
+import com.artoo.sopt23.artoo_client_android.CustomView.PreparingDialog
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.activity_mypage_preferences.*
+import kotlinx.android.synthetic.main.dialog_logout.*
 import org.jetbrains.anko.*
 
 class MypagePreferencesActivity : AppCompatActivity() {
@@ -40,11 +43,18 @@ class MypagePreferencesActivity : AppCompatActivity() {
                 }
 
                 R.id.btn_mypage_logout -> {
-                    SharedPreferenceController.clearSPC(this)
-                    val intent:Intent = Intent(this, LoginActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
+                    val dialog = LogoutDialog(this@MypagePreferencesActivity)
+                    dialog.show()
+                    dialog.btn_LogOut_Yes.setOnClickListener {
+                        SharedPreferenceController.clearSPC(this)
+                        val intent:Intent = Intent(this, LoginActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
+                    }
+                    dialog.btn_LogOut_No.setOnClickListener {
+                        dialog.cancel()
+                    }
                 }
             }
         }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="탈퇴하기"
+            android:fontFamily="@font/notosanscjkkr_bold"
+            android:includeFontPadding="false"
+            android:textSize="22sp"
+            android:textColor="#333333"
+            android:layout_marginTop="39dp"
+            android:layout_marginLeft="20dp"/>
+    <ImageView
+            android:layout_width="126dp"
+            android:layout_height="102dp"
+            android:src="@drawable/withdrawal_artoo_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="84dp"
+            android:layout_marginBottom="41dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artoo 탈퇴 전 확인하세요"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:layout_marginTop="10dp"
+            android:text="탈퇴할 경우, 모든 데이터는"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
+            android:text="복구가 불가능합니다."
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="단, 거래내역은 구매자에 한해 보여집니다"
+            android:textSize="14sp"
+            android:textColor="@color/colorEssential"
+            android:layout_gravity="center_horizontal"/>
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="51dp"
+            android:layout_gravity="center_horizontal">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="탈퇴하기"
+                android:textColor="@color/colorEssential"
+                android:layout_centerInParent="true"/>
+        <ImageButton
+                android:id="@+id/btn_withdrawal"
+                android:background="@drawable/withdrawal_button_line"
+                android:layout_width="196dp"
+                android:layout_height="41dp"/>
+    </RelativeLayout>
+</LinearLayout>

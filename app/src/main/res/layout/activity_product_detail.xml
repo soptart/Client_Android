@@ -36,22 +36,46 @@
                     <TextView
                             android:id="@+id/txt_product_detail_title"
                             android:text="바람의 빛"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/notosanscjkkr_bold"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:textSize="25sp" android:textColor="#4a4a4a  "
+                            android:layout_height="wrap_content"
+                            android:textSize="25sp"
+                            android:textColor="#4a4a4a"
                             android:layout_weight="1"/>
                     <TextView
                             android:layout_gravity="top"
-                            android:paddingHorizontal="10dp"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/notosanscjkkr_regular"
                             android:text="수정"
+                            android:layout_marginTop="4dp"
+                            android:includeFontPadding="false"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/txt_product_detail_modify"
+                            android:layout_height="match_parent"
+                            android:id="@+id/txt_product_detail_modify"
                             android:textColor="#ff6f61"/>
                     <TextView
-                            android:paddingHorizontal="10dp"
-                            android:text="삭제"
+                            android:id="@+id/txt_product_detail_bar"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/notosanscjkkr_regular"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/txt_product_detail_delete"
+                            android:layout_height="match_parent"
+                            android:text=" | "
+                            android:includeFontPadding="false"
+                            android:paddingHorizontal="5dp"
                             android:textColor="#ff6f61"/>
+                    <TextView
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:text="삭제"
+                            android:includeFontPadding="false"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/txt_product_detail_delete"
+                            android:textColor="#ff6f61"/>
+
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -60,15 +84,19 @@
                     <TextView
                             android:id="@+id/txt_product_detail_artist"
                             android:text="홍익대학교 김옥빈"
+                            android:includeFontPadding="false"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:textSize="16sp" android:textColor="#4a4a4a"/>
+                            android:textSize="16sp"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:textColor="#4a4a4a"/>
                     <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/ll_product_detail_like">
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ll_product_detail_like">
                         <ImageView
                                 android:id="@+id/img_product_detail_like"
                                 android:layout_width="38dp"
@@ -80,12 +108,15 @@
                         <TextView
                                 android:id="@+id/txt_product_detail_like"
                                 android:text="56"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:includeFontPadding="false"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:textSize="16sp"
                                 android:textAlignment="center"
-                                android:layout_gravity="center_vertical" android:textColor="#9c9c9c"/>
+                                android:layout_gravity="center_vertical"
+                                android:textColor="#9c9c9c"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -108,13 +139,21 @@
                             android:layout_height="match_parent">
                         <TextView
                                 android:text="사이즈"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:includeFontPadding="false"
+                                android:textSize="14sp"
                                 android:layout_width="65dp"
-                                android:layout_height="wrap_content" android:id="@+id/textView5"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView5"
                                 android:textColor="#b0b3ba"/>
                         <TextView
-                                android:text="100*90"
+                                android:text="100 * 90"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textSize="14sp"
+                                android:includeFontPadding="false"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:id="@+id/txt_product_detail_size"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/txt_product_detail_size"
                                 android:textColor="#4a4a4a"/>
                         <ImageView
                                 android:layout_width="wrap_content"
@@ -128,12 +167,20 @@
                                 android:layout_weight="1"/>
                         <TextView
                                 android:text="제작년도"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textSize="14sp"
                                 android:layout_width="65dp"
-                                android:layout_height="wrap_content" android:textColor="#b0b3ba"/>
+                                android:layout_height="wrap_content"
+                                android:textColor="#b0b3ba"/>
                         <TextView
                                 android:text="2017"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:textSize="14sp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:id="@+id/txt_product_detail_year"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/txt_product_detail_year"
                                 android:textColor="#4a4a4a"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -143,8 +190,12 @@
                         android:layout_height="match_parent">
                     <TextView
                             android:text="라이선스"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
+                            android:textSize="14sp"
                             android:layout_width="65dp"
-                            android:layout_height="wrap_content" android:textColor="#b0b3ba"/>
+                            android:layout_height="wrap_content"
+                            android:textColor="#b0b3ba"/>
                     <ImageView
                             android:layout_marginRight="5dp"
                             android:layout_width="match_parent"
@@ -163,6 +214,8 @@
                     android:layout_height="match_parent" android:background="@drawable/layout_underline">
                 <TextView
                         android:text="작품 설명"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -170,9 +223,12 @@
                 <TextView
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:fontFamily="@font/notosanscjkkr_light"
+                        android:includeFontPadding="false"
                         android:text="욕망과 억압에 대해 이야기한다. 들판이라는 고상한 공간에 이 주제를 배치시키고, 고도의 훈련된 정신과 이성이 필요한 들판을 도구로이끌어 가는데, 집이라는 공간과 들판에서 오랜 시간동안 지독한 훈련과 과잉 예속 속에서 점점 더 자기 자신에게 빛이 되어가"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/txt_product_detail_desc"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_product_detail_desc"
                         android:textSize="15sp"
                         android:ellipsize="end"
                         android:maxLines="3"
@@ -235,6 +291,8 @@
                     android:layout_height="match_parent" android:background="@drawable/layout_underline">
                 <TextView
                         android:text="작품 표현 기법, 재료는\n댓글을 달면 보입니다."
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -250,6 +308,8 @@
                     android:layout_height="match_parent">
                 <TextView
                         android:text="댓글"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -257,6 +317,8 @@
                 <TextView
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:fontFamily="@font/notosanscjkkr_light"
+                        android:includeFontPadding="false"
                         android:text="피드백을 공유하거나 질문을 하거나 칭찬을 남겨주세요"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -264,12 +326,15 @@
                         android:textColor="#4a4a4a"/>
                 <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
+                        android:layout_height="40dp">
                     <EditText
                             android:id="@+id/edt_product_detail_comment"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:hint="댓글 남기기..."
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/notosanscjkkr_light"
+                            android:includeFontPadding="false"
                             android:textColor="#434343"
                             android:textColorHint="#111111"
                             android:paddingRight="50dp"
@@ -277,13 +342,16 @@
                             android:textSize="14sp"/>
                     <TextView
                             android:id="@+id/tv_product_detail_add_comment"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_height="match_parent"
                             android:textSize="14sp"
                             android:textColor="#ff6f61"
                             android:text="등록"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:includeFontPadding="false"
                             android:paddingBottom="10dp"
-                            android:layout_alignParentBottom="true"
                             android:layout_alignParentRight="true"
                             android:gravity="center_horizontal|bottom"/>
                 </RelativeLayout>
