@@ -29,6 +29,7 @@ class MypageMyInfoActivity : AppCompatActivity() {
     lateinit var btn_my_info_my_address : LinearLayout
     lateinit var btn_my_info_my_univ : LinearLayout
     lateinit var btn_my_info_my_account : LinearLayout
+    lateinit var btn_my_info_delete : LinearLayout
 
     var mypageMyInfoData: MypageMyInfoData = MypageMyInfoData(-1, "username@email.com",
         "아투대학교", "010-0000-0000", -1, "서울특별시 성북구 비둘기",
@@ -54,6 +55,7 @@ class MypageMyInfoActivity : AppCompatActivity() {
                 R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_email", "value1" to mypageMyInfoData.u_address)
                 R.id.btn_my_info_my_univ -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
                 R.id.btn_my_info_my_account -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
+                R.id.btn_my_info_delete -> startActivity<WithdrawalActivity>()
             }
         }
 
@@ -77,6 +79,9 @@ class MypageMyInfoActivity : AppCompatActivity() {
 
         btn_my_info_my_account = findViewById(R.id.btn_my_info_my_account)
         btn_my_info_my_account.setOnClickListener(onClick)
+
+        btn_my_info_delete = findViewById(R.id.btn_my_info_delete)
+        btn_my_info_delete.setOnClickListener(onClick)
     }
 
     fun getMypageMyInfo(){

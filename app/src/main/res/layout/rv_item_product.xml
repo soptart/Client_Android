@@ -4,8 +4,10 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     app:cardCornerRadius="5dp"
-                                    app:cardUseCompatPadding="true"
-                                    android:background="@color/colorMainBlack">
+                                    app:cardUseCompatPadding="false"
+                                    android:layout_margin="6dp"
+                                    android:background="@color/colorMainBlack"
+                                    app:cardElevation="0dp">
     <ImageView
             android:id="@+id/img_rv_item_product_product"
             android:layout_width="match_parent"

@@ -48,54 +48,45 @@ class ThemeActivity : AppCompatActivity() {
         val subTag : TextView = findViewById(R.id.tv_activity_theme_desc)
         //mainTag.text = t_mainTag
         subTag.text = t_subTag
+        val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
 
         if(t_idx==1){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_happy)
             mainTag.text = "우리집에 행복을\n가져다주는 작품들"
         }
         if(t_idx==2){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_sensitive)
             mainTag.text = "카페에 걸어두면\n인스타 갬성카페 등극!"
         }
         if(t_idx==3){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_fancy)
             mainTag.text = "파티 분위기 UP!\n더신나고 지르고 레릿고"
         }
         if(t_idx==4){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_cute)
             mainTag.text = "꿍꼬또 꿍꼬또\n귀여운 그림 꿍꼬또"
         }
         if(t_idx==5){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_simple)
             mainTag.text = "SIMPLE\nIS THE BEST"
         }
         if(t_idx==6){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_spring)
             mainTag.text = "눈도 마음도\n산뜻하고 따뜻한 봄"
         }
         if(t_idx==7){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_summer)
             mainTag.text = "보기만해도\n시원해지는 여름"
         }
         if(t_idx==8){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_fall)
             mainTag.text = "외롭고 쓸쓸하지만\n가을 감성은 놓칠 수 없어"
         }
         if(t_idx==9){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_winter)
             mainTag.text = "집순이를 위한\n추운 겨울 나기 작품"
         }
         if(t_idx==10){
-            val img : ImageView = findViewById(R.id.iv_activity_theme_backimg)
             img.setImageResource(R.drawable.theme_big_picture_unfathomable)
             mainTag.text="가끔은 심오한\n감수성에 빠져보자"
         }

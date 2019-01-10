@@ -75,42 +75,42 @@
             <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
-                    android:layout_marginTop="24dp"
-                    android:id="@+id/btn_home_first_ticket">
+                    android:layout_marginTop="24dp">
+                <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="17dp"
+                        android:src="@drawable/arrow_right_black"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="10dp"/>
                 <ImageButton
+                        android:id="@+id/btn_home_first_ticket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:src="@drawable/home_today_content_1"/>
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="17dp"
-                    android:src="@drawable/arrow_right_black"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginRight="10dp"/>
             </RelativeLayout>
 
             <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
                     android:layout_marginTop="36dp"
-                    android:id="@+id/btn_home_second_ticket"
                     android:layout_marginBottom="29dp">
+                <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="17dp"
+                        android:src="@drawable/arrow_right_black"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="10dp"/>
                 <ImageButton
+                        android:id="@+id/btn_home_second_ticket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:src="@drawable/home_today_content_2"/>
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="17dp"
-                    android:src="@drawable/arrow_right_black"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginRight="10dp"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

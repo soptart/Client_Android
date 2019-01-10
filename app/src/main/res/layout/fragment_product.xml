@@ -86,16 +86,21 @@
                     android:id="@+id/txt_product_num"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="8dp"
                     android:text="0개의 작품들을 찾았어요!"
-                    android:textSize="15dp"
-                    android:textColor="@color/highlight"/>
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:textSize="20dp"/>
             <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_fragment_product_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="7dp"
+                    android:clipToPadding="false"
                     android:nestedScrollingEnabled="false"
                     android:layout_weight="1"
                     android:layout_below="@id/txt_product_num"/>

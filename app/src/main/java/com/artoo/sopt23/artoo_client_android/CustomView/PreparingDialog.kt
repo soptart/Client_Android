@@ -9,8 +9,7 @@ import android.widget.TextView
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.dialog_preparingcard.*
 
-
-public class PreparingDialog(context: Context) : Dialog(context) {
+class PreparingDialog(context: Context) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +17,4 @@ public class PreparingDialog(context: Context) : Dialog(context) {
         setContentView(R.layout.dialog_preparingcard)
         card_confirm_btn.setOnClickListener { dismiss() }
     }
-
-
-
-
 }

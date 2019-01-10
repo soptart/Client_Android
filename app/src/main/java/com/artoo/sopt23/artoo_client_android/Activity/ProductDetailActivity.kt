@@ -211,8 +211,8 @@ class ProductDetailActivity : AppCompatActivity() {
                             .load(productDetailData.pic_url).apply(options).into(img_product_detail_product)
                     txt_product_detail_title.text = productDetailData.a_name
                     txt_product_detail_artist.text = productDetailData.u_school + " " + productDetailData.u_name
-                    txt_product_detail_size.text = productDetailData.a_width.toString() + " x " +
-                            productDetailData.a_height.toString() + " x " +
+                    txt_product_detail_size.text = productDetailData.a_width.toString() + " * " +
+                            productDetailData.a_height.toString() + " * " +
                             productDetailData.a_depth.toString()
 
                     if(productDetailData.a_size < 2412) img_product_detail_size.setImageResource(R.drawable.size_s)
@@ -247,10 +247,12 @@ class ProductDetailActivity : AppCompatActivity() {
                     txt_product_detail_year.text = productDetailData.a_year.toString()
                     if(productDetailData.auth){
                         txt_product_detail_modify.visibility = View.VISIBLE
+                        txt_product_detail_bar.visibility = View.VISIBLE
                         txt_product_detail_delete.visibility = View.VISIBLE
                     }
                     else {
                         txt_product_detail_modify.visibility = View.GONE
+                        txt_product_detail_bar.visibility = View.GONE
                         txt_product_detail_delete.visibility = View.GONE
                     }
 
@@ -273,6 +275,13 @@ class ProductDetailActivity : AppCompatActivity() {
                         txt_product_detail_price.text = "판매 안 함"
                         txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_complete)
+                        ll_product_detail_bottomnav.isClickable = false
+                    }
+                    else if(productDetailData.a_purchaseState == 11){
+                        img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
+                        txt_product_detail_price.text = "거래 진행중"
+                        txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
+                        img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
                         ll_product_detail_bottomnav.isClickable = false
                     }
                     else{

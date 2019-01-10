@@ -110,15 +110,12 @@ class ProductPurchaseActivity : AppCompatActivity() {
                         intent.putExtra("isPost", checkPost)
                         intent.putExtra("artname", intent.getStringExtra("a_name"))
                         intent.putExtra("price", total_price_txt_bottom.text.toString())
-                        if(checkPayment != 0){
-                            /*val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Date())
-                            intent.putExtra("value1", simpleDateFormat)*/
-                        }else{
-                            intent.putExtra("value1", "Artoo(윤여진)")
-                            intent.putExtra("value2","010-3395-9980")
-                            intent.putExtra("value3","농협 3023395998021")
-                            startActivity(intent)
-                        }
+                        intent.putExtra("value1", "Artoo(윤여진)")
+                        intent.putExtra("value2","010-3395-9980")
+                        intent.putExtra("value3","농협 3023395998021")
+                        startActivity(intent)
+                    }else if(response.body()?.status ==204){
+                        Toast.makeText(this@ProductPurchaseActivity, "이미 구매중인 상품이 있습니다.", Toast.LENGTH_SHORT).show()
                     }
                 }/*else if(response.body()!!.status==400){
                     Toast.makeText(this@ProductPurchaseActivity, "미기입 사항을 입력해주세요", Toast.LENGTH_SHORT).show()
@@ -181,3 +178,20 @@ class ProductPurchaseActivity : AppCompatActivity() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
