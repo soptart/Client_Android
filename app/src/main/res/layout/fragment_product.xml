@@ -78,8 +78,10 @@
     <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/sw_product_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
         <ScrollView
+                android:id="@+id/scroll_product_lilst"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <RelativeLayout

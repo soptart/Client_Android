@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import android.widget.SearchView
 import com.artoo.sopt23.artoo_client_android.Activity.FilterActivity
 import com.artoo.sopt23.artoo_client_android.Adapter.ProductRecyclerViewAdapter
@@ -33,6 +34,7 @@ class ProductFragment : Fragment() {
         ApplicationController.instance.networkService
     }
 
+    var isRequested = false
     var filter_size: String? = null
     var filter_type: String? = null
     var filter_category: String? = null
@@ -75,6 +77,15 @@ class ProductFragment : Fragment() {
             }
         })
 
+        scroll_product_lilst.setOnScrollChangeListener(object: View.OnScrollChangeListener{
+            override fun onScrollChange(p0: View?, p1: Int, p2: Int, p3: Int, p4: Int) {
+                if(!isRequested && !scroll_product_lilst.canScrollVertically(1)){
+                    isRequested = true
+                    updateDataList()
+                }
+            }
+        })
+
         setRecyclerView()
         updateDataList()
     }
@@ -94,6 +105,7 @@ class ProductFragment : Fragment() {
                 filter_size = data!!.getStringExtra("filter_size")
                 filter_type = data!!.getStringExtra("filter_type")
                 filter_category = data!!.getStringExtra("filter_category")
+                last_a_idx = -1
                 setFilter()
             }
         }
@@ -120,7 +132,6 @@ class ProductFragment : Fragment() {
                     if (last_a_idx != -1) {
                         var prev_cnt = dataList.size
                         dataList.addAll(response.body()!!.data)
-                        txt_product_num.text = response.body()!!.len.toString() + "개의 작품들을 찾았어요!"
 
                         productRecyclerViewAdapter.dataList = dataList
                         productRecyclerViewAdapter.notifyItemRangeInserted(prev_cnt, dataList.size - prev_cnt)
@@ -129,7 +140,9 @@ class ProductFragment : Fragment() {
                         txt_product_num.text = response.body()!!.len.toString() + "개의 작품들을 찾았어요!"
                         productRecyclerViewAdapter.dataList = dataList
                         productRecyclerViewAdapter.notifyDataSetChanged()
+                        scroll_product_lilst.fullScroll(ScrollView.FOCUS_UP)
                     }
+                    isRequested = false
                     last_a_idx = dataList[dataList.size - 1].a_idx
                 }
             }
