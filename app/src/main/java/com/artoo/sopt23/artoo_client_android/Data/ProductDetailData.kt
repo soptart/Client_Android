@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Data
 
+import java.io.Serializable
 import java.util.*
 
 data class ProductDetailData(
@@ -23,4 +24,4 @@ data class ProductDetailData(
     var a_license: String,
     var a_size: Int,
     var a_purchaseState:Int
-)
+):Serializable

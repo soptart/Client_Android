@@ -46,4 +46,12 @@ class HomeArtist2Fragment : Fragment() {
         rv_fragment_home_today_artist2_list.adapter = homeTodayRecyclerViewAdapter
         rv_fragment_home_today_artist2_list.layoutManager = LinearLayoutManager(activity,LinearLayout.HORIZONTAL,false)
     }
+
+    fun updateData(){
+        var todayArtistProductData: ArrayList<TodayArtistProductData> = todayArtistData.list
+        var todayMainData = TodayMainData(todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
+        homeTodayRecyclerViewAdapter.dataMain = todayMainData
+        homeTodayRecyclerViewAdapter.dataListArtistProduct = todayArtistProductData
+        homeTodayRecyclerViewAdapter.notifyDataSetChanged()
+    }
 }

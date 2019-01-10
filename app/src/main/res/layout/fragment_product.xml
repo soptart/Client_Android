@@ -75,30 +75,36 @@
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
     </LinearLayout>
-    <ScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sw_product_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <RelativeLayout
+        <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ll_product_list">
-            <TextView
-                    android:id="@+id/txt_product_num"
+                android:layout_height="match_parent">
+            <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="0개의 작품들을 찾았어요!"
-                    android:textSize="15dp"
-                    android:textColor="@color/highlight"/>
-            <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_fragment_product_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_weight="1"
-                    android:layout_below="@id/txt_product_num"/>
-        </RelativeLayout>
-    </ScrollView>
+                    android:id="@+id/ll_product_list">
+                <TextView
+                        android:id="@+id/txt_product_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="0개의 작품들을 찾았어요!"
+                        android:textSize="15dp"
+                        android:textColor="@color/highlight"/>
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_fragment_product_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_weight="1"
+                        android:layout_below="@id/txt_product_num"/>
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>

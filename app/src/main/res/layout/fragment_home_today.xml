@@ -81,7 +81,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:src="@drawable/home_today_content_1"/>
+                        android:src="@drawable/home_today_content_1"
+                        android:clickable="false"/>
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="17dp"
@@ -89,7 +90,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="3dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -102,7 +104,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:src="@drawable/home_today_content_2"/>
+                        android:src="@drawable/home_today_content_2"
+                        android:clickable="false"/>
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="17dp"
@@ -110,7 +113,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="3dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

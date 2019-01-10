@@ -15,9 +15,12 @@ import com.artoo.sopt23.artoo_client_android.Data.TodayArtistProductData
 import com.artoo.sopt23.artoo_client_android.Data.TodayMainData
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import org.jetbrains.anko.*
 
-class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData, val dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData, var dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if(viewType == 0){
             Log.i("hitag","0")
@@ -48,8 +51,10 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData
             (holder as HolderMain).university.text = dataMain.university
             (holder).name.text = dataMain.name
             (holder).intro.text = dataMain.intro
+            var options: RequestOptions = RequestOptions().priority(Priority.HIGH).placeholder(R.drawable.questionmark).centerCrop().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             Glide.with(ctx)
                 .load(dataMain.back_img_url)
+                .apply(options)
                 .into((holder).backimg)
         }
         else {

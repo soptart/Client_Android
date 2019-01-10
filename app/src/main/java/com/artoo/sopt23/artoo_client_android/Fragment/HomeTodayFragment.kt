@@ -89,10 +89,20 @@ class HomeTodayFragment : Fragment() {
                     for (i in 0..response.body()!!.data.size - 1){
                         todayArtist[i] = response.body()!!.data[i]
                     }
-                    configureTopNavigation()
+                    updateTopNavigation()
                 }
             }
         })
+    }
+
+    fun updateTopNavigation(){
+        txt_top_navi_first_arti_tab.text = todayArtist[0].u_name
+        txt_top_navi_second_arti_tab.text = todayArtist[1].u_name
+        txt_top_navi_third_arti_tab.text = todayArtist[2].u_name
+        txt_top_navi_fourth_arti_tab.text = todayArtist[3].u_name
+        txt_top_navi_fifth_arti_tab.text = todayArtist[4].u_name
+        homeArtistFragmentStatePagerAdapter.todayArtistList = todayArtist
+        homeArtistFragmentStatePagerAdapter.updateData()
     }
 
     private fun configureTopNavigation() {
@@ -196,10 +206,10 @@ class HomeTodayFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
-        view!!.btn_home_first_ticket.setOnClickListener {
+        btn_home_first_ticket.setOnClickListener {
             ctx.startActivity<TodayArtooActivity>("c_id" to 1)
         }
-        view!!.btn_home_second_ticket.setOnClickListener {
+        btn_home_second_ticket.setOnClickListener {
             ctx.startActivity<TodayArtooActivity>("c_id" to 2)
         }
     }
