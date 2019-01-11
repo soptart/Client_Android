@@ -11,17 +11,18 @@ import com.artoo.sopt23.artoo_client_android.Fragment.MypageFragment
 import com.artoo.sopt23.artoo_client_android.Fragment.ProductFragment
 
 //Main Tab Adpater
-class MainFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCount : Int, val todayArtistList: ArrayList<TodayArtistData>): FragmentStatePagerAdapter(fm){
+class MainFragmentStatePagerAdapter(fm : FragmentManager, val fragmentCount : Int): FragmentStatePagerAdapter(fm){
+    val homeFragment: HomeFragment = HomeFragment()
+    val productFragment: ProductFragment = ProductFragment()
+    val exhibitionFragment: ExhibitionFragment = ExhibitionFragment()
+    val mypageFragment: MypageFragment = MypageFragment()
+
     override fun getItem(position: Int): Fragment? {
         when (position) {
-            0 -> return HomeFragment().apply{
-                Log.v("*****MainFragmentStatePageAdpater::toHomeFrag::", todayArtistList.toString())
-                todayArtistData = todayArtistList
-                Log.v("*****MainFragmentStatePageAdpater::toHomeFrag::", todayArtistData.toString())
-            }
-            1 -> return ProductFragment()
-            2 -> return ExhibitionFragment()
-            3 -> return MypageFragment()
+            0 -> return homeFragment
+            1 -> return productFragment
+            2 -> return exhibitionFragment
+            3 -> return mypageFragment
             else -> return null
         }
     }

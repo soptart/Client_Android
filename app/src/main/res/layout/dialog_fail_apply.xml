@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="276dp"
+                android:layout_height="259dp"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                android:paddingTop="10dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="19dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_bold"
+                android:text="OOPS..."
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:layout_margin="0dp"
+                android:includeFontPadding="false"
+                android:layout_marginTop="20dp"/>
+
+
+        <TextView
+                android:id="@+id/s_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:text="작가님은 욕심쟁이…\n이미 전시 신청이 완료되었습니다!"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:includeFontPadding="false"
+                android:layout_marginTop="3dp"/>
+
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="37dp">
+
+            <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/dialog_oval"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:text="원칙적으로 \n1전시 1작품으로 제한 됩니다"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:includeFontPadding="false"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/btn_oops"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="#ff6f61"
+            android:text="확인"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

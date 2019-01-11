@@ -28,17 +28,17 @@ class MypageReviewRecyclerViewAdapter(val dataList: ArrayList<MypageReviewData>)
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(50))
+        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
 
         Glide.with(context)
-            .load(dataList[position].product_img)
+            .load(dataList[position].a_pic_url)
             .apply(options)
             .into(holder.product_img)
 
-        holder.product_title.text = dataList[position].product_title
-        holder.product_buyer.text = dataList[position].product_buyer
-        holder.content.text = dataList[position].content
-        holder.writetime.text = dataList[position].writetime
+        holder.product_title.text = dataList[position].a_name
+        holder.product_buyer.text = dataList[position].u_name
+        holder.content.text = dataList[position].p_comment
+        holder.time.text = dataList[position].p_date
     }
 
     inner class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -46,6 +46,6 @@ class MypageReviewRecyclerViewAdapter(val dataList: ArrayList<MypageReviewData>)
         val product_buyer: TextView = itemView.findViewById(R.id.tv_mypage_review_buyer) as TextView
         val product_img: ImageView = itemView.findViewById(R.id.iv_mypage_review_product_image)
         val content: TextView = itemView.findViewById(R.id.tv_mypage_review_content) as TextView
-        val writetime: TextView = itemView.findViewById(R.id.tv_mypage_review_writetime) as TextView
+        val time: TextView = itemView.findViewById(R.id.tv_mypage_review_time) as TextView
     }
 }

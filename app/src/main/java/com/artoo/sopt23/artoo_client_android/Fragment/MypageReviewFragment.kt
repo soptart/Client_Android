@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_mypage_review.*
 
 class MypageReviewFragment : Fragment() {
 
+    var reviewData = ArrayList<MypageReviewData>()
     lateinit var mypageReviewRecyclerViewAdapter: MypageReviewRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,13 +27,13 @@ class MypageReviewFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        var dataList: ArrayList<MypageReviewData> = ArrayList()
+        /*var dataList: ArrayList<MypageReviewData> = ArrayList()
 
         dataList.add(MypageReviewData("dkdkdk", "dldldlld", "", "dkdkdkdkkdkd", "2019.11.11"))
         dataList.add(MypageReviewData("dkdkdk", "dldldlld", "", "dkdkdkdkkdkd", "2019.11.11"))
-        dataList.add(MypageReviewData("dkdkdk", "dldldlld", "", "dkdkdkdkkdkd", "2019.11.11"))
+        dataList.add(MypageReviewData("dkdkdk", "dldldlld", "", "dkdkdkdkkdkd", "2019.11.11"))*/
 
-        mypageReviewRecyclerViewAdapter = MypageReviewRecyclerViewAdapter(dataList)
+        mypageReviewRecyclerViewAdapter = MypageReviewRecyclerViewAdapter(reviewData)
         rv_fragment_mypage_review_list.adapter = mypageReviewRecyclerViewAdapter
         rv_fragment_mypage_review_list.layoutManager = LinearLayoutManager(activity)
 

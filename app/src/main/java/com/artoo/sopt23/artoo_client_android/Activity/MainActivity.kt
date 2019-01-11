@@ -1,7 +1,9 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
@@ -13,70 +15,27 @@ import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom_navigation_tab.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
-    val PRODUCT_FRAGMENT: Int = 1
-
-    public var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg"),
-        TodayArtistProductData(8, "그리움", 2018, "img1.jpg")
-    )
-
-    public var todayArtist: ArrayList<TodayArtistData> = arrayListOf(
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData),
-        TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
-    )
-
-    val networkService: NetworkService by lazy {
-        ApplicationController.instance.networkService
-    }
-
-    public var filter_size: String? = null
-    public var filter_type: String? = null
-    public var filter_category: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        getTodayArtist()
-    }
-
-    fun getTodayArtist() {
-        Log.v("*****MainActivity::getTodayArtist()::", todayArtist.toString())
-        val getTodayArtistResponse = networkService.getTodayArtistResponse()
-        getTodayArtistResponse.enqueue(object : Callback<GetTodayArtistResponse> {
-            override fun onFailure(call: Call<GetTodayArtistResponse>, t: Throwable) {
-                Log.e("board list fail", t.toString())
-            }
-
-            override fun onResponse(call: Call<GetTodayArtistResponse>, response: Response<GetTodayArtistResponse>) {
-                if(response.isSuccessful){
-                    //todayArtist = response.body()!!.data
-                    configureBottomNavigation()
-                }
-            }
-
-        })
+        configureBottomNavigation()
     }
 
     private fun configureBottomNavigation() {
-        Log.d("*****MainActivity::configureBottomNavi()::", todayArtist.toString())
 
+        vp_bottom_navi_act_frag_pager.offscreenPageLimit=4
         vp_bottom_navi_act_frag_pager.adapter = MainFragmentStatePagerAdapter(
             supportFragmentManager,
-            4,
-            todayArtist
+            4
         ) //vp_bottom_navi_act_frag_pager.offscreenPageLimit = 3
-
 
 
         // ViewPager와 Tablayout을 엮어줍니다!
@@ -92,5 +51,70 @@ class MainActivity : AppCompatActivity() {
                 bottomNaviLayout.findViewById(R.id.btn_bottom_navi_exhibition_tab) as RelativeLayout
         tl_bottom_navi_act_bottom_menu.getTabAt(3)!!.customView =
                 bottomNaviLayout.findViewById(R.id.btn_bottom_navi_mypage_tab) as RelativeLayout
+        tl_bottom_navi_act_bottom_menu.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                selectedMainTab(position = tab!!.position)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                selectedMainTab(position = tab!!.position)
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                selectedMainTab(position = tab!!.position)
+            }
+        })
+
     }
+    private fun selectedMainTab(position: Int) {
+        if (position == 0) {
+            tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+        }
+        else if (position == 1) {
+            tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+        }
+        else if (position == 2) {
+            tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+//            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+//            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+//            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_medium))
+//            tv_bottom_navi_my_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+        }
+        else if (position == 3) {
+            tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+//            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+//            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+//            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+//            tv_bottom_navi_my_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_medium))
+        }
+    }
+
 }

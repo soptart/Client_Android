@@ -1,78 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#f6f6f6"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="0dp">
         <SearchView
-                android:id="@+id/sv_product_search"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                app:theme="@style/ProductSearchView"
-                android:clickable="true"
-                android:queryHint="원하는 키워드를 검색해주세요 (작품명, 주제, 학교)"
-                android:iconifiedByDefault="false"
-                android:focusedByDefault="false">
+            android:id="@+id/sv_product_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:queryHint="원하는 키워드를 검색해주세요 (작품명, 주제, 학교)"
+            android:iconifiedByDefault="false"
+            android:focusedByDefault="false"
+            android:background="#00f6f6f6"
+            android:searchIcon="@null"
+            android:theme="@style/searchView"
+            android:queryBackground="@color/colorInvisible">
         </SearchView>
 
     </android.support.v7.widget.CardView>
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="@color/colorMainBlack"
-                android:text="전체" android:id="@+id/txt_fragment_filter"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="@color/colorMainBlack"
+            android:text="전체"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:id="@+id/txt_fragment_filter"/>
         <LinearLayout
-                android:id="@+id/ll_product_filter"
-                android:orientation="horizontal"
+            android:id="@+id/ll_product_filter"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="10dp"
+            android:gravity="right" android:layout_weight="0">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:gravity="right" android:layout_weight="0">
-            <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/colorMainGrey"
-                    android:text="필터" android:layout_weight="1"/>
+                android:textSize="16dp"
+                android:textColor="#333333"
+                android:text="필터"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"/>
             <ImageView
-                    android:id="@+id/img_rv_item_home_today_artist_product"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:elevation="10dp"
-                    tools:srcCompat="@mipmap/ic_launcher"/>
+                android:layout_marginLeft="9dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/artwork_filter"
+                android:layout_gravity="center_vertical"/>
         </LinearLayout>
     </LinearLayout>
-    <TextView
-            android:id="@+id/txt_product_num"
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sw_product_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="0개의 작품들을 찾았어요!"
-            android:textSize="20sp"
-            android:textColor="@color/highlight"/>
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_fragment_product_list"
-            android:layout_margin="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+        <ScrollView
+                android:id="@+id/scroll_product_lilst"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ll_product_list">
+                <TextView
+                        android:id="@+id/txt_product_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="0개의 작품들을 찾았어요!"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:textSize="20dp"
+                        android:textColor="@color/highlight"/>
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_fragment_product_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="7dp"
+                        android:clipToPadding="false"
+                        android:layout_below="@id/txt_product_num"/>
+            </RelativeLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>

@@ -17,13 +17,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="최대 3개의 테마 해시태그를 골라주세요!"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="18sp"
                 android:textColor="@color/colorEssential"/>
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp">
@@ -32,6 +33,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 작품과 어울리는 해시태그를 찾아보세요"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="15sp"/>
     </RelativeLayout>
     <LinearLayout
@@ -41,47 +44,55 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="12dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <Button
-                    android:id="@+id/btn_product_upload_theme_antique"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp">
+            <ImageButton
+                    android:id="@+id/btn_product_upload_theme_happy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="엔틱한"/>
-            <Button
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_happy"/>
+            <ImageButton
                     android:id="@+id/btn_product_upload_theme_simple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="심플한"/>
-            <Button
-                    android:id="@+id/btn_product_upload_theme_cozy"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_simple"/>
+            <ImageButton
+                    android:id="@+id/btn_product_upload_theme_sensitive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="따뜻한"/>
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_sensitive"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="27dp">
 
-            <Button
+            <ImageButton
                     android:id="@+id/btn_product_upload_theme_fancy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="화려한"/>
-            <Button
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_fancy"/>
+            <ImageButton
                     android:id="@+id/btn_product_upload_theme_profound"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="심오한"/>
-            <Button
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_unfathomable"/>
+            <ImageButton
                     android:id="@+id/btn_product_upload_theme_cute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="아기자기한"/>
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/upload_theme_cute"/>
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
@@ -89,42 +100,51 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginRight="16dp">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="각 계절의 분위기를 담아보아요!"
+                android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:textSize="15sp"/>
     </RelativeLayout>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="25dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp">
-        <Button
+            android:layout_marginTop="12dp">
+        <ImageButton
+                android:id="@+id/btn_product_upload_theme_spring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="봄" android:id="@+id/btn_product_upload_theme_spring"/>
-        <Button
+                android:background="@android:color/transparent"
+                android:src="@drawable/upload_theme_spring" />
+        <ImageButton
+                android:id="@+id/btn_product_upload_theme_summer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="여름" android:id="@+id/btn_product_upload_theme_summer"/>
-        <Button
+                android:background="@android:color/transparent"
+                android:src="@drawable/upload_theme_summer" />
+        <ImageButton
+                android:id="@+id/btn_product_upload_theme_fall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="가을" android:id="@+id/btn_product_upload_theme_fall"/>
-        <Button
+                android:background="@android:color/transparent"
+                android:src="@drawable/upload_theme_fall" />
+        <ImageButton
+                android:id="@+id/btn_product_upload_theme_winter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="겨율" android:id="@+id/btn_product_upload_theme_winter"/>
+                android:background="@android:color/transparent"
+                android:src="@drawable/upload_theme_winter" />
     </LinearLayout>
     <Button
             android:id="@+id/btn_product_upload_theme_finish"
@@ -133,6 +153,8 @@
             android:layout_alignParentBottom="true"
             android:background="#ffffff"
             android:text="완료"
-            android:textSize="24dp"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:textSize="18dp"
             android:textColor="@color/colorEssential"/>
 </LinearLayout>

@@ -19,11 +19,16 @@ import kotlinx.android.synthetic.main.fragment_home_artist3.*
 
 class HomeArtist3Fragment : Fragment() {
 
-    lateinit var todayArtistData: TodayArtistData
+    var todayArtistProductData: ArrayList<TodayArtistProductData> = arrayListOf(
+            TodayArtistProductData(8, "그리움", "2018", "img1.jpg"),
+            TodayArtistProductData(8, "그리움", "2018", "img1.jpg")
+    )
+    var todayArtistData: TodayArtistData = TodayArtistData(1, "김다영", "2019 최고의 작가", "동덕여자대학교", todayArtistProductData)
     lateinit var homeTodayRecyclerViewAdapter: HomeTodayRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home_artist3, container, false)
+        if(view == null) return inflater.inflate(R.layout.fragment_home_artist3, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -35,10 +40,18 @@ class HomeArtist3Fragment : Fragment() {
 
     private fun setRecyclerView() {
         var todayArtistProductData: ArrayList<TodayArtistProductData> = todayArtistData.list
-        var todayMainData = TodayMainData(todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
+        var todayMainData = TodayMainData(todayArtistData.u_idx, todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
 
         homeTodayRecyclerViewAdapter = HomeTodayRecyclerViewAdapter(activity!!,todayMainData, todayArtistProductData)
         rv_fragment_home_today_artist3_list.adapter = homeTodayRecyclerViewAdapter
         rv_fragment_home_today_artist3_list.layoutManager = LinearLayoutManager(activity,LinearLayout.HORIZONTAL,false)
+    }
+
+    fun updateData(){
+        var todayArtistProductData: ArrayList<TodayArtistProductData> = todayArtistData.list
+        var todayMainData = TodayMainData(todayArtistData.u_idx, todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
+        homeTodayRecyclerViewAdapter.dataMain = todayMainData
+        homeTodayRecyclerViewAdapter.dataListArtistProduct = todayArtistProductData
+        homeTodayRecyclerViewAdapter.notifyDataSetChanged()
     }
 }

@@ -11,16 +11,13 @@
 
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackgroundWhite</item>
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">#ff6f61</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="ProductSearchView" parent="Widget.AppCompat.SearchView" >
-        <item name="android:textSize">14sp</item>
     </style>
 
     <!-- Tab layout selecte theme.-->
@@ -34,5 +31,13 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- SearchView theme -->
+    <style name="searchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/notosanscjkkr_light</item>
+        <item name="android:textColor">#777777</item>
+        <item name="android:queryBackground">@color/colorInvisible</item>
     </style>
 </resources>

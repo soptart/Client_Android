@@ -9,8 +9,8 @@
             android:id="@+id/rv_fragment_home_today_artist5_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="33dp"
-            android:layout_marginBottom="69dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:orientation="horizontal" />
 
 </ScrollView>

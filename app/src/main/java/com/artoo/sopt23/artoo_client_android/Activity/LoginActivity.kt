@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.artoo.sopt23.artoo_client_android.DB.SharedPreferenceController
+import com.artoo.sopt23.artoo_client_android.Data.Response.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.Network.ApplicationController
 import com.artoo.sopt23.artoo_client_android.Network.NetworkService
-import com.artoo.sopt23.artoo_client_android.Post.PostLoginResponse
 import com.artoo.sopt23.artoo_client_android.R
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -29,12 +29,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         setOnClickListener()
+
+        if(SharedPreferenceController.getUserID(this@LoginActivity) != -1){
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 
     private fun setOnClickListener() {
-
         btn_login.setOnClickListener {
 
             if (et_login_email.text.toString().isNotEmpty() && et_login_password.text.toString().isNotEmpty()) {
@@ -67,14 +70,25 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("*****User_Login_Failed", t.toString())
             }
             override fun onResponse(call: Call<PostLoginResponse>, response: Response<PostLoginResponse>) {
-                if (response.isSuccessful) {
 
-                    val token = response.body()!!.data.token
-                    //저번 시간에 배웠던 SharedPreference에 토큰을 저장!
-                    SharedPreferenceController.setAuthorization(this@LoginActivity, token)
-                    toast(SharedPreferenceController.getAuthorization(this@LoginActivity))
-                    startActivity<MainActivity>()
-                }
+                    if (response.isSuccessful) {
+                        if (response.body()!!.status == 400) {
+                            toast("아이디와 비밀번호를 확인해주세요")
+                        } else {
+
+                            response.body()!!.status
+                            val token = response.body()!!.data.token
+                            //저번 시간에 배웠던 SharedPreference에 토큰을 저장!
+                            SharedPreferenceController.setAuthorization(this@LoginActivity, token)
+                            toast("앗투 하투!♡")
+
+                            val u_id = response.body()!!.data.userIdx
+                            SharedPreferenceController.setUserID(this@LoginActivity, u_id)
+                            startActivity<MainActivity>()
+                            finish()
+                        }
+                    }
+
             }
         })
     }

@@ -10,10 +10,12 @@ import com.artoo.sopt23.artoo_client_android.Data.ProductOverviewData
 import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import org.jetbrains.anko.startActivity
 
-class ProductRecyclerViewAdapter(val dataList: ArrayList<ProductOverviewData>): RecyclerView.Adapter<ProductRecyclerViewAdapter.Holder>(){
+class ProductRecyclerViewAdapter(var dataList: ArrayList<ProductOverviewData>): RecyclerView.Adapter<ProductRecyclerViewAdapter.Holder>(){
     lateinit var ctx: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -26,14 +28,14 @@ class ProductRecyclerViewAdapter(val dataList: ArrayList<ProductOverviewData>): 
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        var options: RequestOptions = RequestOptions().placeholder(R.drawable.questionmark)
+        var options: RequestOptions = RequestOptions().priority(Priority.LOW).placeholder(R.drawable.questionmark).diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         Glide.with(ctx)
-            .load(dataList[position].url)
+            .load(dataList[position].pic_url)
             .apply(options)
             .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            ctx.startActivity<ProductDetailActivity>("pid" to dataList[position].Id)
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
         }
     }
 

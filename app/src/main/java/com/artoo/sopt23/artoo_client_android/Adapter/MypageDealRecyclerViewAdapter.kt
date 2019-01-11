@@ -20,28 +20,40 @@ class MypageDealRecyclerViewAdapter(val dataList: ArrayList<MypageDealData>): Re
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         ctx = parent.context
         val view: View = LayoutInflater.from(ctx).inflate(R.layout.rv_item_mypage_deal, parent, false)
+
         return Holder(view)
     }
 
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(50))
+        var options: RequestOptions = RequestOptions().transforms(CenterCrop(), RoundedCorners(20))
 
         Glide.with(ctx)
-            .load(dataList[position].product_img)
+            .load(dataList[position].a_pic_url)
             .apply(options)
             .into(holder.product_img)
 
-        holder.product_title.text = dataList[position].product_title
-        holder.product_buyer.text = dataList[position].product_buyer
-        holder.product_price.text = dataList[position].product_price
-        holder.writetime.text = dataList[position].writetime
+        holder.product_title.text = dataList[position].a_name
+        if (!dataList[position].buyer) {
+            holder.tv_product_buyer.text = "판매자: "
+        }
+        holder.product_buyer.text = dataList[position].u_name
+        holder.product_price.text = dataList[position].a_price.toString()
+        holder.time.text = dataList[position].p_date
 
-        Glide.with(ctx)
-            .load(dataList[position].status_img)
-            .apply(options)
-            .into(holder.status_img)
+        if (dataList[position].p_state == 12 || dataList[position].p_state == 22) {
+            Glide.with(ctx)
+                .load("@drwable/my_payment_complete")
+                .apply(options)
+                .into(holder.status_img)
+        }
+        if (dataList[position].p_state == 13 || dataList[position].p_state == 23) {
+            Glide.with(ctx)
+                .load("@drwable/my_sale_complete")
+                .apply(options)
+                .into(holder.status_img)
+        }
     }
 
     inner class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -50,7 +62,9 @@ class MypageDealRecyclerViewAdapter(val dataList: ArrayList<MypageDealData>): Re
         val product_title: TextView = itemView.findViewById(R.id.tv_mypage_deal_product_title)
         val product_buyer: TextView = itemView.findViewById(R.id.tv_mypage_deal_product_buyer)
         val product_price: TextView = itemView.findViewById(R.id.tv_mypage_deal_product_price)
-        val writetime: TextView = itemView.findViewById(R.id.tv_mypage_deal_writetime)
+        val time: TextView = itemView.findViewById(R.id.tv_mypage_deal_time)
         val status_img: ImageView = itemView.findViewById(R.id.iv_mypage_deal_status)
+
+        val tv_product_buyer: TextView = itemView.findViewById(R.id.tv_mypage_deal_left1)
     }
 }

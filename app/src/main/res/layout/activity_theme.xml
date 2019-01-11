@@ -7,55 +7,63 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".Activity.ThemeActivity">
-    <LinearLayout
-            android:id="@+id/ll_theme_main"
-            android:orientation="vertical"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:background="#55555555">
+            android:layout_height="209dp">
+        <ImageView
+                android:id="@+id/iv_activity_theme_backimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CC111111"/>
         <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/ll_theme_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                android:paddingTop="30dp"
-                android:paddingBottom="10dp">
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:paddingVertical="29dp"
+                android:clipToPadding="false">
+            <ImageView
+                    android:id="@+id/iv_activity_theme_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/close_white"
+                    android:layout_marginTop="9dp"/>
             <TextView
-                    android:id="@+id/txt_theme_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:layout_gravity="center"
+                    android:id="@+id/tv_activity_theme_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
                     android:textSize="20dp"
-                    android:textColor="@color/colorMainBlack"
-                    android:text="거실에 걸어두면 느낌 있어보이는 그림들"
-                    android:breakStrategy="balanced"/>
+                    android:textColor="@color/colorBackgroundWhite"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:text="거실에 걸어두면\n느낌 있어보이는 그림들"
+                    android:textAlignment="viewStart"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="10dp"/>
             <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"></View>
-            <com.artoo.sopt23.artoo_client_android.CustomView.SquareImageView
-                    android:id="@+id/img_theme_main"
-                    android:layout_width="0dp"
+                    android:layout_width="12dp"
+                    android:layout_height="1dp"
+                    android:background="#fbfbfb"
+                    android:layout_marginBottom="10dp"/>
+            <TextView
+                    android:id="@+id/tv_activity_theme_desc"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true" android:background="@drawable/ic_dashboard_black_24dp"/>
+                    android:textColor="#d0d0d0"
+                    android:text="허전했던 벽에 한번 걸어보자"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:textSize="15sp"/>
         </LinearLayout>
-        <TextView
-                android:id="@+id/txt_theme_desc"
-                android:textColor="@color/colorMainGrey"
-                android:text="허전했던 벽에 한번 걸어보자"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"/>
-    </LinearLayout>
+
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_theme_list"
-            android:layout_margin="20dp"
+            android:id="@+id/rv_activity_theme_list"
+            android:paddingHorizontal="12.5dp"
+            android:paddingVertical="12dp"
+            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

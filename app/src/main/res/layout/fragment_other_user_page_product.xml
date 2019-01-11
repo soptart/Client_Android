@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Activity.OtherUserPageActivity">
+
+    <!-- productCount == 0 -->
+    <RelativeLayout
+            android:id="@+id/rl_otherpage_product_count_zero"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rl_otherpage_product_bottom_tv"
+                android:layout_marginBottom="16dp">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/my_artwork_empty"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/rl_otherpage_product_bottom_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="28dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="등록된 작품이 없습니다:)"
+                    android:textAlignment="center"
+                    android:textSize="17sp"
+                    android:textColor="#b0b3ba"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- productCount > 0 -->
+    <LinearLayout
+            android:id="@+id/ll_otherpage_product_count_many"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+        <!-- recyclerview -->
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fragment_otherpage_product_list"
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

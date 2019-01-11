@@ -1,19 +1,28 @@
 package com.artoo.sopt23.artoo_client_android.Adapter
 
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import com.artoo.sopt23.artoo_client_android.Activity.OtherUserPageActivity
+import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.Data.TodayArtistProductData
 import com.artoo.sopt23.artoo_client_android.Data.TodayMainData
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
+import org.jetbrains.anko.*
 
-class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData, val dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData, var dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if(viewType == 0){
             Log.i("hitag","0")
@@ -44,15 +53,22 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, val dataMain: TodayMainData
             (holder as HolderMain).university.text = dataMain.university
             (holder).name.text = dataMain.name
             (holder).intro.text = dataMain.intro
+            var options: RequestOptions = RequestOptions().priority(Priority.HIGH).placeholder(R.drawable.questionmark).centerCrop().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             Glide.with(ctx)
                 .load(dataMain.back_img_url)
+                .apply(options)
                 .into((holder).backimg)
-        }
-        else {
+            (holder).backimg.setOnClickListener {
+                ctx.startActivity<OtherUserPageActivity>("other_idx" to dataMain.u_idx)
+            }
+        } else {
             (holder as HolderArtist).title.text = dataListArtistProduct[position-1].a_name
             Glide.with(ctx)
                 .load(dataListArtistProduct[position-1].pic_url)
                 .into((holder).img)
+            (holder as HolderArtist).img.setOnClickListener {
+                ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position - 1].a_idx)
+            }
         }
     }
 

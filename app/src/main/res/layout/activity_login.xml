@@ -1,120 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    tools:context=".Activity.LoginActivity">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorMainBlack"
-        android:orientation="vertical"
-        tools:context=".LoginActivity">
-
-    <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="102dp">
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="87dp">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Artoo"
-                android:textSize="18sp"
-                android:textColor="#ffffff"/>
+            android:src="@drawable/login_logo"/>
     </RelativeLayout>
     <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp">
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="22dp">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textSize="47sp"
-                android:textColor="#ffffff"
-                android:textStyle="bold"/>
+            android:src="@drawable/login_text"
+            android:fontFamily="Helvetica-Bold"
+            android:includeFontPadding="false"
+            android:textSize="48sp"
+            android:textColor="#ffffff"/>
     </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="49dp">
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="110dp">
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text=" E-mail"
-                android:textSize="16sp"
-                android:textColor="#c6c6c6"/>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text=" 이메일"
+            android:includeFontPadding="false"
+            android:textSize="16sp"
+            android:textColor="#c6c6c6"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:gravity="center_vertical"/>
         <EditText
-                android:id="@+id/et_login_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textSize="16sp"
-                android:textColor="#c6c6c6"
-                android:backgroundTint="#c6c6c6"
-                android:imeOptions="actionDone"/>
+            android:id="@+id/et_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="viewEnd"
+            android:textSize="16sp"
+            android:includeFontPadding="false"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:backgroundTint="#979797"
+            android:imeOptions="actionDone"
+            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="49dp">
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="13dp">
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text=" Password"
-                android:textSize="16sp"
-                android:textColor="#c6c6c6"/>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text=" 비밀번호"
+            android:includeFontPadding="false"
+            android:textSize="16sp"
+            android:textColor="#c6c6c6"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:gravity="center_vertical"/>
         <EditText
-                android:id="@+id/et_login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:textSize="16sp"
-                android:textColor="#c6c6c6"
-                android:backgroundTint="#c6c6c6"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"/>
+            android:id="@+id/et_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="viewEnd"
+            android:textSize="16sp"
+            android:includeFontPadding="false"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:backgroundTint="#979797"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginRight="40dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginRight="40dp">
 
         <ImageView
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="로그인"
-                android:src="@drawable/login_icon" />
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/login_icon" />
     </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <Button
-                android:id="@+id/btn_login_join"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="17dp"
-                android:layout_alignParentBottom="true"
-                android:background="@android:color/transparent"
-                android:text="join us"
-                android:textColor="#c6c6c6"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/btn_login_join"
+            android:src="@drawable/login_join_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="17dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"/>
     </RelativeLayout>
 </LinearLayout>

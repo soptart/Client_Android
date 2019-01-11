@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".Fragment.AlarmExhibitionCancelDialogFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="신청을 취소하시겠어요?"
+        android:fontFamily="@font/notosanscjkkr_bold"
+        android:includeFontPadding="false"
+        android:textSize="22sp"
+        android:textColor="#333333"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginLeft="20dp"/>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:background="@drawable/dialog_oval"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="다음 전시는 함께 해요!"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:textSize="16sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#333333"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="298dp"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_alarm_exhibition_cancel_dialog_no"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorEssential"
+            android:layout_marginRight="0.5dp"
+            android:text="아니에요"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="#ffffff"/>
+        <Button
+            android:id="@+id/btn_alarm_exhibition_cancel_dialog_yes"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorEssential"
+            android:layout_marginLeft="0.5dp"
+            android:text="취소할게요"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+
+
+</LinearLayout>

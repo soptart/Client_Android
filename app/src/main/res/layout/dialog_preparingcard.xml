@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:background="#ffffff">
+
+    <ImageView
+            android:layout_width="90dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/card_prepare_character"
+            android:layout_gravity="center_horizontal"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="#111111"
+            android:layout_marginTop="21dp"
+            android:layout_gravity="center_horizontal"
+            android:text="카드 결제 서비스\n준비 중 입니다 ㅠㅠ"
+            android:paddingHorizontal="50dp"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:fontFamily="@font/notosanscjkkr_bold"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#4a4a4a"
+            android:layout_marginTop="17dp"
+            android:layout_gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:gravity="center_horizontal"
+            android:text="보다 나은 서비스 제공을 위하여\n노력하고있습니다.\n빠른 시일 내에 준비하겠습니다."/>
+
+    <TextView
+            android:id="@+id/card_confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="확인"
+            android:fontFamily="@font/notosanscjkkr_bold"
+            android:includeFontPadding="false"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_rect_red"/>
+
+</LinearLayout>

@@ -12,7 +12,7 @@ class ProductZoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_zoom)
 
-
+        txt_product_zoom_title.text = intent.getStringExtra("a_name")
         Glide.with(this)
             .load(intent.getStringExtra("pic_url"))
             .into(pv_product_zoom_product)
