@@ -43,7 +43,7 @@ class HomeArtist1Fragment : Fragment() {
         Log.v("*****HomeArtistFrag1::setRecyclerView::1::", todayArtistData.toString())
 
         var todayArtistProductData: ArrayList<TodayArtistProductData> = todayArtistData.list
-        var todayMainData = TodayMainData(todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
+        var todayMainData = TodayMainData(todayArtistData.u_idx, todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
 
         homeTodayRecyclerViewAdapter = HomeTodayRecyclerViewAdapter(activity!!, todayMainData, todayArtistProductData)
 
@@ -53,7 +53,7 @@ class HomeArtist1Fragment : Fragment() {
 
     fun updateData(){
         var todayArtistProductData: ArrayList<TodayArtistProductData> = todayArtistData.list
-        var todayMainData = TodayMainData(todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
+        var todayMainData = TodayMainData(todayArtistData.u_idx, todayArtistData.u_school, todayArtistData.u_name + "작가", todayArtistData.u_description, todayArtistProductData[0].pic_url)
         homeTodayRecyclerViewAdapter.dataMain = todayMainData
         homeTodayRecyclerViewAdapter.dataListArtistProduct = todayArtistProductData
         homeTodayRecyclerViewAdapter.notifyDataSetChanged()
