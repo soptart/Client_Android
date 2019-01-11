@@ -17,6 +17,7 @@
                 android:layout_above="@+id/rl_mypage_product_bottom_tv"
                 android:layout_marginBottom="16dp">
             <ImageView
+                    android:layout_marginTop="48dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/my_artwork_empty"

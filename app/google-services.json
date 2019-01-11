@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "259683709584",
+    "firebase_url": "https://artoo-ae324.firebaseio.com",
+    "project_id": "artoo-ae324",
+    "storage_bucket": "artoo-ae324.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259683709584:android:71a407e68623a798",
+        "android_client_info": {
+          "package_name": "com.artoo.sopt23.artoo_client_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259683709584-hh2e9mcljg4f7ods22d6q7m85g9a2j9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYLpVRq7uqrOAKfWJBSJBPuUyn2Vc_4HQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

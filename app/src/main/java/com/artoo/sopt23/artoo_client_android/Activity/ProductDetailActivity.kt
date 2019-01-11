@@ -248,6 +248,8 @@ class ProductDetailActivity : AppCompatActivity() {
                     txt_product_detail_manufacturer.text = productDetailData.a_material
                     txt_product_detail_like.text = productDetailData.a_like_count.toString()
                     img_product_detail_like.isSelected = productDetailData.islike
+                    if(productDetailData.islike) txt_product_detail_like.setTextColor(Color.parseColor("#ff6f61"))
+                    else txt_product_detail_like.setTextColor(Color.parseColor("#9c9c9c"))
                     txt_product_detail_price.text = productDetailData.a_price.toString()
                     txt_product_detail_year.text = productDetailData.a_year.toString()
                     if(productDetailData.auth){

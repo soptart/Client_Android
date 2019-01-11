@@ -277,7 +277,10 @@ class MypageFragment : Fragment() {
             override fun onResponse(call: Call<GetMypagePrefInfoResponse>, response: Response<GetMypagePrefInfoResponse>) {
                 if (response.isSuccessful) {
                     Log.d("*****MypageFragment::getMypagePrefInfoResponse::Success::", response.body().toString())
-                    mypageIntro = response.body()!!.data.u_description
+                    var intro : String = response.body()!!.data.u_description
+                    if(intro != null) {
+                        mypageIntro = response.body()!!.data.u_description
+                    }
                     tv_mypage_user_name.text = response.body()!!.data.u_name
                     tv_mypage_user_intro.text = mypageIntro
                 } else {

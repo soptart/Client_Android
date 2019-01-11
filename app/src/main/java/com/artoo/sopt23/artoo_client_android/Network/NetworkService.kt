@@ -27,6 +27,11 @@ interface NetworkService {
         @Path("u_idx") u_idx: Int
     ): Call<GetUserDescResponse>
 
+    @GET("/users/u_email/{u_email}")
+    fun getDuplicateEmailResponse(
+        @Path("u_email") u_email: String
+    ): Call<GetDuplicateEmailResponse>
+
     //Join
     @POST("/users")
     fun postJoinResponse(
