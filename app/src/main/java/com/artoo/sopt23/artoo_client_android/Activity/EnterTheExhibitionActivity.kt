@@ -17,10 +17,12 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_enter_the_exhibition)
 
 
-        var d_titleImg_url : String = intent.getStringExtra("d_titleImg_url")
 
-        var intent2 = Intent(this, ExhibitionDetailActivity::class.java)
-        intent2.putExtra("d_titleImg_url", d_titleImg_url)
+        var d_titleImg_url : String = intent.getStringExtra("d_titleImg_url")
+//
+//        var intent2 = Intent(this, ExhibitionDetailActivity::class.java)
+//        intent2.putExtra("d_titleImg_url", d_titleImg_url)
+//        Log.d ("Img test ", d_titleImg_url)
 
 
         if(intent.hasExtra("d_mainImg_url")) {
@@ -46,6 +48,7 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
             val sde = date_e.split("-")
             txt_enter_ex_eDate_now.text = sde[0]+"."+sde[1]
         }
+
 
 
 
@@ -80,6 +83,7 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
             val nextIntent = Intent(this, ExhibitionDetailActivity::class.java)
             nextIntent.putExtra("d_idx" ,d_idx)
             nextIntent.putExtra("d_title", d_title)
+            nextIntent.putExtra("d_titleImg_url", d_titleImg_url)
 
             Log.d("d_idx test : ", d_idx.toString())
             Log.d("d_title test : ", d_title.toString())

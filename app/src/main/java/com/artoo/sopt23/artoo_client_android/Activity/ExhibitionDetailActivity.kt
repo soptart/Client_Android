@@ -18,6 +18,7 @@ import com.artoo.sopt23.artoo_client_android.Network.NetworkService
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_exhibition_detail.*
+import org.jetbrains.anko.image
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,13 +44,6 @@ class ExhibitionDetailActivity : AppCompatActivity() {
         user_idx = SharedPreferenceController.getUserID(this@ExhibitionDetailActivity)
         user_token = SharedPreferenceController.getAuthorization(this@ExhibitionDetailActivity)
 
-        val txt_ex_current_num : TextView = findViewById(R.id.txt_ex_current_num)
-
-//        if(intent.hasExtra("current")) {
-//            txt_ex_current_num.text = intent.getStringExtra("current")
-//            Log.d("current num test : ", intent.getStringExtra("current"))
-//        }
-
         btn_exhibition_exit.setOnClickListener {
             finish()
         }
@@ -61,12 +55,9 @@ class ExhibitionDetailActivity : AppCompatActivity() {
         var snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(rv_ex_detail)
 
-        if(intent.hasExtra("d_titleImg_url")) {
-            Glide.with(this).load(intent.getStringExtra("d_titleImg_url")).into(iv_detail_ex_title)
-
-        }
-
-
+        var d_titleImg_url : String = intent.getStringExtra("d_titleImg_url")
+        Log.d("Img test ", d_titleImg_url)
+        Glide.with(this).load(intent.getStringExtra("d_titleImg_url")).into(iv_detail_ex_title)
 
         getDetailExhibition(d_idx)
 
@@ -83,6 +74,8 @@ class ExhibitionDetailActivity : AppCompatActivity() {
 
                 if(response!!.isSuccessful) {
                     getDetailExhibition = ArrayList<ExhibitionDetailData>()
+
+
 
                     getDetailExhibition = response.body()!!.data
 

@@ -39,6 +39,8 @@ class ApplyExhibitionActivity : AppCompatActivity() {
 
     var u_Name : String =""
     var a_Name : String =""
+    var d_title : String=""
+    var d_sub_title : String =""
 
     companion object {
         lateinit var instance: ApplyExhibitionActivity
@@ -175,13 +177,12 @@ class ApplyExhibitionActivity : AppCompatActivity() {
                 if (response!!.isSuccessful) {
 
                     // 전시 신청 성공
-                    toast("전시 신청이 완료되었습니다!")
                     Log.d("post test", "successful")
-
-
 
                     u_Name = response.body()!!.data.uName
                     a_Name = response.body()!!.data.aName
+                    d_title = response.body()!!.data.dTitle
+                    d_sub_title = response.body()!!.data.dSubTitle
 
                     successfulDialog()
 

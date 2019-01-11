@@ -49,7 +49,7 @@
                             android:textColor="#ffffff"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="14sp"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"/>
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                             android:textColor="#ffffff"
                             android:fontFamily="@font/notosanscjkkr_regular"
                             android:textSize="14sp"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"/>
 
 
                 </LinearLayout>
@@ -99,7 +99,8 @@
                         android:fontFamily="@font/notosanscjkkr_medium"
                         android:text="너는 너 자체가 아름다워"
                         android:layout_marginBottom="80dp"
-                        android:includeFontPadding="false"/>
+                        android:includeFontPadding="false"
+                        android:layout_marginRight="15dp"/>
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -115,7 +116,7 @@
                         android:layout_height="1dp"
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="11dp"
-                        android:background="#bababa" />
+                        android:background="#bababa"/>
 
                 <LinearLayout
                         android:layout_width="wrap_content"
@@ -160,7 +161,6 @@
                 </LinearLayout>
 
 
-
             </LinearLayout>
 
 
@@ -183,7 +183,7 @@
                     android:includeFontPadding="false"
                     android:fontFamily="@font/notosanscjkkr_light"
                     android:textColor="#ffffff"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"/>
 
 
         </LinearLayout>

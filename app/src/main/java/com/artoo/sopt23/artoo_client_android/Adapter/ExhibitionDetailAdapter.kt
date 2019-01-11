@@ -37,7 +37,7 @@ class ExhibitionDetailAdapter(val dataList: ArrayList<ExhibitionDetailData>): Re
 
         Glide.with(context).load(dataList.get(position).pic_url).into(holder.pic_url)
 
-        holder.d_title.text = dataList[position].d_title.replace("\\n", "\r\n")
+        holder.d_title.text = dataList[position].d_title.replace( "\\n", "\r\n")
         holder.u_name.text = dataList[position].u_name
         holder.a_form.text = dataList[position].a_form
         holder.a_width.text = dataList[position].a_width.toString()

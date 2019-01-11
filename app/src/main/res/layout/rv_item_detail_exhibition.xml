@@ -10,6 +10,7 @@
     <RelativeLayout
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/card"
@@ -17,7 +18,7 @@
 
         <ImageView
                 android:id="@+id/img_rv_item_ex_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"

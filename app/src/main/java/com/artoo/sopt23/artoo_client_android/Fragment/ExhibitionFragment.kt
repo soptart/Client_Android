@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.artoo.sopt23.artoo_client_android.Adapter.MainExhibitionAdapter
 import com.artoo.sopt23.artoo_client_android.Activity.ApplyExhibitionActivity
@@ -30,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_exhibition.view.*
 class ExhibitionFragment : Fragment() {
 
     lateinit var mainExhibitionAdapter: MainExhibitionAdapter
-    lateinit var btn_apply_ex : TextView
+    lateinit var btn_apply_ex : RelativeLayout
     lateinit var exhibition_403 : LinearLayout
 
     val dataList:ArrayList<MainExhibitionData> by lazy{
