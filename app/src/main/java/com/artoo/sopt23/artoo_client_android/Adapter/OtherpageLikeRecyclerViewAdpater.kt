@@ -26,7 +26,7 @@ class OtherpageLikeRecyclerViewAdapter(var dataList: ArrayList<OtherpageLikeData
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        var options: RequestOptions = RequestOptions().placeholder(R.drawable.questionmark)
+        var options: RequestOptions = RequestOptions().placeholder(R.drawable.placeholder)
         Glide.with(ctx)
                 .load(dataList[position].a_url)
                 .apply(options)

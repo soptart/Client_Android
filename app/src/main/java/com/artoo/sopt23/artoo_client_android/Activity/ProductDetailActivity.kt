@@ -62,11 +62,6 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         ll_product_detail_bottomnav.setOnClickListener {
-            startActivity<ProductPurchaseActivity>("pic_url" to productDetailData.pic_url, "a_idx" to productDetailData.a_idx, "u_idx" to SharedPreferenceController.getUserID(this))
-            finish()
-        }
-
-        img_product_detail_purchase.setOnClickListener {
             val intent = Intent(this@ProductDetailActivity, ProductPurchaseActivity::class.java)
             Log.i("indexes", a_idx.toString()+"/")
             intent.putExtra("a_idx", a_idx)
@@ -78,6 +73,7 @@ class ProductDetailActivity : AppCompatActivity() {
             intent.putExtra("u_name",productDetailData.u_name)
             intent.putExtra("u_school",productDetailData.u_school)
             startActivity(intent)
+            finish()
         }
 
         ll_product_detail_like.setOnClickListener({
