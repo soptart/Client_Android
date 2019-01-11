@@ -53,7 +53,7 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData
             (holder as HolderMain).university.text = dataMain.university
             (holder).name.text = dataMain.name
             (holder).intro.text = dataMain.intro
-            var options: RequestOptions = RequestOptions().priority(Priority.HIGH).placeholder(R.drawable.questionmark).centerCrop().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            var options: RequestOptions = RequestOptions().priority(Priority.HIGH).placeholder(R.drawable.placeholder).centerCrop().diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             Glide.with(ctx)
                 .load(dataMain.back_img_url)
                 .apply(options)

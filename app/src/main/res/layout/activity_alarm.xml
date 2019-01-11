@@ -39,6 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="60dp"
+            app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/colorEssential"
             app:tabIndicatorHeight="2dp"/>
     </LinearLayout>

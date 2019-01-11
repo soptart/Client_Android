@@ -28,7 +28,7 @@ class ProductRecyclerViewAdapter(var dataList: ArrayList<ProductOverviewData>): 
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        var options: RequestOptions = RequestOptions().priority(Priority.LOW).placeholder(R.drawable.questionmark).diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        var options: RequestOptions = RequestOptions().priority(Priority.LOW).placeholder(R.drawable.placeholder).diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         Glide.with(ctx)
             .load(dataList[position].pic_url)
             .apply(options)
