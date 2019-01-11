@@ -67,37 +67,37 @@ class JoinActivity : AppCompatActivity() {
         }
         btn_join_bank_kb.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_kb.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_keb.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_keb.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_shin.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_shin.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_wr.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_wr.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_nh.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_nh.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_ibk.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_ibk.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_kdb.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_kdb.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_ct.setOnClickListener {
@@ -112,7 +112,7 @@ class JoinActivity : AppCompatActivity() {
         }
         btn_join_bank_bmk.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_bmk.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_dgb.setOnClickListener {
@@ -132,12 +132,12 @@ class JoinActivity : AppCompatActivity() {
         }
         btn_join_bank_gj.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_gj.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_jb.setOnClickListener {
             tv_join_bank.setText(btn_join_bank_jb.getText().toString())
-            jsonObject.put("u_account", tv_join_bank.text.toString())
+            jsonObject.put("u_bank", tv_join_bank.text.toString())
             ll_join_bank.visibility = View.GONE
         }
         btn_join_bank_close.setOnClickListener {

@@ -29,6 +29,7 @@ class AlarmExhibitionFragment : Fragment() {
 
     var u_idx: Int = -1
     var dc_idx : Int = -1
+
     companion object {
         var instance: AlarmExhibitionFragment = AlarmExhibitionFragment()
     }
@@ -50,6 +51,10 @@ class AlarmExhibitionFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setRecyclerView()
+    }
+
+    override fun onResume() {
+        super.onResume()
         getAlarmExhibitionResponse()
     }
 

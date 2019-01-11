@@ -57,7 +57,7 @@ class AlarmExhibitionCancelDialogFragment : DialogFragment() {
                 if(response.isSuccessful){
                     toast("거래가 취소되었습니다!")
                     Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
-                    (ctx as AlarmExhibitionFragment).getAlarmExhibitionResponse()
+                    // (ctx as AlarmExhibitionFragment).getAlarmExhibitionResponse()
                 }
             }
         })

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="276dp"
+                android:layout_height="317dp"
+                android:orientation="vertical"
+                android:background="#ffffff"
+                tools:context=".DialogApplyExhibitionActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="19dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanscjkkr_bold"
+                android:text="신청 완료"
+                android:textColor="#333333"
+                android:textSize="22sp"
+                android:includeFontPadding="false"
+                android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="3dp">
+
+            <TextView
+                    android:id="@+id/s_dialog_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:text="익숙함이 새로웠던 전"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:includeFontPadding="false"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:text="-"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:includeFontPadding="false"/>
+
+            <TextView
+                    android:id="@+id/s_dialog_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:text="일상편"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:includeFontPadding="false"/>
+
+        </LinearLayout>
+
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:text="신청 정보"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:includeFontPadding="false"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:text="작가"
+                        android:textColor="#777777"
+                        android:textSize="16sp"
+                        android:includeFontPadding="false"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:text="작품명"
+                        android:textColor="#777777"
+                        android:textSize="16sp"
+                        android:includeFontPadding="false"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/s_dialog_u_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:text="배선영"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:includeFontPadding="false"/>
+
+                <TextView
+                        android:id="@+id/s_dialog_a_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:text="밤, 달빛"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:includeFontPadding="false"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/dialog_oval"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/notosanscjkkr_regular"
+                    android:text="결과는 신청기간 종료 3주 후, \nE-mail을 확인해주세요"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:includeFontPadding="false"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/btn_apply_done"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="#ff6f61"
+            android:text="확인"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

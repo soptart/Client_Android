@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.util.Log
+import android.widget.ImageButton
 import com.artoo.sopt23.artoo_client_android.Activity.AlarmActivity
 import com.artoo.sopt23.artoo_client_android.Fragment.AlarmBuyFragment
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -184,8 +185,8 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
         val seller_name : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_direct_seller_name) as TextView
         val seller_number : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_direct_seller_number) as TextView
         val seller_address : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_direct_seller_address) as TextView
-        val btn_comment:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as Button
-        val btn_direct_review_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as Button
+        val btn_comment:ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as ImageButton
+        val btn_direct_review_inactive: ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_direct_comment) as ImageButton
     }
 
     inner class HolderDelivery(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -193,9 +194,9 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
         val img_url : ImageView = itemView.findViewById(R.id.iv_rv_item_alarm_buy_delivery_product) as ImageView
         val title : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_delivery_title) as TextView
         val artist : TextView = itemView.findViewById(R.id.tv_rv_item_alarm_buy_delivery_artist) as TextView
-        val btn_refund:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as Button
-        val btn_comment:Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as Button
-        val btn_delivery_refund_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as Button
-        val btn_delivery_review_inactive: Button = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as Button
+        val btn_refund:ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as ImageButton
+        val btn_comment: ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as ImageButton
+        val btn_delivery_refund_inactive: ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_refund) as ImageButton
+        val btn_delivery_review_inactive: ImageButton = itemView.findViewById(R.id.btn_rv_item_alarm_buy_delivery_comment) as ImageButton
     }
 }

@@ -1,16 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginVertical="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginVertical="10dp"
+              android:orientation="horizontal"
+              android:paddingBottom="25dp"
+              android:id="@+id/main_ex_click"
+>
 
-    <ImageView
-        android:id="@+id/img_exhibition_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
 
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
+            <ImageView
+                    android:id="@+id/img_exhibition_list"
+                    android:layout_width="360dp"
+                    android:layout_height="360dp"
+                    android:layout_alignParentEnd="true"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="40dp">
+                <TextView
+                        android:id="@+id/exhibition_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#111111"
+                        android:text="익숙함이\n새로웠던 展"
+                        android:textSize="26sp"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#333333"
+                          android:text="일상편"
+                          android:textSize="21sp"
+                          android:layout_marginTop="14dp"
+                          android:fontFamily="@font/notosanscjkkr_medium"
+                          android:includeFontPadding="false"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_alignParentEnd="true"
+                          android:layout_alignBottom="@id/img_exhibition_list">
+                <TextView
+                        android:layout_gravity="right|end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#111111"
+                        android:text="전시소개"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
+                        android:layout_marginRight="19dp"/>
+
+                <View android:layout_width="97dp"
+                      android:layout_height="1dp"
+                      android:background="#333333"
+                      android:layout_marginTop="9.5dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+                android:id="@+id/txt_main_exhibition_long_detail"
+                android:layout_gravity="right|end"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#111111"
+                android:text="반복해 가는 삶에 지친다\n익숙함을 새롭게 깨뜨리고 싶은 우리\n평범한 일상, 익숙함이 쌓이고 녹아내린다\n익숨함을 지나 두려움을 넘는다"
+                android:textSize="13sp"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:includeFontPadding="false"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="9.5dp"/>
+    </LinearLayout>
 </LinearLayout>

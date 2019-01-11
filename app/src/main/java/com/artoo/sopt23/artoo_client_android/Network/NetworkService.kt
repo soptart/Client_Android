@@ -256,6 +256,21 @@ interface NetworkService {
             @Body applyExhibitionData: ApplyExhibitionData
     ): Call<PostApplyExhibitionResponse>
 
+    // 전시 신청서 띄우기
+    @GET("/discontents/application/{user_idx}")
+    fun getApplyExhibitionResponse(
+            @Header("Authorization") token: String,
+            @Path("user_idx") user_idx: Int
+    ): Call<GetApplyExhibitionResponse>
+
+    // 전시 관람
+    @GET("/discontents/displays/{display_idx}")
+    fun getDetailExhibitionResponse(
+            @Header("Authorization") token: String,
+            @Path("display_idx") display_idx: Int
+    ) : Call<GetDetailExhibitionResponse>
+
+
     // 구매 내역 조회 : 알림구매내역페이지
     @GET("/notices/buys/{user_idx}")
     fun getAlarmBuyResponse(

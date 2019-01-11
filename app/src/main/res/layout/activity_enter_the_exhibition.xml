@@ -1,74 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".EnterTheExhibitionActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".Activity.EnterTheExhibitionActivity">
 
 
     <!--알파값으로 설정한거 디자이너랑 상의-->
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000">
 
 
         <ImageView
-            android:id="@+id/iv_enter_the_exhibition"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.3" />
+                android:id="@+id/iv_enter_the_exhibition"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.5"/>
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/exhibition_close_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="23.3dp"
-                android:layout_marginTop="51.3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+            <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:letterSpacing="-0.02"
-                    android:text="맨 발로 기억을 거닐다 展"
-                    android:textColor="#ffffff"
-                    android:textSize="24sp" />
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="60dp"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:id="@+id/txt_enter_ex_sDate_now"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="-0.02"
+                            android:text="2019. 01"
+                            android:textColor="#ffffff"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="-0.02"
+                            android:text="~"
+                            android:textColor="#ffffff"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:textSize="14sp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:includeFontPadding="false"/>
+
+                    <TextView
+                            android:id="@+id/txt_enter_ex_eDate_now"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="-0.02"
+                            android:text="2019. 02"
+                            android:textColor="#ffffff"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:textSize="14sp"
+                            android:includeFontPadding="false" />
+
+
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/txt_enter_exhibition_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="-0.02"
+                        android:text="맨 발로 기억을 거닐다 展"
+                        android:textColor="#ffffff"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:textSize="23sp"
+                        android:layout_marginBottom="5dp"
+                        android:includeFontPadding="false"/>
+
+                <TextView
+                        android:id="@+id/txt_enter_exhibition_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="-0.02"
+                        android:lineSpacingExtra="5.3sp"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:text="너는 너 자체가 아름다워"
+                        android:layout_marginBottom="80dp"
+                        android:includeFontPadding="false"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:text="참여 작가"
+                        android:includeFontPadding="false"/>
 
                 <View
-                    android:layout_width="14dp"
-                    android:layout_height="1.3dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginTop="17dp"
-                    android:background="#bababa" />
+                        android:layout_width="36dp"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="11dp"
+                        android:background="#bababa" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:letterSpacing="-0.02"
-                    android:lineSpacingExtra="5.3sp"
-                    android:textColor="#ffffff"
-                    android:textSize="15sp"
-                    android:text="남의 시선, 행동 때문에 자유로웠지 못했던\n
-나는 자유롭다라고 말하고 싶던\n
-겉으로만 자유로웠던\n
-모든걸 벗어던지고 자유롭고 싶던.." />
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/txt_enter_ex_artwork_user"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:text="강아무개"
+                                android:includeFontPadding="false"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="11dp">
+                        <TextView
+                                android:id="@+id/txt_enter_ex_artwork_user2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/notosanscjkkr_regular"
+                                android:text="강아무개"
+                                android:includeFontPadding="false"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -76,20 +167,23 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="45dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="62dp">
 
             <Button
-                android:id="@+id/btn_enter_ex"
-                style="@style/Base.Widget.AppCompat.Button.Borderless"
-                android:layout_width="187dp"
-                android:layout_height="40dp"
-                android:background="@drawable/btn_style_enter_the_exhibition"
-                android:text="전시장 입장하기"
-                android:textColor="#ffffff"
-                android:textSize="17sp" />
+                    android:id="@+id/btn_enter_ex"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:layout_width="187dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/exhibition_admit"
+                    android:text="전시장 입장하기"
+                    android:textAlignment="center"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/notosanscjkkr_light"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp" />
 
 
         </LinearLayout>

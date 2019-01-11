@@ -62,6 +62,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="홍익대학교 김옥희"
+                            android:includeFontPadding="false"
                             android:fontFamily="@font/notosanscjkkr_bold"
                             android:textColor="#4a4a4a"
                             android:textSize="16sp"/>
