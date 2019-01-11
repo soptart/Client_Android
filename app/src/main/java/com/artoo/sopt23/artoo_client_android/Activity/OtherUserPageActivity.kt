@@ -70,7 +70,7 @@ class OtherUserPageActivity : AppCompatActivity() {
     }
 
     private fun configureTopNavigation() {
-        vp_top_navi_act_frag_pager_other_user_page.adapter = OtherpageFragmentStatePageAdapter(supportFragmentManager, 4,
+        vp_top_navi_act_frag_pager_other_user_page.adapter = OtherpageFragmentStatePageAdapter(supportFragmentManager, 3,
                 productDataList, likeDataList, reviewDataList)
         tl_top_navi_act_top_menu_other_user_page.setupWithViewPager(vp_top_navi_act_frag_pager_other_user_page)
 

@@ -11,6 +11,7 @@ import com.artoo.sopt23.artoo_client_android.Data.OtherpageProductData
 import com.artoo.sopt23.artoo_client_android.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import org.jetbrains.anko.*
 
 class OtherpageProductRecyclerViewAdapter (var dataList: ArrayList<OtherpageProductData>): RecyclerView.Adapter<OtherpageProductRecyclerViewAdapter.Holder>(){
     lateinit var ctx: Context
@@ -32,7 +33,7 @@ class OtherpageProductRecyclerViewAdapter (var dataList: ArrayList<OtherpageProd
                 .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            //ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
         }
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -60,11 +61,22 @@ class ProductFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query == null) keyword = ""
                 else keyword = query
+                last_a_idx = -1
+                filter_size = null
+                filter_type = null
+                filter_category = null
                 setFilter()
                 return false
             }
-
             override fun onQueryTextChange(query: String?): Boolean {
+                if(TextUtils.isEmpty(query)){
+                    keyword =""
+                    last_a_idx = -1
+                    filter_size = null
+                    filter_type = null
+                    filter_category = null
+                    setFilter()
+                }
                 return true
             }
         })
@@ -143,7 +155,8 @@ class ProductFragment : Fragment() {
                         scroll_product_lilst.fullScroll(ScrollView.FOCUS_UP)
                     }
                     isRequested = false
-                    last_a_idx = dataList[dataList.size - 1].a_idx
+                    if(dataList.size == 0) last_a_idx = -1
+                    else last_a_idx = dataList[dataList.size - 1].a_idx
                 }
             }
         })
