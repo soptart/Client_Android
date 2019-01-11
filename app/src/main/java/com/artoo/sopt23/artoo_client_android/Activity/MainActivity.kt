@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -71,26 +72,30 @@ class MainActivity : AppCompatActivity() {
             tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
-//            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_medium))
-//            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-//            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-//            tv_bottom_navi_my_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
         }
         else if (position == 1) {
             tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorEssential))
             tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
-//            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-//            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_medium))
-//            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
-//            tv_bottom_navi_my_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
         }
         else if (position == 2) {
             tv_bottom_navi_home_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorEssential))
             tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
 //            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
 //            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
 //            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_medium))
@@ -101,6 +106,10 @@ class MainActivity : AppCompatActivity() {
             tv_bottom_navi_product_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_exhibition_tab.setTextColor(resources.getColor(R.color.colorMainNoSelect))
             tv_bottom_navi_my_tab.setTextColor(resources.getColor(R.color.colorEssential))
+            tv_bottom_navi_home_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_product_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_exhibition_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_regular.otf"))
+            tv_bottom_navi_my_tab.setTypeface(Typeface.createFromAsset(assets, "font/notosanscjkkr_medium.otf"))
 //            tv_bottom_navi_home_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
 //            tv_bottom_navi_product_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))
 //            tv_bottom_navi_exhibition_tab.setTypeface(resources.getFont(R.font.notosanscjkkr_regular))

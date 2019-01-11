@@ -53,6 +53,10 @@ class ProductDetailActivity : AppCompatActivity() {
         getProductDetailData()
         getProductCommentData()
 
+        txt_product_detail_artist.setOnClickListener {
+            startActivity<OtherUserPageActivity>("other_idx" to productDetailData.u_idx)
+        }
+
         img_product_detail_product.setOnClickListener {
             startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
         }
