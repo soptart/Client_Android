@@ -259,34 +259,36 @@ class ProductDetailActivity : AppCompatActivity() {
                         txt_product_detail_delete.visibility = View.GONE
                     }
 
-                    if(productDetailData.a_purchaseState == 0){
+                    if(productDetailData.a_purchaseState == 0){ // 비매품
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
                         txt_product_detail_price.text = "판매 안 함"
                         txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
                         ll_product_detail_bottomnav.isClickable = false
                     }
-                    else if(productDetailData.a_purchaseState == 1){
+                    else if(productDetailData.a_purchaseState == 1 || productDetailData.a_purchaseState == 2
+                        || productDetailData.a_purchaseState == 3){ // 판매
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_price)
                         txt_product_detail_price.text = productDetailData.a_price.toString() +"원"
                         txt_product_detail_price.setTextColor(Color.parseColor("#ff6f61"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_purchase)
                         ll_product_detail_bottomnav.isClickable = true
                     }
-                    else if(productDetailData.a_purchaseState == 2){
+                    else if(productDetailData.a_purchaseState == 11 || productDetailData.a_purchaseState == 12 ||
+                        productDetailData.a_purchaseState == 13){ // 판매완료
                         img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
-                        txt_product_detail_price.text = "판매 안 함"
+                        txt_product_detail_price.text = productDetailData.a_price.toString() +"원"
                         txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
                         img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_complete)
                         ll_product_detail_bottomnav.isClickable = false
                     }
-                    else if(productDetailData.a_purchaseState == 11){
-                        img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
-                        txt_product_detail_price.text = "거래 진행중"
-                        txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
-                        img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
-                        ll_product_detail_bottomnav.isClickable = false
-                    }
+//                    else if(productDetailData.a_purchaseState >= 10){ // 거래진행중
+//                        img_product_detail_purchase_ic.setImageResource(R.drawable.artwork_no_price)
+//                        txt_product_detail_price.text = "거래 진행중"
+//                        txt_product_detail_price.setTextColor(Color.parseColor("#434343"))
+//                        img_product_detail_purchase.setImageResource(R.drawable.artwork_sale_no_purchase)
+//                        ll_product_detail_bottomnav.isClickable = false
+//                    }
                     else{
                         Log.i("ProductDetailActivity", "Unknown PurchaseState")
                     }
