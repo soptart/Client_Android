@@ -17,11 +17,6 @@
         <activity
                 android:name=".Activity.LoginActivity"
                 android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
                 android:name=".Activity.JoinActivity"
@@ -58,6 +53,13 @@
         <activity android:name=".Activity.OtherUserPageActivity">
         </activity>
         <activity android:name=".Activity.MypagePolicyActivity">
+        </activity>
+        <activity android:name=".Activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

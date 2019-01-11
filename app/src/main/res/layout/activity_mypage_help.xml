@@ -96,7 +96,7 @@
                             android:layout_marginLeft="20dp"
                             android:gravity="bottom"
                             android:includeFontPadding="false"
-                            android:text="미술전공자들의 작품을 크리틱하며 도움을 주고 작품을 전시하며 판매할 수 있는 앱 입니다."
+                            android:text="미술전공자들의 작품을 공유하고 크리틱하여 피드백을 주고받고 작품을 전시하며 판매할 수 있는 앱 입니다."
                             android:textColor="#434343"
                             android:textSize="15sp"
                             android:paddingTop="11dp"
@@ -110,6 +110,85 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/help_list_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="#FFFFFF"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+                    <TextView
+                            android:id="@+id/help_list_q3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="bottom"
+                            android:text="구매는 어떻게 하나요?"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/notosanscjkkr_regular"
+                            android:textColor="#434343"
+                            android:textSize="16sp"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    <ImageButton
+                            android:id="@+id/help_list_arrow3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/arrow_down_black"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#dddddd"/>
+
+            <LinearLayout
+                    android:id="@+id/expandable_a3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#f1f1f1"
+                    android:visibility="gone">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="bottom"
+                        android:includeFontPadding="false"
+                        android:text="원하시는 작품이 있을 경우 구매하기를 눌러 구매합니다. \n배송은 택배/직거래중 선택해 주시고 결제는 카드와 무통장 입금을 통해 결제가 진행됩니다. \n배송은 약7일로 예상되며 변동사항이 생길 수 있습니다. \n농협 301-0243-2595-01 윤여진 Artoo"
+                        android:textColor="#434343"
+                        android:textSize="15sp"
+                        android:paddingTop="11dp"
+                        android:paddingBottom="15dp"
+                        android:paddingEnd="54dp"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#dddddd"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
             <LinearLayout
@@ -201,84 +280,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <LinearLayout
-                        android:id="@+id/help_list_btn3"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:orientation="horizontal"
-                        android:weightSum="7">
 
-                    <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="#FFFFFF"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical"
-                            android:weightSum="2">
-
-                        <TextView
-                                android:id="@+id/help_list_q3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:gravity="bottom"
-                                android:text="구매는 어떻게 하나요?"
-                                android:includeFontPadding="false"
-                                android:fontFamily="@font/notosanscjkkr_regular"
-                                android:textColor="#434343"
-                                android:textSize="16sp"/>
-                    </LinearLayout>
-
-                    <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                        <ImageButton
-                                android:id="@+id/help_list_arrow3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:background="@drawable/arrow_down_black"/>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#dddddd"/>
-
-                <LinearLayout
-                        android:id="@+id/expandable_a3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="#f1f1f1"
-                        android:visibility="gone">
-
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:gravity="bottom"
-                            android:includeFontPadding="false"
-                            android:text="원하시는 작품이 있을 경우 구매하기를 눌러 구매합니다. \n배송은 택배/직거래중 선택해 주시고 결제는 카드와 무통장 입금을 통해 결제가 진행됩니다. \n배송은 약7일로 예상되며 변동사항이 생길 수 있습니다. \n농협 301-0243-2595-01 윤여진 Artoo"
-                            android:textColor="#434343"
-                            android:textSize="15sp"
-                            android:paddingTop="11dp"
-                            android:paddingBottom="15dp"
-                            android:paddingEnd="54dp"/>
-                    <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#dddddd"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                     android:layout_width="match_parent"
