@@ -207,6 +207,27 @@ interface NetworkService {
         @Path("u_idx") u_idx: Int
     ): Call<GetMypageReviewResponse>
 
+    //OtherpageProduct::list
+    @GET("/users/{u_idx}")
+    fun getOtherpageProductResponse(
+        @Header("Content-Type") content_type: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetOtherpageProductResponse>
+
+    //OtherpageLike::list
+    @GET("/users/{u_idx}/likes")
+    fun getOtherpageLikeResponse(
+        @Header("Content-Type") content_type: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetOtherpageLikeResponse>
+
+    //OtherpagerReview::list
+    @GET("/users/{u_idx}/reviews")
+    fun getOtherpageReviewResponse(
+        @Header("Content-Type") content_type: String,
+        @Path("u_idx") u_idx: Int
+    ): Call<GetOtherpageReviewResponse>
+
     //MypageUserDescription::update
     @PUT("/users/{u_idx}/myInfo")
     fun putMypagePrefInfoResponse(
@@ -223,6 +244,13 @@ interface NetworkService {
         @Header("Authorization") token: String,
         @Path("u_idx") u_idx: Int
     ): Call<GetMypagePrefInfoResponse>
+
+    //OtherpagePrefer::list
+    @GET("/users/{u_idx}/myInfo")
+    fun getOtherpagePrefInfoResponse(
+            @Header("Content-Type") content_type: String,
+            @Path("u_idx") u_idx: Int
+    ): Call<GetOtherpagePrefInfoResponse>
 
     @GET("/users/{u_idx}/myInfo")
     fun getMypageMyInfoResponse(

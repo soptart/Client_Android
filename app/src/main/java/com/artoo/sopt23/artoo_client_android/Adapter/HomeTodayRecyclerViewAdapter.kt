@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.artoo.sopt23.artoo_client_android.Activity.OtherUserPageActivity
 import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.Data.TodayArtistProductData
 import com.artoo.sopt23.artoo_client_android.Data.TodayMainData
@@ -21,6 +22,7 @@ import com.bumptech.glide.request.RequestOptions
 import org.jetbrains.anko.*
 
 class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData, var dataListArtistProduct:ArrayList<TodayArtistProductData>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if(viewType == 0){
             Log.i("hitag","0")
@@ -56,8 +58,10 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData
                 .load(dataMain.back_img_url)
                 .apply(options)
                 .into((holder).backimg)
-        }
-        else {
+            (holder).backimg.setOnClickListener {
+                ctx.startActivity<OtherUserPageActivity>("other_idx" to dataMain.u_idx)
+            }
+        } else {
             (holder as HolderArtist).title.text = dataListArtistProduct[position-1].a_name
             Glide.with(ctx)
                 .load(dataListArtistProduct[position-1].pic_url)

@@ -23,7 +23,7 @@
                     android:textSize="17sp"
                     android:textColor="@color/colorEssential"/>
             <TextView
-                    android:id="@+id/tv_otehrpage_user_product_cnt"
+                    android:id="@+id/tv_otherpage_user_product_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
