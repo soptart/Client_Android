@@ -55,9 +55,9 @@ class AlarmExhibitionFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+
         getAlarmExhibitionResponse()
     }
-
     private fun setRecyclerView() {
         alarmExhibitionRecyclerViewAdapter = AlarmExhibitionRecyclerViewAdapter(activity!!,dataListExhibition)
         rv_fragment_alarm_exhibition_list.adapter = alarmExhibitionRecyclerViewAdapter
