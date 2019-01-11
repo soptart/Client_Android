@@ -21,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlarmExhibitionCancelDialogFragment : DialogFragment() {
+class AlarmExhibitionCancelDialogFragment() : DialogFragment() {
 
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
@@ -57,7 +57,6 @@ class AlarmExhibitionCancelDialogFragment : DialogFragment() {
                 if(response.isSuccessful){
                     toast("거래가 취소되었습니다!")
                     Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
-                    // (ctx as AlarmExhibitionFragment).getAlarmExhibitionResponse()
                 }
             }
         })

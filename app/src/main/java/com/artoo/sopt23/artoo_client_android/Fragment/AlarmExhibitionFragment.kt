@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -49,7 +50,6 @@ class AlarmExhibitionFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         setRecyclerView()
     }
 
@@ -59,7 +59,7 @@ class AlarmExhibitionFragment : Fragment() {
         getAlarmExhibitionResponse()
     }
     private fun setRecyclerView() {
-        alarmExhibitionRecyclerViewAdapter = AlarmExhibitionRecyclerViewAdapter(activity!!,dataListExhibition)
+        alarmExhibitionRecyclerViewAdapter = AlarmExhibitionRecyclerViewAdapter(activity!!,this, dataListExhibition)
         rv_fragment_alarm_exhibition_list.adapter = alarmExhibitionRecyclerViewAdapter
         rv_fragment_alarm_exhibition_list.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL,false)
     }

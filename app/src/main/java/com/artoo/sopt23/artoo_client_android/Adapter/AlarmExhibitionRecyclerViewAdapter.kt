@@ -1,6 +1,7 @@
 package com.artoo.sopt23.artoo_client_android.Adapter
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
@@ -17,7 +18,7 @@ import com.artoo.sopt23.artoo_client_android.Fragment.AlarmExhibitionFragment
 import com.artoo.sopt23.artoo_client_android.R
 import java.text.SimpleDateFormat
 
-class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,var dataList: ArrayList<AlarmExhibitionData>): RecyclerView.Adapter<AlarmExhibitionRecyclerViewAdapter.Holder>() {
+class AlarmExhibitionRecyclerViewAdapter(val ctx: Context, var parentFragment:AlarmExhibitionFragment, var dataList: ArrayList<AlarmExhibitionData>): RecyclerView.Adapter<AlarmExhibitionRecyclerViewAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view: View = LayoutInflater.from(ctx).inflate(R.layout.rv_item_alarm_exhibition, parent, false)
@@ -44,6 +45,12 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context,var dataList: ArrayLis
         holder.cancel_button.setOnClickListener {
             val cancel_dialog = AlarmExhibitionCancelDialogFragment()
             cancel_dialog.show((ctx as AlarmActivity).supportFragmentManager, cancel_dialog.tag)
+            (ctx as AlarmActivity).supportFragmentManager.executePendingTransactions()
+            cancel_dialog.dialog.setOnDismissListener(object : DialogInterface.OnDismissListener{
+                override fun onDismiss(p0: DialogInterface?) {
+                    parentFragment.getAlarmExhibitionResponse()
+                }
+            })
             //var intent = Intent((ctx as FragmentActivity), AlarmExhibitionCancelDialogFragment::class.java)
             //intent.putExtra("dc_idx", dataList[position].dc_idx)
             //intent.putExtra("user_idx", dataList[position].u_idx)
