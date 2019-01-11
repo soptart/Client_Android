@@ -23,6 +23,7 @@
                 android:textColor="#353d46"
                 android:textSize="22sp"/>
             <ImageView
+                    android:id="@+id/btn_alarm_x"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/close_black"

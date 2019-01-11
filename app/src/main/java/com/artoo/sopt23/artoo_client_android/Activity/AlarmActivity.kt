@@ -46,6 +46,11 @@ class AlarmActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alarm)
 
         configureTopNavigation()
+
+        btn_alarm_x.setOnClickListener {
+            finish()
+        }
+
     }
 
     private fun configureTopNavigation() {
