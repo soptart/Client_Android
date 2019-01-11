@@ -84,6 +84,7 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
             Log.d("d_idx test : ", d_idx.toString())
             Log.d("d_title test : ", d_title.toString())
             startActivity(nextIntent)
+            finish()
 
         }
     }
