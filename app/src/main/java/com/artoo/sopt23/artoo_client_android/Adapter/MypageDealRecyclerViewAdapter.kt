@@ -42,17 +42,11 @@ class MypageDealRecyclerViewAdapter(val dataList: ArrayList<MypageDealData>): Re
         holder.product_price.text = dataList[position].a_price.toString()
         holder.time.text = dataList[position].p_date
 
-        if (dataList[position].p_state == 12 || dataList[position].p_state == 22) {
-            Glide.with(ctx)
-                .load("@drwable/my_payment_complete")
-                .apply(options)
-                .into(holder.status_img)
+        if (dataList[position].p_state != 10 && dataList[position].p_state != 20 && dataList[position].buyer) {
+            holder.status_img.setImageResource(R.drawable.my_payment_complete)
         }
-        if (dataList[position].p_state == 13 || dataList[position].p_state == 23) {
-            Glide.with(ctx)
-                .load("@drwable/my_sale_complete")
-                .apply(options)
-                .into(holder.status_img)
+        else if (dataList[position].p_state != 10 && dataList[position].p_state != 20 && !dataList[position].buyer) {
+            holder.status_img.setImageResource(R.drawable.my_sale_complete)
         }
     }
 

@@ -17,6 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Patterns
+import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetDuplicateEmailResponse
 import java.util.regex.Pattern
 
 class JoinActivity : AppCompatActivity() {
@@ -55,8 +56,6 @@ class JoinActivity : AppCompatActivity() {
 
 
             if (android.util.Patterns.EMAIL_ADDRESS.matcher(input_email).matches()) {
-                join_check_email.visibility = View.INVISIBLE
-                jsonObject.put("u_email", input_email)
                 check = check * 1
             } else if (input_email.length == 0) {
                 join_check_email.visibility = View.VISIBLE
@@ -85,12 +84,30 @@ class JoinActivity : AppCompatActivity() {
             Log.d("*****JoinActivity::json::", jsonObject.toString())
 
             if (check == 1) {
-                ll_join_first.visibility = View.GONE
-                ll_join_second.visibility = View.VISIBLE
+                val getDuplicationEmailResponse:Call<GetDuplicateEmailResponse> = networkService.getDuplicateEmailResponse(input_email)
+                getDuplicationEmailResponse.enqueue(object: Callback<GetDuplicateEmailResponse>{
+                    override fun onFailure(call: Call<GetDuplicateEmailResponse>, t: Throwable) {
+                        Log.i("JoinActivity", "CommentFailure")
+                    }
 
-                join_check_name.visibility = View.INVISIBLE
-                join_check_email.visibility = View.INVISIBLE
-                join_check_pw.visibility = View.INVISIBLE
+                    override fun onResponse(call: Call<GetDuplicateEmailResponse>, response: Response<GetDuplicateEmailResponse>) {
+                        if(response.isSuccessful && response.body()!!.status == 200) {
+                            jsonObject.put("u_email", input_email)
+                            join_check_email.visibility = View.INVISIBLE
+                            ll_join_first.visibility = View.GONE
+                            ll_join_second.visibility = View.VISIBLE
+
+                            join_check_name.visibility = View.INVISIBLE
+                            join_check_email.visibility = View.INVISIBLE
+                            join_check_pw.visibility = View.INVISIBLE
+                        }
+                        else{
+                            join_check_email.visibility = View.VISIBLE
+                            join_check_email.setText("같은 이메일이 존재합니다!")
+                            check = check * 0
+                        }
+                    }
+                })
             }
         }
 
