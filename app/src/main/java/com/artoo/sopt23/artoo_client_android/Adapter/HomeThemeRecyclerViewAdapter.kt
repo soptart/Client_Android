@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.artoo.sopt23.artoo_client_android.Activity.ProductDetailActivity
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.GetThemesResponse
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.ThemeListData
 import com.artoo.sopt23.artoo_client_android.Data.Response.Get.ThemeTagData
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import org.jetbrains.anko.startActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +38,10 @@ class HomeThemeRecyclerViewAdapter(val dataList: ArrayList<ThemeListData>): Recy
         Glide.with(ctx)
                 .load(dataList[position].pic_url)
                 .into(holder.img_product)
+
+        holder.img_product.setOnClickListener {
+            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
+        }
     }
 
     inner class Holder(itemView: View): RecyclerView.ViewHolder(itemView){

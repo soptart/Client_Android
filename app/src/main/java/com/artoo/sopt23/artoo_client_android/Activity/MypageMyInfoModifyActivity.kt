@@ -16,6 +16,7 @@ import com.artoo.sopt23.artoo_client_android.R
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.activity_mypage_my_info_modify.*
+import org.jetbrains.anko.toast
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -149,59 +150,88 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
                 value1 = my_info_modify_edit_text_1.text.toString()
                 value2 = my_info_modify_edit_text_2.text.toString()
                 value3 = my_info_modify_edit_text_3.text.toString()
-                jsonObject.put("u_pw_current", value1)
-                jsonObject.put("u_pw_new", value2)
-                jsonObject.put("u_pw_check", value3)
-                val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-                val putMypageMyInfoPWResponse: Call<PutMypageMyInfoPWResponse> = networkService.putMypageMyInfoPWResponse(
-                    "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject)
-                putMypageMyInfoPWResponse.enqueue(object: Callback<PutMypageMyInfoPWResponse>{
-                    override fun onFailure(call: Call<PutMypageMyInfoPWResponse>, t: Throwable) {
-                        Log.d("MypageMyInfoModifyActivity", t.toString())
-                    }
-
-                    override fun onResponse(
-                        call: Call<PutMypageMyInfoPWResponse>,
-                        response: Response<PutMypageMyInfoPWResponse>
-                    ) {
-                        Toast.makeText(this@MypageMyInfoModifyActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
-                        if(response.isSuccessful){
-                            setResult(Activity.RESULT_OK)
-                            finish()
+                if(value2 == value3 && value2 != "") {
+                    jsonObject.put("u_pw_current", value1)
+                    jsonObject.put("u_pw_new", value2)
+                    jsonObject.put("u_pw_check", value3)
+                    val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+                    val putMypageMyInfoPWResponse: Call<PutMypageMyInfoPWResponse> =
+                        networkService.putMypageMyInfoPWResponse(
+                            "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
+                        )
+                    putMypageMyInfoPWResponse.enqueue(object : Callback<PutMypageMyInfoPWResponse> {
+                        override fun onFailure(call: Call<PutMypageMyInfoPWResponse>, t: Throwable) {
+                            Log.d("MypageMyInfoModifyActivity", t.toString())
                         }
-                    }
-                })
+
+                        override fun onResponse(
+                            call: Call<PutMypageMyInfoPWResponse>,
+                            response: Response<PutMypageMyInfoPWResponse>
+                        ) {
+                            Toast.makeText(
+                                this@MypageMyInfoModifyActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            if (response.isSuccessful) {
+                                setResult(Activity.RESULT_OK)
+                                finish()
+                            }
+                        }
+                    })
+                }
+                else if(value2 != value3){
+                    toast("New passwords must equal")
+                }
+                else{
+                    toast("No Empty Field")
+                }
             }
             else {
+                var cancelFlag = false
                 if (key == "u_account") {
                     value1 = my_info_modify_edit_text_1.text.toString()
                     value2 = my_info_modify_edit_text_2.text.toString()
                     jsonObject.put("u_bank", value1)
                     jsonObject.put("u_account", value2)
+                    if(value1 == "" || value2 == "") cancelFlag = true
                 } else {
                     if (key == "u_school") value1 = my_info_modify_univ_edit_text.text.toString() + "대학교"
                     else value1 = my_info_modify_edit_text_1.text.toString()
                     jsonObject.put(key, value1)
+                    if(value1 == "") cancelFlag = true
+                    if(key == "u_email" && !android.util.Patterns.EMAIL_ADDRESS.matcher(value1).matches()) cancelFlag = true
                 }
-                val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-                val putMypageMyInfoResponse: Call<PutMypageMyInfoResponse> = networkService.putMypageMyInfoResponse(
-                    "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject)
-                putMypageMyInfoResponse.enqueue(object: Callback<PutMypageMyInfoResponse>{
-                    override fun onFailure(call: Call<PutMypageMyInfoResponse>, t: Throwable) {
-                        Log.d("MypageMyInfoModifyActivity", t.toString())
-                    }
 
-                    override fun onResponse(
-                        call: Call<PutMypageMyInfoResponse>,
-                        response: Response<PutMypageMyInfoResponse>
-                    ) {
-                        Toast.makeText(this@MypageMyInfoModifyActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
-                        if(response.isSuccessful){
-                            setResult(Activity.RESULT_OK)
-                            finish()
+                if(!cancelFlag) {
+                    val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+                    val putMypageMyInfoResponse: Call<PutMypageMyInfoResponse> = networkService.putMypageMyInfoResponse(
+                        "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
+                    )
+                    putMypageMyInfoResponse.enqueue(object : Callback<PutMypageMyInfoResponse> {
+                        override fun onFailure(call: Call<PutMypageMyInfoResponse>, t: Throwable) {
+                            Log.d("MypageMyInfoModifyActivity", t.toString())
                         }
-                    }
-                })
+
+                        override fun onResponse(
+                            call: Call<PutMypageMyInfoResponse>,
+                            response: Response<PutMypageMyInfoResponse>
+                        ) {
+                            Toast.makeText(
+                                this@MypageMyInfoModifyActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            if (response.isSuccessful) {
+                                setResult(Activity.RESULT_OK)
+                                finish()
+                            }
+                        }
+                    })
+                }
+                else{
+                    toast("No Empty Field").show()
+                }
             }
         }
     }
