@@ -63,6 +63,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         ll_product_detail_bottomnav.setOnClickListener {
             startActivity<ProductPurchaseActivity>("pic_url" to productDetailData.pic_url, "a_idx" to productDetailData.a_idx, "u_idx" to SharedPreferenceController.getUserID(this))
+            finish()
         }
 
         img_product_detail_purchase.setOnClickListener {
@@ -145,7 +146,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
     fun postProductLikeData(){
         val token = SharedPreferenceController.getAuthorization(this)
-        val postProductLikeResponse = networkService.postProductLikeResponse("application/json", token, a_idx)
+        val postProductLikeResponse = networkService.postProductLikeResponse("application/json", token, a_idx, SharedPreferenceController.getUserID(this))
         postProductLikeResponse.enqueue(object: Callback<PostProductLikeResponse>{
             override fun onFailure(call: Call<PostProductLikeResponse>, t: Throwable) {
                 Log.i("ProductDetailActivity", "Connection Failure" + t.toString())

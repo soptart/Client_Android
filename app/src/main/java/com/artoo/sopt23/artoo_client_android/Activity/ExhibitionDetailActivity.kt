@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -28,6 +29,8 @@ class ExhibitionDetailActivity : AppCompatActivity() {
     lateinit var exhibitionDetailAdapter: ExhibitionDetailAdapter
 
     lateinit var getDetailExhibition : ArrayList<ExhibitionDetailData>
+
+    lateinit var recyclerviewLayoutManager : LinearLayoutManager
 
     var user_idx = -1
     var user_token = ""
@@ -59,6 +62,8 @@ class ExhibitionDetailActivity : AppCompatActivity() {
         Log.d("Img test ", d_titleImg_url)
         Glide.with(this).load(intent.getStringExtra("d_titleImg_url")).into(iv_detail_ex_title)
 
+        recyclerviewLayoutManager = LinearLayoutManager(this@ExhibitionDetailActivity,LinearLayoutManager.HORIZONTAL,false)
+
         getDetailExhibition(d_idx)
 
     }
@@ -84,8 +89,18 @@ class ExhibitionDetailActivity : AppCompatActivity() {
 
                     exhibitionDetailAdapter = ExhibitionDetailAdapter(getDetailExhibition)
                     rv_ex_detail.adapter = exhibitionDetailAdapter
-                    rv_ex_detail.layoutManager = LinearLayoutManager(this@ExhibitionDetailActivity,LinearLayoutManager.HORIZONTAL,false)
+                    rv_ex_detail.layoutManager = recyclerviewLayoutManager
+                    rv_ex_detail.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                            super.onScrolled(recyclerView, dx, dy)
+                            val firstVisibleItem = recyclerviewLayoutManager.findFirstVisibleItemPosition()
+                            txt_ex_current_num.text = (firstVisibleItem+1).toString()
+                        }
 
+                        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                            super.onScrollStateChanged(recyclerView, newState)
+                        }
+                    })
                 }
 
             }

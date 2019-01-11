@@ -119,11 +119,12 @@ interface NetworkService {
         @Path("a_idx") a_idx: Int
     ): Call<GetProductDetailResponse>
 
-    @POST("/artworks/{a_idx}/likes")
+    @POST("/artworks/{a_idx}/likes/{u_idx}")
     fun postProductLikeResponse(
         @Header("Content-Type") content_type: String,
         @Header("Authorization") token: String,
-        @Path("a_idx") a_idx: Int
+        @Path("a_idx") a_idx: Int,
+        @Path("u_idx") u_idx: Int
     ): Call<PostProductLikeResponse>
 
     @GET("/artworks/{a_idx}/purchase/{u_idx}")
