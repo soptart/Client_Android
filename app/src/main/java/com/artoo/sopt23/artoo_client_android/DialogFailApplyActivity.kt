@@ -9,7 +9,10 @@ import kotlinx.android.synthetic.main.dialog_fail_apply.*
 
 class DialogFailApplyActivity(context: Context) : Dialog(context), View.OnClickListener {
     override fun onClick(v: View?) {
-        dismiss()
+        try {
+            dismiss()
+        } catch (e: Exception) {
+        }
     }
     lateinit var btn_oops : TextView
 

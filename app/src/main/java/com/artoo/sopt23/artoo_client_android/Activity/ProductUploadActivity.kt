@@ -118,17 +118,26 @@ class ProductUploadActivity : AppCompatActivity() {
 
     private fun setViewClickListener() {
         btn_product_upload_close.setOnClickListener {
-            finish()
+            try {
+                finish()
+            } catch (e: Exception) {
+            }
         }
         iv_product_upload_product_img.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-            intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(intent, REQUEST_CODE_SELECT_IMAGE)
+            try {
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+                intent.data = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                startActivityForResult(intent, REQUEST_CODE_SELECT_IMAGE)
+            } catch (e: Exception) {
+            }
         }
         btn_product_upload_add_theme.setOnClickListener {
-            val bottom_sheet_dialog = ProductUploadThemeFragment()
-            bottom_sheet_dialog.show(supportFragmentManager, bottom_sheet_dialog.tag)
+            try {
+                val bottom_sheet_dialog = ProductUploadThemeFragment()
+                bottom_sheet_dialog.show(supportFragmentManager, bottom_sheet_dialog.tag)
+            } catch (e: Exception) {
+            }
         }
         /*btn_product_upload_delivery_parcel.setOnClickListener {
             input_product_purchase_state = btn_product_upload_delivery_parcel.text.toString()
@@ -137,24 +146,27 @@ class ProductUploadActivity : AppCompatActivity() {
             input_product_purchase_state = btn_product_upload_delivery_direct.text.toString()
         }*/
         btn_product_upload_finish.setOnClickListener {
-            if (iv_product_upload_product_img.resources == null) {
-                toast("작품 사진을 첨부해주세요.")
-            } else if (et_product_upload_product_title.text.toString().trim().length == 0) {
-                toast("작품명을 작성해주세요.")
-            } else if(et_product_upload_product_detail.text.toString().trim().length == 0) {
-                toast("작품 설명을 작성해주세요.")
-            } else if (et_product_upload_size_width.text.toString().trim().length == 0 || et_product_upload_size_depth.text.toString().trim().length == 0) {
-                toast("작품 크기의 가로, 세로는 필수값입니다.")
-            } else if (et_product_upload_size_width.text.toString().toInt() < 0 || et_product_upload_size_width.text.toString().toInt() >=163
-                    || et_product_upload_size_depth.text.toString().toInt() < 0 || et_product_upload_size_depth.text.toString().toInt() >= 163) {
-                toast("작품의 최대 가로, 세로 길이는 163cm입니다.\n다시 입력해주세요.")
-            } else if (et_product_upload_price.text.toString().trim().length == 0) {
-                toast("작품의 가격을 입력해주세요.")
-            } else if (et_product_upload_material.text.toString().trim().length == 0) {
-                toast("작품에 사용한 재료를 기입해주세요.")
-            } else {
+            try {
+                if (iv_product_upload_product_img.resources == null) {
+                    toast("작품 사진을 첨부해주세요.")
+                } else if (et_product_upload_product_title.text.toString().trim().length == 0) {
+                    toast("작품명을 작성해주세요.")
+                } else if(et_product_upload_product_detail.text.toString().trim().length == 0) {
+                    toast("작품 설명을 작성해주세요.")
+                } else if (et_product_upload_size_width.text.toString().trim().length == 0 || et_product_upload_size_depth.text.toString().trim().length == 0) {
+                    toast("작품 크기의 가로, 세로는 필수값입니다.")
+                } else if (et_product_upload_size_width.text.toString().toInt() < 0 || et_product_upload_size_width.text.toString().toInt() >=163
+                        || et_product_upload_size_depth.text.toString().toInt() < 0 || et_product_upload_size_depth.text.toString().toInt() >= 163) {
+                    toast("작품의 최대 가로, 세로 길이는 163cm입니다.\n다시 입력해주세요.")
+                } else if (et_product_upload_price.text.toString().trim().length == 0) {
+                    toast("작품의 가격을 입력해주세요.")
+                } else if (et_product_upload_material.text.toString().trim().length == 0) {
+                    toast("작품에 사용한 재료를 기입해주세요.")
+                } else {
 
-                getProductUploadResponse()
+                    getProductUploadResponse()
+                }
+            } catch (e: Exception) {
             }
 
         }
@@ -253,13 +265,22 @@ class ProductUploadActivity : AppCompatActivity() {
     private fun setRemoveTagButtonClickListener() {
 
         btn_product_upload_delete_tag1.setOnClickListener {
-            removeTag(tv_product_upload_tag1.text.toString())
+            try {
+                removeTag(tv_product_upload_tag1.text.toString())
+            } catch (e: Exception) {
+            }
         }
         btn_product_upload_delete_tag2.setOnClickListener {
-            removeTag(tv_product_upload_tag2.text.toString())
+            try {
+                removeTag(tv_product_upload_tag2.text.toString())
+            } catch (e: Exception) {
+            }
         }
         btn_product_upload_delete_tag3.setOnClickListener {
-            removeTag(tv_product_upload_tag3.text.toString())
+            try {
+                removeTag(tv_product_upload_tag3.text.toString())
+            } catch (e: Exception) {
+            }
         }
 
     }

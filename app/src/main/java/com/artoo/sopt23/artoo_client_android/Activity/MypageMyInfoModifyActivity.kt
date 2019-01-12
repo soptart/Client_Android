@@ -75,163 +75,217 @@ class MypageMyInfoModifyActivity : AppCompatActivity() {
                 my_info_modify_edit_text_1.hint = "은행"
                 my_info_modify_edit_text_2.hint = "계좌번호(-없이 입력해주세요)"
                 my_info_modify_edit_text_1.setOnClickListener {
-                    ll_mypage_myinfo_modify_bank.visibility = View.VISIBLE
+                    try {
+                        ll_mypage_myinfo_modify_bank.visibility = View.VISIBLE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_kb.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_kb.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_kb.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_keb.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_keb.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_keb.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_shin.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_shin.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_shin.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_wr.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_wr.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_wr.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_nh.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_nh.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_nh.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_ibk.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_ibk.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_ibk.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_kdb.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_kdb.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_kdb.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_ct.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_ct.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_ct.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_sc.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_sc.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_sc.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_bmk.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_bmk.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_bmk.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_dgb.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_dgb.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_dgb.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_bnk.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_bnk.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_bnk.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_sh.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_sh.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_sh.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_gj.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_gj.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_gj.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_join_bank_jb.setOnClickListener {
-                    my_info_modify_edit_text_1.setText(btn_join_bank_jb.getText().toString())
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        my_info_modify_edit_text_1.setText(btn_join_bank_jb.getText().toString())
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
                 btn_mypage_myinfo_modify_bank_close.setOnClickListener {
-                    ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    try {
+                        ll_mypage_myinfo_modify_bank.visibility = View.GONE
+                    } catch (e: Exception) {
+                    }
                 }
             }
         }
 
         btn_my_info_modify.setOnClickListener {
-            var jsonObject = JSONObject()
-            val u_idx = SharedPreferenceController.getUserID(this)
-            if(key == "u_pw"){
-                value1 = my_info_modify_edit_text_1.text.toString()
-                value2 = my_info_modify_edit_text_2.text.toString()
-                value3 = my_info_modify_edit_text_3.text.toString()
-                if(value2 == value3 && value2 != "") {
-                    jsonObject.put("u_pw_current", value1)
-                    jsonObject.put("u_pw_new", value2)
-                    jsonObject.put("u_pw_check", value3)
-                    val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-                    val putMypageMyInfoPWResponse: Call<PutMypageMyInfoPWResponse> =
-                        networkService.putMypageMyInfoPWResponse(
-                            "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
-                        )
-                    putMypageMyInfoPWResponse.enqueue(object : Callback<PutMypageMyInfoPWResponse> {
-                        override fun onFailure(call: Call<PutMypageMyInfoPWResponse>, t: Throwable) {
-                            Log.d("MypageMyInfoModifyActivity", t.toString())
-                        }
-
-                        override fun onResponse(
-                            call: Call<PutMypageMyInfoPWResponse>,
-                            response: Response<PutMypageMyInfoPWResponse>
-                        ) {
-                            Toast.makeText(
-                                this@MypageMyInfoModifyActivity,
-                                response.body()!!.message,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            if (response.isSuccessful) {
-                                setResult(Activity.RESULT_OK)
-                                finish()
-                            }
-                        }
-                    })
-                }
-                else if(value2 != value3){
-                    toast("New passwords must equal")
-                }
-                else{
-                    toast("No Empty Field")
-                }
-            }
-            else {
-                var cancelFlag = false
-                if (key == "u_account") {
+            try {
+                var jsonObject = JSONObject()
+                val u_idx = SharedPreferenceController.getUserID(this)
+                if(key == "u_pw"){
                     value1 = my_info_modify_edit_text_1.text.toString()
                     value2 = my_info_modify_edit_text_2.text.toString()
-                    jsonObject.put("u_bank", value1)
-                    jsonObject.put("u_account", value2)
-                    if(value1 == "" || value2 == "") cancelFlag = true
-                } else {
-                    if (key == "u_school") value1 = my_info_modify_univ_edit_text.text.toString() + "대학교"
-                    else value1 = my_info_modify_edit_text_1.text.toString()
-                    jsonObject.put(key, value1)
-                    if(value1 == "") cancelFlag = true
-                    if(key == "u_email" && !android.util.Patterns.EMAIL_ADDRESS.matcher(value1).matches()) cancelFlag = true
-                }
-
-                if(!cancelFlag) {
-                    val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-                    val putMypageMyInfoResponse: Call<PutMypageMyInfoResponse> = networkService.putMypageMyInfoResponse(
-                        "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
-                    )
-                    putMypageMyInfoResponse.enqueue(object : Callback<PutMypageMyInfoResponse> {
-                        override fun onFailure(call: Call<PutMypageMyInfoResponse>, t: Throwable) {
-                            Log.d("MypageMyInfoModifyActivity", t.toString())
-                        }
-
-                        override fun onResponse(
-                            call: Call<PutMypageMyInfoResponse>,
-                            response: Response<PutMypageMyInfoResponse>
-                        ) {
-                            Toast.makeText(
-                                this@MypageMyInfoModifyActivity,
-                                response.body()!!.message,
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            if (response.isSuccessful) {
-                                setResult(Activity.RESULT_OK)
-                                finish()
+                    value3 = my_info_modify_edit_text_3.text.toString()
+                    if(value2 == value3 && value2 != "") {
+                        jsonObject.put("u_pw_current", value1)
+                        jsonObject.put("u_pw_new", value2)
+                        jsonObject.put("u_pw_check", value3)
+                        val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+                        val putMypageMyInfoPWResponse: Call<PutMypageMyInfoPWResponse> =
+                            networkService.putMypageMyInfoPWResponse(
+                                "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
+                            )
+                        putMypageMyInfoPWResponse.enqueue(object : Callback<PutMypageMyInfoPWResponse> {
+                            override fun onFailure(call: Call<PutMypageMyInfoPWResponse>, t: Throwable) {
+                                Log.d("MypageMyInfoModifyActivity", t.toString())
                             }
-                        }
-                    })
+
+                            override fun onResponse(
+                                call: Call<PutMypageMyInfoPWResponse>,
+                                response: Response<PutMypageMyInfoPWResponse>
+                            ) {
+                                Toast.makeText(
+                                    this@MypageMyInfoModifyActivity,
+                                    response.body()!!.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                if (response.isSuccessful) {
+                                    setResult(Activity.RESULT_OK)
+                                    finish()
+                                }
+                            }
+                        })
+                    }
+                    else if(value2 != value3){
+                        toast("New passwords must equal")
+                    }
+                    else{
+                        toast("No Empty Field")
+                    }
                 }
-                else{
-                    toast("No Empty Field").show()
+                else {
+                    var cancelFlag = false
+                    if (key == "u_account") {
+                        value1 = my_info_modify_edit_text_1.text.toString()
+                        value2 = my_info_modify_edit_text_2.text.toString()
+                        jsonObject.put("u_bank", value1)
+                        jsonObject.put("u_account", value2)
+                        if(value1 == "" || value2 == "") cancelFlag = true
+                    } else {
+                        if (key == "u_school") value1 = my_info_modify_univ_edit_text.text.toString() + "대학교"
+                        else value1 = my_info_modify_edit_text_1.text.toString()
+                        jsonObject.put(key, value1)
+                        if(value1 == "") cancelFlag = true
+                        if(key == "u_email" && !android.util.Patterns.EMAIL_ADDRESS.matcher(value1).matches()) cancelFlag = true
+                    }
+
+                    if(!cancelFlag) {
+                        val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+                        val putMypageMyInfoResponse: Call<PutMypageMyInfoResponse> = networkService.putMypageMyInfoResponse(
+                            "application/json", SharedPreferenceController.getAuthorization(this), u_idx, gsonObject
+                        )
+                        putMypageMyInfoResponse.enqueue(object : Callback<PutMypageMyInfoResponse> {
+                            override fun onFailure(call: Call<PutMypageMyInfoResponse>, t: Throwable) {
+                                Log.d("MypageMyInfoModifyActivity", t.toString())
+                            }
+
+                            override fun onResponse(
+                                call: Call<PutMypageMyInfoResponse>,
+                                response: Response<PutMypageMyInfoResponse>
+                            ) {
+                                Toast.makeText(
+                                    this@MypageMyInfoModifyActivity,
+                                    response.body()!!.message,
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                if (response.isSuccessful) {
+                                    setResult(Activity.RESULT_OK)
+                                    finish()
+                                }
+                            }
+                        })
+                    }
+                    else{
+                        toast("No Empty Field").show()
+                    }
                 }
+            } catch (e: Exception) {
             }
         }
     }

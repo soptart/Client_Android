@@ -128,30 +128,42 @@ class MypageFragment : Fragment() {
 
     private fun setOnClickListener() {
         btn_mypage_update_intro.setOnClickListener{
-            tv_mypage_user_intro.visibility = View.GONE
-            et_mypage_user_intro.visibility = View.VISIBLE
-            et_mypage_user_intro.hint = mypageIntro
-            btn_mypage_update_intro_finish.visibility = View.VISIBLE
-            btn_mypage_update_intro.isSelected = true
+            try {
+                tv_mypage_user_intro.visibility = View.GONE
+                et_mypage_user_intro.visibility = View.VISIBLE
+                et_mypage_user_intro.hint = mypageIntro
+                btn_mypage_update_intro_finish.visibility = View.VISIBLE
+                btn_mypage_update_intro.isSelected = true
+            } catch (e: Exception) {
+            }
         }
         btn_mypage_update_intro_finish.setOnClickListener {
-            mypageIntro = et_mypage_user_intro.text.toString()
-            btn_mypage_update_intro.isSelected = false
-            tv_mypage_user_intro.setText(mypageIntro)
-            tv_mypage_user_intro.visibility = View.VISIBLE
-            et_mypage_user_intro.visibility = View.GONE
-            btn_mypage_update_intro_finish.visibility = View.GONE
+            try {
+                mypageIntro = et_mypage_user_intro.text.toString()
+                btn_mypage_update_intro.isSelected = false
+                tv_mypage_user_intro.setText(mypageIntro)
+                tv_mypage_user_intro.visibility = View.VISIBLE
+                et_mypage_user_intro.visibility = View.GONE
+                btn_mypage_update_intro_finish.visibility = View.GONE
 
-            jsonObject.put("u_description", mypageIntro)
-            putMypagePrefInfoResponse()
+                jsonObject.put("u_description", mypageIntro)
+                putMypagePrefInfoResponse()
+            } catch (e: Exception) {
+            }
         }
         btn_mypage_alert.setOnClickListener {
-            val intent = Intent(context, AlarmActivity::class.java)
-            startActivity(intent)
+            try {
+                val intent = Intent(context, AlarmActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         btn_mypage_setting.setOnClickListener {
-            val intent = Intent(activity?.applicationContext, MypagePreferencesActivity::class.java)
-            startActivity(intent)
+            try {
+                val intent = Intent(activity?.applicationContext, MypagePreferencesActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
     }
 

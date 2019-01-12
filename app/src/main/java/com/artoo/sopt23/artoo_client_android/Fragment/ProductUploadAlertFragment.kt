@@ -16,7 +16,10 @@ class ProductUploadAlertFragment : DialogFragment() {
         val view : View = inflater!!.inflate(R.layout.fragment_product_upload_alert, container, false)
 
         view.btn_product_upload_alert_confirm.setOnClickListener {
-            onDestroyView()
+            try {
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
 
         return view

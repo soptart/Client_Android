@@ -43,19 +43,22 @@ class AlarmExhibitionRecyclerViewAdapter(val ctx: Context, var parentFragment:Al
         holder.product_title.text = dataList[position].a_name
 
         holder.cancel_button.setOnClickListener {
-            val cancel_dialog = AlarmExhibitionCancelDialogFragment()
-            cancel_dialog.show((ctx as AlarmActivity).supportFragmentManager, cancel_dialog.tag)
-            (ctx as AlarmActivity).supportFragmentManager.executePendingTransactions()
-            cancel_dialog.dialog.setOnDismissListener(object : DialogInterface.OnDismissListener{
-                override fun onDismiss(p0: DialogInterface?) {
-                    parentFragment.getAlarmExhibitionResponse()
-                }
-            })
-            //var intent = Intent((ctx as FragmentActivity), AlarmExhibitionCancelDialogFragment::class.java)
-            //intent.putExtra("dc_idx", dataList[position].dc_idx)
-            //intent.putExtra("user_idx", dataList[position].u_idx)
-            AlarmExhibitionFragment.instance.u_idx = dataList[position].u_idx
-            AlarmExhibitionFragment.instance.dc_idx = dataList[position].dc_idx
+            try {
+                val cancel_dialog = AlarmExhibitionCancelDialogFragment()
+                cancel_dialog.show((ctx as AlarmActivity).supportFragmentManager, cancel_dialog.tag)
+                (ctx as AlarmActivity).supportFragmentManager.executePendingTransactions()
+                cancel_dialog.dialog.setOnDismissListener(object : DialogInterface.OnDismissListener{
+                    override fun onDismiss(p0: DialogInterface?) {
+                        parentFragment.getAlarmExhibitionResponse()
+                    }
+                })
+                //var intent = Intent((ctx as FragmentActivity), AlarmExhibitionCancelDialogFragment::class.java)
+                //intent.putExtra("dc_idx", dataList[position].dc_idx)
+                //intent.putExtra("user_idx", dataList[position].u_idx)
+                AlarmExhibitionFragment.instance.u_idx = dataList[position].u_idx
+                AlarmExhibitionFragment.instance.dc_idx = dataList[position].dc_idx
+            } catch (e: Exception) {
+            }
         }
     }
 

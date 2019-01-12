@@ -37,8 +37,11 @@ class AlarmCommentDialogFragment : DialogFragment() {
         val view : View = inflater.inflate(R.layout.fragment_alarm_comment_dialog, container, false)
 
         view.btn_alarm_comment_dialog_complete.setOnClickListener {
-            postCommentResponse()
-            Log.d("alarm_comment_dialog_frag", "complete_pushed")
+            try {
+                postCommentResponse()
+                Log.d("alarm_comment_dialog_frag", "complete_pushed")
+            } catch (e: Exception) {
+            }
         }
 
         return view

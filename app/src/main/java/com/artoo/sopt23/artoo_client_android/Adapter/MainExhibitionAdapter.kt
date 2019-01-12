@@ -37,18 +37,21 @@ class MainExhibitionAdapter(val main_ex: ArrayList<MainExhibitionData>) : Recycl
 
         holder.main_ex_click.setOnClickListener {
 
-            var intent = Intent(context, EnterTheExhibitionActivity::class.java)
-            intent.putExtra("d_repImg_url", main_ex.get(position).d_repImg_url)
-            intent.putExtra("d_idx", main_ex.get(position).d_idx)
-            intent.putExtra("d_mainImg_url", main_ex.get(position).d_mainImg_url)
-            intent.putExtra("d_shortDetail", main_ex.get(position).d_shortDetail.replace("\\n", "\r\n"))
-            intent.putExtra("d_sDateNow", main_ex.get(position).d_sDateNow)
-            intent.putExtra("d_eDateNow", main_ex.get(position).d_eDateNow)
-            intent.putStringArrayListExtra("d_artworkUser", main_ex.get(position).d_artworkUser)
-            intent.putExtra("d_title", main_ex.get(position).d_title.replace("\\n", "\r\n"))
-            intent.putExtra("d_longDetail", main_ex.get(position).d_longDetail.replace("\\n", "\r\n"))
-            intent.putExtra("d_titleImg_url", main_ex.get(position).d_titleImg_url)
-            context.startActivity(intent)
+            try {
+                var intent = Intent(context, EnterTheExhibitionActivity::class.java)
+                intent.putExtra("d_repImg_url", main_ex.get(position).d_repImg_url)
+                intent.putExtra("d_idx", main_ex.get(position).d_idx)
+                intent.putExtra("d_mainImg_url", main_ex.get(position).d_mainImg_url)
+                intent.putExtra("d_shortDetail", main_ex.get(position).d_shortDetail.replace("\\n", "\r\n"))
+                intent.putExtra("d_sDateNow", main_ex.get(position).d_sDateNow)
+                intent.putExtra("d_eDateNow", main_ex.get(position).d_eDateNow)
+                intent.putStringArrayListExtra("d_artworkUser", main_ex.get(position).d_artworkUser)
+                intent.putExtra("d_title", main_ex.get(position).d_title.replace("\\n", "\r\n"))
+                intent.putExtra("d_longDetail", main_ex.get(position).d_longDetail.replace("\\n", "\r\n"))
+                intent.putExtra("d_titleImg_url", main_ex.get(position).d_titleImg_url)
+                context.startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
 
 

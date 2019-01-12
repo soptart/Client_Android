@@ -86,124 +86,184 @@ class HomeThemeFragment : Fragment() {
     private fun setOnClickListener(){
         var intent = Intent(context, ThemeActivity::class.java)
         iv_home_theme_theme_category_0.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[0].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[0].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[0].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[0].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[0].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[0].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_1.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[1].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[1].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[1].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[1].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[1].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[1].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_2.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[2].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[2].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[2].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[2].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[2].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[2].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_3.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[3].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[3].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[3].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[3].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[3].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[3].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_4.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[4].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[4].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[4].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[4].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[4].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[4].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_5.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[9].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[9].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[9].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_6.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[5].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[5].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[5].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[5].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_7.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[6].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[6].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[6].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[6].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_8.setOnClickListener {
-            intent.putExtra("t_idx",themeTagData[7].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[7].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[7].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[7].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_category_9.setOnClickListener {
-            startActivity(intent)
-            intent.putExtra("t_idx",themeTagData[8].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[8].t_subTag)
+            try {
+                startActivity(intent)
+                intent.putExtra("t_idx",themeTagData[8].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[8].t_subTag)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_recommend_all.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[0].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[0].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[0].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[0].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[0].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[0].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_1.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[1].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[1].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[1].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[1].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[1].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[1].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_2.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[2].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[2].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[2].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[2].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[2].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[2].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_3.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[3].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[3].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[3].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[3].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[3].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[3].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_4.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[4].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[4].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[4].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[4].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[4].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[4].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_5.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[9].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[9].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[9].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[9].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[9].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_6.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[5].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[5].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[5].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[5].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[5].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_7.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[6].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[6].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[6].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[6].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[6].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_8.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[7].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[7].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[7].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[7].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[7].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         iv_home_theme_theme_title_9.setOnClickListener{
-            intent.putExtra("t_idx",themeTagData[8].t_idx)
-            intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
-            intent.putExtra("t_subTag",themeTagData[8].t_subTag)
-            startActivity(intent)
+            try {
+                intent.putExtra("t_idx",themeTagData[8].t_idx)
+                intent.putExtra("t_mainTag",themeTagData[8].t_mainTag)
+                intent.putExtra("t_subTag",themeTagData[8].t_subTag)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
     }
 }

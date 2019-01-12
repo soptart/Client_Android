@@ -1,5 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
@@ -30,6 +31,10 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.support.v4.content.ContextCompat.getSystemService
+import android.view.inputmethod.InputMethodManager
+
 
 class ProductDetailActivity : AppCompatActivity() {
 
@@ -54,89 +59,115 @@ class ProductDetailActivity : AppCompatActivity() {
         getProductCommentData()
 
         txt_product_detail_artist.setOnClickListener {
-            startActivity<OtherUserPageActivity>("other_idx" to productDetailData.u_idx)
+            try {
+                startActivity<OtherUserPageActivity>("other_idx" to productDetailData.u_idx)
+            } catch (e: Exception) {
+            }
         }
 
         img_product_detail_product.setOnClickListener {
-            startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
+            try {
+                startActivity<ProductZoomActivity>("pic_url" to productDetailData.pic_url, "a_name" to productDetailData.a_name)
+            } catch (e: Exception) {
+            }
         }
 
         ll_product_detail_bottomnav.setOnClickListener {
-            val intent = Intent(this@ProductDetailActivity, ProductPurchaseActivity::class.java)
-            Log.i("indexes", a_idx.toString()+"/")
-            intent.putExtra("a_idx", a_idx)
-            intent.putExtra("pic_url", productDetailData.pic_url)
-            Log.i("productDetail_picurl", productDetailData.pic_url)
-            intent.putExtra("size", productDetailData.a_size)
-            intent.putExtra("price", productDetailData.a_price)
-            intent.putExtra("a_name",productDetailData.a_name)
-            intent.putExtra("u_name",productDetailData.u_name)
-            intent.putExtra("u_school",productDetailData.u_school)
-            startActivity(intent)
-            finish()
+            try {
+                val intent = Intent(this@ProductDetailActivity, ProductPurchaseActivity::class.java)
+                Log.i("indexes", a_idx.toString()+"/")
+                intent.putExtra("a_idx", a_idx)
+                intent.putExtra("pic_url", productDetailData.pic_url)
+                Log.i("productDetail_picurl", productDetailData.pic_url)
+                intent.putExtra("size", productDetailData.a_size)
+                intent.putExtra("price", productDetailData.a_price)
+                intent.putExtra("a_name",productDetailData.a_name)
+                intent.putExtra("u_name",productDetailData.u_name)
+                intent.putExtra("u_school",productDetailData.u_school)
+                startActivity(intent)
+                finish()
+            } catch (e: Exception) {
+            }
         }
 
         ll_product_detail_like.setOnClickListener({
-            postProductLikeData()
+            try {
+                postProductLikeData()
+            } catch (e: Exception) {
+            }
         })
 
         tv_product_detail_add_comment.setOnClickListener {
-            val token = SharedPreferenceController.getAuthorization(this)
+            try {
+                val token = SharedPreferenceController.getAuthorization(this)
 
-            var jsonObject: JSONObject = JSONObject()
-            jsonObject.put("c_content", edt_product_detail_comment.text.toString())
-            jsonObject.put("u_idx", SharedPreferenceController.getUserID(this))
-            jsonObject.put("a_idx", productDetailData.a_idx)
+                var jsonObject: JSONObject = JSONObject()
+                jsonObject.put("c_content", edt_product_detail_comment.text.toString())
+                jsonObject.put("u_idx", SharedPreferenceController.getUserID(this))
+                jsonObject.put("a_idx", productDetailData.a_idx)
 
-            edt_product_detail_comment.text.clear()
-            edt_product_detail_comment.clearFocus()
+                edt_product_detail_comment.text.clear()
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(edt_product_detail_comment.getWindowToken(), 0)
+                edt_product_detail_comment.clearFocus()
 
-            val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
-            val postProductCommentResponse:Call<PostProductCommentResponse> = networkService.postProductCommentResponse(token, gsonObject)
+                val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+                val postProductCommentResponse:Call<PostProductCommentResponse> = networkService.postProductCommentResponse(token, gsonObject)
 
-            postProductCommentResponse.enqueue(object: Callback<PostProductCommentResponse>{
-                override fun onFailure(call: Call<PostProductCommentResponse>, t: Throwable) {
-                    Log.i("ProdutDetailActivity", "Comment")
-                }
+                postProductCommentResponse.enqueue(object: Callback<PostProductCommentResponse>{
+                    override fun onFailure(call: Call<PostProductCommentResponse>, t: Throwable) {
+                        Log.i("ProdutDetailActivity", "Comment")
+                    }
 
-                override fun onResponse(
-                        call: Call<PostProductCommentResponse>,
-                        response: Response<PostProductCommentResponse>
-                ) {
-                    Toast.makeText(this@ProductDetailActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
-                    if(response.isSuccessful) getProductCommentData()
-                }
-            })
+                    override fun onResponse(
+                            call: Call<PostProductCommentResponse>,
+                            response: Response<PostProductCommentResponse>
+                    ) {
+                        Toast.makeText(this@ProductDetailActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
+                        if(response.isSuccessful) getProductCommentData()
+                    }
+                })
+            } catch (e: Exception) {
+            }
         }
 
         img_product_detail_expand.setOnClickListener {
-            if(it.isSelected == false){
-                txt_product_detail_desc.maxLines = Int.MAX_VALUE
-                it.isSelected = true
-            }
-            else{
-                txt_product_detail_desc.maxLines = 3
-                it.isSelected = false
+            try {
+                if(it.isSelected == false){
+                    txt_product_detail_desc.maxLines = Int.MAX_VALUE
+                    it.isSelected = true
+                }
+                else{
+                    txt_product_detail_desc.maxLines = 3
+                    it.isSelected = false
+                }
+            } catch (e: Exception) {
             }
         }
 
         txt_product_detail_delete.setOnClickListener {
-            val token = SharedPreferenceController.getAuthorization(this)
-            val deleteProductResponse = networkService.deleteProductResponse("appliaction/json", token, a_idx)
-            deleteProductResponse.enqueue(object: Callback<DeleteProductResponse>{
-                override fun onFailure(call: Call<DeleteProductResponse>, t: Throwable) {
-                    Log.i("ProductDetailActivity", "Connection Failure" + t.toString())
-                }
-                override fun onResponse(call: Call<DeleteProductResponse>, response: Response<DeleteProductResponse>) {
-                    if(response.isSuccessful){
-                        finish()
+            try {
+                val token = SharedPreferenceController.getAuthorization(this)
+                val deleteProductResponse = networkService.deleteProductResponse("appliaction/json", token, a_idx)
+                deleteProductResponse.enqueue(object: Callback<DeleteProductResponse>{
+                    override fun onFailure(call: Call<DeleteProductResponse>, t: Throwable) {
+                        Log.i("ProductDetailActivity", "Connection Failure" + t.toString())
                     }
-                }
-            })
+                    override fun onResponse(call: Call<DeleteProductResponse>, response: Response<DeleteProductResponse>) {
+                        if(response.isSuccessful){
+                            finish()
+                        }
+                    }
+                })
+            } catch (e: Exception) {
+            }
         }
 
         txt_product_detail_modify.setOnClickListener {
-            startActivity<ProductUploadActivity>("productDetailData" to productDetailData)
+            try {
+                startActivity<ProductUploadActivity>("productDetailData" to productDetailData)
+            } catch (e: Exception) {
+            }
         }
     }
 

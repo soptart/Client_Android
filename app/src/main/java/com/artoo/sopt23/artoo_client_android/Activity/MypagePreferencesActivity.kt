@@ -27,41 +27,44 @@ class MypagePreferencesActivity : AppCompatActivity() {
 
         val onClick = View.OnClickListener {v: View? ->
 
-            when(v!!.id) {
-                R.id.btn_mypage_my_info -> {
-                    val intent = Intent(this, MypageMyInfoActivity::class.java)
-                    startActivity(intent)
-                }
-
-                R.id.btn_mypage_help -> {
-                    val intent = Intent(this, MypageHelpActivity::class.java)
-                    startActivity(intent)
-                }
-
-                R.id.btn_mypage_artoo_service -> {
-                    val intent = Intent(this, MypageServiceActivity::class.java)
-                    startActivity(intent)
-                }
-
-                R.id.btn_mypage_personal_info -> {
-                    val intent = Intent(this, MypagePolicyActivity::class.java)
-                    startActivity(intent)
-                }
-
-                R.id.btn_mypage_logout -> {
-                    val dialog = LogoutDialog(this@MypagePreferencesActivity)
-                    dialog.show()
-                    dialog.btn_LogOut_Yes.setOnClickListener {
-                        SharedPreferenceController.clearSPC(this)
-                        val intent:Intent = Intent(this, LoginActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            try {
+                when(v!!.id) {
+                    R.id.btn_mypage_my_info -> {
+                        val intent = Intent(this, MypageMyInfoActivity::class.java)
                         startActivity(intent)
                     }
-                    dialog.btn_LogOut_No.setOnClickListener {
-                        dialog.cancel()
+
+                    R.id.btn_mypage_help -> {
+                        val intent = Intent(this, MypageHelpActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.btn_mypage_artoo_service -> {
+                        val intent = Intent(this, MypageServiceActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.btn_mypage_personal_info -> {
+                        val intent = Intent(this, MypagePolicyActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                    R.id.btn_mypage_logout -> {
+                        val dialog = LogoutDialog(this@MypagePreferencesActivity)
+                        dialog.show()
+                        dialog.btn_LogOut_Yes.setOnClickListener {
+                            SharedPreferenceController.clearSPC(this)
+                            val intent:Intent = Intent(this, LoginActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                        }
+                        dialog.btn_LogOut_No.setOnClickListener {
+                            dialog.cancel()
+                        }
                     }
                 }
+            } catch (e: Exception) {
             }
         }
 

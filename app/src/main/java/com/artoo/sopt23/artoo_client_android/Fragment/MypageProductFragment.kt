@@ -54,12 +54,18 @@ class MypageProductFragment : Fragment() {
     private fun setOnClickListener() {
 
         btn_mypage_prodcut_nothing_add.setOnClickListener {
-            val intent = Intent(context, ProductUploadActivity::class.java)
-            startActivity(intent)
+            try {
+                val intent = Intent(context, ProductUploadActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
         btn_mypage_product_add.setOnClickListener {
-            val intent = Intent(context, ProductUploadActivity::class.java)
-            startActivity(intent)
+            try {
+                val intent = Intent(context, ProductUploadActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
     }
 }

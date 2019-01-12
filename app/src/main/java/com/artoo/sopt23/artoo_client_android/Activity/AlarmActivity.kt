@@ -48,7 +48,10 @@ class AlarmActivity : AppCompatActivity() {
         configureTopNavigation()
 
         btn_alarm_x.setOnClickListener {
-            finish()
+            try {
+                finish()
+            } catch (e: Exception) {
+            }
         }
 
     }

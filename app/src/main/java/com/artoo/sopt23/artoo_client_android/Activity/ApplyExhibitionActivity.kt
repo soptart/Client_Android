@@ -90,10 +90,13 @@ class ApplyExhibitionActivity : AppCompatActivity() {
 
         btn_apply_exhibition.setOnClickListener {
 
-            Log.d("test d_idx", d_idx.toString())
-            Log.d("test a_idx", a_idx.toString())
+            try {
+                Log.d("test d_idx", d_idx.toString())
+                Log.d("test a_idx", a_idx.toString())
 
-            postApplyExhibition()
+                postApplyExhibition()
+            } catch (e: Exception) {
+            }
         }
 
         Check()

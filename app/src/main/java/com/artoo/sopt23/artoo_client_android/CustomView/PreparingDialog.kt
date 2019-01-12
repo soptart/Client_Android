@@ -15,6 +15,10 @@ class PreparingDialog(context: Context) : Dialog(context) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.dialog_preparingcard)
-        card_confirm_btn.setOnClickListener { dismiss() }
+        card_confirm_btn.setOnClickListener { try {
+            dismiss()
+        } catch (e: Exception) {
+        }
+        }
     }
 }

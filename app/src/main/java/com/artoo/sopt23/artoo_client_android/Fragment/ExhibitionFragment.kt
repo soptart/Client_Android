@@ -49,8 +49,11 @@ class ExhibitionFragment : Fragment() {
         init(view)
 
         btn_apply_ex.setOnClickListener { v: View? ->
-            var intent = Intent(activity?.applicationContext, ApplyExhibitionActivity::class.java)
-            startActivity(intent)
+            try {
+                var intent = Intent(activity?.applicationContext, ApplyExhibitionActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
 
         return view

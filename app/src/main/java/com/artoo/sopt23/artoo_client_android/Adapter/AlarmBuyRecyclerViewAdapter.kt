@@ -118,10 +118,13 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             (holder).seller_number.text = dataListBuy[position].u_phone
             (holder).seller_address.text = dataListBuy[position].u_address
             (holder).btn_comment.setOnClickListener {
-                val comment_dialog = AlarmCommentDialogFragment()
-                comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
+                try {
+                    val comment_dialog = AlarmCommentDialogFragment()
+                    comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
 
-                AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+                    AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+                } catch (e: Exception) {
+                }
             }
             Log.d("*****AlarmBuyRecyclerViewAdapter::결제완료 직거래::", dataListBuy[position].c_isComment.toString())
             if (dataListBuy[position].c_isComment) {
@@ -140,14 +143,20 @@ class AlarmBuyRecyclerViewAdapter(val ctx: Context, var dataListBuy: ArrayList<A
             (holder).title.text = dataListBuy[position].a_name
             (holder).artist.text = dataListBuy[position].a_u_name
             (holder).btn_refund.setOnClickListener {
-                val refund_dialog = AlarmRefundDialogFragment()
-                refund_dialog.show((ctx as FragmentActivity).supportFragmentManager, refund_dialog.tag)
+                try {
+                    val refund_dialog = AlarmRefundDialogFragment()
+                    refund_dialog.show((ctx as FragmentActivity).supportFragmentManager, refund_dialog.tag)
+                } catch (e: Exception) {
+                }
             }
             (holder).btn_comment.setOnClickListener {
-                val comment_dialog = AlarmCommentDialogFragment()
-                comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
+                try {
+                    val comment_dialog = AlarmCommentDialogFragment()
+                    comment_dialog.show((ctx as AlarmActivity).supportFragmentManager, comment_dialog.tag)
 
-                AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+                    AlarmBuyFragment.instance.p_idx = dataListBuy[position].p_idx
+                } catch (e: Exception) {
+                }
             }
             Log.d("*****AlarmBuyRecyclerViewAdapter::결제완료 택배::", dataListBuy[position].c_isComment.toString())
             if (dataListBuy[position].c_isComment) {

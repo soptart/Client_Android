@@ -50,22 +50,25 @@ class ProductDetailCommentRecyclerViewAdapter(val ctx: Context, var dataList: Ar
         else holder.delete.visibility = View.GONE
 
         holder.delete.setOnClickListener {
-            val token = SharedPreferenceController.getAuthorization(ctx)
+            try {
+                val token = SharedPreferenceController.getAuthorization(ctx)
 
-            val deleteProductCommentResponse: Call<DeleteProductCommentResponse> = networkService.deleteProductCommentResponse(token, SharedPreferenceController.getUserID(ctx), dataList[position].c_idx)
-            deleteProductCommentResponse.enqueue(object: Callback<DeleteProductCommentResponse>{
-                override fun onFailure(call: Call<DeleteProductCommentResponse>, t: Throwable) {
-                    Log.i("ProductCommentDelete", "Connection Failure")
-                }
+                val deleteProductCommentResponse: Call<DeleteProductCommentResponse> = networkService.deleteProductCommentResponse(token, SharedPreferenceController.getUserID(ctx), dataList[position].c_idx)
+                deleteProductCommentResponse.enqueue(object: Callback<DeleteProductCommentResponse>{
+                    override fun onFailure(call: Call<DeleteProductCommentResponse>, t: Throwable) {
+                        Log.i("ProductCommentDelete", "Connection Failure")
+                    }
 
-                override fun onResponse(
-                    call: Call<DeleteProductCommentResponse>,
-                    response: Response<DeleteProductCommentResponse>
-                ) {
-                    Toast.makeText(ctx, response.body()!!.message, Toast.LENGTH_SHORT).show()
-                    if(response.isSuccessful) (ctx as ProductDetailActivity).getProductCommentData()
-                }
-            })
+                    override fun onResponse(
+                        call: Call<DeleteProductCommentResponse>,
+                        response: Response<DeleteProductCommentResponse>
+                    ) {
+                        Toast.makeText(ctx, response.body()!!.message, Toast.LENGTH_SHORT).show()
+                        if(response.isSuccessful) (ctx as ProductDetailActivity).getProductCommentData()
+                    }
+                })
+            } catch (e: Exception) {
+            }
         }
     }
 
