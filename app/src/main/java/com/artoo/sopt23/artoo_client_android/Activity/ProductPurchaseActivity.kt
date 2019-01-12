@@ -125,7 +125,7 @@ class ProductPurchaseActivity : AppCompatActivity() {
                         intent.putExtra("price", total_price_txt_bottom.text.toString())
                         intent.putExtra("value1", "Artoo(윤여진)")
                         intent.putExtra("value2","010-3395-9980")
-                        intent.putExtra("value3","농협 3023395998021")
+                        intent.putExtra("value3","농협 301-0243-2595-01")
                         startActivity(intent)
                         finish()
                     }else if(response.body()?.status ==204){

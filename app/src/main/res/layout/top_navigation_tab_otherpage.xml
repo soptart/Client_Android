@@ -20,14 +20,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="작품 "
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorEssential"/>
             <TextView
                     android:id="@+id/tv_otherpage_user_product_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
     </RelativeLayout>
@@ -47,13 +47,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="저장 "
-                    android:textSize="17sp"/>
+                    android:textSize="15sp"/>
             <TextView
                     android:id="@+id/tv_otherpage_user_like_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
     </RelativeLayout>
@@ -72,13 +72,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="후기 "
-                    android:textSize="17sp"/>
+                    android:textSize="15sp"/>
             <TextView
                     android:id="@+id/tv_otherpage_user_review_cnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:textColor="@color/colorEssential"/>
         </LinearLayout>
     </RelativeLayout>
