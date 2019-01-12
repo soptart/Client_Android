@@ -21,6 +21,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProductDetailCommentRecyclerViewAdapter(val ctx: Context, var dataList: ArrayList<CommentData>): RecyclerView.Adapter<ProductDetailCommentRecyclerViewAdapter.Holder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductDetailCommentRecyclerViewAdapter.Holder {
@@ -35,8 +37,14 @@ class ProductDetailCommentRecyclerViewAdapter(val ctx: Context, var dataList: Ar
     override fun getItemCount(): Int = dataList.size
 
     override fun onBindViewHolder(holder: ProductDetailCommentRecyclerViewAdapter.Holder, position: Int) {
+        //var originDateFormat: SimpleDateFormat = SimpleDateFormat()
+        //originDateFormat.toLocalizedPattern()
+        //originDateFormat.toPattern()
+        //var targetDateFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
         holder.username.text = dataList[position].u_name
-        holder.date.text = dataList[position].c_date
+        var targetDate = dataList[position].c_date.substring(0, 10)
+        //var date:Date = originDateFormat.parse(targetDate)
+        holder.date.text = targetDate
         holder.comment.text = dataList[position].c_content
         if(dataList[position].auth) holder.delete.visibility = View.VISIBLE
         else holder.delete.visibility = View.GONE
