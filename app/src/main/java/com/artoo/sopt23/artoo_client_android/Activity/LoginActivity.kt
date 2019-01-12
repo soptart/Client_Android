@@ -40,21 +40,27 @@ class LoginActivity : AppCompatActivity() {
     private fun setOnClickListener() {
         btn_login.setOnClickListener {
 
-            if (et_login_email.text.toString().isNotEmpty() && et_login_password.text.toString().isNotEmpty()) {
+            try {
+                if (et_login_email.text.toString().isNotEmpty() && et_login_password.text.toString().isNotEmpty()) {
 
-                val input_email = et_login_email.text.toString()
-                val input_pw = et_login_password.text.toString()
+                    val input_email = et_login_email.text.toString()
+                    val input_pw = et_login_password.text.toString()
 
 
-                jsonObject.put("u_email", input_email)
-                jsonObject.put("u_pw", input_pw)
+                    jsonObject.put("u_email", input_email)
+                    jsonObject.put("u_pw", input_pw)
 
-                getLoginResponse()
+                    getLoginResponse()
+                }
+            } catch (e: Exception) {
             }
         }
         btn_login_join.setOnClickListener {
-            val intent = Intent(this, JoinActivity::class.java)
-            startActivity(intent)
+            try {
+                val intent = Intent(this, JoinActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception) {
+            }
         }
     }
 

@@ -15,8 +15,11 @@ class AlarmRefundDialogFragment : DialogFragment() {
 
         val view : View = inflater.inflate(R.layout.fragment_alarm_refund_dialog, container, false)
         view.btn_alarm_refund_dialog_confirm.setOnClickListener {
-            Log.d("alarm_refund_dialog_frag", "confirm_pushed")
-            onDestroyView()
+            try {
+                Log.d("alarm_refund_dialog_frag", "confirm_pushed")
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
         return view
     }

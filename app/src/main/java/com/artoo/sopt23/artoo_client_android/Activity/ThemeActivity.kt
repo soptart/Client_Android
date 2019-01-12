@@ -98,7 +98,10 @@ class ThemeActivity : AppCompatActivity() {
 
     private fun setOnBtnClickListener(){
         iv_activity_theme_close.setOnClickListener {
-            finish()
+            try {
+                finish()
+            } catch (e: Exception) {
+            }
         }
     }
 

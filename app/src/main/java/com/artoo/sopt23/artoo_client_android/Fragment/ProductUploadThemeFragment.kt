@@ -65,99 +65,132 @@ class ProductUploadThemeFragment : BottomSheetDialogFragment() {
 
         view.btn_product_upload_theme_happy.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("행복한", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("행복한")
-                view.btn_product_upload_theme_happy.setImageResource(R.drawable.upload_theme_coral_happy)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("행복한", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("행복한")
+                    view.btn_product_upload_theme_happy.setImageResource(R.drawable.upload_theme_coral_happy)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_simple.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("심플한", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("심플한")
-                view.btn_product_upload_theme_simple.setImageResource(R.drawable.upload_theme_coral_simple)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("심플한", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("심플한")
+                    view.btn_product_upload_theme_simple.setImageResource(R.drawable.upload_theme_coral_simple)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_sensitive.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("감성적인", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("감성적인")
-                btn_product_upload_theme_sensitive.setImageResource(R.drawable.upload_theme_coral_sensitive)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("감성적인", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("감성적인")
+                    btn_product_upload_theme_sensitive.setImageResource(R.drawable.upload_theme_coral_sensitive)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_fancy.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("화려한", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("화려한")
-                view.btn_product_upload_theme_fancy.setImageResource(R.drawable.upload_theme_coral_fancy)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("화려한", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("화려한")
+                    view.btn_product_upload_theme_fancy.setImageResource(R.drawable.upload_theme_coral_fancy)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_profound.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("심오한", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("심오한")
-                view.btn_product_upload_theme_profound.setImageResource(R.drawable.upload_theme_coral_unfathomable)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("심오한", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("심오한")
+                    view.btn_product_upload_theme_profound.setImageResource(R.drawable.upload_theme_coral_unfathomable)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_cute.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("아기자기한", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("아기자기한")
-                view.btn_product_upload_theme_cute.setImageResource(R.drawable.upload_theme_coral_cute)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("아기자기한", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("아기자기한")
+                    view.btn_product_upload_theme_cute.setImageResource(R.drawable.upload_theme_coral_cute)
+                }
+            } catch (e: Exception) {
             }
         }
 
         view.btn_product_upload_theme_spring.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("봄", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("봄")
-                view.btn_product_upload_theme_spring.setImageResource(R.drawable.upload_theme_coral_spring)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("봄", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("봄")
+                    view.btn_product_upload_theme_spring.setImageResource(R.drawable.upload_theme_coral_spring)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_summer.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("여름", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("여름")
-                view.btn_product_upload_theme_summer.setImageResource(R.drawable.upload_theme_coral_summer)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("여름", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("여름")
+                    view.btn_product_upload_theme_summer.setImageResource(R.drawable.upload_theme_coral_summer)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_fall.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("가을", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("가을")
-                view.btn_product_upload_theme_fall.setImageResource(R.drawable.upload_theme_coral_fall)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("가을", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("가을")
+                    view.btn_product_upload_theme_fall.setImageResource(R.drawable.upload_theme_coral_fall)
+                }
+            } catch (e: Exception) {
             }
         }
         view.btn_product_upload_theme_winter.setOnClickListener {
 
-            if (checkOverSize(activity.themes) || checkSameValue("겨울", activity.themes)) {
-                //do nothing
-            } else {
-                activity.themes.add("겨울")
-                view.btn_product_upload_theme_winter.setImageResource(R.drawable.upload_theme_coral_winter)
+            try {
+                if (checkOverSize(activity.themes) || checkSameValue("겨울", activity.themes)) {
+                    //do nothing
+                } else {
+                    activity.themes.add("겨울")
+                    view.btn_product_upload_theme_winter.setImageResource(R.drawable.upload_theme_coral_winter)
+                }
+            } catch (e: Exception) {
             }
         }
 
         view.btn_product_upload_theme_finish.setOnClickListener{
-            activity.setTag()
-            onDestroyView()
+            try {
+                activity.setTag()
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
 
         return view

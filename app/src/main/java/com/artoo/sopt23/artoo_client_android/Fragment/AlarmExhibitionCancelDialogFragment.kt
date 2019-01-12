@@ -32,13 +32,19 @@ class AlarmExhibitionCancelDialogFragment() : DialogFragment() {
         val view : View = inflater.inflate(R.layout.fragment_alarm_exhibition_cancel_dialog, container, false)
 
         view.btn_alarm_exhibition_cancel_dialog_no.setOnClickListener {
-            Log.d("alarm_cancel_no_frag", "no_pushed")
-            onDestroyView()
+            try {
+                Log.d("alarm_cancel_no_frag", "no_pushed")
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
         view.btn_alarm_exhibition_cancel_dialog_yes.setOnClickListener {
-            deleteExhibitionResponse()
-            Log.d("alarm_cancel_yes_frag", "cancel_pushed")
-            onDestroyView()
+            try {
+                deleteExhibitionResponse()
+                Log.d("alarm_cancel_yes_frag", "cancel_pushed")
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
 
         return view
@@ -55,7 +61,7 @@ class AlarmExhibitionCancelDialogFragment() : DialogFragment() {
             }
             override fun onResponse(call: Call<DeleteExhibitionResponse>, response: Response<DeleteExhibitionResponse>) {
                 if(response.isSuccessful){
-                    toast("거래가 취소되었습니다!")
+                    toast("전시가 취소되었습니다!")
                     Log.d("*****AlarmCommentDialogFragment::postCommentResponse::Success",response.body().toString())
                 }
             }

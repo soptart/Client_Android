@@ -233,10 +233,16 @@ class HomeTodayFragment : Fragment() {
 
     private fun setOnClickListener() {
         btn_home_first_ticket.setOnClickListener {
-            ctx.startActivity<TodayArtooActivity>("c_id" to 1)
+            try {
+                ctx.startActivity<TodayArtooActivity>("c_id" to 1)
+            } catch (e: Exception) {
+            }
         }
         btn_home_second_ticket.setOnClickListener {
-            ctx.startActivity<TodayArtooActivity>("c_id" to 2)
+            try {
+                ctx.startActivity<TodayArtooActivity>("c_id" to 2)
+            } catch (e: Exception) {
+            }
         }
     }
 }

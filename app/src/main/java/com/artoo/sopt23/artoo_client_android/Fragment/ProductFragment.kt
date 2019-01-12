@@ -51,10 +51,13 @@ class ProductFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         ll_product_filter.setOnClickListener {
-            startActivityForResult<FilterActivity>(PRODUCT_FRAGMENT,
-                "filter_size" to filter_size,
-                "filter_type" to filter_type,
-                "filter_category" to filter_category)
+            try {
+                startActivityForResult<FilterActivity>(PRODUCT_FRAGMENT,
+                    "filter_size" to filter_size,
+                    "filter_type" to filter_type,
+                    "filter_category" to filter_category)
+            } catch (e: Exception) {
+            }
         }
 
         sv_product_search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{

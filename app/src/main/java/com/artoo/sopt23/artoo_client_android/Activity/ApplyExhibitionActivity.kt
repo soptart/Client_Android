@@ -90,10 +90,13 @@ class ApplyExhibitionActivity : AppCompatActivity() {
 
         btn_apply_exhibition.setOnClickListener {
 
-            Log.d("test d_idx", d_idx.toString())
-            Log.d("test a_idx", a_idx.toString())
+            try {
+                Log.d("test d_idx", d_idx.toString())
+                Log.d("test a_idx", a_idx.toString())
 
-            postApplyExhibition()
+                postApplyExhibition()
+            } catch (e: Exception) {
+            }
         }
 
         Check()
@@ -198,6 +201,7 @@ class ApplyExhibitionActivity : AppCompatActivity() {
 
         var applyDialog = DialogApplyExhibitionActivity(this)
         applyDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        applyDialog.setCanceledOnTouchOutside(false)
         applyDialog.show()
 
         applyDialog.setOnDismissListener {
@@ -209,6 +213,7 @@ class ApplyExhibitionActivity : AppCompatActivity() {
     fun failCreate() {
         var oopsDialog = DialogFailApplyActivity(this)
         oopsDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        oopsDialog.setCanceledOnTouchOutside(false)
         oopsDialog.show()
     }
 
@@ -217,6 +222,7 @@ class ApplyExhibitionActivity : AppCompatActivity() {
         if(btn_apply_exhibition.isClickable == false) {
             var oopsBtnDialog = DialogApplyExhibitionButtonActivity(this)
             oopsBtnDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            oopsBtnDialog.setCanceledOnTouchOutside(false)
             oopsBtnDialog.show()
         }
 

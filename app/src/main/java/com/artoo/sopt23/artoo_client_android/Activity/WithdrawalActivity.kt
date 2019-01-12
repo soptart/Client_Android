@@ -12,8 +12,11 @@ class WithdrawalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdrawal)
         btn_withdrawal.setOnClickListener {
-            toast("서비스 구현중입니다ㅠㅠ")
-            finish()
+            try {
+                toast("서비스 구현중입니다ㅠㅠ")
+                finish()
+            } catch (e: Exception) {
+            }
         }
     }
 }

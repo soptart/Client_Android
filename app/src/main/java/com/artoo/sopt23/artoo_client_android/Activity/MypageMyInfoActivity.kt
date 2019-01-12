@@ -45,17 +45,20 @@ class MypageMyInfoActivity : AppCompatActivity() {
         getMypageMyInfo()
 
         val onClick = View.OnClickListener { v: View? ->
-            val intent = Intent(this@MypageMyInfoActivity, MypageMyInfoModifyActivity::class.java)
+            try {
+                val intent = Intent(this@MypageMyInfoActivity, MypageMyInfoModifyActivity::class.java)
 
-            when(v!!.id) {
-                R.id.btn_my_info_my_name -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY,"title" to "이름", "key" to "u_name", "value1" to mypageMyInfoData.u_name)
-                R.id.btn_my_info_my_email -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "이메일", "key" to "u_email", "value1" to mypageMyInfoData.u_email)
-                R.id.btn_my_info_my_pw -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "비밀번호", "key" to "u_pw", "value1" to "", "value2" to "", "value3" to "")
-                R.id.btn_my_info_my_contact -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "연락처", "key" to "u_phone", "value1" to mypageMyInfoData.u_phone)
-                // R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_address", "value1" to mypageMyInfoData.u_address)
-                R.id.btn_my_info_my_univ -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
-                R.id.btn_my_info_my_account -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
-                R.id.btn_my_info_delete -> startActivity<WithdrawalActivity>()
+                when(v!!.id) {
+                    R.id.btn_my_info_my_name -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY,"title" to "이름", "key" to "u_name", "value1" to mypageMyInfoData.u_name)
+                    R.id.btn_my_info_my_email -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "이메일", "key" to "u_email", "value1" to mypageMyInfoData.u_email)
+                    R.id.btn_my_info_my_pw -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "비밀번호", "key" to "u_pw", "value1" to "", "value2" to "", "value3" to "")
+                    R.id.btn_my_info_my_contact -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "연락처", "key" to "u_phone", "value1" to mypageMyInfoData.u_phone)
+                    // R.id.btn_my_info_my_address -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "주소", "key" to "u_address", "value1" to mypageMyInfoData.u_address)
+                    R.id.btn_my_info_my_univ -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "학교", "key" to "u_school", "value1" to mypageMyInfoData.u_school)
+                    R.id.btn_my_info_my_account -> startActivityForResult<MypageMyInfoModifyActivity>(REQUEST_CODE_MyInfo_MODIFY, "title" to "계좌", "key" to "u_account", "value1" to mypageMyInfoData.u_bank, "value2" to mypageMyInfoData.u_account)
+                    R.id.btn_my_info_delete -> startActivity<WithdrawalActivity>()
+                }
+            } catch (e: Exception) {
             }
         }
 

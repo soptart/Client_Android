@@ -80,15 +80,18 @@ class EnterTheExhibitionActivity : AppCompatActivity() {
 
         btn_enter_ex.setOnClickListener {
 
-            val nextIntent = Intent(this, ExhibitionDetailActivity::class.java)
-            nextIntent.putExtra("d_idx" ,d_idx)
-            nextIntent.putExtra("d_title", d_title)
-            nextIntent.putExtra("d_titleImg_url", d_titleImg_url)
+            try {
+                val nextIntent = Intent(this, ExhibitionDetailActivity::class.java)
+                nextIntent.putExtra("d_idx" ,d_idx)
+                nextIntent.putExtra("d_title", d_title)
+                nextIntent.putExtra("d_titleImg_url", d_titleImg_url)
 
-            Log.d("d_idx test : ", d_idx.toString())
-            Log.d("d_title test : ", d_title.toString())
-            startActivity(nextIntent)
-            finish()
+                Log.d("d_idx test : ", d_idx.toString())
+                Log.d("d_title test : ", d_title.toString())
+                startActivity(nextIntent)
+                finish()
+            } catch (e: Exception) {
+            }
 
         }
     }

@@ -8,7 +8,10 @@ import android.widget.TextView
 
 class DialogApplyExhibitionButtonActivity(context: Context) : Dialog(context), View.OnClickListener {
     override fun onClick(v: View?) {
-        dismiss()
+        try {
+            dismiss()
+        } catch (e: Exception) {
+        }
     }
     lateinit var btn_oops_button : TextView
 

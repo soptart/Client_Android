@@ -40,7 +40,10 @@ class HomeThemeRecyclerViewAdapter(val dataList: ArrayList<ThemeListData>): Recy
                 .into(holder.img_product)
 
         holder.img_product.setOnClickListener {
-            ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
+            try {
+                ctx.startActivity<ProductDetailActivity>("a_idx" to dataList[position].a_idx)
+            } catch (e: Exception) {
+            }
         }
     }
 

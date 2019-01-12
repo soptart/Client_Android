@@ -17,12 +17,18 @@ class AlarmDealCancelDialogFragment : DialogFragment() {
         val view : View = inflater.inflate(R.layout.fragment_alarm_deal_cancel_dialog, container, false)
 
         view.btn_alarm_deal_cancel_dialog_no.setOnClickListener {
-            Log.d("alarm_deal_cancel_no_frag", "no_pushed")
-            onDestroyView()
+            try {
+                Log.d("alarm_deal_cancel_no_frag", "no_pushed")
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
         view.btn_alarm_deal_cancel_dialog_yes.setOnClickListener {
-            Log.d("alarm_deal_cancel_yes_frag", "cancel_pushed")
-            onDestroyView()
+            try {
+                Log.d("alarm_deal_cancel_yes_frag", "cancel_pushed")
+                onDestroyView()
+            } catch (e: Exception) {
+            }
         }
 
         return view

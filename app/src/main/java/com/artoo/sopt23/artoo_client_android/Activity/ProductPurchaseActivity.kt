@@ -37,41 +37,55 @@ class ProductPurchaseActivity : AppCompatActivity() {
         getArtworkDetail() // <--- 사실 여기에서 받는 정보는 intent로 다 넘겨주면 됨! 앞에 intent로 다 보내주시고 이건 지워주세요.
 
         img_purchase_transfer_express.setOnClickListener {
-            img_purchase_transfer_express.setImageResource(R.drawable.purchase_delivery)
-            img_purchase_transfer_onface.setImageResource(R.drawable.purchase_no_direct)
-            checkPost = true
-            post_buy_container.visibility = View.VISIBLE
-            post_description.visibility = View.VISIBLE
-            direct_buy_container.visibility = View.GONE
+            try {
+                img_purchase_transfer_express.setImageResource(R.drawable.purchase_delivery)
+                img_purchase_transfer_onface.setImageResource(R.drawable.purchase_no_direct)
+                checkPost = true
+                post_buy_container.visibility = View.VISIBLE
+                post_description.visibility = View.VISIBLE
+                direct_buy_container.visibility = View.GONE
+            } catch (e: Exception) {
+            }
         }
         img_purchase_transfer_onface.setOnClickListener {
-            img_purchase_transfer_express.setImageResource(R.drawable.purchase_no_delivery)
-            img_purchase_transfer_onface.setImageResource(R.drawable.purchase_direct)
-            checkPost = false
-            post_buy_container.visibility = View.GONE
-            post_description.visibility = View.GONE
-            direct_buy_container.visibility = View.VISIBLE
+            try {
+                img_purchase_transfer_express.setImageResource(R.drawable.purchase_no_delivery)
+                img_purchase_transfer_onface.setImageResource(R.drawable.purchase_direct)
+                checkPost = false
+                post_buy_container.visibility = View.GONE
+                post_description.visibility = View.GONE
+                direct_buy_container.visibility = View.VISIBLE
+            } catch (e: Exception) {
+            }
         }
 
         img_purchase_method_card.setOnClickListener {
-            /*img_purchase_method_card.setImageResource(R.drawable.purchase_card)
+            try {/*img_purchase_method_card.setImageResource(R.drawable.purchase_card)
             img_purchase_method_transfer.setImageResource(R.drawable.purchase_no_bank)
             checkPayment = 1*/
-            val dialog = PreparingDialog(this@ProductPurchaseActivity)
-            dialog.show()
+                val dialog = PreparingDialog(this@ProductPurchaseActivity)
+                dialog.show()
+            } catch (e: Exception) {
+            }
         }
 
         img_purchase_method_transfer.setOnClickListener {
-            img_purchase_method_card.setImageResource(R.drawable.purchase_no_card)
-            img_purchase_method_transfer.setImageResource(R.drawable.purchase_bank)
-            checkPayment = 0
+            try {
+                img_purchase_method_card.setImageResource(R.drawable.purchase_no_card)
+                img_purchase_method_transfer.setImageResource(R.drawable.purchase_bank)
+                checkPayment = 0
+            } catch (e: Exception) {
+            }
         }
 
         purchase_btn.setOnClickListener {
-            if(rbtn_purchase_agree_warning.isChecked && rbtn_purchase_agree_refund.isChecked){
-                postPurchaseInfo()
-            }else{
-                Toast.makeText(this@ProductPurchaseActivity, "약관을 모두 동의해주세요.", Toast.LENGTH_SHORT).show()
+            try {
+                if(rbtn_purchase_agree_warning.isChecked && rbtn_purchase_agree_refund.isChecked){
+                    postPurchaseInfo()
+                }else{
+                    Toast.makeText(this@ProductPurchaseActivity, "약관을 모두 동의해주세요.", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
             }
         }
     }

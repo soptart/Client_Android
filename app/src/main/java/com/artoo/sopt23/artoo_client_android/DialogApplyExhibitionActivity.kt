@@ -14,7 +14,10 @@ import kotlin.jvm.java
 
 class DialogApplyExhibitionActivity(context: Context) : Dialog(context), View.OnClickListener {
     override fun onClick(v: View?) {
-        dismiss()
+        try {
+            dismiss()
+        } catch (e: Exception) {
+        }
     }
     lateinit var btn_apply_done : TextView
 

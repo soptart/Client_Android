@@ -20,10 +20,16 @@ class ProductPurchaseResultActivity : AppCompatActivity() {
         tv_product_purchase_result_account.text = intent.getStringExtra("value3")
 
         tv_product_purchase_result_viewmore.setOnClickListener {
-            finish()
+            try {
+                finish()
+            } catch (e: Exception) {
+            }
         }
         tv_product_purchase_result_checkpurchaselist.setOnClickListener {
-            startActivity<AlarmActivity>()
+            try {
+                startActivity<AlarmActivity>()
+            } catch (e: Exception) {
+            }
         }
     }
 }

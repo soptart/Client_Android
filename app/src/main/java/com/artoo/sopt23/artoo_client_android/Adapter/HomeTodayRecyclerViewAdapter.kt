@@ -59,7 +59,10 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData
                 .apply(options)
                 .into((holder).backimg)
             (holder).backimg.setOnClickListener {
-                ctx.startActivity<OtherUserPageActivity>("other_idx" to dataMain.u_idx)
+                try {
+                    ctx.startActivity<OtherUserPageActivity>("other_idx" to dataMain.u_idx)
+                } catch (e: Exception) {
+                }
             }
         } else {
             (holder as HolderArtist).title.text = dataListArtistProduct[position-1].a_name
@@ -67,7 +70,10 @@ class HomeTodayRecyclerViewAdapter(val ctx: Context, var dataMain: TodayMainData
                 .load(dataListArtistProduct[position-1].pic_url)
                 .into((holder).img)
             (holder as HolderArtist).img.setOnClickListener {
-                ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position - 1].a_idx)
+                try {
+                    ctx.startActivity<ProductDetailActivity>("a_idx" to dataListArtistProduct[position - 1].a_idx)
+                } catch (e: Exception) {
+                }
             }
         }
     }

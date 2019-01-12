@@ -48,7 +48,10 @@ class ExhibitionDetailActivity : AppCompatActivity() {
         user_token = SharedPreferenceController.getAuthorization(this@ExhibitionDetailActivity)
 
         btn_exhibition_exit.setOnClickListener {
-            finish()
+            try {
+                finish()
+            } catch (e: Exception) {
+            }
         }
 
         val d_idx : Int = intent.getIntExtra("d_idx", -1)
