@@ -12,8 +12,9 @@
             android:layout_height="209dp">
         <ImageView
                 android:id="@+id/iv_activity_theme_backimg"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
                 android:background="#CC111111"/>
         <LinearLayout
                 android:id="@+id/ll_theme_main"
