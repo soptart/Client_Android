@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/purchase_complete_receipt"
-            android:layout_marginLeft="19dp"
+            android:layout_gravity="centerf"
             android:layout_marginTop="91dp">
 
         <ImageView

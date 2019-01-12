@@ -35,11 +35,12 @@ class MypageDealRecyclerViewAdapter(val dataList: ArrayList<MypageDealData>): Re
             .into(holder.product_img)
 
         holder.product_title.text = dataList[position].a_name
-        if (!dataList[position].buyer) {
+        if (dataList[position].buyer) {
             holder.tv_product_buyer.text = "판매자: "
         }
         holder.product_buyer.text = dataList[position].u_name
-        holder.product_price.text = dataList[position].a_price.toString()
+        var product_price = String.format("%,d", dataList[position].a_price)
+        holder.product_price.text = product_price + "원"
         holder.time.text = dataList[position].p_date
 
         if (dataList[position].p_state != 10 && dataList[position].p_state != 20 && dataList[position].buyer) {
