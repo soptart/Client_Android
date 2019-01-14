@@ -44,6 +44,7 @@ class ProductPurchaseActivity : AppCompatActivity() {
                 post_buy_container.visibility = View.VISIBLE
                 post_description.visibility = View.VISIBLE
                 direct_buy_container.visibility = View.GONE
+                setPostPrice()
             } catch (e: Exception) {
             }
         }
@@ -55,6 +56,7 @@ class ProductPurchaseActivity : AppCompatActivity() {
                 post_buy_container.visibility = View.GONE
                 post_description.visibility = View.GONE
                 direct_buy_container.visibility = View.VISIBLE
+                setPostPrice()
             } catch (e: Exception) {
             }
         }
@@ -190,6 +192,22 @@ class ProductPurchaseActivity : AppCompatActivity() {
             Log.i("purchase finished", "finished")
             finish()
         }
+    }
+
+    private fun setPostPrice(){
+        val df = DecimalFormat("#,###")
+        val artworkPrice = intent.getIntExtra("price", 0)
+        val size = intent.getIntExtra("size", 0)
+        var postPrice : Int
+        if(!checkPost) postPrice = 0
+        else if(artworkPrice > 150000) postPrice = 0
+        else if(size < 2412) postPrice = 3000
+        else if(size < 6609) postPrice =4000
+        else postPrice = 5000
+        var besongprice = postPrice.toString() +"원"
+        txt_post_price.text = besongprice
+        txt_purchase_price_total.text = df.format(artworkPrice * 1.1 + postPrice)+"원"
+        total_price_txt_bottom.text = df.format(artworkPrice * 1.1 + postPrice)+"원"
     }
 }
 

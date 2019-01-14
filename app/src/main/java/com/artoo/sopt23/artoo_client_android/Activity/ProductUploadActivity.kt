@@ -1,7 +1,6 @@
 package com.artoo.sopt23.artoo_client_android.Activity
 
 import android.app.Activity
-import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -33,7 +32,6 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.InputStream
-import java.net.URL
 import java.util.ArrayList
 
 class ProductUploadActivity : AppCompatActivity() {
@@ -153,10 +151,10 @@ class ProductUploadActivity : AppCompatActivity() {
                     toast("작품명을 작성해주세요.")
                 } else if(et_product_upload_product_detail.text.toString().trim().length == 0) {
                     toast("작품 설명을 작성해주세요.")
-                } else if (et_product_upload_size_width.text.toString().trim().length == 0 || et_product_upload_size_depth.text.toString().trim().length == 0) {
+                } else if (et_product_upload_size_width.text.toString().trim().length == 0 || et_product_upload_size_height.text.toString().trim().length == 0) {
                     toast("작품 크기의 가로, 세로는 필수값입니다.")
                 } else if (et_product_upload_size_width.text.toString().toInt() < 0 || et_product_upload_size_width.text.toString().toInt() >=163
-                        || et_product_upload_size_depth.text.toString().toInt() < 0 || et_product_upload_size_depth.text.toString().toInt() >= 163) {
+                        || et_product_upload_size_height.text.toString().toInt() < 0 || et_product_upload_size_height.text.toString().toInt() >= 163) {
                     toast("작품의 최대 가로, 세로 길이는 163cm입니다.\n다시 입력해주세요.")
                 } else if (et_product_upload_price.text.toString().trim().length == 0) {
                     toast("작품의 가격을 입력해주세요.")
@@ -336,7 +334,7 @@ class ProductUploadActivity : AppCompatActivity() {
     private fun getProductUploadResponse() {
 
         Log.d("*****ProductUploadActivity::getProductUploadResponse::",  spn_product_upload_category.selectedItem.toString() + "::" + et_product_upload_product_year.text.toString() + "::"
-                + iv_product_upload_product_img.toString() + "::" + et_product_upload_size_depth.text.toString())
+                + iv_product_upload_product_img.toString() + "::" + et_product_upload_size_height.text.toString())
         //input_product_img
         val input_product_category = RequestBody.create(MediaType.parse("text/plain"), spn_product_upload_category.selectedItem.toString())
         val input_product_format = RequestBody.create(MediaType.parse("text/plain"), spn_product_upload_format.selectedItem.toString())
@@ -353,14 +351,14 @@ class ProductUploadActivity : AppCompatActivity() {
             input_product_width = et_product_upload_size_width.text.toString().toInt()
         }
 
-        var input_product_depth = -1
-        if (et_product_upload_size_depth.text.toString().isNotEmpty()) {
-            input_product_depth = et_product_upload_size_depth.text.toString().toInt()
-        }
-
         var input_product_height = 1
         if (et_product_upload_size_height.text.toString().isNotEmpty()) {
             input_product_height = et_product_upload_size_height.text.toString().toInt()
+        }
+
+        var input_product_depth = -1
+        if (et_product_upload_size_depth.text.toString().isNotEmpty()) {
+            input_product_depth = et_product_upload_size_depth.text.toString().toInt()
         }
 
         var input_product_price = -1
@@ -376,7 +374,7 @@ class ProductUploadActivity : AppCompatActivity() {
         val input_product_tip = RequestBody.create(MediaType.parse("text/plain"), et_product_upload_tip.text.toString())
 
         if (input_product_img!=null && et_product_upload_price.text.toString().isNotEmpty() && et_product_upload_product_title.text.toString().isNotEmpty() && et_product_upload_product_year.text.toString().isNotEmpty()
-                && et_product_upload_size_width.text.toString().isNotEmpty() && et_product_upload_size_depth.text.toString().isNotEmpty() && spn_product_upload_category.selectedItemPosition>0 &&
+                && et_product_upload_size_width.text.toString().isNotEmpty() && et_product_upload_size_height.text.toString().isNotEmpty() && spn_product_upload_category.selectedItemPosition>0 &&
                 spn_product_upload_format.selectedItemPosition>0 && spn_product_upload_license.selectedItemPosition>0) {
             val token = SharedPreferenceController.getAuthorization(this)
             val u_idx = SharedPreferenceController.getUserID(this)
