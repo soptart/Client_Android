@@ -9,7 +9,7 @@ Artoo에 작품을 올리고 판매해보세요!
 ------
 
 ### Screenshots
-
+<img src="https://user-images.githubusercontent.com/41736866/71553676-fd183e80-2a56-11ea-8877-865c8e40cfdf.png width="40%"/>
 ![pic1](https://user-images.githubusercontent.com/41736866/71553676-fd183e80-2a56-11ea-8877-865c8e40cfdf.png =100x)
 ![pic2](https://user-images.githubusercontent.com/41736866/71553677-ff7a9880-2a56-11ea-9ca7-f3ed0ff245d2.png){:width="30%" height="30%"}
 ![pic3](https://user-images.githubusercontent.com/41736866/71553678-00132f00-2a57-11ea-83bf-04543c83e6f8.png){:width="30%" height="30%"}
