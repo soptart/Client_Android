@@ -10,11 +10,11 @@ Artoo에 작품을 올리고 판매해보세요!
 
 ### Screenshots
 
-![pic1](https://user-images.githubusercontent.com/41736866/71553676-fd183e80-2a56-11ea-8877-865c8e40cfdf.png){:width="30%"}
-![pic2](https://user-images.githubusercontent.com/41736866/71553677-ff7a9880-2a56-11ea-9ca7-f3ed0ff245d2.png)
-![pic3](https://user-images.githubusercontent.com/41736866/71553678-00132f00-2a57-11ea-83bf-04543c83e6f8.png)
-![pic4](https://user-images.githubusercontent.com/41736866/71553681-01445c00-2a57-11ea-9536-a0efe511273f.png)
-![pic5](https://user-images.githubusercontent.com/41736866/71553683-02758900-2a57-11ea-8ac8-838fd72ff69a.png)
+![pic1](https://user-images.githubusercontent.com/41736866/71553676-fd183e80-2a56-11ea-8877-865c8e40cfdf.png){:width="30%" height="30%"}
+![pic2](https://user-images.githubusercontent.com/41736866/71553677-ff7a9880-2a56-11ea-9ca7-f3ed0ff245d2.png){:width="30%" height="30%"}
+![pic3](https://user-images.githubusercontent.com/41736866/71553678-00132f00-2a57-11ea-83bf-04543c83e6f8.png){:width="30%" height="30%"}
+![pic4](https://user-images.githubusercontent.com/41736866/71553681-01445c00-2a57-11ea-9536-a0efe511273f.png){:width="30%" height="30%"}
+![pic5](https://user-images.githubusercontent.com/41736866/71553683-02758900-2a57-11ea-8ac8-838fd72ff69a.png){:width="30%" height="30%"}
 
 ------
 
